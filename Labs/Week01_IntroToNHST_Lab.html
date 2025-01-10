@@ -96,7 +96,7 @@ if (window.hljs) {
 </style>
 <!-- end tabsets -->
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="https://mtruelovehill.github.io/ISAP/Labs/css/style.css" type="text/css" />
 
 </head>
 
@@ -141,7 +141,7 @@ class="math inline">\(p\)</span>-values</li>
 class="section level2">
 <h2>Computing the Area Under the Curve</h2>
 <p>Recall from the <a
-href="https://mtruelovehill.github.io/PRM/Lectures/Week03_NHST_lecture.html#16">lecture</a>
+href="https://mtruelovehill.github.io/ISAP/Lectures/Week01_IntroToNHST_lecture">lecture</a>
 that the total area under the curve (AUC) allows us to compute the
 probability of an observation falling within a given range. Use the plot
 below to visualise how the AUC corresponds to different proportions of
@@ -212,8 +212,9 @@ test statistics we would expect if the null hypothesis were true. If we
 run a statistical test and our statistic falls in the extreme region of
 the null distribution, we consider our results to be significant and
 reject the null hypothesis (because our results would be really unusual
-if the null hypothesis were true!). See the lecture if you need a
-refresher.</p>
+if the null hypothesis were true!). See the <a
+href="https://mtruelovehill.github.io/ISAP/Lectures/Week01_IntroToNHST_lecture">lecture</a>
+if you need a refresher.</p>
 <p>Before running a test, we use <span
 class="math inline">\(\alpha\)</span> to determine our cutoff for
 significance. <span class="math inline">\(\alpha\)</span> refers to the
@@ -264,7 +265,7 @@ class="math inline">\(\alpha\)</span>.</p>
 <div id="section-computing-p" class="section level2">
 <h2>Computing <i> p </i></h2>
 <p>Recall from the <a
-href="https://mtruelovehill.github.io/PRM/Lectures/Week03_NHST_lecture.html#37">lecture</a>
+href="https://mtruelovehill.github.io/ISAP/Lectures/Week01_IntroToNHST_lecture.html">lecture</a>
 that a <span class="math inline">\(p\)</span>-value is the probability
 of obtaining a statistical test value at least as extreme as the value
 observed, given that the null hypothesis is true.</p>
@@ -527,7 +528,7 @@ output$testPlot <- renderPlot({
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q1-1", question = structure("What was the maximum score among students who took the assessment?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_976c472", 
+"character")), answers = list(structure(list(id = "lnr_ans_76d1951", 
     option = "84", value = 84, label = structure("84", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -538,14 +539,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("The maximum score was 84", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q1-1-answer", 
     question = "q1-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1692815990.21172, options = list(
+    allow_retry = FALSE, seed = 496726724.768694, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q1-2", question = structure("What percentage of students recieved an A (70+) on the assessment?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_b85df3f", 
+"character")), answers = list(structure(list(id = "lnr_ans_7e1bd66", 
     option = "10", value = 10, label = structure("10", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -556,7 +557,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("10% of the sample scored 70 or above on the assessment.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q1-2-answer", 
     question = "q1-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1042311437.51464, options = list(
+    allow_retry = FALSE, seed = 24328007.9886714, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
@@ -564,10 +565,10 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q1-3", question = structure("If we were to randomly select an exam booklet from the entire pile of assessments, what is the probability that the mark will be between 55 and 65?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_e6e2a1d", 
+"character")), answers = list(structure(list(id = "lnr_ans_d1dcfca", 
     option = "40", value = 40, label = structure("40", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_dad16ed", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_65cb2bb", 
     option = "0.4", value = 0.4, label = structure("0.4", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -578,14 +579,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("The probability that we the mark will be between 55 and 65 is .40, or 40%", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q1-3-answer", 
     question = "q1-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 293541476.863309, options = list(
+    allow_retry = FALSE, seed = 1669888945.7224, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q1-4", question = structure("The instructor wants to identify the students who scored in the lowest 5% so that they can check in and offer additional help. Fill in the blank: Students scoring __ and below will be contacted by the instructor.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_6b66ba4", 
+"character")), answers = list(structure(list(id = "lnr_ans_a678a67", 
     option = "43", value = 43, label = structure("43", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -596,7 +597,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("5% of the sample scored 43 or below.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q1-4-answer", 
     question = "q1-4"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 830729767.113161, options = list(
+    allow_retry = FALSE, seed = 1917906685.10691, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
@@ -604,7 +605,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q1-5", question = structure("Assume this distribution is perfectly normal. What was the mean score on the assessment?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_3812c1e", 
+"character")), answers = list(structure(list(id = "lnr_ans_affa535", 
     option = "58", value = 58, label = structure("58", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -615,17 +616,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("In a normal distribution, all observations are centred around the mean. The mean score on this assessment is 58, as 50% of students scored 58 or above, and 50% of students scored 58 or below.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q1-5-answer", 
     question = "q1-5"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1440896873.82903, options = list(
+    allow_retry = FALSE, seed = 1574122555.76699, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q2-1", question = structure("Given an alpha of .05, would a test statistic of -1.5 be significant?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_262cac2", 
+"character")), answers = list(structure(list(id = "lnr_ans_1657e5b", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e13e087", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_cbe5737", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -636,17 +637,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("A value of -1.5 would not fall past the alpha threshold, so would not be considered significant.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q2-1-answer", 
     question = "q2-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1102357471.98667, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 898550070.58158, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q2-2", question = structure("Given an alpha of .001, would a test statistic of 3.5 be significant?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_6fad1df", 
+"character")), answers = list(structure(list(id = "lnr_ans_a295c04", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_88b6ff7", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_69a9897", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -657,16 +658,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("A value of 3.5 would fall past the alpha threshold and would be considered significant.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q2-2-answer", 
     question = "q2-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 928153396.067795, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 131286754.938865, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q2-3", question = structure("Given an alpha of .01, would a test statistic of 2.5 be significant?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5f36098", 
+"character")), answers = list(structure(list(id = "lnr_ans_823feaf", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d3dc380", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a4a79ae", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -677,14 +678,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("A value of 2.5 would not fall past the alpha threshold, so would not be considered significant.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q2-3-answer", 
     question = "q2-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 671531204.687294, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1564377025.27153, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q3-1", question = structure("You are conducting a one-tailed test. What is the p-value associated with obtaining a test statistic larger than 1.36? Please report your answer to 3 decimal places.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_e705776", 
+"character")), answers = list(structure(list(id = "lnr_ans_bed1f5b", 
     option = "0.087", value = 0.087, label = structure("0.087", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -695,14 +696,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("For a test statistic of 1.36, p = .087. Because it is a one-tailed test (you’re looking at the probability of a value larger than the one observed), you only need to check the probability associated with the upper tail of the distribution.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q3-1-answer", 
     question = "q3-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1710989988.70326, options = list(
+    allow_retry = FALSE, seed = 686293802.18042, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q3-2", question = structure("You are conducting a one-tailed test. What is the p-value associated with obtaining a test statistic less than -0.93? Please report your answer to 3 decimal places.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_f77f971", 
+"character")), answers = list(structure(list(id = "lnr_ans_4d67a8", 
     option = "0.176", value = 0.176, label = structure("0.176", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -713,7 +714,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("For a test statistic of -0.93, p = .176. Because it is a one-tailed test (you’re looking at the probability of a value smaller than the one observed), you only need to check the probability associated with the lower tail of the distribution.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q3-2-answer", 
     question = "q3-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 406293894.810805, options = list(
+    allow_retry = FALSE, seed = 1774900123.1735, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
@@ -721,7 +722,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q3-3", question = structure("You are conducting a two-tailed test. What is the p-value associated with obtaining a test statistic as extreme as 2.87? Please report your answer to 3 decimal places.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_595bd41", 
+"character")), answers = list(structure(list(id = "lnr_ans_95af301", 
     option = "0.087", value = 0.087, label = structure("0.087", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -732,17 +733,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("For a test statistic of 2.87, p = .004 Because you are conducting a two-tailed test, you need the probability of values as extreme as yours (regardless of whether they are positive or negative). You must add the probabilities in each tail. .002 + .002 = .004", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q3-3-answer", 
     question = "q3-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 901142115.580373, options = list(
+    allow_retry = FALSE, seed = 1844990306.64086, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q3-4", question = structure("Which test statistic reflects the cutoff for the most extreme 5% of the data?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_29dc256", 
+"character")), answers = list(structure(list(id = "lnr_ans_f9d3d1d", 
     option = "-1.96", value = -1.96, label = structure("-1.96", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_33fdd41", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_54e8390", 
     option = "1.96", value = 1.96, label = structure("1.96", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -753,7 +754,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("Because 5% is split between each tail of the distribution, any statistic with a corresponding probability of 2.5% or less would fall into the most extreme 5% of the values. The cutoff point is 1.96.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q3-4-answer", 
     question = "q3-4"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 845469756.606297, options = list(
+    allow_retry = FALSE, seed = 1560122383.77351, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
@@ -761,16 +762,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "q3-5", question = structure("Which of the following test statistics are in the most extreme 1% of the data? Please select all that apply.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_da3e990", 
+"character")), answers = list(structure(list(id = "lnr_ans_6810f66", 
     option = "2.76", value = 2.76, label = structure("2.76", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7d9f9cd", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_539b2c4", 
     option = "2.34", value = 2.34, label = structure("2.34", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_369cb8e", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7a66ee0", 
     option = "-1.74", value = -1.74, label = structure("-1.74", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1b3801c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d5962e0", 
     option = "-2.58", value = -2.58, label = structure("-2.58", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -781,16 +782,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), message = structure("Because 1% is split between each tail of the distribution, any statistic with a corresponding probability of .5% or less would fall into the most extreme 1% of the values.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q3-5-answer", 
     question = "q3-5"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1498159792.30237, options = list()), class = c("learnr_checkbox", 
+    allow_retry = FALSE, seed = 830140648.113436, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q4-1", question = structure("If alpha = .001 and you’re running a two-tailed test, is the p-value associated with a test statistic of 3.06 significant?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_2161dff", 
+"character")), answers = list(structure(list(id = "lnr_ans_10cc3b8", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_434cc2a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9dc89e4", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -801,17 +802,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("For a test statistic of 3.06, p = .002, which is more than the alpha threshold of .001, so we would not consider this result significant.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q4-1-answer", 
     question = "q4-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 381304220.822441, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 869833957.594952, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q4-2", question = structure("If alpha = .01 and you’re running a two-tailed test, is the p-value associated with a test statistic of -2.75 significant?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_27bb005", 
+"character")), answers = list(structure(list(id = "lnr_ans_be1c5bd", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_16beb95", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_87aba4d", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -822,16 +823,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("For a test statistic of -2.75, p = .006. As this is less than the alpha threshold of .01, this result would be significant.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q4-2-answer", 
     question = "q4-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 732799494.658764, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 2108652730.51808, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q4-3", question = structure("If alpha = .05 and you’re running a one-tailed test, is the p-value associated with a test statistic of 1.86 significant?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_108490f", 
+"character")), answers = list(structure(list(id = "lnr_ans_de63f99", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_836dc92", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_95c1104", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -842,7 +843,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("This one was quite tricky. In this plot, the p-value reflects the probability of scores in both tails. To calculate ONLY the probability of scores ABOVE 1.86, you must divide the p-value by two. This would give you the probability of the shaded area in the upper tail. In this case, the p-value would be .062/2, or  .031, which is lower than the alpha threshold of .05. Therefore, this result would be significant.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q4-3-answer", 
     question = "q4-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1075964937.99896, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 404319972.311724, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 </p>
