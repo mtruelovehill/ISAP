@@ -11,7 +11,7 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE}
 library(learnr)
 
-pacman::p_load('tidyverse', 'rstatix')
+pacman::p_load('tidyverse', 'rstatix', 'shiny')
 
 baseColor <- '#F28157'
 accent1 <- '#F2B66D'
@@ -260,7 +260,7 @@ quiz(caption = 'Test Your Understanding',
                answer(.176, correct = T),
               message = "For a test statistic of -0.93, p = .176. Because it is a one-tailed test (you're looking at the probability of a value smaller than the one observed), you only need to check the probability associated with the lower tail of the distribution."),
       question_numeric("You are conducting a two-tailed test. What is the p-value associated with obtaining a test statistic as extreme as 2.87? Please report your answer to 3 decimal places.",
-              answer(.087, correct = T),
+              answer(.004, correct = T),
               message = "For a test statistic of 2.87, p = .004 Because you are conducting a two-tailed test, you need the probability of values as extreme as yours (regardless of whether they are positive or negative). You must add the probabilities in each tail. .002 + .002 = .004"),
      question_numeric('Which test statistic reflects the cutoff for the most extreme 5% of the data?',
               answer(-1.96, correct = T),
@@ -283,7 +283,7 @@ In the last few tasks, we've broken down the general steps of an inferential sta
 
 Use the plot below to answer the following questions. The shaded area reflects $p$, the probability of getting a test statistic at least as extreme as yours given the null is true.
 
-**Important Note:** In the previous section, each capital $P$ reflected the probability of scores within its corresponding region. Here, the lowercase $p$ refers to the $p$-value associated with a two-tailed test (the total probability of both shaded regions). 
+**Important Note:** In the previous section, each capital $P$ reflected the probability of scores within its corresponding region. Here, the lowercase $p$ refers to the $p$-value associated with a ***two-tailed test*** (the total probability of both shaded regions). 
 
 ```{r, echo = F}
 sliderInput('testStat2', 'Value of Test Statistic:', min=-5, max = 5, step = .01, value = 0, ticks = F)
