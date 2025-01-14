@@ -540,103 +540,7 @@ class: center, inverse, middle
 
 ## Questions?
 
----
-## Errors
 
-+ Whether your decision is either to reject or not reject the null hypothesis, you may be making an error.
-
---
-
-+ Two types of errors:
-
-  + **Type I Error:** You reject a true null hypothesis (i.e., you believe a result is significant when it is not)
-  
-  + **Type II Error:** You don't reject a false null hypothesis (i.e., you don't think a result is significant when it is)
-
-
---
-
-.center[
-```{r, echo = F, out.width='75%'}
-# knitr::include_graphics('images/ErrorTable.png')
-```
-]
-
----
-
-## $\alpha$
-
-+ Rejecting the null when it is actually true is known as a **Type I error**. 
-
-  + We have to make a decision about how much we want to risk making a Type I error
-
-  + Our accepted risk threshold is known as $\alpha$
-  
-  + $\alpha$ reflects the probability of making a Type I error
-
---
-  
-+ Typical $\alpha$ value is .05, but may sometimes be set at .01 or .001.
-
---
-
-+ If our $p$-value is equal to or less than our predetermined $\alpha$, we consider our results to be significant.
-
----
-
-## $\alpha$
-
-.pull-left[
-.center[ ** $\alpha$ = .05**
-
-```{r, echo = F, fig.height=4.5}
-# ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
-#   stat_function(fun=dt, geom='line', args=c(df = 29), color = baseColor, linewidth=1.5) +
-#   geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent2, 
-#             xlim=c(qt(.025, df = 29, lower.tail = F), 5), alpha = .8) +
-#   geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent2, 
-#             xlim=c(-5, qt(.025, df = 29)), alpha = .8) +
-#   theme(axis.text = element_blank(),
-#         axis.title = element_blank(),
-#         axis.line.y = element_blank(),
-#         axis.ticks = element_blank()) +
-#   annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = accent2) +
-#   annotate('text', x = 3.25, y = .05, parse = T, label = paste('alpha/2 == .025'), size = 6, color = accent2) +
-#   annotate('text', x = -3.25, y = .05, parse = T, label = paste('alpha/2 == .025'), size = 6, color = accent2) +
-#   annotate('segment', x= -2.25, xend = 3, y = .06, yend = .28, color = accent2, linewidth = 1, linetype = 'dashed') +
-#   annotate('segment', x= 2.4, xend = 3, y = .06, yend = .28, color = accent2, linewidth = 1, linetype = 'dashed') +
-#   geom_hline(yintercept = 0, color = baseColor, linewidth = 1.5)
-```
-
-]
-]
-
---
-
-.pull-right[
-.center[ ** $\alpha$ = .01**
-
-```{r, echo = F, fig.height=4.5}
-# ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
-#   stat_function(fun=dt, geom='line', args=c(df = 29), color = baseColor, linewidth=1.5) +
-#   geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent2, 
-#             xlim=c(qt(.005, df = 29, lower.tail = F), 5), alpha = .8) +
-#   geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent2, 
-#             xlim=c(-5, qt(.005, df = 29)), alpha = .8) +
-#   theme(axis.text = element_blank(),
-#         axis.title = element_blank(),
-#         axis.line.y = element_blank(),
-#         axis.ticks = element_blank()) +
-#   annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .01'), size = 8, color = accent2) +
-#   annotate('text', x = 3.5, y = .03, parse = T, label = paste('alpha/2 == .005'), size = 6, color = accent2) +
-#   annotate('text', x = -3.5, y = .03, parse = T, label = paste('alpha/2 == .005'), size = 6, color = accent2) +
-#   annotate('segment', x= -2.5, xend = 3, y = .04, yend = .28, color = accent2, linewidth = 1, linetype = 'dashed') +
-#   annotate('segment', x= 2.8, xend = 3, y = .04, yend = .28, color = accent2, linewidth = 1, linetype = 'dashed') +
-#   geom_hline(yintercept = 0, color = baseColor, linewidth = 1.5)
-```
-
-]
-]
 ---
 
 ## Power
@@ -650,7 +554,6 @@ class: center, inverse, middle
   + It tells us how likely we are to detect an effect *if it exists*
   
   + AKA, 1 - $\beta$
-
 --
   
 + A conventional value for power is .8 (80% power)
@@ -689,6 +592,14 @@ count: false
 
 + However, if you already have a set sample, you might want to check the effect size that it has the power to detect.
 
+---
+## Power
+
+MONICA - plug this in
+
+When intending to collect primary data, an a priori power analysis should be conducted when designing the study in order to determine the number of participants needed to detect the effect of interest. To run an a priori power analysis, you will need (at minimum) a power threshold, an alpha value, and an estimated effect size.
+
+When working with secondary data, a sensitivity power analysis can be used to tell you the effect size your sample is capable of detecting, given specific power and alpha values. To run a sensitivity power analysis, you’ll need (at minimum) a power threshold, an alpha value, and a sample size.
 ---
 
 ## To summarise...

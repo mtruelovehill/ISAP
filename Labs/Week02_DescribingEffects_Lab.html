@@ -306,28 +306,15 @@ likely than the sample mean to capture the population mean.</p>
 </div>
 <div id="section-power-analyses" class="section level2">
 <h2>Power Analyses</h2>
-<p>When intending to collect primary data, an a priori power analysis
-should be conducted when designing the study in order to determine the
-number of participants needed to detect the effect of interest. To run
-an a priori power analysis, you will need (at minimum) a power
-threshold, an alpha value, and an estimated effect size.</p>
-<p>When working with secondary data, a sensitivity power analysis can be
-used to tell you the effect size your sample is capable of detecting,
-given specific power and alpha values. To run a sensitivity power
-analysis, you’ll need (at minimum) a power threshold, an alpha value,
-and a sample size.</p>
 <p>In this course, we’ll be using <a
 href="https://webpower.psychstat.org/wiki/models/index">WebPower</a> to
 conduct power analyses. We’ll begin to conduct power analyses when we
-run specific statistical tests. Today, we’ll focus on improving your
+run specific statistical tests. Today, focus on improving your
 understanding of the concept of statistical power. Have a look at the
 following power curves and spend some time trying to interpret them.</p>
 <p><img src="Week02_DescribingEffects_Lab_files/figure-html/unnamed-chunk-5-1.png" width="768" /></p>
-<p>As you interpret this plot, try to answer the following questions.
-Recall that power is equal to 1-<span
-class="math inline">\(\beta\)</span>, with <span
-class="math inline">\(\beta\)</span> being the likelihood of making a
-Type II error.</p>
+<p>As you interpret this plot, try to answer the following
+questions:</p>
 <ul>
 <li><p>What is the effect of sample size on power?</p></li>
 <li><p>What is the effect of effect size on power?</p></li>
@@ -436,22 +423,6 @@ login).</p>
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="accessData-2" class="tutorial-question panel-body">
-<div id="accessData-2-answer_container" class="shiny-html-output"></div>
-<div id="accessData-2-message_container" class="shiny-html-output"></div>
-<div id="accessData-2-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="accessData-3" class="tutorial-question panel-body">
-<div id="accessData-3-answer_container" class="shiny-html-output"></div>
-<div id="accessData-3-message_container" class="shiny-html-output"></div>
-<div id="accessData-3-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
 <div class="container">
 <details>
 <summary>
@@ -477,7 +448,7 @@ solution </span>
 the folder where you’ve stored ‘Week2LabData.sav’ and select the file.
 Once data have been imported, check the measure type in the <em>Variable
 View</em> tab:</p>
-<p><img src="images/week1_variableView.png" width="75%" /></p>
+<p><img src="images/week1_variableView.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>SPSS labels the data as:</p>
 <ul>
 <li><em>Nominal:</em> data that fall into discrete categories that have
@@ -493,20 +464,20 @@ so.</li>
 <p>To adjust the measure type, select the Measure box for a single
 variable and click the arrow that appears.</p>
 <ul>
-<li><p><strong>ID</strong> is represented as a number, but there really
-is no numeric relationship between the numbers (e.g. someone with an ID
-= 40 didn’t complete the study in twice the time of someone with an ID =
+<li><p><code>ID</code> is represented as a number, but there really is
+no numeric relationship between the numbers (e.g. someone with an ID =
+40 didn’t complete the study in twice the time of someone with an ID =
 20). Technically, the IDs are ordered based on when they completed the
 study, but because this information isn’t meaningful in the context of
 our analysis, we can consider this a ‘Nominal’ variable.</p></li>
-<li><p><strong>Age</strong> is continuous. Someone who is 12 is twice as
-old as someone who is 6, and you could measure age up to infinite
-decimal places if you had a perfectly precise measurement. This can be
+<li><p><code>Age</code> is continuous. Someone who is 12 is twice as old
+as someone who is 6, and you could measure age up to infinite decimal
+places if you had a perfectly precise measurement. This can be
 considered a ‘Scale’ variable.</p></li>
-<li><p><strong>Gender</strong> is nominal. It can be captured in
-discrete categories and there is no inherent order.</p></li>
-<li><p><strong>SPscore</strong> is a ‘Scale’ variable. There is a
-meaningful numeric relationship between the values.</p></li>
+<li><p><code>Gender</code> is nominal. It can be captured in discrete
+categories and there is no inherent order.</p></li>
+<li><p><code>SPscore</code> is a ‘Scale’ variable. There is a meaningful
+numeric relationship between the values.</p></li>
 </ul>
 </details>
 </div>
@@ -553,14 +524,14 @@ solution </span>
 tab.</p>
 <p>Select the Gender x Values cell and click the dots to bring up the
 <em>Value Labels</em> box.</p>
-<p><img src="images/week1_values.png" width="75%" /></p>
+<p><img src="images/week1_values.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Use the <span class="math inline">\(+\)</span> to add a new label. In
 the Value column, type the value <strong>exactly as it is recorded in
 your data.</strong> In the Label column, add the label you would like to
 associate with that specific value. Continue adding labels using <span
 class="math inline">\(+\)</span> until you’ve labeled all values in the
 Gender column.</p>
-<p><img src="images/week1_valueLabs.png" width="75%" /></p>
+<p><img src="images/week1_valueLabs.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Click ‘OK’. If you’ve done this properly, you’ll see that each
 numeric value is now associated with a character label.</p>
 </details>
@@ -568,28 +539,33 @@ numeric value is now associated with a character label.</p>
 <p></br></p>
 </div>
 </div>
-<div id="section-using-spss---frequency-data" class="section level2">
-<h2>Using SPSS - Frequency Data</h2>
+<div id="section-using-spss---inspecting-distributions"
+class="section level2">
+<h2>Using SPSS - Inspecting Distributions</h2>
 <p>Before doing any sort of analysis, it’s important to first check the
 data to make sure everything is as expected. With categorical data, one
-way to do this is to inspect the frequency of observations in each
-group. This allows the following to be checked:</p>
+way to do this is to inspect the frequency and spread of observations in
+each group. This allows the following to be checked:</p>
 <ul>
-<li>Are observations distributed relatively equally or are there major
-differences across groups?</li>
-<li>Are there any groups with a limited number of observations?</li>
+<li>Are observations distributed as expected?</li>
 <li>Are there any missing datapoints?</li>
+<li>(In categorical variables) Are there any groups with a limited
+number of observations?</li>
+<li>(In continuous variables) Are there extreme or impossible
+values?</li>
 </ul>
-<div id="section-your-task-1" class="section level3">
-<h3>Your Task</h3>
+<div id="section-your-tasks-1" class="section level3">
+<h3>Your Tasks</h3>
 <ul>
-<li>Check the frequency of the Gender variable using a frequency
-table.</li>
+<li>Check the distribution of the <code>Gender</code> variable using a
+frequency table and/or a figure</li>
+<li>Check the distribution of your continuous variables using
+figures</li>
 </ul>
-<p>Are any of these groups limited in size? If so, consider how this
-might this affect your ability to make generalisable claims about this
-group.</p>
-<div class="panel-heading tutorial-quiz-title">Test Your Understanding</div>
+<p>You may use either bar charts or histograms to visualise frequency
+distributions, depending on the type of data that you have:</p>
+<p><img src="Week02_DescribingEffects_Lab_files/figure-html/unnamed-chunk-11-1.png" width="336" /><img src="Week02_DescribingEffects_Lab_files/figure-html/unnamed-chunk-11-2.png" width="336" /></p>
+<div class="panel-heading tutorial-quiz-title">Check Your Results</div>
 <div class="panel panel-default tutorial-question-container">
 <div data-label="freq-1" class="tutorial-question panel-body">
 <div id="freq-1-answer_container" class="shiny-html-output"></div>
@@ -628,7 +604,9 @@ group.</p>
 <span style="font-weight: bold; font-size: 16pt"> Click here for a hint
 </span>
 </summary>
-<p>You’ll find what you need under the <em>Analyze</em> tab.</p>
+<p>You’ll find what you need under the <em>Analyze</em> tab. You can use
+Bar Charts to visualise the distribution of categorical data. For
+continuous data, you’ll need to use histograms.</p>
 </details>
 </div>
 <p></br></p>
@@ -638,125 +616,50 @@ group.</p>
 <span style="font-weight: bold; font-size: 16pt">Click here for the
 solution </span>
 </summary>
-<p>Select Analyze&gt;Descriptives&gt;Frequencies. Select Gender and use
-the arrow to move it into the Variable box. Make sure ‘Display frequency
-tables’ is checked.</p>
+<p><span style="font-weight: bold; font-size: 14pt">Categorical
+Variables </span></p>
+<p>Select <em>Analyze&gt;Descriptives&gt;Frequencies</em>. Select
+<code>Gender</code> and use the arrow to move it into the Variable box.
+Make sure ‘Display frequency tables’ is checked. To also produce a bar
+chart, select ‘Charts…’ and choose ‘Bar charts.’</p>
 <p></br></p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week1_4a.PNG" width="65%" /></p>
-<p></br></p>
-<p><strong>Output:</strong></p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week1_4b.PNG" width="50%" /></p>
+<p><img src="images/week1_freqTable.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>The output shows the number of participants in each category, as well
+as the proportions and total values overall. If you added the labels
+properly, the table will use them rather than the original numbered
+data, allowing for ease of interpretation.</p>
+<p><img src="images/week1_freqOutput.png" width="75%" style="display: block; margin: auto;" /></p>
+<p></br> <span style="font-weight: bold; font-size: 14pt">Continuous
+Variables </span></p>
+<p>Select <em>Analyze&gt;Descriptives&gt;Frequencies</em>. Select
+<code>Age</code> and <code>SPscore</code> and move them into the
+‘Variable’ box. Uncheck ‘Display frequency tables’ unless you want to
+produce massive, unnecessary tables. To produce histograms, select
+‘Charts…’ and choose ‘Histograms’.</p>
+<p>Note that you can also produce all plots using the <em>Graphs</em>
+button in the toolbar.</p>
 </details>
 </div>
 <p></br></p>
 </div>
 </div>
-<div id="section-visualise-distribution-of-data" class="section level2">
-<h2>Visualise Distribution of Data</h2>
-<p>Another useful way of visualising the data is to check how your
-variables are distributed. Depending on the type of data you have, you
-could use a bar chart or a histogram.</p>
-<p><img src="Week02_DescribingEffects_Lab_files/figure-html/unnamed-chunk-13-1.png" width="336" /><img src="Week02_DescribingEffects_Lab_files/figure-html/unnamed-chunk-13-2.png" width="336" /></p>
-<div id="section-your-task-2" class="section level3">
-<h3>Your Task</h3>
-<p>Produce plots to visualise the distribution of each of your
-variables. Make sure to use the proper plot type given the type of
-variables you have.</p>
-<div class="panel-heading tutorial-quiz-title">Test Your Understanding</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="Dist-1" class="tutorial-question panel-body">
-<div id="Dist-1-answer_container" class="shiny-html-output"></div>
-<div id="Dist-1-message_container" class="shiny-html-output"></div>
-<div id="Dist-1-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="Dist-2" class="tutorial-question panel-body">
-<div id="Dist-2-answer_container" class="shiny-html-output"></div>
-<div id="Dist-2-message_container" class="shiny-html-output"></div>
-<div id="Dist-2-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="Dist-3" class="tutorial-question panel-body">
-<div id="Dist-3-answer_container" class="shiny-html-output"></div>
-<div id="Dist-3-message_container" class="shiny-html-output"></div>
-<div id="Dist-3-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="Dist-4" class="tutorial-question panel-body">
-<div id="Dist-4-answer_container" class="shiny-html-output"></div>
-<div id="Dist-4-message_container" class="shiny-html-output"></div>
-<div id="Dist-4-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="container">
-<details>
-<summary>
-<span style="font-weight: bold; font-size: 16pt">Click here for a hint
-</span>
-</summary>
-<p>A histogram will allow you to visualise the distribution of
-continuous variables. Bar plots allow you to check the distribution of
-categorical data. You’ll need to produce a separate plot for each
-variable.</p>
-</details>
-</div>
-<p></br></p>
-<div class="container">
-<details>
-<summary>
-<span style="font-weight: bold; font-size: 16pt"> Click here for the
-solution </span>
-</summary>
-<p><B> For Categorical Variables: </B></p>
-<p>Select <em>Graphs&gt;Bar</em>. Select the chart type you’d prefer.
-When you’re checking the distribution of a single variable, you would
-use a ‘Simple’ plot. Use the arrow to add the variable you wish to view
-to the ‘Category Axis’ box. When looking at distributions of a
-categorical variable, you are plotting the total number of participants
-of each group, so you can leave the ‘Bars Represent’ portion at the
-default setting.</p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week1_5a.PNG" width="55%" /></p>
-<p>When checking the distribution of categorical variables, check
-whether all groups are well represented. Consider the questions from the
-<B><a href="#section-check-frequency-data">Frequency Data</a></B>
-portion of this lab.</p>
-<p><B> For Continuous Variables: </B></p>
-<p>Select <em>Graphs&gt;Histogram</em>. Use the arrow to add the
-variable you wish to view to the ‘Variable’ box.</p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week1_5b.PNG" width="55%" /></p>
-<p>Have a look at the output. If a variable is normally distributed,
-most observations will fall near the mean, while more extreme values are
-less common.</p>
-<strong>Note:</strong> You can also produce both of these plots using
-<em>Analyze&gt;Descriptive Statistics&gt;Frequencies</em> and selecting
-the Charts option.
-</details>
-</div>
-<p></br></p>
-</div>
-</div>
-<div id="section-check-central-tendency" class="section level2">
-<h2>Check Central Tendency</h2>
+<div id="section-using-spss---descriptives" class="section level2">
+<h2>Using SPSS - Descriptives</h2>
 <p>When preparing to perform analysis, one of the most important steps
 is to check the descriptive statistics of your variables. These values
 are useful summary metrics and may provide insight into patterns in your
 data.</p>
-<div id="section-your-task-3" class="section level3">
-<h3>Your Task</h3>
-<p>Check the measures of central tendency discussed in class. Make sure
-to use the proper central tendency measures given the variable type.</p>
+<div id="section-your-tasks-2" class="section level3">
+<h3>Your Tasks</h3>
 <ul>
-<li>Are the measures of central tendency similar within a variable?</li>
-<li>If not, what might this imply?</li>
+<li>Check the appropriate measure of central tendency for
+<code>Age</code>, <code>Gender</code>, and <code>SPscore</code></li>
+<li>Check the standard deviation of <code>Age</code> and
+<code>SPscore</code></li>
+<li>Check the minimum and maximum values of <code>Age</code> and
+<code>SPscore</code></li>
 </ul>
-<div class="panel-heading tutorial-quiz-title">Test Your Understanding</div>
+<div class="panel-heading tutorial-quiz-title">Check Your Results</div>
 <div class="panel panel-default tutorial-question-container">
 <div data-label="desc1-1" class="tutorial-question panel-body">
 <div id="desc1-1-answer_container" class="shiny-html-output"></div>
@@ -803,8 +706,11 @@ to use the proper central tendency measures given the variable type.</p>
 <span style="font-weight: bold; font-size: 16pt">Click here for a hint
 </span>
 </summary>
-Although this is descriptive data, <em>Analyze&gt;Descriptive
-Statistics&gt;Descriptives</em> is not what you need.
+<p>Use <em>Analyze&gt;Descriptive Statistics&gt;Frequencies</em> to
+check your descriptives. If you need a refresh on measures of central
+tendency and standard deviation, see <a
+href="https://mtruelovehill.github.io/PRM/Lectures/Week01_ExploringData_Lecture.html#9">these
+slides</a>.</p>
 </details>
 </div>
 <p></br></p>
@@ -814,79 +720,13 @@ Statistics&gt;Descriptives</em> is not what you need.
 <span style="font-weight: bold; font-size: 16pt"> Click here for the
 solution </span>
 </summary>
-<p>To get all 3 measures of central tendency, you’ll need to select
-<em>Analyze&gt;Descriptive Statistics&gt;Frequencies</em>, then put the
-variables of interest into the ‘Variable(s)’ box. Click ‘Statistics’ and
-select the options for ‘Mean’, ‘Median’, and ‘Mode’, as needed.</p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week1_6a.PNG" width="60%" /></p>
-Note that Gender, as a categorical variable, should only be described
-using Mode. The other variables can be described using all 3 measures.
-</details>
-</div>
-<p></br></p>
-</div>
-</div>
-<div id="section-check-measures-of-variability" class="section level2">
-<h2>Check Measures of Variability</h2>
-<p>Similar to measures of central tendancy, measures of variability are
-helpful summary metrics that can provide a sense of how much
-observations vary within your sample.</p>
-<div id="section-your-task-4" class="section level3">
-<h3>Your Task</h3>
-<p>For all continuous variables, check the measures of variance
-described in class. These include the maximum, minimum, range,
-interquartile range, variance, and standard deviation.</p>
-<div class="panel-heading tutorial-quiz-title">Test Your Understanding</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="desc2-1" class="tutorial-question panel-body">
-<div id="desc2-1-answer_container" class="shiny-html-output"></div>
-<div id="desc2-1-message_container" class="shiny-html-output"></div>
-<div id="desc2-1-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="desc2-2" class="tutorial-question panel-body">
-<div id="desc2-2-answer_container" class="shiny-html-output"></div>
-<div id="desc2-2-message_container" class="shiny-html-output"></div>
-<div id="desc2-2-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="desc2-3" class="tutorial-question panel-body">
-<div id="desc2-3-answer_container" class="shiny-html-output"></div>
-<div id="desc2-3-message_container" class="shiny-html-output"></div>
-<div id="desc2-3-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="container">
-<details>
-<summary>
-<span style = "font-weight: bold; font-size: 16pt">Click here for a hint
-</summary>
-<p>You’ve already completed the steps to do this. You just need to check
-different boxes.</p>
-</details>
-</div>
-<p></br></p>
-<div class="container">
-<details>
-<summary>
-<span style="font-weight: bold; font-size: 16pt"> Click here for the
-solution </span>
-</summary>
-<p>This procedure is identical to getting the measures of central
-tendency, so in the future, you can do it all at once. You’ll need to
-select <em>Analyze&gt;Descriptive Statistics&gt;Frequencies</em>, then
-put the variables of interest into the ‘Variable(s)’ box. Click
-‘Statistics’ and select the options needed. For IQR, you’ll need to
-select ‘Quartiles’:</p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week1_7a.PNG" width="60%" /></p>
-<p>Data will be reported in table format in the output. To get the IQR,
-you’ll need to subtract the 25th percentile value from the 75th
-percentile value.</p>
+<p>Select <em>Analyze&gt;Descriptive Statistics&gt;Frequencies</em>,
+then add the variables of interest into the ‘Variable(s)’ box. Click
+‘Statistics’ and select the options that you need:</p>
+<p><img src="images/week1_descriptives.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Note that <code>Gender</code>, as a categorical variable, should only
+be described using Mode. The other variables can be described using all
+3 measures.</p>
 </details>
 </div>
 <p></br></p>
@@ -894,37 +734,40 @@ percentile value.</p>
 </div>
 <div id="section-interpret-and-report" class="section level2">
 <h2>Interpret and Report</h2>
-<p>Now that you’ve evaluated the assessments, write a paragraph with
-your results that you could present to the instructor, giving them a
-suggestion of which assessment they should use in their course. In this
-paragraph, please do the following:</p>
+<p>Now that you’ve reviewed your data, write a one or two APA-style
+sentences describing your sample that you could incorporate into a
+methods section. When describing your sample, you should <strong>at
+least</strong> include the following:</p>
 <ul>
-<li><p>Describe your sample as you would in a methods section.</p></li>
-<li><p>Provide a recommendation for which exam the instructor should use
-in their course, using your results to support your suggestion.</p></li>
+<li><span class="math inline">\(n\)</span> of study</li>
+<li>Age (minimum, maximum, mean, standard deviation)</li>
+<li>Gender (<span class="math inline">\(n\)</span> in each
+category)</li>
 </ul>
+<p>If you are working with data that includes other demographic
+variables such as race or education, these should be appropriately
+described as well. You would also include any exclusion/inclusion
+criteria.</p>
 <p>Make sure to use APA style. Once you’re finished, compare your
 paragraph to the solution paragraph. Is there anything you included that
-is not in the solution? Is there anything you left out? Does your
-suggestion match the solution paragraph? If not, why not?</p>
-<p></br> </br></p>
+is not in the solution? Is there anything you left out?</p>
+<p></br></p>
 <div class="container">
 <details>
 <summary>
 <span style="font-weight: bold; font-size: 16pt"> Click here for a hint
 </span>
 </summary>
-<p><span style = "color:white">You might find the <span
-style="color:#9AD079"> <a
+<p><span style = "color:white">You might find the <a
 href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/general_format.html">Purdue
-Owl website</a> </span> helpful for APA formatting. See the
-participants/sample section in <span style="color:#9AD079"> <a
+Owl website</a> helpful for APA formatting. See the participants/sample
+section in <a
 href="https://journals.sagepub.com/doi/full/10.1177/0956797620939054">this
-paper</a> </span> for an example of how you might describe your sample.
-You can see other examples <span style="color:#9AD079"> <a
+paper</a> for a real-world example of how a sample might be described.
+You can see other examples <a
 href="https://journals.sagepub.com/doi/full/10.1177/09567976241231572">here</a>
-</span> and <span style="color:#9AD079"> <a
-href="https://www.sciencedirect.com/science/article/pii/S0022103123001439">here</a></span>.</p>
+and <a
+href="https://www.sciencedirect.com/science/article/pii/S0022103123001439">here</a>.</p>
 </details>
 </div>
 <p></br></p>
@@ -934,55 +777,16 @@ href="https://www.sciencedirect.com/science/article/pii/S0022103123001439">here<
 <span style="font-weight: bold; font-size: 16pt"> Click here for the
 solution </span>
 </summary>
-<p>For this analysis, we examined results from 4 different assessments
-in an attempt to identify the one that most accurately captures the
-range of student abilities. Each of the 4 assessments was presented 15
-students in each of the instructor’s 3 courses, providing a total sample
-of 45 students between ages 17 and 52 (<span
-class="math inline">\(M\)</span> = 23.04, <span
-class="math inline">\(SD\)</span> = 7.74; 25 male, 19 female, and 2
-nonbinary participants).</p>
-<p>Student performance varied widely between the assessments (see Table
-1).</p>
-<p><strong>Table 1</strong></p>
-<p><em>Assessment Scores - Descriptive Data</em></p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week1_10a.PNG" width="70%" /></p>
-<p>As the average score on Assessment A corresponded to a failing mark,
-this assessment is not recommended. Conversely, the average score on
-Assessment B was quite high. Additionally, the data exhibited a negative
-skew. This suggests that there is a ceiling effect, as most students are
-scoring close to the maximum possible score (see Figure 1).</p>
-<p></br></p>
-<p><strong>Figure 1</strong></p>
-<p><em>Assessment B Scores</em></p>
-<p><img src="Week02_DescribingEffects_Lab_files/figure-html/unnamed-chunk-19-1.png" width="624" /></p>
-<p><em>Note.</em> You cannot produce this figure with SPSS. This is just
-here to show you an example of an appropriate way to report your results
-with an APA-style figure.</p>
-<p></br></p>
-<p>Assessments D’s average was still too high, and the standard
-deviation of scores was quite small, indicating that it may not be
-accurately capturing the variability in student comprehension (see
-Figure 2).</p>
-<p></br></p>
-<p><strong>Figure 2</strong></p>
-<p><em>Assessment D Scores</em></p>
-<p></br></p>
-<p>Assessment C had a reasonable average, as well as higher variability
-in the range of scores (see Figure 3). This indicates that, of these
-assessments, Assessment C may best capture the range of student
-abilities within the course.</p>
-<p></br></p>
-<p><strong>Figure 3</strong></p>
-<p><em>Assessment C Scores</em></p>
-<p><img src="Week02_DescribingEffects_Lab_files/figure-html/unnamed-chunk-21-1.png" width="624" /></p>
+<p>In this study, we collected Social Perception Scale scores from 250
+children (127 male, 118 female, and 5 nonbinary participants).
+Participants ranged in age from 8-17 (<span
+class="math inline">\(M\)</span> = 12.69, <span
+class="math inline">\(SD\)</span> = 2.70).</p>
 </details>
 </div>
-<p></br> </br></p>
 <p>
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
-library(knitr)
 
 pacman::p_load('tidyverse', 'rstatix', 'shiny')
 
@@ -991,10 +795,10 @@ accent1 <- '#F2B66D'
 accent2 <- '#30726E'
 accent3 <- '#008290'
 
-dat <- read.csv('https://mtruelovehill.github.io/PRM/Labs/Week1LabData.csv')
-studentDat <- dat[dat$Role=='Student',]
-studentDat$Cperc <- (studentDat$C/50)*100
-Cdens <- data.frame(cPerc=density(studentDat$Cperc, from = 0, to = 100)$x, dens=density(studentDat$Cperc, from = 0, to = 100)$y)
+# dat <- read.csv('https://mtruelovehill.github.io/PRM/Labs/Week1LabData.csv')
+# studentDat <- dat[dat$Role=='Student',]
+# studentDat$Cperc <- (studentDat$C/50)*100
+# Cdens <- data.frame(cPerc=density(studentDat$Cperc, from = 0, to = 100)$x, dens=density(studentDat$Cperc, from = 0, to = 100)$y)
 
 
 </script>
@@ -1083,15 +887,15 @@ output$effectSizePlot <- renderPlot({
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q5-1", question = structure("If the difference between means and the sample size is held constant, what generally happens to the effect size when the SD is increased?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_4708beb", 
+"character")), answers = list(structure(list(id = "lnr_ans_9f82e02", 
     option = "The effect size increases", value = "The effect size increases", 
     label = structure("The effect size increases", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_33c9fba", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8a2c510", 
     option = "The effect size decreases", value = "The effect size decreases", 
     label = structure("The effect size decreases", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_68526ec", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d3ff734", 
     option = "The effect size stays about the same", value = "The effect size stays about the same", 
     label = structure("The effect size stays about the same", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1103,21 +907,21 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("Increasing the standard deviation of will decrease the effect size. This is because the variability in the data is increased.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q5-1-answer", 
     question = "q5-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1673425801.22075, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 122424246.942992, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q5-2", question = structure("If the group SD and the sample size is held constant, what generally happens to the effect size when the difference between means is increased?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5c54b44", 
+"character")), answers = list(structure(list(id = "lnr_ans_fe73c32", 
     option = "The effect size increases", value = "The effect size increases", 
     label = structure("The effect size increases", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_89cc948", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_66bc12a", 
     option = "The effect size decreases", value = "The effect size decreases", 
     label = structure("The effect size decreases", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b92bf49", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a43a037", 
     option = "The effect size stays about the same", value = "The effect size stays about the same", 
     label = structure("The effect size stays about the same", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1129,22 +933,22 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("Increasing the difference between means indicates a stronger effect of the independent/grouping variable, so the effect size increases.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q5-2-answer", 
     question = "q5-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 205227768.904433, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 243392196.386662, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q5-3", question = structure("If the difference between means and the group SD is held constant, what generally happens to the effect size when the sample size is increased?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_9ab45ff", 
+"character")), answers = list(structure(list(id = "lnr_ans_6ac0b19", 
     option = "The effect size increases", value = "The effect size increases", 
     label = structure("The effect size increases", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_da73333", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d7e83b4", 
     option = "The effect size decreases", value = "The effect size decreases", 
     label = structure("The effect size decreases", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_daae589", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6a5c05f", 
     option = "The effect size stays about the same", value = "The effect size stays about the same", 
     label = structure("The effect size stays about the same", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1156,21 +960,21 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("Increasing the sample size does not have much of an effect on the effect size.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q5-3-answer", 
     question = "q5-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 219927755.397588, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 2132796282.50684, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q5-4", question = structure("If the difference between means and the group SD is held constant, what generally happens to the p-value when the sample size is increased?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_11681da", 
+"character")), answers = list(structure(list(id = "lnr_ans_62430a9", 
     option = "The p-value increases", value = "The p-value increases", 
     label = structure("The p-value increases", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c3e2cf6", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_18fd8f9", 
     option = "The p-value decreases", value = "The p-value decreases", 
     label = structure("The p-value decreases", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ecdfdb8", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b43563c", 
     option = "The p-value stays about the same", value = "The p-value stays about the same", 
     label = structure("The p-value stays about the same", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1182,18 +986,18 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("Increasing the sample size can also decrease the p-value, causing results to appear more significant even if the effect is quite small.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q5-4-answer", 
     question = "q5-4"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 913892832.574435, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 752319312.649674, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q6-1", question = structure("In the above example, which of the following is the sample?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_649b3b1", 
+"character")), answers = list(structure(list(id = "lnr_ans_d4667c", 
     option = "Every child in the world", value = "Every child in the world", 
     label = structure("Every child in the world", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5b6e89f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1ebc350", 
     option = "The children who provided data", value = "The children who provided data", 
     label = structure("The children who provided data", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1205,18 +1009,18 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("The population refers to anyone to whom the results can be generalised. In this case, it would be every child in the world. The sample refers to the children who provided data.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q6-1-answer", 
     question = "q6-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 403250845.812222, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1429311369.33442, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q6-2", question = structure("In the above example, which of the following would be considered the population parameter?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_6af598d", 
+"character")), answers = list(structure(list(id = "lnr_ans_cd3425e", 
     option = "The mean social perception score of all children in the world", 
     value = "The mean social perception score of all children in the world", 
     label = structure("The mean social perception score of all children in the world", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2d34d8d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d855246", 
     option = "The mean social perception score for the children who provided data", 
     value = "The mean social perception score for the children who provided data", 
     label = structure("The mean social perception score for the children who provided data", html = TRUE, class = c("html", 
@@ -1229,14 +1033,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("The population parameter is the value we are attempting to estimate by using sample data. In this case, it is the mean score of all children in the world.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q6-2-answer", 
     question = "q6-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1645243182.23387, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 486955467.773244, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "q7-1", question = structure("What is the value of the population parameter in this example? Please round your answer to 2 decimal places.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_9bc8ce0", 
+"character")), answers = list(structure(list(id = "lnr_ans_25ad278", 
     option = "57.97", value = 57.97, label = structure("57.97", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1247,29 +1051,29 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = structure("The population parameter is the mean score on the assessment, 57.97.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q7-1-answer", 
     question = "q7-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1719783341.69916, options = list(
+    allow_retry = FALSE, seed = 335280710.343873, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q8-1", question = structure("Margot conducted a memory test on a sample of students, and found that the mean score was 75 points, with a 95% confidence interval of 65 - 85. Which of the following can she conclude?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_c31a400", 
+"character")), answers = list(structure(list(id = "lnr_ans_3105ce9", 
     option = "If Margot were to conduct this test over and over, 95% of the sample would always achieve a score between 65 and 85 points.", 
     value = "If Margot were to conduct this test over and over, 95% of the sample would always achieve a score between 65 and 85 points.", 
     label = structure("If Margot were to conduct this test over and over, 95% of the sample would always achieve a score between 65 and 85 points.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4a048bf", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_13396fb", 
     option = "There is a .95 probability that the population mean is between 65 and 85 points.", 
     value = "There is a .95 probability that the population mean is between 65 and 85 points.", 
     label = structure("There is a .95 probability that the population mean is between 65 and 85 points.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8b31c71", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_86baf40", 
     option = "If she calculated the 95% CI using the same method on a large number of samples, 95% of those CIs would contain the population mean. Therefore, she can be 95% confident that her CI of 65-85 contains the population mean.", 
     value = "If she calculated the 95% CI using the same method on a large number of samples, 95% of those CIs would contain the population mean. Therefore, she can be 95% confident that her CI of 65-85 contains the population mean.", 
     label = structure("If she calculated the 95% CI using the same method on a large number of samples, 95% of those CIs would contain the population mean. Therefore, she can be 95% confident that her CI of 65-85 contains the population mean.", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2fc3de6", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f9deb", 
     option = "She can be 95% confident that her results are accurate.", 
     value = "She can be 95% confident that her results are accurate.", 
     label = structure("She can be 95% confident that her results are accurate.", html = TRUE, class = c("html", 
@@ -1282,23 +1086,23 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("The population mean is fixed, so any individual confidence interval that has already been calculated either contains the population mean or does not contain it. However, if you calculate an X% confidence interval on multiple samples, then X% of those intervals will contain the population mean.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q8-1-answer", 
     question = "q8-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1586439476.76126, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 482408780.775361, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q9-1", question = structure("What is the traditional threshold for power that is considered acceptable?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_39134e", 
+"character")), answers = list(structure(list(id = "lnr_ans_1024994", 
     option = "70%", value = "70%", label = structure("70%", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b95b41a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_586f8b6", 
     option = "80%", value = "80%", label = structure("80%", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fcc363a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e5e6eda", 
     option = "90%", value = "90%", label = structure("90%", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fb22761", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_121750d", 
     option = "100%", value = "100%", label = structure("100%", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1309,23 +1113,23 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("Traditionally, a threshold of 80% is considered an acceptable level of power for a study.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q9-1-answer", 
     question = "q9-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 295961391.362182, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 610172325.715866, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q9-2", question = structure("Which of the following is not considered when calculating power?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_d1dde2b", 
+"character")), answers = list(structure(list(id = "lnr_ans_a3113c", 
     option = "Sample variance", value = "Sample variance", label = structure("Sample variance", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_feb23f4", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_629f17e", 
     option = "Sample size", value = "Sample size", label = structure("Sample size", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9162cab", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_452cf9a", 
     option = "Significance level", value = "Significance level", 
     label = structure("Significance level", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_57bfb93", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_768e9b6", 
     option = "Effect size", value = "Effect size", label = structure("Effect size", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1336,27 +1140,27 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("Power is affected by the significance level, sample size, and effect size. Each of these four values is a function of the remaining three.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q9-2-answer", 
     question = "q9-2"), loading = NULL, random_answer_order = TRUE, 
-    allow_retry = FALSE, seed = 1212855154.43522, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1164537845.45772, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "q9-3", question = structure("Which of the following would lead to an increase in statistical power? Please select all that apply.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_7395013", 
+"character")), answers = list(structure(list(id = "lnr_ans_f49a9cf", 
     option = "Decreasing alpha", value = "Decreasing alpha", 
     label = structure("Decreasing alpha", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e3a9360", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_80a9211", 
     option = "Increasing effect size", value = "Increasing effect size", 
     label = structure("Increasing effect size", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4cdfa8d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_42bcf54", 
     option = "Using a two-tailed test instead of a one-tailed test", 
     value = "Using a two-tailed test instead of a one-tailed test", 
     label = structure("Using a two-tailed test instead of a one-tailed test", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bee5458", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a2938e8", 
     option = "Increasing the number of participants in the sample", 
     value = "Increasing the number of participants in the sample", 
     label = structure("Increasing the number of participants in the sample", html = TRUE, class = c("html", 
@@ -1369,33 +1173,33 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), message = structure("Power has a positive relationship with all of the given values, so that as effect size, sample size, and alpha increase, so too does power. Decreasing any of these lowers power. Going from a one-tailed to a two-tailed test decreases alpha by splitting it between each tail, so this would also lower power.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q9-3-answer", 
     question = "q9-3"), loading = NULL, random_answer_order = TRUE, 
-    allow_retry = FALSE, seed = 9317339.99566128, options = list()), class = c("learnr_checkbox", 
+    allow_retry = FALSE, seed = 412836978.807758, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "q9-4", question = structure("You run a power analysis and find that, for your analysis, you will need 136 participants to have 80% power to detect a moderate effect (d = .5). Which of the following statements are true? Please select all that apply.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_b18b19d", 
+"character")), answers = list(structure(list(id = "lnr_ans_cb3d36e", 
     option = "If you recruit fewer than 136 participants, your chances of detecting an existing effect will decrease.", 
     value = "If you recruit fewer than 136 participants, your chances of detecting an existing effect will decrease.", 
     label = structure("If you recruit fewer than 136 participants, your chances of detecting an existing effect will decrease.", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9e28b5f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6f17ea", 
     option = "If you recruit at least 136 participants, you have an 80% chance of getting statistically significant results.", 
     value = "If you recruit at least 136 participants, you have an 80% chance of getting statistically significant results.", 
     label = structure("If you recruit at least 136 participants, you have an 80% chance of getting statistically significant results.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f581407", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_27b5e7d", 
     option = "If you recruit 136 participants, you have a 20% chance of making a Type II error.", 
     value = "If you recruit 136 participants, you have a 20% chance of making a Type II error.", 
     label = structure("If you recruit 136 participants, you have a 20% chance of making a Type II error.", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d1a34ee", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f4508d8", 
     option = "If the actual effect in the population is weaker than d = .5, 136 participants will still provide sufficient power to detect it.", 
     value = "If the actual effect in the population is weaker than d = .5, 136 participants will still provide sufficient power to detect it.", 
     label = structure("If the actual effect in the population is weaker than d = .5, 136 participants will still provide sufficient power to detect it.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_194ea9f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c77895d", 
     option = "If the actual effect in the population is stronger than d = .5, 136 participants will still provide sufficient power to detect it.", 
     value = "If the actual effect in the population is stronger than d = .5, 136 participants will still provide sufficient power to detect it.", 
     label = structure("If the actual effect in the population is stronger than d = .5, 136 participants will still provide sufficient power to detect it.", html = TRUE, class = c("html", 
@@ -1408,64 +1212,21 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), message = structure("You only have an 80% chance of getting statistically significant results IF the effect actually exists. Additionally, reducing the effect size decreases power, so you will need to increase your sample size in order to detect a smaller effect. Increasing the effect size increases power, so you will still be sufficiently powered to detect a larger effect without changing the sample.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q9-4-answer", 
     question = "q9-4"), loading = NULL, random_answer_order = TRUE, 
-    allow_retry = FALSE, seed = 584941478.727615, options = list()), class = c("learnr_checkbox", 
+    allow_retry = FALSE, seed = 1377709183.85845, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "accessData-1", 
-    question = structure("Which type of data is SPscore?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_bab6ba5", 
-        option = "Categorical", value = "Categorical", label = structure("Categorical", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a4748bb", 
-        option = "Continuous", value = "Continuous", label = structure("Continuous", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = structure("SPscore is a continuous variable. Values on a continuous scale have a meaningful numeric relationship with each other.", html = TRUE, class = c("html", 
-    "character")), post_message = NULL), ids = list(answer = "accessData-1-answer", 
-        question = "accessData-1"), loading = NULL, random_answer_order = TRUE, 
-    allow_retry = FALSE, seed = 879360432.590516, options = list()), class = c("learnr_radio", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "accessData-2", 
-    question = structure("Which type of data is Gender?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_e54c152", 
-        option = "Continuous", value = "Continuous", label = structure("Continuous", html = TRUE, class = c("html", 
-        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d9d88d1", 
-        option = "Categorical", value = "Categorical", label = structure("Categorical", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = structure("Gender is a categorical variable. Categorical data are nominal or ordinal data with no numeric relationship (although they may be represented numerically)", html = TRUE, class = c("html", 
-    "character")), post_message = NULL), ids = list(answer = "accessData-2-answer", 
-        question = "accessData-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 190901552.411105, options = list()), class = c("learnr_radio", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "accessData-3", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "accessData-1", 
     question = structure("Which of the following “Measure” values used by SPSS reflects categorical data? Please select all that apply.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_4de205f", 
+    "character")), answers = list(structure(list(id = "lnr_ans_301b02c", 
         option = "Nominal", value = "Nominal", label = structure("Nominal", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_da64aae", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_550e0cb", 
         option = "Ordinal", value = "Ordinal", label = structure("Ordinal", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_595269", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a57d24f", 
         option = "Scale", value = "Scale", label = structure("Scale", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1474,94 +1235,58 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
     "character")), try_again = structure("Incorrect. Be sure to select every correct answer.", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = structure("Scale can be used for both types of continuous data (ratio and interval scales of measurement), but categorical\nvariables are split into nominal and ordinal measures. Remember that nominal data reflect purely independent categories,\nbut ordinal data have some sort of implied order (e.g. Likert Scale data, level of education).", html = TRUE, class = c("html", 
-    "character")), post_message = NULL), ids = list(answer = "accessData-3-answer", 
-        question = "accessData-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 102000281.952502, options = list()), class = c("learnr_checkbox", 
+    "character")), post_message = NULL), ids = list(answer = "accessData-1-answer", 
+        question = "accessData-1"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1128512058.4745, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "freq-1", question = structure("At least one of the groups is limited in size compared to the others", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_fc22888", 
-    option = "True", value = "True", label = structure("True", html = TRUE, class = c("html", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "freq-1", question = structure("How many total datapoints do you have for the gender variable?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_12ad6a2", 
+    option = "250", value = 250, label = structure("250", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9887f45", 
-    option = "False", value = "False", label = structure("False", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
 "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = structure("The nonbinary group is much smaller than the other two measured groups.", html = TRUE, class = c("html", 
+"character")), message = structure("There are 250 total participants with gender data.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "freq-1-answer", 
     question = "freq-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 592701546.224002, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 213348573.400652, options = list(
+        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "freq-2", question = structure("How many total datapoints do you have for the gender variable?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_28d1929", 
-    option = "45", value = 45, label = structure("45", html = TRUE, class = c("html", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "freq-2", question = structure("How many female participants are in the sample?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_31e65a8", 
+    option = "118", value = 118, label = structure("118", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
 "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "freq-2-answer", question = "freq-2"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = FALSE, seed = 803030347.62606, 
-    options = list(min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
+"character")), message = structure("There are 118 females in this sample.", html = TRUE, class = c("html", 
+"character")), post_message = NULL), ids = list(answer = "freq-2-answer", 
+    question = "freq-2"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 333380597.344758, options = list(
+        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "freq-3", question = structure("What percentage of participants are female?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_f02149b", 
-    option = "42.2", value = 42.2, label = structure("42.2", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "freq-3-answer", question = "freq-3"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = FALSE, seed = 2095805946.02406, 
-    options = list(min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "freq-4", question = structure("How many nonbinary participants are in your sample?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_2f3a1fc", 
-    option = "2", value = 2, label = structure("2", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "freq-4-answer", question = "freq-4"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = FALSE, seed = 1043256536.0142, 
-    options = list(min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Dist-1", question = structure("Which of the following is appropriate for visualising the frequency distribution of continuous variables?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_80cb3cf", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "freq-3", question = structure("Which of the following is appropriate for visualising the frequency distribution of continuous variables?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_6d6e252", 
     option = "Bar Chart", value = "Bar Chart", label = structure("Bar Chart", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5cc91c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_47ece73", 
     option = "Histogram", value = "Histogram", label = structure("Histogram", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2cf1d7b", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d547990", 
     option = "Both bar charts & histograms can be used for this.", 
     value = "Both bar charts & histograms can be used for this.", 
     label = structure("Both bar charts &amp; histograms can be used for this.", html = TRUE, class = c("html", 
@@ -1572,109 +1297,42 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = structure("Histograms should be used to visualise the frequency distribution of a continuous variable. Bar charts should be used to visualise the frequency distribution of a categorical variable.", html = TRUE, class = c("html", 
-"character")), post_message = NULL), ids = list(answer = "Dist-1-answer", 
-    question = "Dist-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 2073622830.53439, options = list()), class = c("learnr_radio", 
+"character")), post_message = NULL), ids = list(answer = "freq-3-answer", 
+    question = "freq-3"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1068270446.50255, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Dist-2", question = structure("What does the x-axis of a histogram represent?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_da1d3dd", 
-    option = "The values of the continuous variable being inspected", 
-    value = "The values of the continuous variable being inspected", 
-    label = structure("The values of the continuous variable being inspected", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_df83b16", 
-    option = "The frequency of each value of the variable being inspected", 
-    value = "The frequency of each value of the variable being inspected", 
-    label = structure("The frequency of each value of the variable being inspected", html = TRUE, class = c("html", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "freq-4", question = structure("True or False: No participants scored above 70 on the social perception scale.", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_543dcd9", 
+    option = "True", value = "True", label = structure("True", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_cf54452", 
-    option = "The levels of a categorical variable being inspected", 
-    value = "The levels of a categorical variable being inspected", 
-    label = structure("The levels of a categorical variable being inspected", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f51c78b", 
-    option = "The normal distribution associated with the variable being inspected", 
-    value = "The normal distribution associated with the variable being inspected", 
-    label = structure("The normal distribution associated with the variable being inspected", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "Dist-2-answer", question = "Dist-2"), loading = NULL, 
-    random_answer_order = TRUE, allow_retry = FALSE, seed = 1378236750.35821, 
-    options = list()), class = c("learnr_radio", "tutorial_question"
-)), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Dist-3", question = structure("What does the y-axis of a histogram represent?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_c6a1012", 
-    option = "The values of the continuous variable being inspected", 
-    value = "The values of the continuous variable being inspected", 
-    label = structure("The values of the continuous variable being inspected", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_56aad08", 
-    option = "The frequency of each value of the variable being inspected", 
-    value = "The frequency of each value of the variable being inspected", 
-    label = structure("The frequency of each value of the variable being inspected", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c024ad8", 
-    option = "The levels of a categorical variable being inspected", 
-    value = "The levels of a categorical variable being inspected", 
-    label = structure("The levels of a categorical variable being inspected", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f3b7322", 
-    option = "The normal distribution associated with the variable being inspected", 
-    value = "The normal distribution associated with the variable being inspected", 
-    label = structure("The normal distribution associated with the variable being inspected", html = TRUE, class = c("html", 
-    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = structure("Histograms should be used with continuous data. The x-axis is the horizontal axis and reflects the values of the variable being inspected. The y-axis reflects the frequency, of each value (or, more often, a range of values) of the plotted variable. The normal curve associated with a specific variable can be plotted as a line overlaying the histogram.", html = TRUE, class = c("html", 
-"character")), post_message = NULL), ids = list(answer = "Dist-3-answer", 
-    question = "Dist-3"), loading = NULL, random_answer_order = TRUE, 
-    allow_retry = FALSE, seed = 933124525.06548, options = list()), class = c("learnr_radio", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "Dist-4", question = structure("Approximately how many students scored between 40 and 50 on Assessment A?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5493878", 
-    option = "18", value = 18, label = structure("18", html = TRUE, class = c("html", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_56b8fda", 
+    option = "False", value = "False", label = structure("False", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
 "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = structure("You can find this answer by checking the histogram for A. You could also check the frequency table.", html = TRUE, class = c("html", 
-"character")), post_message = NULL), ids = list(answer = "Dist-4-answer", 
-    question = "Dist-4"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 587830152.72627, options = list(
-        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
+"character")), message = structure("The histogram indicates that one participant achieved a score higher than 70.", html = TRUE, class = c("html", 
+"character")), post_message = NULL), ids = list(answer = "freq-4-answer", 
+    question = "freq-4"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1467887166.31646, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "desc1-1", question = structure("Which of the following central tendency measures could be used to describe age? Please select all that apply.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_c405e7e", 
+"character")), answers = list(structure(list(id = "lnr_ans_2890394", 
     option = "Mean", value = "Mean", label = structure("Mean", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9ba95a1", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2b16707", 
     option = "Median", value = "Median", label = structure("Median", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2372ceb", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_742e0cf", 
     option = "Mode", value = "Mode", label = structure("Mode", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1685,20 +1343,20 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), message = structure("All of the above could technically be used to describe the Age variable. However, it is most common to use the\nmean, as it includes information from each observation.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "desc1-1-answer", 
     question = "desc1-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 873749540.593129, options = list()), class = c("learnr_checkbox", 
+    allow_retry = FALSE, seed = 529036990.753648, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "desc1-2", question = structure("Which of the following central tendency measures could be used to describe gender?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_abce3bd", 
+"character")), answers = list(structure(list(id = "lnr_ans_54dd946", 
     option = "Mean", value = "Mean", label = structure("Mean", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_339e07f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_31f8d44", 
     option = "Median", value = "Median", label = structure("Median", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2b3f769", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1f498f2", 
     option = "Mode", value = "Mode", label = structure("Mode", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1709,113 +1367,62 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("As a categorical variable, there is no numeric relationship between values in the gender variable. Therefore,\nthe mode is the only measure of central tendency that is appropriate to describe this variable", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "desc1-2-answer", 
     question = "desc1-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1903840255.11346, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1101682398.48699, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "desc1-3", question = structure("What is the average score on Assessment A?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_26d49f1", 
-    option = "39.1", value = 39.1, label = structure("39.1", html = TRUE, class = c("html", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "desc1-3", question = structure("What is the average score on the Social Perception Scale? Please round your answer to two decimal places.", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_d86535b", 
+    option = "54.21", value = 54.21, label = structure("54.21", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
 "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "desc1-3-answer", question = "desc1-3"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = FALSE, seed = 892493456.0844, 
-    options = list(min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
+"character")), message = structure("The average social perception scale score is 54.21.", html = TRUE, class = c("html", 
+"character")), post_message = NULL), ids = list(answer = "desc1-3-answer", 
+    question = "desc1-3"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1097908584.98875, options = list(
+        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "desc1-4", question = structure("What is the most common age in this sample?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_4a43483", 
-    option = "19", value = 19, label = structure("19", html = TRUE, class = c("html", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "desc1-4", question = structure("How old are the oldest participants in this sample?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_8a79a7d", 
+    option = "17", value = 17, label = structure("17", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
 "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "desc1-4-answer", question = "desc1-4"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = FALSE, seed = 227409068.894104, 
-    options = list(min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
-"tutorial_question")), session = session)
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "desc1-5", question = structure("What is the median score on Assessment D?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5f07d6c", 
-    option = "81.87", value = 81.87, label = structure("81.87", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "desc1-5-answer", question = "desc1-5"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = FALSE, seed = 2070090572.53604, 
-    options = list(min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "desc2-1", question = structure("What is the IQR for Assessment B?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_1e13c83", 
-    option = "4", value = 4, label = structure("4", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = structure("To get the IQR for a variable, you’ll need to subtract the 25th percentile from the 75th percentile.", html = TRUE, class = c("html", 
-"character")), post_message = NULL), ids = list(answer = "desc2-1-answer", 
-    question = "desc2-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 12102014.9943646, options = list(
+"character")), message = structure("The maximum age of the sample is 17.", html = TRUE, class = c("html", 
+"character")), post_message = NULL), ids = list(answer = "desc1-4-answer", 
+    question = "desc1-4"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1004109526.03243, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "desc2-2", question = structure("What is the maximum score on Assessment C?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_56e9af9", 
-    option = "78", value = 78, label = structure("78", html = TRUE, class = c("html", 
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "desc1-5", question = structure("What is the standard deviation of age? Please round your answer to two decimal places.", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_d8d7404", 
+    option = "2.7", value = 2.7, label = structure("2.7", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
 "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "desc2-2-answer", question = "desc2-2"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = FALSE, seed = 1573212604.26742, 
-    options = list(min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
-"tutorial_question")), session = session)
-</script>
-
-
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "desc2-3", question = structure("What is the standard deviation of scores on Assessment D? Please report your answer to two decimal places.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_e434685", 
-    option = "2.15", value = 2.15, label = structure("2.15", html = TRUE, class = c("html", 
-    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = NULL), ids = list(
-    answer = "desc2-3-answer", question = "desc2-3"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = FALSE, seed = 637651809.20307, 
-    options = list(min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
+"character")), message = structure("The standard deviation of the age variable is 2.70.", html = TRUE, class = c("html", 
+"character")), post_message = NULL), ids = list(answer = "desc1-5-answer", 
+    question = "desc1-5"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1664885502.72473, options = list(
+        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
 </p>
