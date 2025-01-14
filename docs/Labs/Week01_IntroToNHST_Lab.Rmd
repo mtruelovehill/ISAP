@@ -146,7 +146,7 @@ tags$style(HTML(".js-irs-3 .irs-single, .js-irs-3 .irs-bar {background: #008290;
 
 ## Intro to Today's Lab
 
-During today's lab, you'll apply the concepts discussed during this week's lecture. You'll also review a few concepts from last week's lecture. Each lab consists of a range of tasks, with corresponding questions you can answer. Please note that the questions are not required and not marked, although they do provide a helpful source of formative feedback that will help you gauge your understanding. 
+During today's lab, you'll apply the concepts discussed during this week's lecture. Each lab consists of a range of tasks, with corresponding questions you can answer. Please note that the questions are not required and not marked, although they do provide a helpful source of formative feedback that will help you gauge your understanding. 
 
 Today, you'll be using interactive visualisations to demonstrate the concepts covered in the lecture. You will not be using SPSS. 
 
@@ -154,9 +154,8 @@ Today, you'll be using interactive visualisations to demonstrate the concepts co
 At the end of this lab, you will be able to:
 
 1. Understand the link between probability and inferential statistics
-2. Describe the difference between effect sizes and $p$-values
-3. Compute confidence intervals
-4. Describe general requirements of a power analysis
+2. Define statistical terms such as $p$-values and $\alpha$ 
+3. Distinguish between one-tailed and two-tailed tests
 
 ## Computing the Area Under the Curve
 

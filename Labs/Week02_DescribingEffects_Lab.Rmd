@@ -1,30 +1,22 @@
 ---
-title: "Week 2: CIs, Effect Sizes, and Power"
+title: "Week 2: Describing Effects"
 output:
   learnr::tutorial:
     progressive: true
     allow_skip: true
-    css:  css/style.css
+    css: https://mtruelovehill.github.io/ISAP/Labs/css/style.css
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
 
-pacman::p_load('tidyverse', 'rstatix')
-# library(tidyverse)
-# library(kableExtra)
-# library(knitr)
-# library(shiny)
-# library(shinyjs)
-# library(bslib)
-# library(pwr)
+pacman::p_load('tidyverse', 'rstatix', 'shiny')
 
-baseColor <- '#f7705c'
-accent1 <- '#fe9f6d'
-accent2 <- '#fbb61a'
-accent3 <- '#e95462'
-accent4 <- '#781c6d'
+baseColor <- '#F28157'
+accent1 <- '#F2B66D'
+accent2 <- '#30726E'
+accent3 <- '#008290'
 
 dat <- read.csv('https://mtruelovehill.github.io/PRM/Labs/Week1LabData.csv')
 studentDat <- dat[dat$Role=='Student',]
@@ -35,150 +27,6 @@ Cdens <- data.frame(cPerc=density(studentDat$Cperc, from = 0, to = 100)$x, dens=
 ```
 
 ```{r, context = 'server'}
-output$aucPlot <- renderPlot({
-  loLim <- ifelse(input$auc[1]==0, .00001, input$auc[1])
-  hiLim <- ifelse(input$auc[2]==1, .999999, input$auc[2])
-  
-  ggplot(data.frame(x=c(-6, 6)), aes(x)) + 
-    stat_function(fun=dnorm, geom = "line", linewidth = 1.5) +
-    geom_area(stat = "function", fun = dnorm, fill = baseColor, xlim = c(qnorm(loLim), qnorm(hiLim)),
-              alpha = .7) + 
-    theme(axis.text = element_blank(),
-          axis.ticks = element_blank(),
-          axis.title = element_blank()) +
-    annotate('text', label = paste0((input$auc[2]-input$auc[1])*100, '% of observations'),
-             x = -3, y = .3, size = 6)
-    })
-
-
-
-output$aucScorePlot <- renderPlot({
-  loLim <- ifelse(input$score[1]==31, 31, input$score[1])
-  hiLim <- ifelse(input$score[2]==84, 84, input$score[2])
-
-
-  propVal <- round((pnorm(input$score[2], mean = 58, sd = 9.4)-pnorm(input$score[1], mean = 58, sd = 9.4))*100)
-
-  ggplot(data.frame(x=c(31, 84)), aes(x)) +
-    stat_function(fun=dnorm, geom = "line", linewidth = 1.5, args = c(mean = 58, sd = 9)) +
-    geom_area(stat = "function", fun = dnorm, fill = baseColor, args = c(mean = 58, sd = 9), xlim = c(loLim, hiLim),
-              alpha = .7) +
-    theme(axis.text = element_blank(),
-          axis.ticks = element_blank(),
-          axis.title = element_blank()) +
-    annotate('text', label = paste0(propVal, '% of observations'), x = 42, y = .03, size = 6)
-    })
-
-
-output$alphaPlot <- renderPlot({
-  ggplot(data.frame(x=c(-5, 5)), aes(x)) +
-    stat_function(fun=dnorm, geom = "line", linewidth = 1.5, args = c(mean = 0, sd = 1)) + 
-    geom_area(stat = "function", fun = dnorm, fill = accent1, args = c(mean = 0, sd = 1),
-              xlim = c(qnorm(1-(as.numeric(input$alpha)/2)), 5), alpha = .7) +
-    geom_area(stat = "function", fun = dnorm, fill = accent1, args = c(mean = 0, sd = 1),
-              xlim = c(-5, qnorm(1-(as.numeric(input$alpha)/2), lower.tail = F)), alpha = .7) +
-    scale_x_continuous(breaks = seq(-5, 5, by = .5)) +
-    xlab('test statistic') +
-    geom_vline(xintercept = qnorm(1-(as.numeric(input$alpha)/2), lower.tail = F), color = baseColor, linewidth = 1.5, linetype='dashed') +
-    geom_vline(xintercept = qnorm(1-(as.numeric(input$alpha)/2)), color = baseColor, linewidth = 1.5, linetype='dashed') +
-    theme(axis.text.y = element_blank(),
-          axis.ticks.y = element_blank(),
-          axis.title.y = element_blank(),
-          axis.text.x = element_text(size = 14, face = 'bold'),
-          axis.title.x = element_text(size = 16, face = 'bold'))
-})
-
-output$pPlot <- renderPlot({
-  lowProb <- round(pnorm(input$testStatistic, mean = 0, sd = 1), 4)*100
-  hiProb <- round(pnorm(input$testStatistic, mean = 0, sd = 1, lower.tail = F),4)*100
-
-  limVal <- ifelse(input$testStatistic<0, input$testStatistic, input$testStatistic*-1)
-
-  pVal <- ifelse(input$testStatistic<0, round(pnorm(input$testStatistic, mean = 0, sd = 1), 3)*2,
-                 round(pnorm(input$testStatistic, mean = 0, sd = 1, lower.tail = F), 3)*2)
-
-  ggplot(data.frame(x=c(-5, 5)), aes(x)) +
-    geom_area(stat = "function", fun = dnorm, fill = baseColor, args = c(mean = 0, sd = 1),
-              xlim = c(-5, limVal), alpha = .7) +
-    geom_area(stat = "function", fun = dnorm, fill = baseColor, args = c(mean = 0, sd = 1),
-              xlim = c(abs(limVal), 5), alpha = .7) +
-    geom_area(stat = "function", fun = dnorm, fill = accent1, args = c(mean = 0, sd = 1),
-              xlim = c(limVal, abs(limVal)), alpha = .7) +
-    stat_function(fun=dnorm, geom = "line", linewidth = 1.5, args = c(mean = 0, sd = 1)) +
-    scale_x_continuous(breaks = seq(-5, 5, by = 1)) +
-    scale_y_continuous(limits=c(0, .4)) +
-    xlab('test statistic') +
-    geom_vline(xintercept = input$testStatistic, color = accent3, linewidth = 1.5, linetype='dashed') +
-    theme(axis.text.y = element_blank(),
-          axis.ticks.y = element_blank(),
-          axis.title.y = element_blank(),
-          axis.text.x = element_text(size = 14, face = 'bold'),
-          axis.title.x = element_text(size = 16, face = 'bold')) +
-    geom_rect(aes(xmin = -3.8, xmax = -2.7, ymin = .03, ymax = .07), fill = baseColor, alpha = .5) +
-    geom_rect(aes(xmin = 3.8, xmax = 2.7, ymin = .03, ymax = .07), fill = baseColor, alpha = .5) +
-    annotate('text', label = paste0('P', ifelse(pVal==0, ' < .001', paste0(' = ', pVal/2))), x = 3.25, y = .05, size = 6) +
-    annotate('text', label = paste0('P', ifelse(pVal==0, ' < .001', paste0(' = ', pVal/2))), x = -3.25, y = .05, size = 6)
-})
-
-# output$pPlot <- renderPlot({
-#   lowProb <- round(pnorm(input$testStatistic, mean = 0, sd = 1), 4)*100
-#   hiProb <- round(pnorm(input$testStatistic, mean = 0, sd = 1, lower.tail = F),4)*100
-#   
-#   limVal <- ifelse(input$testStatistic<0, input$testStatistic, input$testStatistic*-1)
-#   
-#   pVal <- ifelse(input$testStatistic<0, round(pnorm(input$testStatistic, mean = 0, sd = 1), 3)*2, 
-#                  round(pnorm(input$testStatistic, mean = 0, sd = 1, lower.tail = F), 3)*2)
-#   
-#   ggplot(data.frame(x=c(-5, 5)), aes(x)) +
-#     geom_area(stat = "function", fun = dnorm, fill = baseColor, args = c(mean = 0, sd = 1),
-#               xlim = c(-5, limVal), alpha = .7) +
-#     geom_area(stat = "function", fun = dnorm, fill = baseColor, args = c(mean = 0, sd = 1),
-#               xlim = c(abs(limVal), 5), alpha = .7) +
-#     geom_area(stat = "function", fun = dnorm, fill = accent1, args = c(mean = 0, sd = 1),
-#               xlim = c(limVal, abs(limVal)), alpha = .7) +
-#     stat_function(fun=dnorm, geom = "line", linewidth = 1.5, args = c(mean = 0, sd = 1)) +
-#     scale_x_continuous(breaks = seq(-5, 5, by = 1)) +
-#     scale_y_continuous(limits=c(0, .4)) +
-#     xlab('test statistic') +
-#     geom_vline(xintercept = input$testStatistic, color = accent3, linewidth = 1.5, linetype='dashed') +
-#     theme(axis.text.y = element_blank(),
-#           axis.ticks.y = element_blank(),
-#           axis.title.y = element_blank(),
-#           axis.text.x = element_text(size = 14, face = 'bold'),
-#           axis.title.x = element_text(size = 16, face = 'bold')) +
-#     geom_rect(aes(xmin = -3.8, xmax = -2.7, ymin = .03, ymax = .07), fill = baseColor, alpha = .5) +
-#     geom_rect(aes(xmin = 1.2, xmax = 2.3, ymin = .28, ymax = .32), fill = accent1, alpha = .5) +
-#     geom_rect(aes(xmin = 3.8, xmax = 2.7, ymin = .03, ymax = .07), fill = baseColor, alpha = .5) +
-#     annotate('text', label = paste0('p', ifelse(pVal==0, ' < .001', paste0(' = ', pVal/2))), x = 3.25, y = .05, size = 6) +
-#     annotate('text', label = paste0('p', ifelse(pVal==0, ' < .001', paste0(' = ', pVal/2))), x = -3.25, y = .05, size = 6) +
-#     annotate('text', label = paste0('p', ifelse(pVal==0, ' < .001', paste0(' = ', 1-pVal))), x = 1.75, y = .3, size = 6)
-# })
-
-
-
-output$testPlot <- renderPlot({
-  limVal <- ifelse(input$testStat2<0, input$testStat2, input$testStat2*-1)
-  
-  pVal <- ifelse(input$testStat2<0, round(pnorm(input$testStat2, mean = 0, sd = 1), 3)*2, 
-                 round(pnorm(input$testStat2, mean = 0, sd = 1, lower.tail = F), 3)*2)
-  
-  ggplot(data.frame(x=c(-5, 5)), aes(x)) +
-    geom_area(stat = "function", fun = dnorm, fill = baseColor, args = c(mean = 0, sd = 1),
-              xlim = c(-5, limVal), alpha = .7) +
-    geom_area(stat = "function", fun = dnorm, fill = baseColor, args = c(mean = 0, sd = 1),
-              xlim = c(abs(limVal), 5), alpha = .7) +
-    stat_function(fun=dnorm, geom = "line", linewidth = 1.5, args = c(mean = 0, sd = 1)) +
-    scale_x_continuous(breaks = seq(-5, 5, by = 1)) +
-    xlab('test statistic') +
-    geom_vline(xintercept = input$testStat2, color = accent3, linewidth = 1.5, linetype='dashed') +
-    theme(axis.text.y = element_blank(),
-          axis.ticks.y = element_blank(),
-          axis.title.y = element_blank(),
-          axis.text.x = element_text(size = 14, face = 'bold'),
-          axis.title.x = element_text(size = 16, face = 'bold')) +
-    annotate('text', label = paste0('p', ifelse(pVal==0, ' < .001', paste0(' = ', pVal))), x = 3.25, y = .2, size = 6)
-})
-
 output$effectSizePlot <- renderPlot({
   
   set.seed(820)
@@ -254,156 +102,14 @@ tags$style(HTML(".js-irs-8 .irs-single, .js-irs-8 .irs-bar {background: #4CA384;
 
 During today's lab, you'll apply the concepts discussed during this week's lecture. You'll also review a few concepts from last week's lecture. Each lab consists of a range of tasks, with corresponding questions you can answer. Please note that the questions are not required and not marked, although they do provide a helpful source of formative feedback that will help you gauge your understanding. 
 
-Today, you'll be using interactive visualisations to demonstrate the concepts covered in the lecture. You will not be using SPSS. 
+Today, you'll be using interactive visualisations to demonstrate the concepts covered in the lecture. You will also learn some SPSS basics.
 
 ### Learning Objectives
 At the end of this lab, you will be able to:
 
-1. Understand the link between probability and inferential statistics
-2. Describe the difference between effect sizes and $p$-values
-3. Compute confidence intervals
-4. Describe general requirements of a power analysis
-
-## Computing the Area Under the Curve
-
-Recall from the [lecture](https://mtruelovehill.github.io/PRM/Lectures/Week03_NHST_lecture.html#16) that the total area under the curve (AUC) allows us to compute the probability of an observation falling within a given range. Use the plot below to visualise how the AUC corresponds to different proportions of observations in a normal distribution.
-
-```{r aucPlot, echo = F}
-
-sliderInput('auc', min=0, max = 1, step = .01, value = c(0,1), ticks = F, label = NULL)
-plotOutput('aucPlot')
-
-```
-<br>
-
-Now that you've started to get a grasp on what the area under the curve corresponds to, let's apply this to the example from last week.
-Recall that you had a small sample of students who completed each of the three assessments. The optimal assessment was determined to be Assessment C. Imagine that the instructor adopted Assessment C for use in their course. The plot below reflects the probability distribution of assessment performance across all students on the course. 
-
-```{r, echo = F}
-sliderInput('score', 'Assessment Score:', min=31, max = 84, step = 1, value = c(31,84), ticks = F)
-plotOutput('aucScorePlot')
-```
-
-
-```{r q1, echo = FALSE}
-
-quiz(caption = 'Test Your Understanding',
-     question_numeric('What was the maximum score on the assessment?',
-                      answer(84, correct = T),
-                      message = 'The maximum score was 84'),
-     question_numeric('What percentage of students recieved an A (70+) on the assessment?',
-                      answer(10, correct = T),
-                      message = '10% of the sample scored 70 or above on the assessment.'),
-     question_numeric('If we were to randomly select an exam booklet from the entire pile of assessments, what is the probability that the mark will be between 55 and 65?',
-                      answer(40, correct = T),
-                      answer(.40, correct = T),
-                      message = 'The probability that we the mark will be between 55 and 65 is .40, or 40%'),
-     question_numeric('The instructor wants to identify the students who scored in the lowest 5% so that they can check in and offer additional help. Fill in the blank: Students scoring __ and below will be contacted by the instructor.',
-                      answer(43, correct = T),
-                      message = '5% of the sample scored 43 or below.'),
-     question_numeric('Assume this distribution is perfectly normal. What was the mean score on the assessment?',
-                      answer(58, correct = T),
-                      message = 'In a normal distribution, all observations are centred around the mean. The mean score on this assessment is 58, as 50% of students scored 58 or above, and 50% of students scored 58 or below.')
-)
-```
-
-
-## The Null Distribution
-
-When we run an inferential statistical test, it produces a test statistic. The null distribution for that test is the distribution of test statistics we would expect if the null hypothesis were true. If we run a statistical test and our statistic falls in the extreme region of the distribution, we consider our results to be significant and reject the null hypothesis (because our results would be really unusual if the null hypothesis were true!). See the [lecture](https://mtruelovehill.github.io/PRM/Lectures/Week03_NHST_lecture.html#26) if you need a refresher. 
-
-Before running a test, we use $\alpha$ to determine our cutoff for significance. $\alpha$ refers to the proportion of values in the null distribution we consider to be extreme. In the plot below, the shaded region indicates the 'extreme' region associated with each value of $\alpha$. 
-
-
-```{r, echo = F}
-fluidRow(column(width = 2, 
-                selectInput('alpha', 'Choose an alpha value:', choices = list('.05' = .05, '.01' = .01, '.001' = .001))))
-
-plotOutput('alphaPlot')
-```
-
-
-```{r q2, echo = FALSE}
-
-quiz(caption = 'Test Your Understanding',
-     question('Given an alpha of .05, would a test statistic of -1.5 be significant?',
-              answer('Yes'),
-              answer('No', correct = T),
-              message = 'A value of -1.5 would not fall past the alpha threshold, so would not be considered significant.'),
-     question('Given an alpha of .001, would a test statistic of 3.5 be significant?',
-              answer('Yes', correct = T),
-              answer('No'),
-              message = 'A value of 3.5 would fall past the alpha threshold and would be considered significant.'),
-     question('Given an alpha of .01, would a test statistic of 2.5 be significant?',
-              answer('Yes'),
-              answer('No', correct = T),
-              message = 'A value of 2.5 would not fall past the alpha threshold, so would not be considered significant.')
-)
-```
-
-
-## Computing <i> p </i>
-
-Recall from the [lecture](https://mtruelovehill.github.io/PRM/Lectures/Week03_NHST_lecture.html#37) that a $p$-value is the probability of obtaining a statistical test result at least as extreme as ours, given that the null hypothesis is true. Keep in mind that we're interested in the probability of any value **at least as extreme as our value**, regardless of whether it is positive or negative. This means that the $p$-value is calculated by summing the probability of scores more extreme than our value on **both** sides of the distribution. 
-
-The plot below shows the probability of each shaded region, as well as a line representing the test statistic value. Use this plot to answer the following questions.
-
-```{r, echo = F}
-sliderInput('testStatistic', 'Value of Test Statistic:', min=-5, max = 5, step = .01, value = 0, ticks = F)
-plotOutput('pPlot')
-```
-
-
-```{r q3, echo = FALSE}
-quiz(caption = 'Test Your Understanding',
-     question_numeric("What is the p-value associated with obtaining a test statistic at least as extreme as 2.25? Please report your answer to 3 decimal places.",
-              answer(.024, correct = T),
-              message = 'For a test statistic of 2.25, p = .024. Because you need the probability of values as extreme as yours (regardless of whether they are positive or negative) you must add the probabilities in each tail. .012 + .012 = .024'),
-     question_numeric("What is the p-value associated with obtaining a test statistic at least as extreme as -1.36? Please report your answer to 3 decimal places.",
-               answer(.174, correct = T),
-              message = "For a test statistic of -1.50, p = .174 Because you need the probability of values as extreme as yours (regardless of whether they are positive or negative) you must add the probabilities in each tail. .087 + .087 = .174"),
-     question_numeric('Which test statistic reflects the cutoff for the most extreme 5% of the data?',
-              answer(-1.96, correct = T),
-              answer(1.96, correct = T),
-              message = "Because 5% is split between each tail of the distribution, any statistic with a corresponding probability of 2.5% or less would fall into the most extreme 5% of the values. The cutoff point is 1.96."),
-     question('Which of the following test statistics are in the most extreme 1% of the data? Please select all that apply.',
-              answer(-2.76, correct = T),
-              answer(2.34),
-              answer(1.74),
-              answer(-2.58, correct = T),
-              message = "Because 1% is split between each tail of the distribution, any statistic with a corresponding probability of .5% or less would fall into the most extreme 1% of the values.")
-)
-```
-
-
-## Putting it all Together
-
-In the last few tasks, we've broken down the general steps of an inferential statistical test. This gives you a glimpse of what's going on under the hood of SPSS. Now, let's put the steps together. 
-
-
-Use the plot below to answer the following questions. The shaded area reflects $p$, the probability of getting a test statistic at least as extreme as yours given the null is true.
-
-Please note that in the previous sections, $P$ (capital) reflected the probability of scores within each region. Here, $p$ (lowercase) refers to the $p$-value (the total probability of both shaded regions). 
-
-```{r, echo = F}
-sliderInput('testStat2', 'Value of Test Statistic:', min=-5, max = 5, step = .01, value = 0, ticks = F)
-plotOutput('testPlot')
-```
-
-
-
-```{r q4, echo = FALSE}
-quiz(caption = 'Test Your Understanding',
-     question("If alpha = .001, is the p-value associated with a test statistic of 3.00 significant?",
-              answer('Yes'),
-              answer('No', correct = T),
-              message = 'For a test statistic of 3.00, p = .002, which is more than the alpha threshold of .001, so we would not consider this result significant.'),
-     question("If alpha = .01, is the p-value associated with a test statistic of -2.55 significant?",
-               answer('Yes', correct = T),
-              answer('No'),
-              message = "For a test statistic of -2.55, p = .010. As this is equal to the alpha threshold of .01, this result would be significant. Or not. There is actually debate about this circumstance. Either answer is fine, because honestly, there is no meaningful difference between a p-value of .049 and .050, so your decision doesn't really matter anyways. However, we need some kind of threshold to avoid a slippery slope, so anything above your alpha is definitively nonsignificant.")
-)
-```
+1. Describe the difference between effect sizes and $p$-values
+2. Compute confidence intervals
+3. Describe general requirements of a power analysis
 
 ## Interpreting Effect Sizes
 
