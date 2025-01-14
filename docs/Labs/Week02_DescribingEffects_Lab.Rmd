@@ -365,7 +365,7 @@ Check under the **File** tab in SPSS to open the data. Use the *Variable View* i
 Click *Open* under the **File** tab.  Navigate to the folder where you've stored  'Week2LabData.sav' and select the file. Once data have been imported, check the measure type in the *Variable View* tab:
 
 ```{r, echo = F, out.width='75%', fig.align='center'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week1_variableView.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week1_variableView.png')
 ```
 
 SPSS labels the data as:
