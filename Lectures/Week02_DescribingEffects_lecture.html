@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title> Confidence Intervals, Effect Sizes, and Power </title>
+    <title> Describing Effects </title>
     <meta charset="utf-8" />
     <meta name="author" content="Monica Truelove-Hill" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -12,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# <b> Confidence Intervals, Effect Sizes, and Power </b>
+# <b> Describing Effects </b>
 ]
 .subtitle[
 ## Inferential Statistics in Applied Psychology<br>
@@ -35,18 +35,34 @@ class: center, middle, inverse, title-slide
 
 ## This Week's Key Topics
 
++ Effect Sizes
+
++ Standard Error
+
++ Confidence Intervals 
+
++ Power
+
 ---
+## Recap from Last Week
+
++ When we run a statistical test, we compare our results against the null distribution, which is the probability of the results, given the null hypothesis is true.
+
++ If the probability of our outcome (the `\(p\)`-value) is less than `\(\alpha\)`, it means the outcome falls into the range that we've designated as extreme.
+
++ Because it's really unlikely that this outcome would occur if the null hypothesis were true, we consider this sufficient evidence against the null hypothesis, and we reject it.
+
 ---
 ## Effect Size
 
 + On it's own, a `\(p\)`-value is not sufficient. 
 
 .pull-left[.center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-2-1.svg)&lt;!-- --&gt;
 ]]
 
 .pull-right[.center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-3-1.svg)&lt;!-- --&gt;
 ]]
 
 ---
@@ -57,14 +73,14 @@ count: false
 + On it's own, a `\(p\)`-value is not sufficient. 
 
 .pull-left[.center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-4-1.svg)&lt;!-- --&gt;
 
 ** `\(p\)` = .015**
 ]]
 
 
 .pull-right[.center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-5-1.svg)&lt;!-- --&gt;
 
 ** `\(p\)` = .015**
 ]]
@@ -72,37 +88,85 @@ count: false
 ---
 ## Effect Size
 
-+ The **effect size** describes the magnitude of the effect or relationship
++ The **effect size** reflects the magnitude of the difference between the null value and the true population value.
 
-+ Unlike a `\(p\)`-value, which only tells you the likelihood that an effect or relationship exists, the effect size tells you how strong it is.
-
-+ Different measures of effect size depending on your data/the statistical test you use
-
-+ Usually standardised so that you can make comparisons across different variables
++ Unlike a `\(p\)`-value, which only tells you the *likelihood* that an effect or relationship exists, the effect size tells you *how strong it is*.
 
 --
 
 .pull-left.center[
 
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-6-1.svg)&lt;!-- --&gt;
 
 ]
 
 .pull-right.center[
 
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-7-1.svg)&lt;!-- --&gt;
 
 ]
 
+
+
+---
+## Effect Size
+
++ `\(p\)`-value - is the effect significant?
+
++ effect size - is the effect meaningful?
+
++ **Both** should be reported
+
+--
+
++ Many measures of effect size exist (e.g., `\(d\)`, `\(\eta^2\)`, `\(r\)`)
+
++ Usually, effect sizes are standardised rather than representing the raw difference between values
+
+  + This means that comparisons can be made across different variables
 
 ???
 
 Think about practical significance - a pharmaceutical company tests the effect of their new vitamin and finds that it significantly decreases the amount of time someone is sick over the course of a year. SIGNIFICANCE! But wait...it only decreases the amount of sick days by a single day. EFFECT SIZE. Do they really want to spend an immense amount of money for a single day's improvement?
 
 ---
+## Drawing Conclusions
+
+Given `\(\alpha\)` = .05, consider the following results:
+
+.pull-left[
+
+1. `\(p\)` &lt; .001, effect size = large
+
+2. `\(p\)` = .341, effect size = large
+
+3. `\(p\)` = .002, effect size = small
+
+4. `\(p\)` = .512, effect size = small
+
+]
+
+--
+
+.pull-right[
+
++ Is the result **significant?**
+
++ Is it **meaningful?**
+
++ What should be done?
+
+]
+
+---
+class: center, inverse, middle
+
+## Questions?
+
+---
 ## Confidence Intervals
 
-+ Remember, we don't actually know the population parameter; we're trying to estimate this with our data.
++ Remember, we don't actually know the population parameter; we're trying to estimate this with sample data.
 
 + A **confidence interval** defines a plausible range of values for our population parameter. 
 
@@ -114,27 +178,36 @@ Think about practical significance - a pharmaceutical company tests the effect o
 
 --
 
-&gt; How many of you are confident that I'm between 33 &amp; 38 years old?
-
---
-
-&gt; How many of you are confident that I'm between 29 &amp; 42 years old?
+&gt; How many of you are confident that I'm between 32 &amp; 39 years old?
 
 --
 
 &gt; How many of you are confident that I'm between 25 &amp; 46 years old?
-  
+
+
 ---
-## Confidence Level
+## Confidence Intervals
+
++ Remember, we don't actually know the population parameter; we're trying to estimate this with sample data.
+
++ A **confidence interval** defines a plausible range of values for our population parameter. 
+
++ The wider the interval, the more confident that we can be that the interval captures our true value.
+
+--
 
 + To estimate the confidence interval, we need:
 
   + To define a confidence level
   + The standard error
 
+---
+
+## Confidence Level
+
 + The **confidence level** refers to the percentage of times confidence intervals would be expected to contain the true population parameter across repeated samples.
 
-+ The typical confidence level used is **95%**, although you might also see 90% or 99%
++ The typical confidence level used is **95%**
 
 + So, if we were to take 100 samples and calculate a 95% CI on each of them, ~95 of those intervals would contain the true population parameter.
 
@@ -152,12 +225,13 @@ Think about practical significance - a pharmaceutical company tests the effect o
 
 + The average deviation from the mean *within* our sample is the **standard deviation**
 
-+ Now imagine you took multiple samples and plotted their means:
++ Now imagine multiple samples are taken, and the sample means are plotted each time:
+
 
 --
 
 .center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-8-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -167,10 +241,10 @@ count: false
 
 + The average deviation from the mean *within* our sample is the **standard deviation**
 
-+ Now imagine you took multiple samples and plotted their means:
++ Now imagine multiple samples are taken, and the sample means are plotted each time:
 
 .center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-9-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -180,10 +254,10 @@ count: false
 
 + The average deviation from the mean *within* our sample is the **standard deviation**
 
-+ Now imagine you took multiple samples and plotted their means:
++ Now imagine multiple samples are taken, and the sample means are plotted each time:
 
 .center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-10-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -193,10 +267,10 @@ count: false
 
 + The average deviation from the mean *within* our sample is the **standard deviation**
 
-+ Now imagine you took multiple samples and plotted their means:
++ Now imagine multiple samples are taken, and the sample means are plotted each time:
 
 .center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-11-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -206,10 +280,10 @@ count: false
 
 + The average deviation from the mean *within* our sample is the **standard deviation**
 
-+ Now imagine you took multiple samples and plotted their means:
++ Now imagine multiple samples are taken, and the sample means are plotted each time:
 
 .center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-12-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -219,13 +293,24 @@ count: false
 
 + The average deviation from the mean *within* our sample is the **standard deviation**
 
-+ Now imagine you took multiple samples and plotted their means:
++ Now imagine multiple samples are taken, and the sample means are plotted each time:
 
 .center[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-13-1.svg)&lt;!-- --&gt;
 ]
 
---
+---
+count: false
+
+## Standard Error
+
++ The average deviation from the mean *within* our sample is the **standard deviation**
+
++ Now imagine multiple samples are taken, and the sample means are plotted each time:
+
+.center[
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-14-1.svg)&lt;!-- --&gt;
+]
 
 + The average deviation from the mean of the means *between* samples is the **standard error**
 
@@ -252,20 +337,50 @@ Don't worry, brilliant statisticians have figured out how you can estimate this 
 ---
 ## Calculation of Confidence Intervals
 
-+ As this is an interval, you'll need to calculate both a lower and upper band.
-
---
-
-`$$CI = \bar{x}\pm z\times SE$$`
+`$$95\%\  CI = \bar{x}\pm 1.96\times SE$$`
 
 `\(\bar{x}\)`: sample mean
 
-`\(z\)`: `\(z\)`-score associated with the confidence level
-  + 90% = 1.64
-  + 95% = 1.96
-  + 99% = 2.58
-
 `\(SE\)`: the standard error
+
+`\(\pm\)`: As this is an interval, both a lower and upper band must be calculated
+
+---
+## Calculation of Confidence Intervals
+
+.pull-left[
++ Where does 1.96 come from when calculating the 95% CI?
+
++ When enough samples are taken, the sampling distribution approximates a **normal distribution**
+
+  + Observations are symmetrically scattered on both sides of the mean
+]
+
+.pull-right[
+
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-15-1.svg)&lt;!-- --&gt;
+
+
+]
+
+---
+count: false
+
+## Calculation of Confidence Intervals
+
+.pull-left[
++ Where does 1.96 come from when calculating the 95% CI?
+
++ When enough samples are taken, the sampling distribution approximates a **normal distribution**
+
+  + Observations are symmetrically scattered on both sides of the mean
+  + **95%** of observations in a normal distribution fall **1.96** standard errors from the mean
+]
+
+.pull-right[
+
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-16-1.svg)&lt;!-- --&gt;
+]
 
 ---
 ## Calculation of Confidence Intervals
@@ -342,7 +457,7 @@ Don't worry, brilliant statisticians have figured out how you can estimate this 
 ## Visualisation of Confidence Intervals
 
 .pull-left[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-17-1.svg)&lt;!-- --&gt;
 
 ]
 
@@ -361,12 +476,12 @@ count: false
 ## Visualisation of Confidence Intervals
 
 .pull-left[
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-18-1.svg)&lt;!-- --&gt;
 ]
 
 .pull-right[
 
-
+![](Week02_DescribingEffects_lecture_files/figure-html/unnamed-chunk-19-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -375,93 +490,41 @@ class: center, inverse, middle
 
 ## Questions?
 
----
-## Errors
 
-+ Whether your decision is either to reject or not reject the null hypothesis, you may be making an error.
-
---
-
-+ Two types of errors:
-
-  + **Type I Error:** You reject a true null hypothesis (i.e., you believe a result is significant when it is not)
-  
-  + **Type II Error:** You don't reject a false null hypothesis (i.e., you don't think a result is significant when it is)
-
-
---
-
-.center[
-
-]
-
----
-
-## `\(\alpha\)`
-
-+ Rejecting the null when it is actually true is known as a **Type I error**. 
-
-  + We have to make a decision about how much we want to risk making a Type I error
-
-  + Our accepted risk threshold is known as `\(\alpha\)`
-  
-  + `\(\alpha\)` reflects the probability of making a Type I error
-
---
-  
-+ Typical `\(\alpha\)` value is .05, but may sometimes be set at .01 or .001.
-
---
-
-+ If our `\(p\)`-value is equal to or less than our predetermined `\(\alpha\)`, we consider our results to be significant.
-
----
-
-## `\(\alpha\)`
-
-.pull-left[
-.center[ ** `\(\alpha\)` = .05**
-
-
-
-]
-]
-
---
-
-.pull-right[
-.center[ ** `\(\alpha\)` = .01**
-
-
-
-]
-]
 ---
 
 ## Power
+
++ Recall last week's discussion about Type I &amp; Type II error
+
++ The `\(\alpha\)` threshold reflects a study's risk of a Type I error
+
+--
 
 + Similarly, we have to make a decision about how much we want to risk making a **Type II error** 
 
   + The probability of making a Type II error is known as `\(\beta\)`
   
-+ An analysis's power is associated with the likelihood of making a Type II error.
-  
-  + It tells us how likely we are to detect an effect *if it exists*
++ An analysis's power reflects how likely it is that an effect will be detected *if it exists*
   
   + AKA, 1 - `\(\beta\)`
 
---
+---
+
+## Power
   
 + A conventional value for power is .8 (80% power)
 
 + This means there is a 20% chance of making a Type II error
 
++ When designing a study, a power analysis should be conducted to ensure that this power threshold will be reached given the sample constraints of the study
+
+  + The type of power analysis you use will depend upon the statistical test you plan to perform
 
 ---
-
 ## Power
 
-+ There are typically four numbers that go into a power calculation. If you have 3 of these numbers, you can solve for the fourth:
++ There are typically four numbers that go into a power analysis. If you have 3 of these numbers, you can solve for the fourth:
 
   + `\(\alpha\)`
   + Effect Size
@@ -473,28 +536,27 @@ class: center, inverse, middle
 &gt; **Test Your Understanding:** How do you think each of these values affects your ability to detect an effect?
 
 ---
-count: false
+## Types of Power Analyses
 
-## Power
++ In most a priori power analyses, you'll want to calculate the **sample** required to get 80% power for a specific effect size and `\(\alpha\)` value.
 
-+ There are typically four numbers that go into a power calculation. If you have 3 of these numbers, you can solve for the fourth:
++ However, if you already have a set sample (e.g. a secondary data analysis), you might want to compute the **effect size** that it can detect, given certain `\(\alpha\)` and power thresholds.
 
-  + `\(\alpha\)`
-  + Effect Size
-  + `\(n\)`
-  + Power
++ In this course, we'll be using [WebPower](https://webpower.psychstat.org/wiki/models/index) to conduct power analysis.
 
-+ In most a priori power analyses, you'll want to check the sample required to get 80% power for a specific effect size.
-
-+ However, if you already have a set sample, you might want to check the effect size that it has the power to detect.
 
 ---
 
 ## To summarise...
 
 .center[
-
+&lt;img src="images/ErrorTableAlphaBeta.png" width="75%" /&gt;
 ]
+
+---
+class: center, inverse, middle
+
+## Questions?
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
