@@ -256,7 +256,7 @@ As you interpret this plot, try to answer the following questions:
                answer('90%'),
                answer('100%'),
                message = 'Traditionally, a threshold of 80% is considered an acceptable level of power for a study.'),
-      question('Which of the following is not considered when calculating power?',
+      question('Which of the following is not directly considered when calculating power?',
                answer('Sample variance', correct = T),
                answer('Sample size'),
                answer('Significance level'),
