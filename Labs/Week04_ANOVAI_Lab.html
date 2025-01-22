@@ -96,7 +96,7 @@ if (window.hljs) {
 </style>
 <!-- end tabsets -->
 
-<link rel="stylesheet" href="https://mtruelovehill.github.io/ISAP/Labs/css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 
 </head>
 
@@ -148,8 +148,8 @@ social interactions. You’ll be investigating this through two separate
 experiments.</p>
 </div>
 </div>
-<div id="section-experiment-1-overview" class="section level2">
-<h2>Experiment 1 Overview</h2>
+<div id="section-experiment-overview" class="section level2">
+<h2>Experiment Overview</h2>
 <p><br> In the first experiment, you’ll investigate whether the region
 of the face covered affects a child’s ability to recognize emotions
 conveyed by facial expressions. You recruited a sample of primary-school
@@ -157,15 +157,15 @@ aged children. All participants were presented with photos of people
 making stereotypical facial expressions associated with 5 different
 emotions (happiness, sadness, fear, anger, disgust). However,
 participants were grouped into one of three conditions. Participants in
-the first condition viewed unobstructed faces Participants in the second
-condition viewed faces wearing sunglasses so that the eyes were
-obstructed. Participants in the third condition viewed faces wearing
-masks so that the mouth was obstructed (see examples below).</p>
+the first condition viewed unobstructed faces. Participants in the
+second condition viewed faces wearing sunglasses to obstruct their eyes.
+Participants in the third condition viewed faces wearing masks to
+obstruct their mouths (see examples below).</p>
 <p><img src="https://mtruelovehill.github.io/PRM/Labs/images/Week5_expStimuli.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Participants viewed 10 photos per emotion, for a total of 50 photos.
 Photos were presented in random order for each participant.</p>
 <p>You can download the dataset from the first experiment <a
-href="https://mtruelovehill.github.io/PRM/Labs/Week5LabData1.csv">here</a>.
+href="https://mtruelovehill.github.io/ISAP/Labs/Week4LabData1.sav">here</a>.
 It contains the following variables:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -291,15 +291,165 @@ class="math inline">\(\mu\)</span>s</p>
 <p></br></p>
 </div>
 </div>
-<div id="section-experiment-1-data-review" class="section level2">
-<h2>Experiment 1 Data Review</h2>
+<div id="section-power-analysis" class="section level2">
+<h2>Power Analysis</h2>
+<p><br></p>
+<p>When designing a study, a power analysis should be conducted to
+determine either the target sample size (when collecting primary data)
+or the effect size that a sample has the ability to detect (when working
+with secondary data).</p>
+<p>Recall the effect size measure for ANOVA, <span
+class="math inline">\(\eta^2\)</span>:</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;color: #F28157 !important;text-align: left;font-size: 16px;">
+Variable Name
+</th>
+<th style="text-align:right;font-weight: bold;color: #F28157 !important;text-align: left;font-size: 16px;">
+Magnitude of <span class="math inline">\(\eta^2\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 4.5cm; font-weight: bold;">
+Weak
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4.5cm; font-weight: bold;">
+Moderate
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4.5cm; font-weight: bold;">
+Strong
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+</tr>
+</tbody>
+</table>
+<div id="section-your-task" class="section level3">
+<h3>Your Task</h3>
+<div class="nobullet">
+<ul class="task-list">
+<li><p><label><input type="checkbox" /><span class="math inline">\(\
+\)</span> Conduct a power analysis using <span
+class="math inline">\(\alpha\)</span> = .05 and power = .8 to determine
+the sample size necessary to detect a moderate effect ( <span
+class="math inline">\(\eta^2\)</span> = .06) using a One-Way
+ANOVA.</label></p></li>
+<li><p><label><input type="checkbox" /><span class="math inline">\(\
+\)</span> Conduct a power analysis using <span
+class="math inline">\(\alpha\)</span> = .05 and power = .8 to determine
+the sample size necessary to detect a moderate effect ( <span
+class="math inline">\(\eta^2\)</span> = .06) using a One-Way
+ANOVA.</label></p></li>
+</ul>
+</div>
+<p>There are many possible measures of effect size that are used across
+statistical tests. The software that we use to run power analyses,
+WebPower, uses <span class="math inline">\(f\)</span> as its measure of
+effect size for ANOVA. In SPSS, it uses <span
+class="math inline">\(\eta^2\)</span>, so we need to convert <span
+class="math inline">\(\eta^2\)</span> to <span
+class="math inline">\(f\)</span> before running the power analysis. You
+can do this with the following equation:</p>
+<p><span class="math display">\[f =
+\sqrt{\frac{\eta^2}{1-\eta^2}}\]</span> Be sure to use <span
+class="math inline">\(f\)</span> when entering the effect size into
+WebPower.</p>
+<p>Click <a href="https://webpower.psychstat.org/wiki/models/index">here
+to use WebPower to run your analysis</a>.</p>
+<div class="panel-heading tutorial-quiz-title">Check Your Results</div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="cyrPower-1" class="tutorial-question panel-body">
+<div id="cyrPower-1-answer_container" class="shiny-html-output"></div>
+<div id="cyrPower-1-message_container" class="shiny-html-output"></div>
+<div id="cyrPower-1-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="cyrPower-2" class="tutorial-question panel-body">
+<div id="cyrPower-2-answer_container" class="shiny-html-output"></div>
+<div id="cyrPower-2-message_container" class="shiny-html-output"></div>
+<div id="cyrPower-2-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<div class="container">
+<details>
+<summary>
+<span style="font-weight: bold; font-size: 16pt"> Click here for a hint
+</span>
+</summary>
+<p><br> Unlike the power analysis for <span
+class="math inline">\(t\)</span>-tests, this power analysis
+requires/outputs the total number of participants, rather than the
+number of participants per group.</p>
+<p>If you’re completely lost, you might find the section on One-Way
+ANOVA in the <a
+href="https://webpower.psychstat.org/wiki/_media/grant/webpower_manual_book.pdf">WebPower
+manual</a> helpful.</p>
+</details>
+</div>
+<p></br></p>
+<div class="container">
+<details>
+<summary>
+<span style="font-weight: bold; font-size: 16pt"> Click here for the
+solution </span>
+</summary>
+<p><br> Navigate to the WebPower site and click One-Way ANOVA:</p>
+<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week5_powerAnalysisChoice.png" width="50%" style="display: block; margin: auto;" />
+<br> <i> Number of groups </i> refers to the number of independent
+groups you’re comparing. In this case, you have 3 (Control/Eyes
+Obstructed/Mouth Obstructed). You’ll leave the Sample Size option blank,
+as that’s the value you want to calculate. To compute the effect size,
+<span class="math inline">\(f\)</span>, you’ll do the following:</p>
+<p><span class="math display">\[f = \sqrt{\frac{.06}{1-.06}} =
+.25\]</span> You can enter in the appropriate values for <span
+class="math inline">\(\alpha\)</span> and power. When you’re finished,
+click ‘Calculate’ and you should see the following results if you’ve
+entered everything properly:</p>
+<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week5_oneWayPower.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>You’ll obviously need a whole number of participants, so you should
+round up. To detect the desired effect with the given constraints, you
+need 158 participants.</p>
+</details>
+</div>
+</div>
+</div>
+<div id="section-data-review" class="section level2">
+<h2>Data Review</h2>
+<p>Before running any analyses, you should first check your data. In
+many cases, some kind of cleaning or data wrangling will be necessary.
+For instance, were data imported properly? Are there any missing values?
+Do you have any unexpected values or extreme outliers? Do you need to
+create a variable from the existing data (e.g., a summary metric for a
+cognitive task)? These things should be dealt with before conducting the
+analyses.</p>
+<p>Additionally, you’ll need to compute descriptive data. You’ll do this
+for both your main variables of interest and your sample’s demographic
+data, as this must be included in the Sample portion of your Methods
+section.</p>
 <div id="section-your-tasks-1" class="section level3">
 <h3>Your Tasks</h3>
 <ul class="task-list">
 <li><p><label><input type="checkbox" /><span class="math inline">\(\
-\)</span> Import ‘Week5LabData1.csv’ into SPSS</label></p></li>
+\)</span> Open ‘Week4LabData1.sav’</label></p></li>
 <li><p><label><input type="checkbox" /><span class="math inline">\(\
-\)</span> Check whether all variables imported into SPSS as the correct
+\)</span> Check whether all variables were imported as the correct
 measurement type.</label></p></li>
 <li><p><label><input type="checkbox" /><span class="math inline">\(\
 \)</span> Add a key to the <code>Gender</code> variable so that 1 =
@@ -343,7 +493,7 @@ Measure Format </span></p>
 measurement, look at the <strong>Measure</strong> column under the
 <em>Variable View</em> tab.</p>
 <ul>
-<li><p><code>ID</code> - Ordinal</p></li>
+<li><p><code>ID</code> - Nominal</p></li>
 <li><p><code>Gender</code> - Nominal</p></li>
 <li><p><code>Age</code> - Scale</p></li>
 <li><p><code>Group</code> - Nominal</p></li>
@@ -351,7 +501,7 @@ measurement, look at the <strong>Measure</strong> column under the
 </ul>
 <p>In this instance, SPSS assigned the proper measures by default (with
 the exception of ID, which won’t be used as part of any analysis, so you
-ignore it). No changes are required.</p>
+can ignore it). No changes are required.</p>
 <p><br> <span style="font-weight: bold; font-size: 14pt"> Adding Labels
 to Variables </span></p>
 <p>To associate a label with each value of a variable, you’ll use the
@@ -372,8 +522,8 @@ process for the <code>Group</code> variable, setting 0 = ‘Control’, 1 =
 ‘Mouth Obstructed’, and 2 = ‘Eyes Obstructed’.</p>
 <p><br> <span style="font-weight: bold; font-size: 14pt"> Check
 Descriptive Statistics </span></p>
-<p><strong>Categorical Variables:</strong> Your categorical variables
-are <code>Group</code> and <code>Gender</code>. Click
+<p><strong>Categorical Variables:</strong> The categorical variables are
+<code>Group</code> and <code>Gender</code>. Click
 <em>Analyze&gt;Descriptive Statistics&gt;Frequencies</em>, then add
 these two variables to the ‘Variable(s)’ box. Make sure ‘Display
 frequency tables’ is checked, then click ‘OK’. You should see the
@@ -382,7 +532,7 @@ following output:</p>
 <p>Note that if you set up the labels for the <code>Group</code> and
 <code>Gender</code> properly, these will appear in the frequency tables,
 rather than the numeric values you see in ‘Data View’.</p>
-<p><strong>Continuous Variables:</strong> Your categorical variables are
+<p><strong>Continuous Variables:</strong> The continuous variables are
 <code>Age</code> and <code>Correct</code>. Click
 <em>Analyze&gt;Descriptive Statistics&gt;Frequencies</em>, then add
 these two variables to the ‘Variable(s)’ box. Make sure ‘Display
@@ -407,8 +557,8 @@ forward with assumptions checks.</p>
 <p></br></p>
 </div>
 </div>
-<div id="section-experiment-1-assumptions" class="section level2">
-<h2>Experiment 1 Assumptions</h2>
+<div id="section-check-assumptions" class="section level2">
+<h2>Check Assumptions</h2>
 <p>The requirements/assumptions of a One-Way ANOVA are:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Normality:</strong> Values are normally distributed
@@ -424,13 +574,13 @@ independent/predictor variable must be categorical</p></li>
 <h3>Your Tasks</h3>
 <ul class="task-list">
 <li><p><label><input type="checkbox" /><span class="math inline">\(\
-\)</span> Decide whether your data meet the assumption of
+\)</span> Decide whether the data meet the assumption of
 normality</label></p></li>
 <li><p><label><input type="checkbox" /><span class="math inline">\(\
-\)</span> Decide whether your data meet the assumption of
+\)</span> Decide whether the data meet the assumption of
 independence</label></p></li>
 <li><p><label><input type="checkbox" /><span class="math inline">\(\
-\)</span> Decide whether your data meet the assumption of
+\)</span> Decide whether the data meet the assumption of
 homogeneity</label></p></li>
 </ul>
 <div class="container">
@@ -440,7 +590,7 @@ homogeneity</label></p></li>
 </span>
 </summary>
 <p>Have a look at the <a
-href="https://mtruelovehill.github.io/PRM/Lectures/Week05_ANOVAI_lecture.html#1">lecture
+href="https://mtruelovehill.github.io/ISAP/Lectures/Week04_ANOVAI_lecture.html#1">lecture
 slides</a> if you’re lost. Because normality must be tested within
 levels, you should use <em>Analyze&gt;Descriptive
 Statistics&gt;Explore</em> to get the plots you need.</p>
@@ -454,12 +604,13 @@ Statistics&gt;Explore</em> to get the plots you need.</p>
 solution </span>
 </summary>
 <p>To check the assumptions of normality and homogeneity, click
-<em>Analyze &gt; Descriptive Statistics &gt; Explore</em> and add your
-dependent variable to the ‘Dependent List’ box and your independent
+<em>Analyze &gt; Descriptive Statistics &gt; Explore</em> and add the
+dependent variable to the ‘Dependent List’ box and the independent
 variable to the ‘Factor List’ box. Click the ‘Plots’ button on the
 right. Under ‘Boxplots’, select ‘None’, under ‘Descriptive’, tick
 ‘Histogram’, and tick ‘Normality plots with tests.’ Under ‘Spread vs
-Level with Levene Test’, click ‘Power Estimation’</p>
+Level with Levene Test’, click ‘Power Estimation’ (‘Untransformed’ is
+also fine).</p>
 <p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week5_assumptionPlots.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Click ‘Continue’ and then ‘OK.’</p>
 <p><br></p>
@@ -479,11 +630,11 @@ are sufficiently normally distributed:</p>
 <p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week5_qqEyesObs.png" width="65%" style="display: block; margin: auto;" /></p>
 <p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week5_qqMouthObs.png" width="65%" style="display: block; margin: auto;" /></p>
 <p>Here you can see that the points follow the diagonal pretty closely,
-so we’ll consider the data to have met the normality assumption.</p>
+so data can be considered to have met the normality assumption.</p>
 <p><span style="font-weight: bold; font-size: 14pt"> Independence
 </span></p>
-<p>Assessing independence requires you to have an understanding of the
-conditions under which your data were collected. The study design
+<p>Assessing independence requires an understanding of the conditions
+under which your data were collected. The study design
 (between-participants) increases the likelihood that the observations
 are independent of each other, so you can consider this assumption to be
 met.</p>
@@ -499,8 +650,8 @@ class="math inline">\(p\)</span>-value is greater than the threshold of
 </div>
 </div>
 </div>
-<div id="section-experiment-1-analysis" class="section level2">
-<h2>Experiment 1 Analysis</h2>
+<div id="section-primary-analysis" class="section level2">
+<h2>Primary Analysis</h2>
 <p>As you are comparing three independent means, you’ll use results from
 a One-Way ANOVA to provide statistical support for your hypothesis.
 Recall that you’re testing the following hypothesis:</p>
@@ -627,135 +778,8 @@ further.</p>
 <p></br></p>
 </div>
 </div>
-<div id="section-experiment-1-power-analysis" class="section level2">
-<h2>Experiment 1 Power Analysis</h2>
-<p><br></p>
-<p>Recall the effect size measure for ANOVA, <span
-class="math inline">\(\eta^2\)</span>:</p>
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;font-weight: bold;color: #F28157 !important;text-align: left;font-size: 16px;">
-Variable Name
-</th>
-<th style="text-align:right;font-weight: bold;color: #F28157 !important;text-align: left;font-size: 16px;">
-Magnitude of <span class="math inline">\(\eta^2\)</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;width: 4.5cm; font-weight: bold;">
-Weak
-</td>
-<td style="text-align:right;">
-0.01
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 4.5cm; font-weight: bold;">
-Moderate
-</td>
-<td style="text-align:right;">
-0.06
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 4.5cm; font-weight: bold;">
-Strong
-</td>
-<td style="text-align:right;">
-0.14
-</td>
-</tr>
-</tbody>
-</table>
-<div id="section-your-task" class="section level3">
-<h3>Your Task</h3>
-<ul class="task-list">
-<li><label><input type="checkbox" /><span class="math inline">\(\
-\)</span> Run a power analysis using <span
-class="math inline">\(\alpha\)</span> = .05 and power = .8 to determine
-the sample size necessary to detect a moderate effect ( <span
-class="math inline">\(\eta^2\)</span> = .06) using a One-Way
-ANOVA.</label></li>
-</ul>
-<p>There are many possible measures of effect size that are used across
-statistical tests. The software that we use to run power analyses,
-WebPower, uses <span class="math inline">\(f\)</span> as its measure of
-effect size for ANOVA. In SPSS, it uses <span
-class="math inline">\(\eta^2\)</span>, so we need to convert <span
-class="math inline">\(\eta^2\)</span> to <span
-class="math inline">\(f\)</span> before running the power analysis. You
-can do this with the following equation:</p>
-<p><span class="math display">\[f =
-\sqrt{\frac{\eta^2}{1-\eta^2}}\]</span> Be sure to use <span
-class="math inline">\(f\)</span> when entering the effect size into
-WebPower.</p>
-<p>Click <a href="https://webpower.psychstat.org/wiki/models/index">here
-to use WebPower to run your analysis</a>.</p>
-<div class="panel-heading tutorial-quiz-title">Check Your Results</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="cyrPower-1" class="tutorial-question panel-body">
-<div id="cyrPower-1-answer_container" class="shiny-html-output"></div>
-<div id="cyrPower-1-message_container" class="shiny-html-output"></div>
-<div id="cyrPower-1-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="panel panel-default tutorial-question-container">
-<div data-label="cyrPower-2" class="tutorial-question panel-body">
-<div id="cyrPower-2-answer_container" class="shiny-html-output"></div>
-<div id="cyrPower-2-message_container" class="shiny-html-output"></div>
-<div id="cyrPower-2-action_button_container" class="shiny-html-output"></div>
-<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
-</div>
-</div>
-<div class="container">
-<details>
-<summary>
-<span style="font-weight: bold; font-size: 16pt"> Click here for a hint
-</span>
-</summary>
-<p><br> Unlike the power analysis for <span
-class="math inline">\(t\)</span>-tests, this power analysis
-requires/outputs the total number of participants, rather than the
-number of participants per group.</p>
-<p>If you’re completely lost, you might find the section on One-Way
-ANOVA in the <a
-href="https://webpower.psychstat.org/wiki/_media/grant/webpower_manual_book.pdf">WebPower
-manual</a> helpful.</p>
-</details>
-</div>
-<p></br></p>
-<div class="container">
-<details>
-<summary>
-<span style="font-weight: bold; font-size: 16pt"> Click here for the
-solution </span>
-</summary>
-<p><br> Navigate to the WebPower site and click One-Way ANOVA:</p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week5_powerAnalysisChoice.png" width="50%" style="display: block; margin: auto;" />
-<br> <i> Number of groups </i> refers to the number of independent
-groups you’re comparing. In this case, you have 3 (Control/Eyes
-Obstructed/Mouth Obstructed). You’ll leave the Sample Size option blank,
-as that’s the value you want to calculate. To compute the effect size,
-<span class="math inline">\(f\)</span>, you’ll do the following:</p>
-<p><span class="math display">\[f = \sqrt{\frac{.06}{1-.06}} =
-.25\]</span> You can enter in the appropriate values for <span
-class="math inline">\(\alpha\)</span> and power. When you’re finished,
-click ‘Calculate’ and you should see the following results if you’ve
-entered everything properly:</p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week5_oneWayPower.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>You’ll obviously need a whole number of participants, so you should
-round up. To detect the desired effect with the given constraints, you
-need 158 participants.</p>
-</details>
-</div>
-</div>
-</div>
-<div id="section-experiment-1-interpret-report" class="section level2">
-<h2>Experiment 1 Interpret &amp; Report</h2>
+<div id="section-interpret-report" class="section level2">
+<h2>Interpret &amp; Report</h2>
 <p>Now that you’ve completed the analyses, write a mini results section
 describing your findings. In this section, please:</p>
 <ul>
@@ -851,6 +875,73 @@ class="math inline">\(p\)</span> = .603.</p>
 </details>
 </div>
 <p></br></p>
+</div>
+<div id="section-test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<div class="panel-heading tutorial-quiz-title"></div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="selectingTest-1" class="tutorial-question panel-body">
+<div id="selectingTest-1-answer_container" class="shiny-html-output"></div>
+<div id="selectingTest-1-message_container" class="shiny-html-output"></div>
+<div id="selectingTest-1-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="selectingTest-2" class="tutorial-question panel-body">
+<div id="selectingTest-2-answer_container" class="shiny-html-output"></div>
+<div id="selectingTest-2-message_container" class="shiny-html-output"></div>
+<div id="selectingTest-2-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="selectingTest-3" class="tutorial-question panel-body">
+<div id="selectingTest-3-answer_container" class="shiny-html-output"></div>
+<div id="selectingTest-3-message_container" class="shiny-html-output"></div>
+<div id="selectingTest-3-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<p>Imagine that you are investigating the effect of class time (9AM,
+10AM, and 1PM) on test scores. You run a One-Way ANOVA and get these
+results:</p>
+<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week10_classANOVA.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Use these to answer the following questions. Assume that you have set
+alpha = .05.:</p>
+<div class="panel-heading tutorial-quiz-title"></div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="interp2-1" class="tutorial-question panel-body">
+<div id="interp2-1-answer_container" class="shiny-html-output"></div>
+<div id="interp2-1-message_container" class="shiny-html-output"></div>
+<div id="interp2-1-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="interp2-2" class="tutorial-question panel-body">
+<div id="interp2-2-answer_container" class="shiny-html-output"></div>
+<div id="interp2-2-message_container" class="shiny-html-output"></div>
+<div id="interp2-2-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="interp2-3" class="tutorial-question panel-body">
+<div id="interp2-3-answer_container" class="shiny-html-output"></div>
+<div id="interp2-3-message_container" class="shiny-html-output"></div>
+<div id="interp2-3-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="interp2-4" class="tutorial-question panel-body">
+<div id="interp2-4-answer_container" class="shiny-html-output"></div>
+<div id="interp2-4-message_container" class="shiny-html-output"></div>
+<div id="interp2-4-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
 </div>
 <div id="section-bonus-material-repeated-measures-anova"
 class="section level2">
@@ -1051,9 +1142,7 @@ Experiment 2 data </span></p>
 <span style="font-weight: bold; font-size: 16pt"> Click here for a hint
 </span>
 </summary>
-<p>You can follow the steps from <a
-href="#section-experiment-1-data-review">Experiment 1 Data
-Review</a></p>
+<p>You can follow the steps from [Experiment 1 Data Review]</p>
 </details>
 </div>
 <p></br></p>
@@ -1221,11 +1310,10 @@ class="math inline">\(\alpha\)</span> threshold of .05. We can consider
 the results to be significant. The effect size (<span
 class="math inline">\(\eta^2_p\)</span>, AKA partial <span
 class="math inline">\(\eta^2\)</span>) is equal to .47, which is
-equivalent to a strong effect (see the solution box from <a
-href="#section-experiment-1-analysis">Experiment 1 Analysis</a> for
-interpretation standards). This tells us that the type of feeling being
-emoted does affect a child’s ability to recognise it in masked
-individuals.</p>
+equivalent to a strong effect (see the solution box from [Experiment 1
+Analysis] for interpretation standards). This tells us that the type of
+feeling being emoted does affect a child’s ability to recognise it in
+masked individuals.</p>
 <p>To determine which emotions are significantly different from each
 other, scroll down to the ‘Pairwise Comparisons’ box.</p>
 <p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week5_pwc.png" width="75%" style="display: block; margin: auto;" /></p>
@@ -1286,9 +1374,7 @@ to recognise anger, fear, and disgust.</p>
 <span style="font-weight: bold; font-size: 16pt"> Click here for a hint
 </span>
 </summary>
-<p>See the hint from <a
-href="#section-experiment-1-interpret-report">Experiment 1 Interpret
-&amp; Report</a>.</p>
+<p>See the hint from [Experiment 1 Interpret &amp; Report].</p>
 </details>
 </div>
 <p></br></p>
@@ -1410,9 +1496,7 @@ to use WebPower to run your analysis</a>.</p>
 </summary>
 <p><br></p>
 <p>The value of <span class="math inline">\(f\)</span> will be the same
-as the one you computed in <a
-href="#section-experiment-1-power-analysis">Experiment 1 Power
-Analysis</a></p>
+as the one you computed in [Experiment 1 Power Analysis]</p>
 <p>If you’re completely lost, you might find the section on One-Way
 ANOVA in the <a
 href="https://webpower.psychstat.org/wiki/_media/grant/webpower_manual_book.pdf">WebPower
@@ -1463,6 +1547,8 @@ baseColor <- '#F28157'
 accent1 <- '#F2B66D'
 accent3 <- '#30726E'
 accent4 <- '#008290'
+
+#https://mtruelovehill.github.io/ISAP/Labs/css/style.css
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -1487,13 +1573,18 @@ session$onSessionEnded(function() {
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q1-1", question = structure("Which test is most appropriate to address your research question, given the study design?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_a46e64e", 
-    option = "t-test", value = "t-test", label = structure("t-test", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_2783dda", 
+    option = "independent-samples t-test", value = "independent-samples t-test", 
+    label = structure("independent-samples t-test", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3bcf24f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7821ff8", 
+    option = "paired-samples t-test", value = "paired-samples t-test", 
+    label = structure("paired-samples t-test", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7ca5515", 
     option = "One-Way ANOVA", value = "One-Way ANOVA", label = structure("One-Way ANOVA", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7bf4864", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_65220e5", 
     option = "Repeated-Measures ANOVA", value = "Repeated-Measures ANOVA", 
     label = structure("Repeated-Measures ANOVA", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1502,37 +1593,18 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = structure("While all of these tests are appropriate for use with categorical independent variables and continuous dependent variables, a t-test can only test the differences between two means. Here, you have 3 groups (control, eyes obstructed, and mouth obstructed), so a single t-test will not work. Both a one-way ANOVA and a repeated-measures ANOVA can test for differences between more than 2 means, but a repeated-measures ANOVA expects that the means are connected in some way (e.g., measured from the same participants over multiple timepoints). These means are independent of each other (collected from 3 separate groups of people), so a One-Way ANOVA should be used.", html = TRUE, class = c("html", 
+"character")), message = structure("While all of these tests are appropriate for use with categorical independent variables and continuous dependent variables, a t-test can only test the differences between two means. Here, you have 3 groups (control, eyes obstructed, and mouth obstructed), so a single t-test will not work. Both a one-way ANOVA and a repeated-measures ANOVA can test for differences between more than 2 means, but a repeated-measures ANOVA expects that the means are connected in some way (e.g. measured from the same participants over multiple timepoints). These means are independent of each other (collected from 3 separate groups of people), so a One-Way ANOVA should be used.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "q1-1-answer", 
     question = "q1-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 267692582.875346, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1682472961.21654, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "cyrIndT-1", 
-    question = structure("What is the F-statistic associated with your analysis? Please round your answer to two decimal places.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_14b5730", 
-        option = "15.14", value = 15.14, label = structure("15.14", html = TRUE, class = c("html", 
-        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
-    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
-    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = structure("The F-statistic associated with this test is 15.14.", html = TRUE, class = c("html", 
-    "character")), post_message = NULL), ids = list(answer = "cyrIndT-1-answer", 
-        question = "cyrIndT-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 438787964.795673, options = list(
-        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
-"tutorial_question")), session = session)
-</script>
- 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "cyrPower-1", 
     question = structure("How many participants do you need for your One-Way ANOVA to have 80% power to detect a moderate effect with alpha = .05?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_dc6de92", 
+    "character")), answers = list(structure(list(id = "lnr_ans_9a7e265", 
         option = "158", value = "158", label = structure("158", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1543,24 +1615,23 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
     "character")), message = structure("You will need 158 total participants for this analysis to have an 80% chance of avoiding a Type II error.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "cyrPower-1-answer", 
         question = "cyrPower-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 247513017.884743, options = list(
+    allow_retry = FALSE, seed = 680175946.683268, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "cyrPower-2", question = structure("What effect size does WebPower use in power calculations for One-Way ANOVAs?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_63f0791", 
+"character")), answers = list(structure(list(id = "lnr_ans_b907602", 
     option = "f", value = "f", label = structure("f", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3a22a17", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c2f19", 
     option = "Cohen's d", value = "Cohen's d", label = structure("Cohen’s d", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_cb5c72", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5d4f63", 
     option = "eta squared", value = "eta squared", label = structure("eta squared", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1f4edcc", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1529832", 
     option = "r", value = "r", label = structure("r", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1571,14 +1642,197 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("While SPSS (and this course) will use eta squared as our effect size for ANOVA, WebPower uses f. You’ll have to convert eta-squared to f to get correct results for your power analysis.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "cyrPower-2-answer", 
     question = "cyrPower-2"), loading = NULL, random_answer_order = TRUE, 
-    allow_retry = FALSE, seed = 1203136038.43975, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 2085010403.52909, options = list()), class = c("learnr_radio", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "cyrIndT-1", 
+    question = structure("What is the F-statistic associated with your analysis? Please round your answer to two decimal places.", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_4ff8939", 
+        option = "15.14", value = 15.14, label = structure("15.14", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), message = structure("The F-statistic associated with this test is 15.14.", html = TRUE, class = c("html", 
+    "character")), post_message = NULL), ids = list(answer = "cyrIndT-1-answer", 
+        question = "cyrIndT-1"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1317971592.88627, options = list(
+        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "selectingTest-1", 
+    question = structure("At what level of measurement should the independent variables be when using a One-Way ANOVA? Please select any that apply.", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_729a8f8", 
+        option = "Continuous", value = "Continuous", label = structure("Continuous", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2aef5b2", 
+        option = "Binary Categorical", value = "Binary Categorical", 
+        label = structure("Binary Categorical", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_21cfa8e", 
+        option = "Categorical with 3 or more levels", value = "Categorical with 3 or more levels", 
+        label = structure("Categorical with 3 or more levels", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), message = structure("A One-Way ANOVA requires categorical independent variables.", html = TRUE, class = c("html", 
+    "character")), post_message = NULL), ids = list(answer = "selectingTest-1-answer", 
+        question = "selectingTest-1"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 973577852.046643, options = list()), class = c("learnr_radio", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "selectingTest-2", 
+    question = structure("You are testing the association between hospital size and stress in nurses. You compare nurse stress from nurses across 3 different hospital sizes (small, medium, and large). Assume that stress is a continuous variable. Which of the following analyses could be used to to test this association?", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_2a1b63f", 
+        option = "One-Sample t-test", value = "One-Sample t-test", 
+        label = structure("One-Sample t-test", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_31a039", 
+        option = "independent-samples t-test", value = "independent-samples t-test", 
+        label = structure("independent-samples t-test", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_65fad22", 
+        option = "paired-samples t-test", value = "paired-samples t-test", 
+        label = structure("paired-samples t-test", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_950d9e0", 
+        option = "One-Way Between-Subjects ANOVA", value = "One-Way Between-Subjects ANOVA", 
+        label = structure("One-Way Between-Subjects ANOVA", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_85a7beb", 
+        option = "One-Way Repeated-Measures ANOVA", value = "One-Way Repeated-Measures ANOVA", 
+        label = structure("One-Way Repeated-Measures ANOVA", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), message = structure("Here, you have a continuous dependent variable, stress, that you want to compare across three categories of a single independent variable, hospital size. The best option of the given tests would be a One-Way ANOVA. Because you’re comparing three separate samples (nurses who work in small hospitals, nurses who work in medium-sized hospitals, and nurses who work in large hospitals), you would use a Between-Subjects ANOVA", html = TRUE, class = c("html", 
+    "character")), post_message = NULL), ids = list(answer = "selectingTest-2-answer", 
+        question = "selectingTest-2"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1053510649.00942, options = list()), class = c("learnr_radio", 
+"tutorial_question")), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "selectingTest-3", 
+    question = structure("True or False: We can test for the independence of observations using a qqplot.", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_99f320c", 
+        option = "True", value = "True", label = structure("True", html = TRUE, class = c("html", 
+        "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c088b2b", 
+        option = "False", value = "False", label = structure("False", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), message = structure("False. A qqplot tests normality. There is no general test for independence, this is a design feature.", html = TRUE, class = c("html", 
+    "character")), post_message = NULL), ids = list(answer = "selectingTest-3-answer", 
+        question = "selectingTest-3"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1948560854.09263, options = list()), class = c("learnr_radio", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "interp2-1", question = structure("There is a significant effect of class time on test score.", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_daaebe", 
+    option = "True", value = "True", label = structure("True", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b6abcfa", 
+    option = "False", value = "False", label = structure("False", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = structure("The F-statistic is less than 1 and the p-value is .879, which is greater than our alpha threshold of .05. This means that there is an 88% chance we would see results as extreme as this if the null hypothesis were true. Therefore, there is not enough evidence to claim that there is a significant effect of class time on test score.", html = TRUE, class = c("html", 
+"character")), post_message = NULL), ids = list(answer = "interp2-1-answer", 
+    question = "interp2-1"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 2039139009.05045, options = list()), class = c("learnr_radio", 
+"tutorial_question")), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "interp2-2", 
+    question = structure("What is value of the F-statistic associated with this test? Please round your answer to two decimal places.", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_f4b9288", 
+        option = "0.22", value = 0.22, label = structure("0.22", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), message = structure("The F-statistic associated with this test is 0.22. Please be sure to include the leading 0, as the F-statistic can exceed 1.", html = TRUE, class = c("html", 
+    "character")), post_message = NULL), ids = list(answer = "interp2-2-answer", 
+        question = "interp2-2"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 639387261.702262, options = list(
+        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "interp2-3", 
+    question = structure("You would report this result in the following format: F(___, ___) = 0.22, p = .879. Note the two blank spaces. What number goes in the first blank?", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_fa6e1bb", 
+        option = "3", value = 3, label = structure("3", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), message = structure("The first blank reflects the model degrees of freedom. SPSS calls this the “Between-Groups df”. In this example, it is 3.", html = TRUE, class = c("html", 
+    "character")), post_message = NULL), ids = list(answer = "interp2-3-answer", 
+        question = "interp2-3"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 440365041.294939, options = list(
+        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
+"tutorial_question")), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "interp2-4", 
+    question = structure("You would report this result in the following format: F(___, ___) = 0.22, p = .879. Note the two blank spaces. What number goes in the second blank?", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_833c211", 
+        option = "48", value = 48, label = structure("48", html = TRUE, class = c("html", 
+        "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+    "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+    "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+    "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+    "character")), message = structure("The second blank reflects the residual degrees of freedom. SPSS calls this the “Within-Groups df”. In this example, it is 48.", html = TRUE, class = c("html", 
+    "character")), post_message = NULL), ids = list(answer = "interp2-4-answer", 
+        question = "interp2-4"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1844192146.14123, options = list(
+        min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "cyrBonus-1", 
     question = structure("What was the F-statistic associated with emotion? Please round your answer to two decimal places.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_c6a39ba", 
+    "character")), answers = list(structure(list(id = "lnr_ans_fe244fa", 
         option = "179.65", value = "179.65", label = structure("179.65", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1589,18 +1843,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
     "character")), message = structure("The F-statistic associated with emotion is 179.65.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "cyrBonus-1-answer", 
         question = "cyrBonus-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 907296460.077507, options = list(
+    allow_retry = FALSE, seed = 922924240.07023, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "cyrBonus-2", question = structure("Is the difference in recognition rate between happiness and anger significant?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_ec350ff", 
+"character")), answers = list(structure(list(id = "lnr_ans_144b25e", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e5529f5", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_80a93f1", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1611,16 +1864,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("The p-value associated with the comparison between happiness and anger is &lt; .001, which is less than our alpha threshold of .05. We would consider this result significant.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "cyrBonus-2-answer", 
     question = "cyrBonus-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1176992402.95192, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1326636409.38224, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "cyrBonus-3", question = structure("Is the difference in recognition rate between fear and disgust significant?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_9dcfee", 
+"character")), answers = list(structure(list(id = "lnr_ans_d5f1ba6", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1a9b404", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f225d2c", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1631,7 +1885,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("The p-value associated with the comparison between fear and disgust is .726, which is greater than our alpha threshold of .05. We would not consider this result significant.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "cyrBonus-3-answer", 
     question = "cyrBonus-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 225152692.395155, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1570916688.76848, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 </p>
