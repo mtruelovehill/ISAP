@@ -22,14 +22,14 @@ options(htmltools.dir.version = FALSE)
 ```{r xaringan-themer, include = FALSE}
 library(xaringanthemer)
 style_mono_accent(
-  base_color = "#18778C",
+  base_color = "#F28157",
   header_color = "#000000",
   header_font_google = google_font("Jost"),
   header_font_weight = 500,
   text_font_google = google_font("Jost", "300", "300i", "500", "500i"),
   code_font_google = google_font("Source Code Pro"),
-  text_bold_color = '#4CA384',
-  text_slide_number_color = '#18778C',
+  text_bold_color = '#F28157',
+  text_slide_number_color = '#F2B66D',
   text_font_size = '16pt'
 )
 ```
@@ -38,10 +38,10 @@ style_mono_accent(
 library(tidyverse)
 knitr::opts_chunk$set(dev = 'svg')
 
-baseColor <- '#4CA384'
-accent1 <- '#9AD079'
-accent2 <- '#18778C'
-accent3 <- '#19424C'
+baseColor <- '#F28157'
+accent1 <- '#F2B66D'
+accent2 <- '#30726E'
+accent3 <- '#008290'
 ```
 
 ### This Week's Key Topics
