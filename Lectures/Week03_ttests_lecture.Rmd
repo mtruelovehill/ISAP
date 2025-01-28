@@ -57,7 +57,7 @@ accent3 <- '#008290'
 ---
 ## Differences between two means
 
-** Are these means different? (Yes/No/It Depends)**
+** Are the groups that produced these means different? (Yes/No/It Depends)**
 
 .pull-left[
 ```{r, echo = F, fig.height=5}
@@ -97,7 +97,7 @@ basePlot + geom_vline(xintercept = mean(dat$x2), linewidth=1, color = baseColor)
 
 ## Differences between two means
 
-** Are these means different? (Yes/No/It Depends)**
+** Are the groups that produced these means different? (Yes/No/It Depends)**
 
 .pull-left[
 ```{r, echo = F, warning=F, message=F, fig.height=5}
@@ -140,7 +140,7 @@ basePlot + geom_vline(xintercept = mean(dat$x2), linewidth=1.5, color = baseColo
 
 + Generally used to test the difference between two means
 
-  + **One-sample $t$-tests** test the difference between a sample mean and a known mean
+  + **One-sample $t$-tests** test the difference between a sample mean and a known value
   
   + **Independent-sample $t$-tests** test the difference between two separate sample means
   

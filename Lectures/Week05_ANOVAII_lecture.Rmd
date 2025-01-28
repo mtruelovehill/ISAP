@@ -397,7 +397,7 @@ ggplot(facDat, aes(Pet, SWB, fill = Personality)) + geom_boxplot() +
 
 .center[
 ```{r, echo = F, out.width='75%'}
-knitr::include_graphics('images/factorialSS.png')
+knitr::include_graphics('images/FactorialSS.png')
 ```
 ]
 
@@ -415,7 +415,7 @@ knitr::include_graphics('images/factorialSS.png')
 
 .center[
 ```{r, echo = F, out.width='75%'}
-knitr::include_graphics('images/factorialSS.png')
+knitr::include_graphics('images/FactorialSS.png')
 ```
 ]
 
