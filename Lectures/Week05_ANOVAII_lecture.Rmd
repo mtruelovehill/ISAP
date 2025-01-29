@@ -344,41 +344,53 @@ class: inverse, middle, center
 ### Example Scenario
 
 .pull-left[
-+ A researcher is interested in how pet ownership and personality affect subjective well-being.
++ A researcher investigates how type of facial coverage and stimulus ethnicity affect recognition of facial expressions.
 
-+ They collect the following data from participants:
-  + Type of pet (dog/cat/other/none)
-  + Personality type (introvert/extrovert)
-  + Subjective well-being
++ **Independent Variables:**
+  + Facial Coverage (no coverage/mask/sunglasses)
+  + Stimulus Ethnicity (In-Group/Out-Group)
+
++ **Dependent Variable:** Recognition Score
 ]
 
 .pull-right[
 
 ```{r, echo = F, fig.height=3.5}
-facDat <- read.csv('https://mtruelovehill.github.io/PRM/Data/petDat.csv')
+facDat <- read.csv('https://mtruelovehill.github.io/ISAP/Data/coverageData.csv', stringsAsFactors = T)
+sampDat <- read.csv('https://mtruelovehill.github.io/ISAP/Data/CoverageSampleDat.csv', stringsAsFactors = T)
+facDat$Coverage <- as.factor(facDat$Coverage)
+facDat$GroupMatch <- as.factor(facDat$GroupMatch)
 
-ggplot(facDat, aes(Pet, SWB, fill = Personality)) + geom_boxplot() +
-  scale_y_continuous(limits = c(0, 40), breaks = seq(0, 40, 10)) +
-  scale_fill_manual(values = c(baseColor, accent1)) +
+ggplot(facDat, aes(Coverage, Recognition, fill = GroupMatch)) + geom_boxplot() +
+  scale_y_continuous(limits = c(0, 50), breaks = seq(0, 50, 10)) +
+  scale_x_discrete(labels = c('None', 'Mask', 'Sunglasses')) + 
+  scale_fill_manual(values = c(baseColor, accent1), labels = c('In-Group', 'Out-Group')) +
+  labs(fill = 'Group') +
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = 'bold'),
         legend.position = 'inside',
-        legend.position.inside = c(.35, .2))
+        legend.position.inside = c(.15, .2))
 
 ```
 
 
 ]
 
+---
+### Example Scenario
+
++ The researcher wants to test for 3 possible effects:
+
+  + Is there an effect of facial coverage on expression recognition in children?
+  
+  + Is there an effect of stimulus ethnicity (in-group/out-group) on expression recognition in children?
+  
+  + Does the effect of facial coverage on expression recognition differ based on stimulus ethnicity?
+  
+  
++ All 3 effects can be tested with a single test.
+
 --
-
-+ There 3 possible research questions that could be tested:
-
-  + Is there an effect of pet ownership on subjective well-being?
-  
-  + Is there an effect of personality type (introvert vs extrovert) on subjective well being?
-  
-  + Does the effect of pet ownership on subjective well-being change across personality types?
 
 ** Test Your Understanding:** Which of the above questions reference a main effect and which reference an interaction?
 
@@ -393,25 +405,7 @@ ggplot(facDat, aes(Pet, SWB, fill = Personality)) + geom_boxplot() +
 
 --
 
-+ With a Factorial ANOVA, the only difference is that the variance explained by the IV is broken down depending on the number of Independent Variables:
-
-.center[
-```{r, echo = F, out.width='75%'}
-knitr::include_graphics('images/FactorialSS.png')
-```
-]
-
-### The Logic Behind Factorial ANOVA
-
-+ Recall from last week that ANOVAs evaluate two features in our data:
-
-  + Variance in the dependent variable explained by the independent variable ( $SS_{model}$)
-  
-  + Variance in the dependent variable *not* explained by the independent variable ( $SS_{residual}$)
-
---
-
-+ With a Factorial ANOVA, the only difference is that the variance explained by the IV is broken down depending on the number of Independent Variables:
++ With a Factorial ANOVA, the only difference is that $SS_{model}$ is comprised of the variance from each indepedent variable and their interaction(s):
 
 .center[
 ```{r, echo = F, out.width='75%'}
@@ -423,11 +417,16 @@ knitr::include_graphics('images/FactorialSS.png')
 ### The Logic Behind Factorial ANOVA
 
 .pull-left[
-Recall from last week that $SS_{model}$ is calculated as the distance between the means of each group and the grand mean. 
++ Recall that $SS_{model}$ is calculated as the distance between the means of each group and the grand mean. 
 
-When there is one IV with 3 groups, this distance is computed between the grand mean and each individual within each of the groups:
++ If there is one IV with 3 groups, this distance is computed between the grand mean and each individual within each of the groups.
+]
+
+.pull-right[
 
 ```{r, echo = F, fig.height=4, warning = F}
+
+
 set.seed(526)
 dat <- data.frame(IV = c(rep('Group A', 4), rep('Group B', 4), rep('Group C', 4)),
                   DV = c(rnorm(4, mean = 15, sd = 3), rnorm(4, mean = 18, sd = 3), rnorm(4, mean = 12, sd = 3)),
@@ -460,25 +459,42 @@ basePlot + geom_point(data = dat, aes(color = IV)) +
 
 ]
 
---
+---
+### The Logic Behind Factorial ANOVA
+
+.pull-left[
++ When there are multiple IVs, $SS_{model}$ is still calculated as the distance between the means of each group and the grand mean. 
+
+> **Test Your Understanding:** You have 2 between-subjects IVs. One has 2 levels and one has 3 levels. How many total possible groups do you have? 
+
+]
+
+---
+### The Logic Behind Factorial ANOVA
+
+.pull-left[
++ When there are multiple IVs, $SS_{model}$ is still calculated as the distance between the means of each group and the grand mean. 
+
+> **Test Your Understanding:** You have 2 between-subjects IVs. One has 2 levels and one has 3 levels. How many total possible groups do you have? 
+
++ $SS_{model}$ is computed using each of these groups
+
+]
 
 .pull-right[
-When there are multiple IVs, $SS_{model}$ is still calculated as the distance between the means of each group and the grand mean. 
-
-With 2 IVs (one with 2 levels and one with 3), there are 6 possible groups, so $SS_{model}$ is computed from these:
-
 ```{r, echo = F, fig.height=4.5, warning = F}
-sampDat <- read.csv('https://mtruelovehill.github.io/PRM/Data/petSampleDat.csv')
-sampDat$Group <- paste(sampDat$Pet, sampDat$Personality, sep = '/')
-sampDat$ID <- 1:nrow(sampDat)
-sampDat$Group <- factor(sampDat$Group, levels = c('Cat/Introvert', 'Cat/Extrovert', 'Dog/Introvert', 'Dog/Extrovert', 'None/Introvert', 'None/Extrovert'))
+sampDat <- read.csv('https://mtruelovehill.github.io/ISAP/Data/CoverageSampleDat.csv', stringsAsFactors = T)
+#sampDat$Group <- paste(sampDat$Pet, sampDat$Personality, sep = '/')
+#sampDat$ID <- 1:nrow(sampDat)
+sampDat$intGroup <- factor(sampDat$intGroup, levels = c('None/InGroup', 'None/OutGroup', 'Mask/InGroup', 'Mask/OutGroup', 'Sunglasses/InGroup', 'Sunglasses/OutGroup'))
 
 plotDat <- as.data.frame(sampDat %>%
-  group_by(Group) %>%
-  summarise(meanSWB = mean(SWB)))
+  group_by(intGroup) %>%
+  summarise(meanRecog = mean(Recognition)))
 
-(ssMod <- ggplot(sampDat, aes(ID, SWB, color = Group)) + geom_point() +
-  scale_color_manual(values = c('#40B6AD', baseColor, accent1, accent2, accent3, 'gray40')) +
+
+ggplot(sampDat, aes(ID, Recognition, color = intGroup)) + geom_point() +
+  scale_color_manual(values = c(accent3, accent2, baseColor, accent1, '#065473', 'gray34'))
   scale_x_continuous(breaks = seq(1, 18, 1)) +
    scale_y_continuous(limits = c(10, 35), breaks = seq(10, 35, 5)) + 
   geom_hline(yintercept = mean(sampDat$SWB), linewidth = 1) +
@@ -497,6 +513,27 @@ plotDat <- as.data.frame(sampDat %>%
   geom_segment(x = sampDat$ID, y = mean(sampDat$SWB), xend = sampDat$ID, yend = sampDat$GroupMean, lty = 2, linewidth = 1) + 
   theme(legend.position = 'top',
         axis.title = element_text(face = 'bold')))
+# 
+# (ssMod <- ggplot(sampDat, aes(ID, Recognition, color = intGroup)) + geom_point() +
+#   scale_color_manual(values = c(accent3, accent2, baseColor, accent1, '#065473', 'gray34')) + 
+#   scale_x_continuous(breaks = seq(1, 18, 1)) +
+#    scale_y_continuous(limits = c(10, 35), breaks = seq(10, 35, 5)) + 
+#   geom_hline(yintercept = mean(sampDat$SWB), linewidth = 1) +
+#   geom_segment(aes(x = 1, y = plotDat$meanSWB[1], xend = 3, yend = plotDat$meanSWB[1]),
+#                col = '#40B6AD', linewidth = 1) + 
+#   geom_segment(aes(x = 4, y = plotDat$meanSWB[2], xend = 6, yend = plotDat$meanSWB[2]),
+#                col = baseColor, linewidth = 1) +
+#   geom_segment(aes(x = 7, y = plotDat$meanSWB[3], xend = 9, yend = plotDat$meanSWB[3]),
+#                col = accent1, linewidth = 1) +
+#   geom_segment(aes(x = 10, y = plotDat$meanSWB[4], xend = 12, yend = plotDat$meanSWB[4]),
+#                col = accent2, linewidth = 1) +
+#   geom_segment(aes(x = 13, y = plotDat$meanSWB[5], xend = 15, yend = plotDat$meanSWB[5]),
+#                col = accent3, linewidth = 1) +
+#   geom_segment(aes(x = 16, y = plotDat$meanSWB[6], xend = 18, yend = plotDat$meanSWB[6]),
+#                col = 'gray40', linewidth = 1) +
+#   geom_segment(x = sampDat$ID, y = mean(sampDat$SWB), xend = sampDat$ID, yend = sampDat$GroupMean, lty = 2, linewidth = 1) + 
+#   theme(legend.position = 'top',
+#         axis.title = element_text(face = 'bold')))
 
 ```
 
@@ -567,6 +604,8 @@ ssMod + theme(legend.position = 'none') +
 ```
 $$SS_{model} = SS_{IV1} + SS_{IV2} + SS_{IV1\times IV2}$$
 
+MONICA - SSint = SSmod - (SSiv1+SSiv2); SSmod is calculated first.
+
 ]
 
 --
@@ -579,8 +618,8 @@ petSS + theme(legend.position = 'none') +
 ```
 
 ```{r, echo = F, fig.height=3, fig.width = 5}
-persSS + theme(legend.position = 'none') +
-  annotate(geom = 'text', label = 'SS IV2 (Variance in DV explained by Personality)', x = 9, y = 32)
+# persSS + theme(legend.position = 'none') +
+#   annotate(geom = 'text', label = 'SS IV2 (Variance in DV explained by Personality)', x = 9, y = 32)
 ```
 
 ]
@@ -597,13 +636,13 @@ persSS + theme(legend.position = 'none') +
 .pull-right[
 
 ```{r, echo = F}
-ggplot(facDat, aes(Pet, SWB, fill = Personality)) + geom_boxplot() +
-  scale_y_continuous(limits = c(0, 40), breaks = seq(0, 40, 10)) +
-  scale_fill_manual(values = c(baseColor, accent1)) +
-  theme(axis.text = element_text(size = 12),
-        axis.title = element_text(size = 14, face = 'bold'),
-        legend.position = 'inside',
-        legend.position.inside = c(.35, .2))
+# ggplot(facDat, aes(Pet, SWB, fill = Personality)) + geom_boxplot() +
+#   scale_y_continuous(limits = c(0, 40), breaks = seq(0, 40, 10)) +
+#   scale_fill_manual(values = c(baseColor, accent1)) +
+#   theme(axis.text = element_text(size = 12),
+#         axis.title = element_text(size = 14, face = 'bold'),
+#         legend.position = 'inside',
+#         legend.position.inside = c(.35, .2))
 ```
 
 

@@ -175,12 +175,13 @@ class: inverse, middle, center
 ### Example Scenario
 
 .pull-left[
-+ A researcher is interested in how pet ownership and personality affect subjective well-being.
++ A researcher investigates how type of facial coverage and stimulus ethnicity affect recognition of facial expressions.
 
-+ They collect the following data from participants:
-  + Type of pet (dog/cat/other/none)
-  + Personality type (introvert/extrovert)
-  + Subjective well-being
++ **Independent Variables:**
+  + Facial Coverage (no coverage/mask/sunglasses)
+  + Stimulus Ethnicity (In-Group/Out-Group)
+
++ **Dependent Variable:** Recognition Score
 ]
 
 .pull-right[
@@ -190,15 +191,21 @@ class: inverse, middle, center
 
 ]
 
+---
+### Example Scenario
+
++ The researcher wants to test for 3 possible effects:
+
+  + Is there an effect of facial coverage on expression recognition in children?
+  
+  + Is there an effect of stimulus ethnicity (in-group/out-group) on expression recognition in children?
+  
+  + Does the effect of facial coverage on expression recognition differ based on stimulus ethnicity?
+  
+  
++ All 3 effects can be tested with a single test.
+
 --
-
-+ There 3 possible research questions that could be tested:
-
-  + Is there an effect of pet ownership on subjective well-being?
-  
-  + Is there an effect of personality type (introvert vs extrovert) on subjective well being?
-  
-  + Does the effect of pet ownership on subjective well-being change across personality types?
 
 ** Test Your Understanding:** Which of the above questions reference a main effect and which reference an interaction?
 
@@ -213,23 +220,7 @@ class: inverse, middle, center
 
 --
 
-+ With a Factorial ANOVA, the only difference is that the variance explained by the IV is broken down depending on the number of Independent Variables:
-
-.center[
-&lt;img src="images/FactorialSS.png" width="75%" /&gt;
-]
-
-### The Logic Behind Factorial ANOVA
-
-+ Recall from last week that ANOVAs evaluate two features in our data:
-
-  + Variance in the dependent variable explained by the independent variable ( `\(SS_{model}\)`)
-  
-  + Variance in the dependent variable *not* explained by the independent variable ( `\(SS_{residual}\)`)
-
---
-
-+ With a Factorial ANOVA, the only difference is that the variance explained by the IV is broken down depending on the number of Independent Variables:
++ With a Factorial ANOVA, the only difference is that `\(SS_{model}\)` is comprised of the variance from each indepedent variable and their interaction(s):
 
 .center[
 &lt;img src="images/FactorialSS.png" width="75%" /&gt;
@@ -239,22 +230,41 @@ class: inverse, middle, center
 ### The Logic Behind Factorial ANOVA
 
 .pull-left[
-Recall from last week that `\(SS_{model}\)` is calculated as the distance between the means of each group and the grand mean. 
++ Recall that `\(SS_{model}\)` is calculated as the distance between the means of each group and the grand mean. 
 
-When there is one IV with 3 groups, this distance is computed between the grand mean and each individual within each of the groups:
++ If there is one IV with 3 groups, this distance is computed between the grand mean and each individual within each of the groups.
+]
 
-![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-16-1.svg)&lt;!-- --&gt;
+.pull-right[
+
+![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-15-1.svg)&lt;!-- --&gt;
 
 ]
 
---
+---
+### The Logic Behind Factorial ANOVA
+
+.pull-left[
++ When there are multiple IVs, `\(SS_{model}\)` is still calculated as the distance between the means of each group and the grand mean. 
+
+&gt; **Test Your Understanding:** You have 2 between-subjects IVs. One has 2 levels and one has 3 levels. How many total possible groups do you have? 
+
+]
+
+---
+### The Logic Behind Factorial ANOVA
+
+.pull-left[
++ When there are multiple IVs, `\(SS_{model}\)` is still calculated as the distance between the means of each group and the grand mean. 
+
+&gt; **Test Your Understanding:** You have 2 between-subjects IVs. One has 2 levels and one has 3 levels. How many total possible groups do you have? 
+
++ `\(SS_{model}\)` is computed using each of these groups
+
+]
 
 .pull-right[
-When there are multiple IVs, `\(SS_{model}\)` is still calculated as the distance between the means of each group and the grand mean. 
-
-With 2 IVs (one with 2 levels and one with 3), there are 6 possible groups, so `\(SS_{model}\)` is computed from these:
-
-![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-17-1.svg)&lt;!-- --&gt;
+![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-16-1.svg)&lt;!-- --&gt;
 
 ]
 
@@ -265,7 +275,7 @@ With 2 IVs (one with 2 levels and one with 3), there are 6 possible groups, so `
 
 `\(SS_{IV1}\)`: Main Effect of Pet
 
-![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-18-1.svg)&lt;!-- --&gt;
+![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-17-1.svg)&lt;!-- --&gt;
 ]
 
 --
@@ -274,7 +284,7 @@ With 2 IVs (one with 2 levels and one with 3), there are 6 possible groups, so `
 
 `\(SS_{IV2}\)`: Main Effect of Personality
 
-![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-19-1.svg)&lt;!-- --&gt;
+![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-18-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -282,8 +292,10 @@ With 2 IVs (one with 2 levels and one with 3), there are 6 possible groups, so `
 
 .pull-left[
 
-![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-20-1.svg)&lt;!-- --&gt;
+![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-19-1.svg)&lt;!-- --&gt;
 `$$SS_{model} = SS_{IV1} + SS_{IV2} + SS_{IV1\times IV2}$$`
+
+MONICA - SSint = SSmod - (SSiv1+SSiv2); SSmod is calculated first.
 
 ]
 
@@ -291,9 +303,9 @@ With 2 IVs (one with 2 levels and one with 3), there are 6 possible groups, so `
 
 .pull-right[
 
-![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-21-1.svg)&lt;!-- --&gt;
+![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-20-1.svg)&lt;!-- --&gt;
 
-![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-22-1.svg)&lt;!-- --&gt;
+
 
 ]
 
@@ -308,7 +320,7 @@ With 2 IVs (one with 2 levels and one with 3), there are 6 possible groups, so `
 
 .pull-right[
 
-![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-23-1.svg)&lt;!-- --&gt;
+
 
 
 ]
@@ -422,7 +434,7 @@ class: center, inverse, middle
 --
 
 .center[
-![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-24-1.svg)&lt;!-- --&gt;
+![](Week05_ANOVAII_lecture_files/figure-html/unnamed-chunk-23-1.svg)&lt;!-- --&gt;
 ]
 
 
