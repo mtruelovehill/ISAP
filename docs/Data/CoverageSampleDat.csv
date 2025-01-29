@@ -1,8 +1,8 @@
 Coverage,GroupMatch,Recognition,ID,GroupOrder,intOrder,intGroup,V1mean,V2mean,intmean
-0,0,36,1,1,1,None/InGroup,37.5,33,35
-0,0,37,2,2,2,None/InGroup,37.5,33,35
-0,1,40,3,10,4,None/OutGroup,37.5,32.88888889,40
-0,1,42,4,11,5,None/OutGroup,37.5,32.88888889,40
+0,0,40,1,1,1,None/InGroup,37.5,33,35
+0,0,42,2,2,2,None/InGroup,37.5,33,35
+0,1,36,3,10,4,None/OutGroup,37.5,32.88888889,40
+0,1,37,4,11,5,None/OutGroup,37.5,32.88888889,40
 1,0,38,5,3,7,Mask/InGroup,32.33333333,33,35.66666667
 1,0,36,6,4,8,Mask/InGroup,32.33333333,33,35.66666667
 1,1,31,7,12,10,Mask/OutGroup,32.33333333,32.88888889,29
