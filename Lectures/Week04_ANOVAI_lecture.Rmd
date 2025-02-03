@@ -108,7 +108,7 @@ accent3 <- '#008290'
 
 
 ---
-### One-Way ANOVA
+### Between-Subjects One-Way ANOVA
 
 + Compare the mean of the dependent variable across multiple levels of a single independent variable
 
@@ -125,7 +125,7 @@ accent3 <- '#008290'
   + When revising content, is it most effective to read the notes, rewrite the notes, or test yourself on the material?
 
 ---
-### Repeated-Measures ANOVA
+### Repeated-Measures One-Way ANOVA
 
 + Compare the mean of the dependent variable across multiple levels of a single independent variable
 
@@ -1062,7 +1062,7 @@ class: center, inverse, middle
 ### Questions?
 
 ---
-### Running a Repeated-measures ANOVA
+### Running a Repeated-measures One-Way ANOVA
 
 **Step 1: State Your Hypotheses**
 
@@ -1079,7 +1079,7 @@ At least one $\mu \neq$ the other $\mu$s
 ]]
 
 ---
-### Running a Repeated-measures ANOVA
+### Running a Repeated-measures One-Way ANOVA
 
 **Step 2: Conduct a Power Analysis**
 
@@ -1089,7 +1089,7 @@ At least one $\mu \neq$ the other $\mu$s
 + As before, let's check the sample required to achieve 80% power to detect a moderate effect ( $eta^2$ = .06) with $\alpha$ = .05.
 
 ---
-### Running a Repeated-measures ANOVA
+### Running a Repeated-measures One-Way ANOVA
 
 **Step 3: Check your data**
 
@@ -1098,7 +1098,7 @@ At least one $\mu \neq$ the other $\mu$s
 
 
 ---
-### Running a Repeated-measures ANOVA
+### Running a Repeated-measures One-Way ANOVA
 
 **Step 4: Check Assumptions**
 
@@ -1130,7 +1130,7 @@ knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week5_s
 
 
 ---
-### Running a Repeated-measures ANOVA
+### Running a Repeated-measures One-Way ANOVA
 
 **Step 5: Run the test**
 
@@ -1142,11 +1142,11 @@ Again, let's continue in SPSS...
 
 
 ---
-### Running a Repeated-measures ANOVA
+### Running a Repeated-measures One-Way ANOVA
 
 **Step 8: Report**
 
-We conducted a **Repeated-measures ANOVA** to determine the effect of <span style = "color:#F2B66D"> <b> familial presence  </span></b> on <span style = "color:#F2B66D"> <b>infant affect </span></b>. There was a significant effect of familial presence, <span style = "color:#008290"><b> $F$(1.83, 107.99) = 42.40, $p$ < .001, $\eta^2_p$ = 0.42 </span></b>. Mean comparisons with Bonferroni corrections indicated that infants became distressed more quickly when no family members were present <span style = "color:#30726E"><b> ( $M$ = 3.85, $SD$ = 2.05)</span></b> than when a sibling was present <span style = "color:#30726E"><b>( $M$ = 5.04, $SD$ = 1.79)</span></b>, $p$ < .001, and when a parent was present <span style = "color:#30726E"><b>( $M$ = 7.03, $SD$ = 2.05)</span></b>, $p$ < .001. Infants retained a positive or neutral affect for longer when a parent was present than when a sibling was present, $p$ < .001. 
+We conducted a **Repeated-measures one-way ANOVA** to determine the effect of <span style = "color:#F2B66D"> <b> familial presence  </span></b> on <span style = "color:#F2B66D"> <b>infant affect </span></b>. There was a significant effect of familial presence, <span style = "color:#008290"><b> $F$(1.83, 107.99) = 42.40, $p$ < .001, $\eta^2_p$ = 0.42 </span></b>. Mean comparisons with Bonferroni corrections indicated that infants became distressed more quickly when no family members were present <span style = "color:#30726E"><b> ( $M$ = 3.85, $SD$ = 2.05)</span></b> than when a sibling was present <span style = "color:#30726E"><b>( $M$ = 5.04, $SD$ = 1.79)</span></b>, $p$ < .001, and when a parent was present <span style = "color:#30726E"><b>( $M$ = 7.03, $SD$ = 2.05)</span></b>, $p$ < .001. Infants retained a positive or neutral affect for longer when a parent was present than when a sibling was present, $p$ < .001. 
 
 
 ---
