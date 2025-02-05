@@ -1009,7 +1009,7 @@ Let's continue in SPSS...
 + Descriptive data
 
 + Test results:
-  + Test statistic ( $t$)
+  + Test statistic ( $F$)
   + Degrees of freedom
   + $p$-value
   + Effect sizes and/or confidence intervals
@@ -1023,7 +1023,7 @@ Let's continue in SPSS...
 
 **Step 8: Report**
 
-We conducted a **One-Way ANOVA** to determine the effect of <span style = "color:#F2B66D"> <b> auditory stimulus </span></b> on <span style = "color:#F2B66D"> <b> an infant's affect</span></b>. The $\alpha$ threshold was set at .05 for all analyses. There was a significant effect of stimulus, <span style = "color:#008290"><b> $F$(2, 57) = 5.99, $p$ = .004, $eta^2$ = .174, 95% CI = [.02, .33] </span></b>. Posthoc Tukey's tests indicated that infants listening to infant-directed singing displayed a positive or neutral affect significantly longer <span style = "color:#30726E"><b> ( $M$ = 6.32, $SD$ = 2.27)</span></b> than infants listening to adult-directed speech <span style = "color:#30726E"><b> ($M$ = 4.36, $SD$ = 1.55)</span></b>, $p$ = .005, or infants listening to infant-directed speech <span style = "color:#30726E"><b>( $M$ = 4.78, $SD$ = 1.77)</span></b>, $p$ = .033. There was no significant difference in time of distress in infants listening to adult-directed speech and those listening to infant-directed speech, $p$ = .762. 
+We conducted a **One-Way ANOVA** to determine the effect of <span style = "color:#F2B66D"> <b> auditory stimulus </span></b> on <span style = "color:#F2B66D"> <b> an infant's affect</span></b>. The $\alpha$ threshold was set at .05 for all analyses. There was a significant effect of stimulus, <span style = "color:#008290"><b> $F$(2, 57) = 5.99, $p$ = .004, $\eta^2$ = .174, 95% CI = [.02, .33] </span></b>. Posthoc Tukey's tests indicated that infants listening to infant-directed singing displayed a positive or neutral affect significantly longer <span style = "color:#30726E"><b> ( $M$ = 6.32, $SD$ = 2.27)</span></b> than infants listening to adult-directed speech <span style = "color:#30726E"><b> ( $M$ = 4.36, $SD$ = 1.55)</span></b>, $p$ = .005, or infants listening to infant-directed speech <span style = "color:#30726E"><b>( $M$ = 4.78, $SD$ = 1.77)</span></b>, $p$ = .033. There was no significant difference in time of distress in infants listening to adult-directed speech and those listening to infant-directed speech, $p$ = .762. 
 
 ---
 ### Running a One-way ANOVA
@@ -1086,7 +1086,7 @@ At least one $\mu \neq$ the other $\mu$s
 
 + [WebPower](https://webpower.psychstat.org/wiki/models/index)
 
-+ As before, let's check the sample required to achieve 80% power to detect a moderate effect ( $eta^2$ = .06) with $\alpha$ = .05.
++ As before, let's check the sample required to achieve 80% power to detect a moderate effect ( $\eta^2$ = .06) with $\alpha$ = .05.
 
 ---
 ### Running a Repeated-measures One-Way ANOVA
