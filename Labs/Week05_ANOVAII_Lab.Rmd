@@ -212,9 +212,9 @@ quiz(caption = 'Check Your Results',
      question_numeric("How many participants do you need to detect a moderate interaction effect with 80% power and alpha = .05?",
               answer(158, correct = T),
               message = "You would need 158 total participants to detect the interaction effect, given the above constraints."),
-     question_numeric("What is the minimum effect (eta-squared) of Conditionyou can detect with 150 participants, 80% power and alpha = .05?",
-              answer(.07, correct = T),
-              message = "You can detect a moderate effect (eta-squared = .07) with 150 participants under these constraints. An eta-squared of .07 is equivalent to f = .26."))
+     question_numeric("What is the minimum effect (eta-squared) of Condition you can detect with 150 participants, 80% power and alpha = .05?",
+              answer(.06, correct = T),
+              message = "You can detect a moderate effect (eta-squared = .06) with 150 participants under these constraints. An eta-squared of .06 is equivalent to f = .26."))
 ```
 
 <div class="container">
