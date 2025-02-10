@@ -59,15 +59,29 @@ accent3 <- '#008290'
 
 + ANOVAs can be used to compare more than two means. 
 
-  + One-Way ANOVA and Repeated-Measures ANOVA test for differences in the dependent variable between 3 or more levels of a single independent variable. 
+  + One-Way ANOVA tests for differences in the dependent variable between 3 or more levels of a single independent variable. 
   
   + **Factorial (Multiway) ANOVA** tests for differences in the dependent variable across <b>multiple</b> independent variables
+
+--
 
 + A Factorial ANOVA requires:
 
   + A continuous dependent variable
   
   + 2 or more categorical independent variables (with at least 2 levels each)
+
+---
+### Factorial ANOVA
+
++ Factorial ANOVAs test for differences in the dependent variable across <b>multiple</b> independent variables
+
+  + Between-Subjects Factorial ANOVA - all IVs are between-subjects 
+  
+  + Within-Subjects Factorial ANOVA - all IVs are within-subjects
+  
+  + Mixed Factorial ANOVA - both between- and within-subjects IVs are included in the analysis
+
 
 ---
 ### Factorial ANOVA
