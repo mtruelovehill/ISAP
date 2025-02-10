@@ -173,34 +173,10 @@ Description
 <tbody>
 <tr>
 <td style="text-align:left;width: 4.5cm; font-weight: bold;">
-Before
-</td>
-<td style="text-align:left;">
-ID
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 4.5cm; font-weight: bold;">
-After
-</td>
-<td style="text-align:left;">
-Age in years
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 4.5cm; font-weight: bold;">
-Condition
-</td>
-<td style="text-align:left;">
-Gender
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 4.5cm; font-weight: bold;">
 ID
 </td>
 <td style="text-align:left;">
-Levels: 0 = Waitlist; 1 = Play Therapy, 2 = Pet Therapy
+ID
 </td>
 </tr>
 <tr>
@@ -208,12 +184,36 @@ Levels: 0 = Waitlist; 1 = Play Therapy, 2 = Pet Therapy
 Age
 </td>
 <td style="text-align:left;">
-pre-treatment RCDS score (possible values = 30-121)
+Age in years
 </td>
 </tr>
 <tr>
 <td style="text-align:left;width: 4.5cm; font-weight: bold;">
 Gender
+</td>
+<td style="text-align:left;">
+Gender
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4.5cm; font-weight: bold;">
+Condition
+</td>
+<td style="text-align:left;">
+Levels: 0 = Waitlist; 1 = Play Therapy, 2 = Pet Therapy
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4.5cm; font-weight: bold;">
+Time1
+</td>
+<td style="text-align:left;">
+pre-treatment RCDS score (possible values = 30-121)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 4.5cm; font-weight: bold;">
+Time2
 </td>
 <td style="text-align:left;">
 post-treatment RCDS score (possible values = 30-121)
@@ -841,7 +841,7 @@ Variable, <code>Condition</code>.</p>
 options for your analysis. In order to help you visualise your results,
 it’s helpful to look at a plot. Click ‘Plots’, then add
 <code>Time</code> to the ‘Horizontal Axis’ box (this sets the x-axis of
-your plot), and <code>TherapyGroup</code> to the ‘Separate Lines’ box.
+your plot), and <code>Condition</code> to the ‘Separate Lines’ box.
 Click ‘Add’, and the plot will appear in the ‘Plots:’ box below. Make
 sure ‘Line Chart’ is selected and the ‘Include Error Bars’ box is
 ticked. I also like to tick ‘Include reference line for grand mean’, so
@@ -951,7 +951,7 @@ box:</p>
 <p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week5_univariateResults2.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Finally, full interaction results can be visualised with the ‘Profile
 Plots’ output:</p>
-<p><img src="https://mtruelovehill.github.io/PRM/Labs/images/week6_interactionPlot.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week5_interactionPlot.png" width="75%" style="display: block; margin: auto;" /></p>
 </details>
 </div>
 <p></br></p>
@@ -1129,27 +1129,27 @@ session$onSessionEnded(function() {
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "tyo1-1", question = structure("What is the proper way to describe the test that you will be performing?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_2694b39", 
+"character")), answers = list(structure(list(id = "lnr_ans_2c9e086", 
     option = "2x3 Between-Subjects One-Way ANOVA", value = "2x3 Between-Subjects One-Way ANOVA", 
     label = structure("2x3 Between-Subjects One-Way ANOVA", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5516912", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3635a58", 
     option = "2x3 Between-Subjects Factorial ANOVA", value = "2x3 Between-Subjects Factorial ANOVA", 
     label = structure("2x3 Between-Subjects Factorial ANOVA", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_aa3c42b", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a66d56", 
     option = "2x3 Repeated-Measures One-Way ANOVA", value = "2x3 Repeated-Measures One-Way ANOVA", 
     label = structure("2x3 Repeated-Measures One-Way ANOVA", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_55d0347", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_341d2fa", 
     option = "2x3 Repeated-Measures Factorial ANOVA", value = "2x3 Repeated-Measures Factorial ANOVA", 
     label = structure("2x3 Repeated-Measures Factorial ANOVA", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4ae3272", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_202a5c2", 
     option = "2x3 Mixed One-Way ANOVA", value = "2x3 Mixed One-Way ANOVA", 
     label = structure("2x3 Mixed One-Way ANOVA", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b35df29", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8861a3", 
     option = "2x3 Mixed Factorial ANOVA", value = "2x3 Mixed Factorial ANOVA", 
     label = structure("2x3 Mixed Factorial ANOVA", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1161,18 +1161,18 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("You are running an ANOVA with an IV with 2 levels and an IV with 3 levels, so you should specify this as 2x3. You have both between- (condition) and within- (time) subjects variables, so it is a mixed ANOVA. You have more than 1 IV, so it is considered a Factorial ANOVA. You should specify all of these things when you refer to this test.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "tyo1-1-answer", 
     question = "tyo1-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 511986307.761588, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 111275020.448184, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "tyo1-2", question = structure("What kind of variable is Condition?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_d0ff88b", 
+"character")), answers = list(structure(list(id = "lnr_ans_34f5475", 
     option = "Between-Subjects", value = "Between-Subjects", 
     label = structure("Between-Subjects", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8708695", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1eccf9a", 
     option = "Within-Subjects", value = "Within-Subjects", label = structure("Within-Subjects", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1183,17 +1183,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("Condition is a between-subjects variable, because each individual is only placed in one group. There is no sample overlap between the Waitlist and Therapy groups.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "tyo1-2-answer", 
     question = "tyo1-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1979931533.57802, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1890083067.11986, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "tyo1-3", question = structure("What kind of variable is Time?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5d03a5", 
+"character")), answers = list(structure(list(id = "lnr_ans_e329cc8", 
     option = "Between-Subjects", value = "Between-Subjects", 
     label = structure("Between-Subjects", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_895c3d0", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c939ae6", 
     option = "Within-Subjects", value = "Within-Subjects", label = structure("Within-Subjects", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1204,15 +1204,15 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = structure("Time is a within-subjects variable, because all participants provided data at both Time 1 and Time 2.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "tyo1-3-answer", 
     question = "tyo1-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1965318898.08483, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 157435095.426689, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "cyrPower-1", 
-    question = structure("What is the number of measurements in your data?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_22b1fa3", 
+    question = structure("What is the number of measurements per group in your data?", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_381b873", 
         option = "2", value = 2, label = structure("2", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1223,7 +1223,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
     "character")), message = structure("The number of measurements in your data is 2. See the solution tab for more details.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "cyrPower-1-answer", 
         question = "cyrPower-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1847077019.13989, options = list(
+    allow_retry = FALSE, seed = 1647302046.23292, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
@@ -1231,7 +1231,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "cyrPower-2", 
     question = structure("How many participants do you need to detect a moderate interaction effect with 80% power and alpha = .05?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_a62995d", 
+    "character")), answers = list(structure(list(id = "lnr_ans_5838217", 
         option = "158", value = 158, label = structure("158", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1242,7 +1242,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
     "character")), message = structure("You would need 158 total participants to detect the interaction effect, given the above constraints.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "cyrPower-2-answer", 
         question = "cyrPower-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1081701069.49629, options = list(
+    allow_retry = FALSE, seed = 218733969.898144, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
@@ -1250,19 +1250,19 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "cyrPower-3", 
-    question = structure("What is the minimum effect (eta-squared) of Conditionyou can detect with 150 participants, 80% power and alpha = .05?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_8aeebc8", 
-        option = "0.07", value = 0.07, label = structure("0.07", html = TRUE, class = c("html", 
+    question = structure("What is the minimum effect (eta-squared) of Condition you can detect with 150 participants, 80% power and alpha = .05?", html = TRUE, class = c("html", 
+    "character")), answers = list(structure(list(id = "lnr_ans_d71c3d4", 
+        option = "0.06", value = 0.06, label = structure("0.06", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = structure("You can detect a moderate effect (eta-squared = .07) with 150 participants under these constraints. An eta-squared of .07 is equivalent to f = .26.", html = TRUE, class = c("html", 
+    "character")), message = structure("You can detect a moderate effect (eta-squared = .06) with 150 participants under these constraints. An eta-squared of .06 is equivalent to f = .26.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "cyrPower-3-answer", 
         question = "cyrPower-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 185130991.913792, options = list(
+    allow_retry = FALSE, seed = 1312827068.38867, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
@@ -1270,7 +1270,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "cyrFacAOV-1", 
     question = structure("What is the F-statistic associated with main effect 1 (Condition)? Please round your answer to two decimal places.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_da798c", 
+    "character")), answers = list(structure(list(id = "lnr_ans_1747340", 
         option = "2.15", value = 2.15, label = structure("2.15", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1281,7 +1281,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
     "character")), message = structure("The F-statistic associated with this test is 2.15. You’ll find this in the ‘Tests of Between-Subjects Effects’ table.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "cyrFacAOV-1-answer", 
         question = "cyrFacAOV-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1373128852.36059, options = list(
+    allow_retry = FALSE, seed = 1102388351.98666, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>
@@ -1290,10 +1290,10 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "cyrFacAOV-2", 
     question = structure("Is the effect of Time (main effect 2) significant?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_12813ed", 
+    "character")), answers = list(structure(list(id = "lnr_ans_fa9f622", 
         option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b87af27", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e2acbe9", 
         option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1304,14 +1304,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = structure("The p-value associated with Time can be found in the ‘Tests of Within-Subjects Effects’ table. It is .153, which is larger than the alpha threshold of .05, indicating the effect of Time is not significant.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "cyrFacAOV-2-answer", 
         question = "cyrFacAOV-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1901490935.11455, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 2091544392.52605, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "cyrFacAOV-3", 
     question = structure("What is the effect size (partial eta-squared) associated with the interaction effect (Condition x Time)? Please round your answer to two decimal places.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_251ca4b", 
+    "character")), answers = list(structure(list(id = "lnr_ans_674e64a", 
         option = "0.07", value = 0.07, label = structure("0.07", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1322,7 +1322,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
     "character")), message = structure("The effect size associated with the interaction effect is 0.07. You’ll find this in the ‘Tests of Within-Subjects Effects’ table.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "cyrFacAOV-3-answer", 
         question = "cyrFacAOV-3"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 744715151.653215, options = list(
+    allow_retry = FALSE, seed = 1978133674.57886, options = list(
         min = NA, max = NA, step = NA, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>

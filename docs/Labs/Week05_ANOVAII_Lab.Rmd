@@ -206,7 +206,7 @@ Click [here to use WebPower to run your analysis](https://webpower.psychstat.org
 
 ```{r cyrPower, echo = FALSE}
 quiz(caption = 'Check Your Results',
-     question_numeric("What is the number of measurements in your data? ",
+     question_numeric("What is the number of measurements per group in your data? ",
               answer(2, correct = T),
               message = "The number of measurements in your data is 2. See the solution tab for more details."),
      question_numeric("How many participants do you need to detect a moderate interaction effect with 80% power and alpha = .05?",
@@ -552,7 +552,7 @@ knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week5_
 
 Click 'Define', then add your Within-Subjects Variables, `Time1` and `Time2`, and your Between-Subjects Variable, `Condition`. 
 
-Now that you've added your variables, you can set up some other options for your analysis. In order to help you visualise your results, it's helpful to look at a plot. Click 'Plots', then add `Time` to the 'Horizontal Axis' box (this sets the x-axis of your plot), and `TherapyGroup` to the 'Separate Lines' box. Click 'Add', and the plot will appear in the 'Plots:' box below. Make sure 'Line Chart' is selected and the 'Include Error Bars' box is ticked. I also like to tick 'Include reference line for grand mean', so that the mean of the dependent variable across all groups is shown. 
+Now that you've added your variables, you can set up some other options for your analysis. In order to help you visualise your results, it's helpful to look at a plot. Click 'Plots', then add `Time` to the 'Horizontal Axis' box (this sets the x-axis of your plot), and `Condition` to the 'Separate Lines' box. Click 'Add', and the plot will appear in the 'Plots:' box below. Make sure 'Line Chart' is selected and the 'Include Error Bars' box is ticked. I also like to tick 'Include reference line for grand mean', so that the mean of the dependent variable across all groups is shown. 
 
 ```{r, echo = F, fig.align= 'center', out.width = '50%'}
 knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week5_intPlotOptions.png')
@@ -636,7 +636,7 @@ knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week5_
 Finally, full interaction results can be visualised with the 'Profile Plots' output:
 
 ```{r, echo = F, fig.align= 'center', out.width = '75%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week6_interactionPlot.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week5_interactionPlot.png')
 ```
 
 
