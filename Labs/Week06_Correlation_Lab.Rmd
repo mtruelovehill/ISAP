@@ -30,14 +30,9 @@ At the end of this lab, you will be able to:
 
 1. Identify hypotheses which may be tested using correlations
 2. Use SPSS to compute a composite score
-3. Use SPSS to run a Pearson correlation
-4. Properly interpret and report a Pearson correlation
+3. Use SPSS to run both a Pearson and Spearman correlation
+4. Properly interpret and report both a Pearson and Spearman correlation
 5. Produce an APA-style correlation matrix table
-
-If you complete the bonus material, you'll also be able to:
-
-1. Use SPSS to run a Spearman correlation
-2. Properly interpret and report a Spearman correlation
 
 
 ### This Week's Study
@@ -86,7 +81,14 @@ quiz(caption = '',
               answer('Is there an association between season (Spring, Summer, Autumn, Winter) and the number of cyclists on the path through the Meadows?'),
               answer('Are scores on the Beck Depression Inventory associated with weekly physical activity (in hours)?', correct = T),
               random_answer_order = T,
-              message = "Pearson's correlation is used to test for an association between two continuous variables. It doesn't for group differences, and it should not be used with categorical data."))
+              message = "Pearson's correlation is used to test for an association between two continuous variables. It doesn't test for group differences, and it should not be used with categorical data."),
+     question("Which of the following questions are best addressed using Spearman's correlation? Please select all that apply.",
+              answer('What is the association between age in years and weight in kg?', correct = T),
+              answer('Is there a difference in ticket sales between movie theatres with recliners and those without?'),
+              answer('Is there an association between season (Spring, Summer, Autumn, Winter) and the number of cyclists on the path through the Meadows?', correct = T),
+              answer('Are scores on the Beck Depression Inventory associated with weekly physical activity (in hours)?', correct = T),
+              random_answer_order = T,
+              message = "Spearman's correlation can be used to test for an association between two variables that are either continous or ordinal. It doesn't test for group differences."))
 ```
 
 ### Your Tasks
@@ -310,7 +312,7 @@ quiz(caption = 'Check Your Results',
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
 
-To run a correlation, you'll need to navigate to *Analyze > Correlate > Bivariate*
+To run a correlation, navigate to *Analyze > Correlate > Bivariate*
 
 </details>
 </div>
@@ -332,36 +334,74 @@ The top box provides a correlation matrix with the value of $r$ and the p-value,
 </div>
 </br>
 
-## Using ggPlot GUI for visualisation
+## Run a Spearman Correlation
 
-Often, visualisations of your results allows outside reader's to more easily interpret your findings. Effective visualisations allow you to present your results more clearly and efficiently than describing them in text alone. As a psychology student, you will almost always need to follow APA-style when producing figures. SPSS does not always produce customisable, APA-style figures. Here, you'll learn how to use the [ggplot GUI website](https://shiny.gmw.rug.nl/ggplotgui/) to produce 3 common types of plots.
+There may be times when you want to check the association between ordinal values, such as those from a Likert Scale. Pearson's correlation is not appropriate for this, as it assumes you're testing for a linear association between two continuous variables. When you have ordinal data, you should instead use Spearman's rank correlation, which tests for a monotonic association (as one variable increases or decreases, so does the other, but it doesn't have to be in a linear fashion). Spearman's correlation is denoted by $\rho$ (rho). 
 
-### Your Tasks
+### Your Task
 
-+ [ ] $\ $ Create an APA-style scatterplot with `SelfEnhancement` on the x-axis and `AntisocialBehaviour` on the y-axis. Please include a regression line.
++ [ ] $\ $ Run a Spearman's rank correlation test between each of the items on the Self-enhancment scale (`SE1`, `SE1`, `SE3`, & `SE4`).
 
-+ [ ] $\ $ Create an APA-style boxplot with `SEcategory` on the x-axis and `AntisocialBehaviour` on the y-axis.
 
-+ [ ] $\ $ Create an APA-style dot-and-error plot with `SEcategory` on the x-axis, `AntisocialBehaviour` on the y-axis, and `ParentalPressure` as the Group variable.
-
-```{r cyrPlots, echo = FALSE}
-quiz(caption = 'Check Your Results',
-     question("Does your boxplot suggest the presence of any outliers in your data?",
-              answer('Yes', correct = T),
-              answer('No'),
-              message = "The dot just past the upper whisker of the box reflecting Low Self-Enhancement reflects an outlier."),
-     question("Does your dot-and-error plot suggest the presence of an interaction between SEcategory and ParentalPressure on AntisocialBehaviour?",
-              answer('Yes', correct = T),
-              answer('No'),
-              message = "The effect of Self-Enhancement on AntisocialBehaviour is different across levels of Parental Pressure, so it is likely that there is an interaction effect."))
+```{r cyrSpearman, echo = FALSE}
+quiz(caption = '',
+     question_numeric("What is the value of rho associated with the relationship between SE3 & SE4? Please round your answer to two decimal places.",
+                      answer(.47, correct = T),
+                      message = "Spearman's rho for the association between SE3 & SE4 is .47"),
+     question("Which of the following pairs have the weakest association?",
+              answer("SE1 & SE2"),
+              answer("SE1 & SE3"),
+              answer('SE1 & SE4', correct = T),
+              message = "Spearman's rho for the association between SE1 & SE4 is only .28. For the association between SE1 & SE3, it is .39, and for the association between SE1 & SE2, it is .51."))
 ```
 
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+You'll find the steps of this to be very similar to the Pearson correlation. Check the 'Correlation Coefficient' options under *Analyze > Correlate > Bivariate*
 
-If you are having trouble opening the ggPlot GUI website, first try opening the page in a different window (right click on the link and click 'Open in a new window'). If that doesn't work, try using a different browser. 
+</details>
+</div>
+</br>
 
-If you are still having trouble, please [download this file](https://mtruelovehill.github.io/PRM/Labs/ggplotgui_for_positcloud.R), import it into Posit, and run it. If you're hung up on how to do that, please call one of your tutors over for assistance.
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+Navigate to *Analyze > Correlate > Bivariate*. Change the tick mark under 'Correlation Coefficients' from 'Pearson' to 'Spearman'. Click 'Flag significant correlations' and 'Show only the lower triangle', then click 'OK'.
+
+
+```{r, echo = F, fig.align='center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_SpearmanOptions.png')
+```
+
+You'll get the following output, which you can interpret in the same way as Pearson's $r$:
+
+```{r, echo = F, fig.align='center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_SpearmanResults.png')
+```
+
+Here, you can see that all variables are significantly associated with each other, which you would expect given that they are supposed to measure the same construct. 
+
+
+</details>
+</div>
+</br>
+
+
+## Produce an APA-style Correlation Table
+
+When a number of correlations are reported, these are most effectively displayed in a table. Tables allow you to present your results more clearly and efficiently than describing them in text alone. As a psychology student, you will almost always need to follow APA-style when producing figures. SPSS does not always produce customisable, APA-style tables (even when you select the option to do so). Here, you'll refer to the [APA-style website](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/tables) to produce an APA-style correlation table.
+
+### Your Tasks
+
++ [ ] $\ $ Produce an APA-style correlation table of your Spearman correlation data.
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+I personally find SPSS tables difficult to customise and produce in APA style. It's okay to use Microsoft Word, Microsoft Excel, or another data processing programme of your choice to create your correlation matrix.
+
+[See here](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables#correlation) for a specific example of an APA-style correlation table.
 
 </details>
 </div>
@@ -370,51 +410,29 @@ If you are still having trouble, please [download this file](https://mtruelovehi
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
 
-Navigate [to the ggplot GUI webpage](https://shiny.gmw.rug.nl/ggplotgui/) by clicking the link. Upload the SPSS datafile into the ggplot GUI application by using Data Upload column on the left of the page. First, click the 'Browse' button to find the file on your device, selecting 'SPSS' under 'Type of File', then clicking 'Submit Datafile'. You'll see a sample of your data pop up on the screen. Once that appears, click the 'ggplot' option (circled).
+The steps to produce the table will differ depending upon which software you use to produce it, but the final output should look something like this:
 
-```{r, echo = F, fig.align= 'center', out.width = '75%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_ggplotData.png')
+```{r, echo = F, fig.align='center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week6_corrTable.png')
 ```
 
-Here, you can create your plot using the options available in the columns on the left and right of the page. 
+Note the following:
 
-<span style = "font-weight: bold; font-size: 14pt"> Scatterplot </span>
-In the left column, set the type of plot to 'Scatter', the y-axis to `AntisocialBehaviour` and the x-axis to `SelfEnhancment`. Tick the 'Show regression line' box, and make sure the smoothing function is 'lm'. To make sure the plot is APA style, navigate to the options on the right of the page, click Theme, and select 'classic' from the drop-down box. 
++ Mode is used as the central tendency metric as these are Likert-style responses
 
-You can change the axis labels to be more manuscript appropriate (e.g., add spaces between words) by using the 'Text' tab in the right column and ticking 'Change labels axes'.
++ Table number is in bold
 
-```{r, echo = F, fig.align='center', out.width='50%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_ggplotTextOptions.png')
-```
++ There is a space between the table number and title (which is in italics)
 
-I also like to increase the font size slightly by ticking 'Change font size'. You should now have an APA-style scatterplot that shows the association between self-enhancement values and antisocial behaviour:
++ There are no vertical lines in the table
 
-```{r, echo = F, fig.align='center', out.width='50%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_ggplotScatter.png')
-```
++ There are only horizontal lines at the top and bottom of the table and between sections
 
-<span style = "font-weight: bold; font-size: 14pt"> Boxplot </span>
-In the left column, set the type of plot to 'Boxplot'. The y-axis can stay set at `AntisocialBehaviour`, but change the x-axis to `SEcategory`. The previous settings should still be in place, so you can leave them as is. You should now have an APA-style boxplot that shows the difference in antisocial behaviour between self-enhancement value groups:
++ Because correlation values cannot be larger than 1, there is no leading 0 in the correlation values (i.e. .51 not 0.51)
 
-```{r, echo = F, fig.align='center', out.width='50%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_ggplotBoxplot.png')
-```
++ The note label is written in italics, with a full stop separating it and the note text. 
 
-
-<span style = "font-weight: bold; font-size: 14pt"> Dot & Error Plot </span>
-In the left column, set the type of plot to 'Dot + Error'. The y-axis can stay set at `AntisocialBehaviour` and the the x-axis at `SEcategory`, but add `ParentalPressure` as the Group variable. 
-
-You can change the legend label by using the 'Legend' tab in the right column and ticking 'Change legend'.
-
-```{r, echo = F, fig.align='center', out.width='50%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_ggplotLegendOptions.png')
-```
-
-You can leave everything else as the default setting. 
-
-```{r, echo = F, fig.align='center', out.width='50%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_ggplotDotError.png')
-```
++ Check the style guidelines for alignment
 
 </details>
 </div>
@@ -457,16 +475,14 @@ $r$($df$) = [$r$ value], $p$ = [$p$-value], 95% CI = [lower band, upper band].
 
 In this study, we investigated whether adolescent athletes' self-enhancement values were associated with their antisocial behaviours towards members of the opposing team To do this, we collected data from a sample of 173 adolescents who participate in team sports. One participant was excluded due to an error in the data. Our final sample consisted of 172 adolescent athletes between the ages of 13-19 ($M$ = 15.92, $SD$ = 1.60; 88 Females, 84 Males). 
 
-We ran a Pearson's correlation to test the association between scores on a self-enhancement values scale and the average score on a scale that measured antisocial behaviour.  $\alpha$ was set at .05 for all analyses.
+A composite measure of self-enhancement was computed by summing the values of the 4 questions associated with desire for power and achievement from the Portrait Values Questionnaire. This produced a Self-Enhancement measure with possible values ranging from 0 to 24. Higher values reflected greater levels of self-enhancement.
 
-Participants scored an average of 12.41 on the self-enhancement scale ( $SD$ = 2.79; minimum = 6.00; maximum = 20.00) and had an average antisocial behaviour rating of 14.99 ( $SD$ = 4.41, minimum = 5, maximum = 25). Results from a Pearson's correlation indicated that there was a moderate, positive relationship between the two variables, $r$(170) = .30, $p$ < .001, 95% CI = [.16, .43], indicating that participants who endorsed stronger self-enhancement values also demonstrated more antisocial behaviours towards members of the opposing team (see Figure 1). 
+We used Spearman correlations to test whether scores on each of the four questions on the self-enhancement scale were associated. We ran a Pearson's correlation to test the association between scores on a self-enhancement values scale and the average score on a scale that measured antisocial behaviour.  $\alpha$ was set at .05 for all analyses.
 
-<b> Figure 1 </b>
+Scores on each of the 4 questions on the self-enhancement scale were moderately positively correlated (see Table 1). Participants scored an average of 12.41 on the self-enhancement scale ( $SD$ = 2.79; minimum = 6.00; maximum = 20.00) and had an average antisocial behaviour rating of 14.99 ( $SD$ = 4.41, minimum = 5, maximum = 25). Results from a Pearson's correlation indicated that there was a moderate, positive relationship between the two variables, $r$(170) = .30, $p$ < .001, 95% CI = [.16, .43], indicating that participants who endorsed stronger self-enhancement values also demonstrated more antisocial behaviours towards members of the opposing team. 
 
-<i> Self-Enhancement Values & Antisocial Behaviours Towards Opposing Team </i>
-
-```{r, echo = F, fig.align='center', out.width='50%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_scatterFig.png')
+```{r, echo = F, fig.align='center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week6_corrTable.png')
 ```
 
 </details>
@@ -474,69 +490,3 @@ knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_s
 </br>
 
 
-## Bonus Material: Spearman Correlation
-
-There may be times when you want to check the association between ordinal values, such as those from a Likert Scale. Pearson's correlation is not appropriate for this, as it assumes you're testing for a linear association between two continuous variables. When you have ordinal data, you should instead use Spearman's rank correlation, which tests for a monotonic association (as one variable increases or decreases, so does the other, but it doesn't have to be in a linear fashion). Spearman's correlation is denoted by $\rho$ (rho). 
-
-### Your Task
-
-+ [ ] $\ $ Run a Spearman's rank correlation test between each of the items on the Self-enhancment scale (`SE1`, `SE1`, `SE3`, & `SE4`).
-
-+ [ ] $\ $ Produce an APA-style correlation matrix of your results.
-
-
-```{r cyrSpearman, echo = FALSE}
-quiz(caption = '',
-     question_numeric("What is the value of rho associated with the relationship between SE3 & SE4? Please round your answer to two decimal places.",
-                      answer(.47, correct = T),
-                      message = "Spearman's rho for the association between SE3 & SE4 is .47"),
-     question("Which of the following pairs have the weakest association?",
-              answer("SE1 & SE2"),
-              answer("SE1 & SE3"),
-              answer('SE1 & SE4', correct = T),
-              message = "Spearman's rho for the association between SE1 & SE4 is only .28. For the association between SE1 & SE3, it is .39, and for the association between SE1 & SE2, it is .51."))
-```
-
-<div class="container">
-<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
-You'll find the steps of this to be very similar to the Pearson correlation. Check the 'Correlation Coefficient' options under *Analyze > Correlate > Bivariate*
-
-
-I personally find SPSS tables difficult to customise and produce in APA style. It's okay to use Microsoft Word, Microsoft Excel, or another data processing programme of your choice to create your correlation matrix.
-
-</details>
-</div>
-</br>
-
-
-<div class="container">
-<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
-Navigate to *Analyze > Correlate > Bivariate*. Change the tick mark under 'Correlation Coefficients' from 'Pearson' to 'Spearman'. Click 'Flag significant correlations' and 'Show only the lower triangle', then click 'OK'.
-
-
-```{r, echo = F, fig.align='center', out.width='75%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_SpearmanOptions.png')
-```
-
-You'll get the following output, which you can interpret in the same way as Pearson's $r$:
-
-```{r, echo = F, fig.align='center', out.width='75%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_SpearmanResults.png')
-```
-
-Here, you can see that all variables are significantly associated with each other, which you would expect given that they are supposed to measure the same construct. 
-
-
-You can report the results like this:
-
-We used Spearman correlations to test whether scores on each of the four questions on the self-enhancement scale were associated. Scores on each of the 4 questions on the self-enhancement scale were moderately positively correlated (see Table 1).
-
-
-```{r, echo = F, fig.align='center', out.width='75%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_corrMatrix.png')
-```
-
-
-</details>
-</div>
-</br>
