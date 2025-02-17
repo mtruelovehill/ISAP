@@ -53,7 +53,7 @@ In this experiment, you recruited a sample of adolescents who participated in te
 You can download the dataset from the first experiment [here](https://mtruelovehill.github.io/ISAP/Labs/Week6LabData.sav). It contains the following variables:
 
 ```{r, echo = F}
-dat <- read.csv('https://mtruelovehill.github.io/PRM/Labs/Week7LabData.csv')
+dat <- read.csv('https://mtruelovehill.github.io/ISAP/Labs/Week6LabData.csv')
 datInfo <- data.frame(VariableName = colnames(dat),
                       Description=c('Participant ID',
                                     'Age in years',
@@ -62,9 +62,7 @@ datInfo <- data.frame(VariableName = colnames(dat),
                                     'Self-Enhancment Score 2; values may range between 0 - 6',
                                     'Self-Enhancment Score 3; values may range between 0 - 6',
                                     'Self-Enhancment Score 4; values may range between 0 - 6',
-                                    'Total Antisocial Behaviour Score; values may range from 5-25',
-                                    'Self-Enhancement values as categories; Levels: High; Low',
-                                    'Self-reported feelings of parental pressure; Levels: High; Low'))
+                                    'Total Antisocial Behaviour Score; values may range from 5-25'))
 
 datInfo %>%
   kbl(col.names=c('Variable Name', 'Description')) %>%
@@ -157,31 +155,20 @@ Additionally, you'll need to compute descriptive data. You'll do this for both y
 
 + [ ] $\ $ Check that all variables are set as the correct measurement type. 
 
-+ [ ] $\ $ Compute a total score, `SelfEnhancement`, by summing the following columns: `SE1`, `SE2`, `SE3`, and `SE4`
-
 + [ ] $\ $ Check the descriptive statistics of your data
 
 
-
-
-```{r cyr, echo = FALSE}
+```{r cyrDesc, echo = FALSE}
 quiz(caption = 'Check Your Results',
      question_numeric('What is the maximum value for AntisocialBehaviour?',
                       answer(190, correct = T),
-                      message = "The maximum Antisocial Behaviour score is 190, which is well outside the expected limits of 5-25. As a score of 190 is not possible, it is an error. It will need to be deleted so that it is excluded from further analysis."),
-     question_numeric("What is the mean score on SelfEnhancement? Please round your answer to two decimal places.",
-                      answer(12.41, correct = T),
-                      answer(12.42, correct = T),
-                      message = "The mean SelfEnhancement score in your sample is currently 12.42. If you remove the participant with the invalid score for Antisocial Behaviour, the mean SelfEnhancement score will drop slightly to 12.41."))
+                      message = "The maximum Antisocial Behaviour score is 190, which is well outside the expected limits of 5-25. As a score of 190 is not possible, it is an error. It will need to be deleted so that it is excluded from further analysis."))
 ```
 
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
 
-As `SelfEnhancement` is a continuous variable, the descriptive statistics you'll want to check are mean and standard deviation. It's also useful to check the minimum and maximum so you can easily identify values outside of your expected range. For categorical variables, you'll check the frequency of participants in each group. It may also be useful to check the mode.
-
-To compute the self-enhancement composite score, you'll need to navigate to *Transform > Compute Variable*
-
+For continuous variables, check mean and standard deviation. It's also useful to check the minimum and maximum so you can easily identify values outside of your expected range. For categorical variables, check the frequency of participants in each group. It may also be useful to check the mode.
 
 </details>
 </div>
@@ -212,7 +199,62 @@ To check that your variables are labeled as the correct scale of measurement, lo
 
 * `ParentalPressure` - Nominal
 
-The newly computed variable, `SelfEnhancement`, should be set as a Scale variable.
+<br>
+<span style = "font-weight: bold; font-size: 14pt"> Check Descriptive Statistics </span>
+
+**Categorical Variables:** Your categorical variables are `Gender`, `SEcategory`, `ParentalPressure`, `SE1`, `SE2`, `SE3` and `SE4`. Click *Analyze>Descriptive Statistics>Frequencies*, then add these variables to the 'Variable(s)' box. Make sure 'Display frequency tables' is checked, then click 'OK'. You should see the following output:
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_freqTables.png')
+```
+
+You might also find it helpful to check the mode of the `SE` variables.
+
+**Continuous Variables:** `AntisocialBehaviour` is a continuous variable. Click *Analyze>Descriptive Statistics>Frequencies*, then add `AntisocialBehaviour` to the 'Variable(s)' box. Make sure 'Display frequency tables' is not ticked, then click 'Statistics'. Tick 'Mean', 'Std. Deviation', 'Minimum', and 'Maximum'. Click 'Continue', then 'OK'. You should see the following output:
+
+```{r, echo = F, fig.align= 'center', out.width = '40%'}
+knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_descStats.png')
+```
+
+Note that the maximum value for `AntisocialBehaviour` is 190, which is not a valid score. This is an error, so you'll need to remove it from your data so that it is not included in further analysis. To do this, find the value in your dataset under 'Data View' and delete it.
+
+</details>
+</div>
+</br>
+
+## Create a Composite Score
+
+Sometimes when performing a study, it is necessary to compute a composite summary metric for use in analysis. This composite score may be an average or a sum of other measured variables.
+
+### Your Task
+
++ [ ] $\ $ Compute a total score, `SelfEnhancement`, by summing the following columns: `SE1`, `SE2`, `SE3`, and `SE4`
+
++ [ ] $\ $ Check the appropriate descriptive statistics for `SelfEnhancement`
+
+
+
+```{r cyrComp, echo = FALSE}
+quiz(caption = 'Check Your Results',
+    question_numeric("What is the mean score on SelfEnhancement? Please round your answer to two decimal places.",
+                      answer(12.41, correct = T),
+                      answer(12.42, correct = T),
+                      message = "The mean SelfEnhancement score in your sample is currently 12.42. If you remove the participant with the invalid score for Antisocial Behaviour, the mean SelfEnhancement score will drop slightly to 12.41."))
+```
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+To compute the self-enhancement composite score, you'll need to navigate to *Transform > Compute Variable*
+
+As `SelfEnhancement` is a continuous variable, the descriptive statistics you'll want to check are mean and standard deviation. It's also useful to check the minimum and maximum so you can easily identify values outside of your expected range. 
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
 
 <br>
 <span style = "font-weight: bold; font-size: 14pt"> Compute Composite Score </span>
@@ -228,21 +270,12 @@ Click 'OK'. A new column labeled `SelfEnhancement` should appear that contains t
 <br>
 <span style = "font-weight: bold; font-size: 14pt"> Check Descriptive Statistics </span>
 
-**Categorical Variables:** Your categorical variables are `Gender`, `SEcategory`, `ParentalPressure`, `SE1`, `SE2`, `SE3` and `SE4`. Click *Analyze>Descriptive Statistics>Frequencies*, then add these variables to the 'Variable(s)' box. Make sure 'Display frequency tables' is checked, then click 'OK'. You should see the following output:
-
-```{r, echo = F, fig.align= 'center', out.width = '50%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_freqTables.png')
-```
-
-You might also find it helpful to check the mode of the `SE` variables.
-
-**Continuous Variables:** Your continuous variables are `SelfEnhancment` and `AntisocialBehaviour`. Click *Analyze>Descriptive Statistics>Frequencies*, then add these variables to the 'Variable(s)' box. Make sure 'Display frequency tables' is not ticked, then click 'Statistics'. Tick 'Mean', 'Std. Deviation', 'Minimum', and 'Maximum'. Click 'Continue', then 'OK'. You should see the following output:
+Click *Analyze>Descriptive Statistics>Frequencies* and add `SelfEnhancment` to the 'Variable(s)' box. Make sure 'Display frequency tables' is not ticked, then click 'Statistics'. Tick 'Mean', 'Std. Deviation', 'Minimum', and 'Maximum'. Click 'Continue', then 'OK'. You should see the following output:
 
 ```{r, echo = F, fig.align= 'center', out.width = '40%'}
 knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_descStats.png')
 ```
 
-Note that the maximum value for `AntisocialBehaviour` is 190, which is not a valid score. This is an error, so you'll need to remove it from your data so that it is not included in further analysis. To do this, find the value in your dataset under 'Data View' and delete it.
 
 </details>
 </div>
