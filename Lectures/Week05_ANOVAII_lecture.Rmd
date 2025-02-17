@@ -82,7 +82,6 @@ accent3 <- '#008290'
   
   + Mixed Factorial ANOVA - both between- and within-subjects IVs are included in the analysis
 
-
 ---
 ### Factorial ANOVA
 
