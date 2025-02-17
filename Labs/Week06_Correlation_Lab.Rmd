@@ -15,10 +15,10 @@ pacman::p_load('tidyverse', 'kableExtra')
 
 # library(e1701)
 
-baseColor <- '#4CA384'
-accent1 <- '#9AD079'
-accent2 <- '#C4C6C7'
-accent3 <- '#19424C'
+baseColor <- '#F28157'
+accent1 <- '#F2B66D'
+accent3 <- '#30726E'
+accent4 <- '#008290'
 ```
 
 ## Intro to Today's Lab
@@ -32,13 +32,12 @@ At the end of this lab, you will be able to:
 2. Use SPSS to compute a composite score
 3. Use SPSS to run a Pearson correlation
 4. Properly interpret and report a Pearson correlation
-5. Use the ggplot GUI to produce scatterplots, boxplots, and dot and error-bar plots
+5. Produce an APA-style correlation matrix table
 
 If you complete the bonus material, you'll also be able to:
 
 1. Use SPSS to run a Spearman correlation
 2. Properly interpret and report a Spearman correlation
-3. Produce an APA-style correlation matrix table
 
 
 ### This Week's Study
@@ -49,9 +48,9 @@ You'll be working with data adapted from [this study](https://www.tandfonline.co
 ## Experiment Overview
 
 <br>
-In this experiment, you recruited a sample of adolescents who participated in team sports. Participants have an average score for each of 4 measures associated with desire for power and achievement from the. These scores, when totaled together, will provide a measure that reflects a participant's self-enhancement values. Higher scores on this composite metric reflect stronger self-enhancement values. Participants also have an Antisocial Behaviour score, which reflects their average score on the antisocial items from the Prosocial and Antisocial Behavior in Sport Scale. Higher scores on this scale reflect a larger number of endorsed antisocial behaviours.  
+In this experiment, you recruited a sample of adolescents who participated in team sports. Participants have an average score for each of 4 measures associated with desire for power and achievement from the Portrait Values Questionnaire. These scores, when totaled together, will provide a measure that reflects a participant's self-enhancement values. Higher scores on this composite metric reflect stronger self-enhancement values. Participants also have an Antisocial Behaviour score, which reflects their average score on the antisocial items from the Prosocial and Antisocial Behavior in Sport Scale. Higher scores on this scale reflect a larger number of endorsed antisocial behaviours.  
 
-You can download the dataset from the first experiment [here](https://mtruelovehill.github.io/PRM/Labs/Week7LabData.sav). It contains the following variables:
+You can download the dataset from the first experiment [here](https://mtruelovehill.github.io/ISAP/Labs/Week6LabData.sav). It contains the following variables:
 
 ```{r, echo = F}
 dat <- read.csv('https://mtruelovehill.github.io/PRM/Labs/Week7LabData.csv')

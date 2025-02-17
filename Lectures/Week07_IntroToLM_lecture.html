@@ -114,37 +114,59 @@ class: center, middle, inverse, title-slide
 
 ]
 
+---
+## Principle of Least Squares
+
+.pull-left[
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-5-1.svg)&lt;!-- --&gt;
+]
+
+.pull-right[
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-6-1.svg)&lt;!-- --&gt;
+
+]
+
+---
+## Principle of Least Squares
+
+
+.pull-left[
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-7-1.svg)&lt;!-- --&gt;
+.center[**Sum of Squared Residuals = 572.57**]
+]
+
+.pull-right[
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-8-1.svg)&lt;!-- --&gt;
+.center[**Sum of Squared Residuals = 170.49**]
+]
+
 
 ---
 ## Logic of Regression
 
 + ANOVA is actually a special case of the linear model, so the logic of ANOVA and regression is the same
 
-+ The key difference, in this case, is continuous rather than categorical predictors
-
 + The overall model test is still comparing a model with some predictors to a baseline mean model
 
 --
 
-# ```{r, echo = F}
-# knitr::include_graphics('images/regressionSS.png')
-# ```
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-9-1.svg)![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-9-2.svg)![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-9-3.svg)
+
+
+
 
 ---
 ## Coefficient of Determination
 
-+ One of the key methods through which we evaluate a regression model is through the coefficient of determination, `\(R^2\)`
++ ** `\(R^2\)`** reflects the variance in the outcome variable accounted for by the predictor(s)
+
++ Equivalent to `\(\eta^2\)` in ANOVA
 
 `$$R^2 = \frac{SS_{Model}}{SS_{Total}}$$`
 
-+ `\(R^2\)` is a measure of the variance in the outcome variable accounted for by the predictor(s)
-
-+ It is equivalent to `\(\eta^2\)` in ANOVA
-
-# ```{r, echo = F}
-# knitr::include_graphics('images/regressionSS.png')
-# ```
-
+.center[
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-10-1.svg)![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-10-2.svg)
+]
 
 ---
 class: center, inverse, middle
@@ -161,13 +183,13 @@ Two key features of a line:
 + **Intercept:** The value of `\(y\)` when the line crosses the `\(y\)`-axis ( `\(x\)` = 0)
 
 + **Slope:** The line's rate of change (steepness)
-  + How much `\(y\)` changes with every one unit change in `\(x\)`
+  + How much `\(y\)` changes with every one-unit change in `\(x\)`
 
 ]
 
 .pull-right[
 
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-5-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-11-1.svg)&lt;!-- --&gt;
 
 ]
 
@@ -177,7 +199,7 @@ Two key features of a line:
 .pull-left[
 
 .center[**Different Intercepts**]
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-6-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-12-1.svg)&lt;!-- --&gt;
 
 
 ]
@@ -185,7 +207,7 @@ Two key features of a line:
 .pull-right[
 
 .center[**Different Slopes**]
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-7-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-13-1.svg)&lt;!-- --&gt;
 ]
 
 ---
@@ -230,7 +252,7 @@ Two key features of a line:
 
 `$$y_i = \beta_0 + \beta_1x_i + \epsilon_i$$`
 .center[
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-8-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-14-1.svg)&lt;!-- --&gt;
 ]]
 
 ---
@@ -240,7 +262,7 @@ Two key features of a line:
 
 `$$y_i = \beta_0 + \beta_1\color{#4CA384}{x_i} + \epsilon_i$$`
 .center[
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-9-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-15-1.svg)&lt;!-- --&gt;
 ]]
 
 --
@@ -261,7 +283,7 @@ Two key features of a line:
 
 `$$y_i = \beta_0 + \beta_1\color{#4CA384}{x_i} + \epsilon_i$$`
 .center[
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-10-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-16-1.svg)&lt;!-- --&gt;
 ]]
 
 .pull-right[
@@ -327,7 +349,7 @@ Two key features of a line:
 
 `$$\color{#4CA384}{y_i} = \beta_0 + \beta_1x_i + \epsilon_i$$`
 .center[
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-12-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-18-1.svg)&lt;!-- --&gt;
 ]]
 
 .pull-right[
@@ -344,7 +366,7 @@ Two key features of a line:
 
 `$$\color{#4CA384}{y_i} = \beta_0 + \beta_1x_i + \epsilon_i$$`
 .center[
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-13-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-19-1.svg)&lt;!-- --&gt;
 ]]
 
 .pull-right[
@@ -402,6 +424,30 @@ Two key features of a line:
 
 ]
 
+
+---
+## Linear Model Equation
+
+.pull-left[
+
+`$$y_i = \beta_0 + \beta_1x_i + \color{#4CA384}{\epsilon_i}$$`
+`$$\epsilon_i = \hat{y_i}-y_i$$`
+.center[
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-21-1.svg)&lt;!-- --&gt;
+]]
+
+.pull-right[
+
++ The residuals 
+  
++ The distance between an individual's actual value on the outcome variable and their model-predicted value ( `\(y-\hat{y}\)`)
+  
++ In this instance, the distance between an individual's average course mark and the course mark expected given their revision time.
+  
++ Reflects how well the model fits each data point
+
+]
+
 ---
 ## Linear Model Equation
 
@@ -412,7 +458,7 @@ Two key features of a line:
 `$$\epsilon_i = \color{#4CA384}{\hat{y_i}}-y_i$$`
 
 .center[
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-15-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-22-1.svg)&lt;!-- --&gt;
 ]]
 
 .pull-right[
@@ -434,7 +480,7 @@ Two key features of a line:
 `$$\epsilon_i = \color{#4CA384}{\hat{y_i}}-y_i$$`
 
 .center[
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-16-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-23-1.svg)&lt;!-- --&gt;
 ]]
 
 .pull-right[
@@ -498,31 +544,10 @@ Two key features of a line:
 .pull-left[
 
 `$$y_i = \beta_0 + \beta_1x_i + \color{#4CA384}{\epsilon_i}$$`
-`$$\epsilon_i = \hat{y_i}-y_i$$`
+`$$\epsilon_i = \color{#4CA384}{\hat{y_i}}-y_i$$`
+
 .center[
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-18-1.svg)&lt;!-- --&gt;
-]]
-
-.pull-right[
-
-+ The residuals 
-  
-+ The distance between an individual's actual value on the outcome variable and their model-predicted value ( `\(y-\hat{y}\)`)
-  
-+ In this instance, the distance between an individual's average course mark and the course mark expected given their revision time.
-  
-+ Reflects how well the model fits each data point
-
-]
-
----
-## Linear Model Equation
-
-.pull-left[
-
-`$$y_i = \beta_0 + \beta_1x_i + \color{#4CA384}{\epsilon_i}$$`
-.center[
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-19-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-25-1.svg)&lt;!-- --&gt;
 ]]
 
 .pull-right[
@@ -609,12 +634,35 @@ Two key features of a line:
 `$$y_i = \color{#4CA384}{\beta_0} + \beta_1x_i + \epsilon_i$$`
 .center[
 
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-21-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-27-1.svg)&lt;!-- --&gt;
 ]]
 
---
 
 .pull-right[
++ `\(\beta_0\)` reflects the model's intercept
+  + The value of `\(y\)` when the line crosses the `\(y\)`-axis ( `\(x\)` = 0)
+
++ In SPSS, this is labeled as the 'Constant'
+
+]
+
+---
+## Linear Model Equation
+
+.pull-left[
+
+`$$y_i = \color{#4CA384}{\beta_0} + \beta_1x_i + \epsilon_i$$`
+.center[
+
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-28-1.svg)&lt;!-- --&gt;
+]]
+
+
+.pull-right[
++ `\(\beta_0\)` reflects the model's intercept
+  + The value of `\(y\)` when the line crosses the `\(y\)`-axis ( `\(x\)` = 0)
+
++ In SPSS, this is labeled as the 'Constant'
 
 **Interpretation of Intercept**
 
@@ -630,12 +678,28 @@ If a student does not study (Weekly Study Hours = 0), we would expect their cour
 `$$y_i = \beta_0 + \color{#4CA384}{\beta_1}x_i + \epsilon_i$$`
 .center[
 
-![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-22-1.svg)&lt;!-- --&gt;
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-29-1.svg)&lt;!-- --&gt;
 ]]
 
---
+.pull-right[
++ `\(\beta_i\)` reflects the model's slope
+  + How much `\(y\)` changes with every one-unit change in `\(x_i\)`
+
+]
+---
+## Linear Model Equation
+
+.pull-left[
+
+`$$y_i = \beta_0 + \color{#4CA384}{\beta_1}x_i + \epsilon_i$$`
+.center[
+
+![](Week07_IntroToLM_lecture_files/figure-html/unnamed-chunk-30-1.svg)&lt;!-- --&gt;
+]]
 
 .pull-right[
++ `\(\beta_i\)` reflects the model's slope
+  + How much `\(y\)` changes with every one-unit change in `\(x_i\)`
 
 **Interpretation of Slope**
 
@@ -650,7 +714,7 @@ For every additional hour a student studies per week, we would expect their cour
 
 + `\(\beta_0\)`: 39.09
 
-+ `\(\beta_1\)`: 4.67
++ `\(\beta_1\)`: 6.15
 
 + `\(x\)`: study time (hours per week)
 
@@ -669,9 +733,9 @@ For every additional hour a student studies per week, we would expect their cour
 
 --
 
-** `\(\beta_0\)` interpretatation:** Someone who has 0 hours of study time per week would be expected to have a course average of 39.09.
+** `\(\beta_0\)` interpretatation:** Someone who has 0 hours of study time per week would be expected to have a course average of 39.09
 
-** `\(\beta_1\)` interpretatation:** For every additional hour per week someone revises the material, their course average is expected to increase by 4.67 points.
+** `\(\beta_1\)` interpretatation:** For every additional hour per week someone revises the material, their course average is expected to increase by 6.15 points.
 
 
 ---
@@ -898,9 +962,9 @@ Let's continue in SPSS...
 
 **Step 8: Report**
 
-We conducted a **simple linear regression** to determine the effect of &lt;span style = "color:#9AD079"&gt; &lt;b&gt; revision time (in hours per week) &lt;/span&gt;&lt;/b&gt; on &lt;span style = "color:#9AD079"&gt; &lt;b&gt; course performance (measured as the course average) &lt;/span&gt;&lt;/b&gt;. The `\(\alpha\)` threshold was set at .05 for all analyses. An a priori power analysis indicated that 90 participants were sufficient to detect an effect of `\(R^2\)` = .1 with a power of 80% and an `\(\alpha\)` threshold of .05.
+We conducted a **simple linear regression** to determine the effect of &lt;span style = "color:#008290"&gt; &lt;b&gt; revision time (in hours per week) &lt;/span&gt;&lt;/b&gt; on &lt;span style = "color:#008290"&gt; &lt;b&gt; course performance (measured as the course average) &lt;/span&gt;&lt;/b&gt;. The `\(\alpha\)` threshold was set at .05 for all analyses. An a priori power analysis indicated that 90 participants were sufficient to detect an effect of `\(R^2\)` = .1 with a power of 80% and an `\(\alpha\)` threshold of .05.
 
-Simple linear regression indicated that revision time explained 56% of the variance in course performance &lt;span style = "color:#18778C"&gt;&lt;b&gt; `\(F\)`(1, 119) = 150.42, `\(p\)` &lt; .001 &lt;/span&gt;&lt;/b&gt;. For every additional hour of study time per week, the average course mark increased by 2.89, &lt;span style = "color:#18778C"&gt;&lt;b&gt; `\(SE\)` = .24, `\(p\)` &lt; .001, 95% CI = [2.43, 3.36] &lt;/span&gt;&lt;/b&gt;. 
+Simple linear regression indicated that revision time explained 56% of the variance in course performance &lt;span style = "color:#30726E"&gt;&lt;b&gt; `\(F\)`(1, 119) = 150.42, `\(p\)` &lt; .001 &lt;/span&gt;&lt;/b&gt;. For every additional hour of study time per week, the average course mark increased by 2.89, &lt;span style = "color:#F2B66D"&gt;&lt;b&gt; `\(SE\)` = .24, `\(p\)` &lt; .001, 95% CI = [2.43, 3.36] &lt;/span&gt;&lt;/b&gt;. 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
