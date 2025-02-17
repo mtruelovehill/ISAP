@@ -213,7 +213,7 @@ You might also find it helpful to check the mode of the `SE` variables.
 **Continuous Variables:** `AntisocialBehaviour` is a continuous variable. Click *Analyze>Descriptive Statistics>Frequencies*, then add `AntisocialBehaviour` to the 'Variable(s)' box. Make sure 'Display frequency tables' is not ticked, then click 'Statistics'. Tick 'Mean', 'Std. Deviation', 'Minimum', and 'Maximum'. Click 'Continue', then 'OK'. You should see the following output:
 
 ```{r, echo = F, fig.align= 'center', out.width = '40%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_descStats.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week6_behavDesc.png')
 ```
 
 Note that the maximum value for `AntisocialBehaviour` is 190, which is not a valid score. This is an error, so you'll need to remove it from your data so that it is not included in further analysis. To do this, find the value in your dataset under 'Data View' and delete it.
@@ -273,7 +273,7 @@ Click 'OK'. A new column labeled `SelfEnhancement` should appear that contains t
 Click *Analyze>Descriptive Statistics>Frequencies* and add `SelfEnhancment` to the 'Variable(s)' box. Make sure 'Display frequency tables' is not ticked, then click 'Statistics'. Tick 'Mean', 'Std. Deviation', 'Minimum', and 'Maximum'. Click 'Continue', then 'OK'. You should see the following output:
 
 ```{r, echo = F, fig.align= 'center', out.width = '40%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week7_descStats.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week6_seDesc.png')
 ```
 
 
