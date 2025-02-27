@@ -1,0 +1,96 @@
+---
+title: "Week 9: Mediation"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    css: 'css/style.css'
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+
+pacman::p_load('tidyverse', 'kableExtra', 'plotly', 'shiny')
+
+
+baseColor <- '#F28157'
+accent1 <- '#F2B66D'
+accent3 <- '#30726E'
+accent4 <- '#008290'
+```
+
+
+## Intro to Today's Lab
+
+During today's lab, you'll apply the concepts discussed during this week's lecture. Each lab consists of a range of tasks, with corresponding questions you can answer. Please note that the questions are not required and not marked, although they do provide a helpful source of formative feedback that will help you gauge your understanding. 
+
+### Learning Objectives
+At the end of this lab, you will be able to:
+
+1. POWER ANALYSIS?
+2. Use PROCESS macro in SPSS to run mediation analysis
+3. Properly interpret and report results from a mediation analysis
+4. Produce a visualisation of the mediation model results
+
+
+## Experiment Overview
+
+This week, you will be analysing simulated data based on a study investigating whether the effects of parental conflict on externalising behaviour are mediated by VARIABLE2. 
+
+### Your Tasks
++ [ ] $\ $ State your research question(s) for this experiment.
++ [ ] $\ $ Create a visualisation of the mediation model you will be testing. DO THIS BY HAND??
++ [ ] $\ $ State your hypotheses for this experiment.
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+HINT HERE
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+SOLUTION HERE
+
+</details>
+</div>
+</br>
+
+
+## Data Review
+
+Before running any analyses, you should first check your data. In many cases, some kind of cleaning or data wrangling will be necessary. For instance, are there any missing values? Do you have any unexpected values or extreme outliers? Do you need to create a variable from the existing data (e.g., a summary metric for a cognitive task)? These things should be dealt with before conducting the analyses.
+
+Additionally, you'll need to compute descriptive data. You'll do this for both your main variables of interest and your sample's demographic data, as this must be included in the Sample portion of your Methods section. 
+
+### Your Tasks
+
++ [ ] $\ $ Open 'Week9LabData.sav'
+
++ [ ] $\ $ Check that all variables are set as the correct measurement type. 
+
++ [ ] $\ $ Check the descriptive statistics of your data
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+HINT HERE
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+SOLUTION HERE
+
+</details>
+</div>
+</br>
