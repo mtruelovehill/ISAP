@@ -40,7 +40,7 @@ library(tidyverse)
 library(faux)
 library(kableExtra)
 
-knitr::opts_chunk$set(dev = 'svg')
+knitr::opts_chunk$set(dev = "cairo_pdf")
 
 baseColor <- '#F28157'
 accent1 <- '#F2B66D'
