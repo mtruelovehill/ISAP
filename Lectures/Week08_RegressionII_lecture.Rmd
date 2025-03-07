@@ -227,7 +227,7 @@ $\beta_3:$ the slope associated with the interaction
 ---
 ### Effects in Linear Regression Models
 
-+ **Main Effect:** the effect of predictors $x$ on the outcome variable when the others predictors are held constant
++ **Main Effect:** the effect of predictor $x$ on the outcome variable when the others predictors are held constant
 
 + When an interaction is present, the effect of predictor $x$ changes as $z$ changes, so we no longer interpret $\beta_x$ in this way.
 
@@ -258,16 +258,87 @@ $$y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \beta_4a_i + \beta_5c_i + \beta_6xz_
 
 
 ---
+### Using PROCESS macro
+
++ For today's example, we'll use [this dataset]('https://mtruelovehill.github.io/PRM/Data/salaryDat.sav')
+
++ Key Variables:
+  + `serv`: years of service at current place of employment
+  + `perf`: most recent performance ratings
+  + `salary`: current salary in thousands of pounds
+
++ Research Question:
+ 'Does the effect of years of service on salary differ based on job performance in managers?'
+
+> **Test your understanding:** How many $\beta$ values will be in this model (excluding $\beta_0$)?
+--
+
++ Model:
+
+$$Salary_i = \beta_0 + \beta_1Service_i\ + \beta_2Performance_i\ + \beta_3Service_i\times Performance_i + \epsilon_i$$
+
+---
 ### Interpreting Continuous $\times$ Continuous Interactions
 
 $$y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \beta_3xz_i + \epsilon_i$$
-+ $\beta_0$/Intercept: value of $y$ when both $x$ and $z$ are equal to 0
 
-+ $\beta_1$: Effect of $x$ on $y$ when $z$ is equal to 0.
+.pull-left[
++ ** $\beta_0$/Intercept:** value of $y$ when both $x$ and $z$ are equal to 0
 
-+ $\beta_2$: Effect of $z$ on $y$ when $x$ is equal to 0.
++ ** $\beta_1$:** Effect of $x$ on $y$ when $z$ is equal to 0.
 
-+ $\beta_3$: Change in slope of $x$ on $y$ across values of $z$ (and vice versa).
++ ** $\beta_2$:** Effect of $z$ on $y$ when $x$ is equal to 0.
+
++ ** $\beta_3$:** Change in slope of $x$ on $y$ across values of $z$ (and vice versa).
+]
+
+
+---
+### Interpreting Continuous $\times$ Continuous Interactions
+
+$$Salary_i = \beta_0 + \beta_1Service_i + \beta_2Performance_i + \beta_3Service\times Performance_i + \epsilon_i$$
+
+.pull-left[
++ ** $\beta_0$/Intercept:** Salary when both years of service and performance ratings are equal to 0
+
++ ** $\beta_1$:** Effect of years of service on salary when one has performance ratings of 0
+
++ ** $\beta_2$:** Effect of performance on salary when one has 0 years of service 
+
++ ** $\beta_3$:** Change in the slope (effect) of performance on salary across values of years of service (and vice versa).
+]
+
+.pull-right[
+
+```{r, echo = F}
+knitr::include_graphics('images/fullResults.png')
+```
+
+]
+
+---
+### Interpreting Continuous $\times$ Continuous Interactions
+
+$$Salary_i = \beta_0 + \beta_1Service_i + \beta_2Performance_i + \beta_3Service\times Performance_i + \epsilon_i$$
+
+
+.pull-left[
++ ** $\beta_0$/Intercept:** A manager with 0 years of experience and a performance rating of 0 would be expected to make £104,845
+
++ ** $\beta_1$:** For every additional year of service, salary will increase by £1,391 in managers with a performance rating of 0.
+
++ ** $\beta_2$:** For every additional point on the performance rating scale, salary will increase by £971 in managers with 0 years of service.
+
++ ** $\beta_3$:** For every additional point on the performance rating scale, the relationship between years of service and salary will increase by £214. 
+]
+
+.pull-right[
+
+```{r, echo = F}
+knitr::include_graphics('images/fullResults.png')
+```
+
+]
 
 ---
 class: center, inverse, middle
@@ -277,7 +348,7 @@ class: center, inverse, middle
 ---
 ### Interactions & Multicollinearity
 
-+ Recall that when predictors are highly correlated, it is difficult for the model to tease apart their individual effects. 
++ **Multicollinearity:** When predictors are highly correlated, it is difficult for the model to tease apart their individual effects. 
 
 + Can you see any variables that may be correlated in the interaction equation?
 
@@ -285,9 +356,9 @@ $$y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \beta_3xz_i + \epsilon_i$$
 
 --
 
-+ As the interaction term is calculated by multiplying variables $x$ and $z$, it will almost certainly be highly correlated with each of these predictors
++ As the interaction term is calculated by multiplying variables $x$ and $z$, it may be highly correlated with each of these predictors
 
-+ We can address this issue by **mean-centering** our predictors
++ This issue can be addressed by **mean-centering** the predictors
 
 
 ---
@@ -375,11 +446,13 @@ $r_{zMC,\ xzMC} = `r round(cor(mcDat$zMC, mcDat$xzMC), 2)`$
 
 + Mean-centering sets the means of our predictors to 0.
 
-+ The intercept of our model ( $\beta_0$) reflects the value of $y$ when all predictors are equal to 0.
++ Remember:
 
-+ The $\beta$ of a predictor involved in an interaction reflects the effect of that predictor on the outcome when the other predictor is equal to 0.
+  + The intercept of our model ( $\beta_0$) reflects the value of $y$ when all predictors are equal to 0.
 
-+ The $\beta$ of a predictor uninvolved in an interaction reflects the effect of that predictor on the outcome when the other predictors are held constant.
+  + The $\beta$ of a predictor involved in an interaction reflects the effect of that predictor on the outcome when the other predictor is equal to 0.
+
+  + The $\beta$ of a predictor uninvolved in an interaction reflects the effect of that predictor on the outcome when the other predictors are held constant.
 
 
 --
@@ -398,6 +471,12 @@ $r_{zMC,\ xzMC} = `r round(cor(mcDat$zMC, mcDat$xzMC), 2)`$
 
 > How is the $\beta$ of a predictor uninvolved in an interaction interpreted?
 
+---
+### Mean-centering for general collinearity?
+
++ Mean-centering is only effective when the collinearity arises from a mathematical relationship between the variables (e.g., the interaction is the product of two predictors)
+
++ Mean-centering does nothing in cases where two variables are inherently associated (e.g., height and weight)
 
 ---
 class: center, inverse, middle
@@ -406,19 +485,19 @@ class: center, inverse, middle
 
 ---
 
-### Breaking Down a Continuous $\times$ Continuous Interaction
+### Probing a Continuous $\times$ Continuous Interaction
 
-+ Breaking down a categorical $\times$ categorical interaction was relatively straightforward
++ Probing a categorical $\times$ categorical interaction was relatively straightforward
 
   + We simply checked the association between the predictors and the outcome at all possible level combinations.
 
-+ Breaking down a continuous $\times$ continuous interaction is a bit more complicated; there are infinite level combinations!
++ Probing a continuous $\times$ continuous interaction is a bit more complicated; there are infinite level combinations!
 
 + To investigate these interactions further, we use **simple slopes analysis**.
 
 ---
 
-### Simple Slopes Analysis
+### Probing Interactions - Simple Slopes Analysis
 
 .pull-left[
 + A significant interaction effect suggests that $\beta_x$ differs at varying levels of $z$ 
@@ -462,6 +541,28 @@ ggplot() +
 
 ---
 
+### Probing Interactions - Johnson-Neyman Analysis
+
+.pull-left[
++ A Johnson-Neyman analysis can be used to further probe interactions
+
++ It allows for the identification of regions of $z$ where the relationship between $x$ and $y$ is significant
+]
+
+.pull-right[
+```{r, echo = F}
+knitr::include_graphics('images/jnPlot.png')
+```
+]
+
+---
+class: inverse, middle, center
+
+## Questions?
+
+
+---
+
 ### Simple Slopes Analysis using PROCESS macro
 
 .pull-left[
@@ -491,36 +592,14 @@ count: false
 .pull-right[
 
 ```{r, echo = F}
-knitr::include_graphics('images/jnResults.png')
+knitr::include_graphics('images/SSanalysis.png')
 ```
 
 
 ]
 
 ---
-class: inverse, middle, center
-
-## Questions?
-
----
-## Using PROCESS macro
-
-+ To illustrate the use of PROCESS, we'll use [this dataset]('https://mtruelovehill.github.io/PRM/Data/salaryDat.sav')
-
-+ Key Variables:
-  + `serv`: years of service at current place of employment
-  + `perf`: most recent performance ratings
-  + `salary`: current salary in thousands of pounds
-
-+ Research Question:
- 'Does the effect of years of service on salary differ based on job performance?'
-
-+ Model:
-
-$$Salary_i = \beta_0 + \beta_1Service_i\ + \beta_2Performance_i\ + \beta_3Service_i\times Performance_i + \epsilon_i$$
-
----
-## Using PROCESS macro
+### Using PROCESS macro
 
 + **Step 1:** Add PROCESS to SPSS (once this is done, it will always be available)
   
@@ -534,7 +613,7 @@ $$Salary_i = \beta_0 + \beta_1Service_i\ + \beta_2Performance_i\ + \beta_3Servic
 
 
 ---
-## Using PROCESS macro
+### Using PROCESS macro
 
 .pull-left[
 ```{r, echo = F}
@@ -549,7 +628,7 @@ knitr::include_graphics('images/basicResults.png')
 ]
 
 ---
-## Using PROCESS macro
+### Using PROCESS macro - Johnson-Neyman Analysis
 
 .center[
 ```{r, echo = F, out.width='60%'}
@@ -558,7 +637,7 @@ knitr::include_graphics('images/jnResults.png')
 ]
 
 ---
-## Using PROCESS macro
+### Using PROCESS macro - Johnson-Neyman Analysis
 
 $$Salary_i = \beta_0 + \beta_1Service_i\ + \beta_2Performance_i\ + \beta_3Service_i\times Performance_i + \epsilon_i$$
 
@@ -570,7 +649,7 @@ knitr::include_graphics('images/jnResults_breakdown.png')
 
 
 ---
-## Using PROCESS macro
+### Using PROCESS macro - Johnson-Neyman Analysis
 
 .pull-left[
 ```{r, echo = F}
