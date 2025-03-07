@@ -72,6 +72,7 @@ accent3 <- '#008290'
 .pull-right[
 
 ```{r, echo = F, fig.height=5, fig.width=6}
+
 meDat <- data.frame(Style = rep(c('Alone', 'Alone', 'With Partner', 'With Partner'),2),
                     Method = rep(c('Reading', 'Testing', 'Reading', 'Testing'),2),
                     Score = c(60, 60, 60, 70, 60, 65, 60, 75))
@@ -106,27 +107,24 @@ ggplot(meDat[1:4,], aes(Style, Score, color = Method, group = Method)) + geom_po
 
   + i.e., the association between predictor 1 and the outcome variable changes depending on the value of predictor 2. 
   
-  + May also be referred to as **moderation**
 ]
 
 --
 
 .pull-right[
 
-```{r, echo = F, fig.height=5, fig.width=6}
-meDat <- data.frame(Style = rep(c('Alone', 'Alone', 'With Partner', 'With Partner'),2),
-                    Method = rep(c('Reading', 'Testing', 'Reading', 'Testing'),2),
-                    Score = c(60, 60, 60, 70, 60, 65, 60, 75))
+```{r, echo = F, fig.height=5, fig.width=6, warning=FALSE, message=FALSE}
 
-meDat$Method <- factor(meDat$Method, levels = c('Testing', 'Reading'))
+clDat <- read.csv('https://mtruelovehill.github.io/ISAP/Data/CognitiveLoad.csv')
 
-
-ggplot(meDat[1:4,], aes(Style, Score, color = Method, group = Method)) + geom_point() + geom_line(linewidth = 1) +
-  scale_y_continuous(limits = c(50, 80)) +
-  scale_color_manual(values = c(baseColor, accent2)) +
-  labs(x = 'Style', y = 'Score', color = 'Study Method') +
+ggplot(clDat, aes(Attention, Performance, color = CogLoad)) + geom_point() + 
+  geom_smooth(method = 'lm', se = F) +
+  scale_x_continuous(limits = c(10, 80), breaks = seq(0, 80, by = 10)) +
+  scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, by = 20)) +
+  scale_color_manual(values = c(accent3, baseColor, accent1, accent2)) +
+  labs( color = 'Cognitive Load') +
   theme(legend.position = 'inside',
-        legend.position.inside = c(.85, .8),
+        legend.position.inside = c(.8, .2),
         axis.text = element_text(size = 14),
         axis.title = element_text(size = 16, face = 'bold'),
         legend.title = element_text(size = 14, face = 'bold'),
