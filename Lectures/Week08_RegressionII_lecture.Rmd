@@ -260,7 +260,7 @@ $$y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \beta_4a_i + \beta_5c_i + \beta_6xz_
 ---
 ### Using PROCESS macro
 
-+ For today's example, we'll use [this dataset]('https://mtruelovehill.github.io/PRM/Data/salaryDat.sav')
++ For today's example, we'll use [this dataset](https://mtruelovehill.github.io/PRM/Data/salaryDat.sav)
 
 + Key Variables:
   + `serv`: years of service at current place of employment
