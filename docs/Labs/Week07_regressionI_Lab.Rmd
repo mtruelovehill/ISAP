@@ -359,14 +359,14 @@ In this instance, SPSS assigned the proper measures by default. No changes are r
 <br>
 <span style = "font-weight: bold; font-size: 14pt"> Check Descriptive Statistics </span>
 
-**Categorical Variables:** The only categorical variables in this week's dataset is `Gender`. Click *Analyze>Descriptive Statistics>Frequencies*, then add `Gender` to the 'Variable(s)' box. Make sure 'Display frequency tables' is checked, then click 'OK'. You should see the following output:
+**Categorical Variables:** The only categorical variable in this week's dataset is `Gender`. Click *Analyze>Descriptive Statistics>Frequencies*, then add `Gender` to the 'Variable(s)' box. Make sure 'Display frequency tables' is checked, then click 'OK'. You should see the following output:
 
 ```{r, echo = F, fig.align= 'center', out.width = '50%'}
 knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week8_freqTable.png')
 ```
 
 
-**Continuous Variables:** All remaining variables are continuous. Click *Analyze>Descriptive Statistics>Frequencies*, then add these two variables to the 'Variable(s)' box. Make sure 'Display frequency tables' is not ticked, then click 'Statistics'. Tick 'Mean', 'Std. Deviation', 'Minimum', and 'Maximum'. Click 'Continue', then 'OK'. You should see the following output:
+**Continuous Variables:** All remaining variables are continuous. Click *Analyze>Descriptive Statistics>Frequencies*, then add these to the 'Variable(s)' box. Make sure 'Display frequency tables' is not ticked, then click 'Statistics'. Tick 'Mean', 'Std. Deviation', 'Minimum', and 'Maximum'. Click 'Continue', then 'OK'. You should see the following output:
 
 ```{r, echo = F, fig.align= 'center', out.width = '50%'}
 knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week8_descStats.png')

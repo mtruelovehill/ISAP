@@ -28,7 +28,7 @@ During today's lab, you'll apply the concepts discussed during this week's lectu
 ### Learning Objectives
 At the end of this lab, you will be able to:
 
-1. POWER ANALYSIS?
+1. POWER ANALYSIS? (no, see paper instead)
 2. Use PROCESS macro in SPSS to run mediation analysis
 3. Properly interpret and report results from a mediation analysis
 4. Produce a visualisation of the mediation model results
@@ -36,12 +36,31 @@ At the end of this lab, you will be able to:
 
 ## Experiment Overview
 
-This week, you will be analysing simulated data based on a study investigating whether the effects of parental conflict on externalising behaviour are mediated by VARIABLE2. 
+This week, you will be analysing simulated data based on a study investigating whether the effect of screen time on children's attention span is mediated by the hours of sleep they get. You can download the data on Learn or [by clicking here](https://mtruelovehill.github.io/ISAP/Labs/Week9LabData.sav).
 
 ### Your Tasks
 + [ ] $\ $ State your research question(s) for this experiment.
-+ [ ] $\ $ Create a visualisation of the mediation model you will be testing. DO THIS BY HAND??
++ [ ] $\ $ Create a diagram of the mediation model you will be testing. DO THIS BY HAND??
 + [ ] $\ $ State your hypotheses for this experiment.
+
+The dataset contains the following variables:
+
+```{r, echo = F}
+dat <- read.csv('https://mtruelovehill.github.io/ISAP/Labs/Week9LabData.csv')
+
+datInfo <- data.frame(VariableName = colnames(dat),
+                      Description=c('Age in years',
+                                    'Levels: F = Female; M = Male',
+                                    'Amount of screen time per week in hours',
+                                    'Amount of sleep per week in hours',
+                                    'Scores on an attention span measure; values may range between 50-80'))
+
+datInfo %>%
+  kbl(col.names=c('Variable Name', 'Description')) %>%
+  kable_styling(full_width = F) %>%
+  row_spec(0, bold = T, color=baseColor, font_size = 18, align='l') %>%
+  column_spec(1, bold = T, width = '4.5cm')
+```
 
 
 <div class="container">
@@ -80,7 +99,8 @@ Additionally, you'll need to compute descriptive data. You'll do this for both y
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
 
-HINT HERE
+For continuous variables, the descriptive statistics to check are mean and standard deviation. It's also useful to check the minimum and maximum so you can easily identify values outside of your expected range. For categorical variables, you'll check the frequency of participants in each group. It may also be useful to check the mode.
+
 
 </details>
 </div>
@@ -89,8 +109,178 @@ HINT HERE
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
 
-SOLUTION HERE
+* `Age` - Scale
+
+* `Gender` - Nominal
+
+* `Screen` - Scale
+
+* `Sleep` - Scale
+
+* `Att` - Scale
+
+`Age` should be set as scale. Otherwise all variables are coded properly.
+
+<br>
+<span style = "font-weight: bold; font-size: 14pt"> Check Descriptive Statistics </span>
+
+**Categorical Variables:** The only categorical variable in this week's dataset is `Gender`. Click *Analyze>Descriptive Statistics>Frequencies*, then add `Gender` to the 'Variable(s)' box. Make sure 'Display frequency tables' is checked, then click 'OK'. You should see the following output:
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_genDist.png')
+```
+
+
+**Continuous Variables:** All remaining variables are continuous. Click *Analyze>Descriptive Statistics>Frequencies*, then add these to the 'Variable(s)' box. Make sure 'Display frequency tables' is not ticked, then click 'Statistics'. Tick 'Mean', 'Std. Deviation', 'Minimum', and 'Maximum'. Click 'Continue', then 'OK'. You should see the following output:
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_descriptives.png')
+```
+
 
 </details>
 </div>
 </br>
+
+## Check Assumptions
+
+As the mediation model is comprised of linear regression models, it is not surprising that the assumptions are the same as linear regression: 
+
+(1) Linearity: All predictors variables have a linear relationship with the outcome variable.
+
+(2) Independence of Observations: Individual observations should not be dependent upon any others
+
+(3) Normality: Model residuals are normally distributed
+
+(4) Equal Variance (AKA Homoskedasticity or Homogeneity of Variance): the variance is consistent across both predictor values & fitted values
+
+(5) No Multicollinearity: Predictors should not be highly correlated with each other (e.g., $r$ > .8, VIF < 5)
+
+
+### Your Tasks
+
++ [ ] $\ $ Run the individual regressions that comprise the full mediation model and use results to:
+
+  + [ ] $\ $ Decide whether your data meet the assumption of linearity
+
+  + [ ] $\ $ Decide whether your data meet the assumption of normality
+
+  + [ ] $\ $ Decide whether your data meet the assumption of equal variance
+
+  + [ ] $\ $ Decide whether your data meet the assumption of multicollinearity
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+This mediation model is comprised of the following regression models:
+
+$Sleep_i \sim \beta_0 + \beta_1ScreenTime_i + \epsilon_i$
+
+
+$Attention_i \sim \beta_0 + \beta_1ScreenTime_i + \beta_2Sleep_i + \epsilon_i$
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+<span style = "font-weight: bold; font-size: 14pt"> **Model 1 Assumptions: `Sleep` ~ `Screen` ** </span>
+
+To test this model's assumptions, navigate to  *Analyze > Regression > Linear*. Add your outcome variable, `Sleep`, to the 'Dependent' box and your predictor, `Screen`, to the 'Independent(s)' box.
+
+To produce the histogram, P-P plot, and the plot of residuals by predicted values, click 'Plots', move the ZRESID variable (which reflects the standardized residual) into the Y box and the ZPRED variable (which reflects the standardized model-predicted value of well-being for each individual) into the X box. Make sure both 'Histogram' and 'Normal probability plot' is ticked.
+
+Click 'Continue'. To check for multicollinearity, click 'Statistics' and tick 'Collinearity diagnostics': 
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week8_lrStats.png')
+```
+
+Click 'Continue' and then 'OK'. 
+
+We will assume that the study design effectively addressed the assumption of independence.
+
+First, have a look at the histogram:
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m1Hist.png')
+```
+
+In general, we see a nice symmetrical bell curve, with most observations falling near the mean value and fewer observations in the tails. There does not appear to be issues with normality, which the P-P plot confirms:
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m1PP.png')
+```
+
+All points fall along the black diagonal which indicates where we would expect the data to fall if they were perfectly normal. Based on these two plots, we can assume the data are normal.
+
+
+Inspection of the residuals by predicted values plot shows a cloud of points, with no unusual patterns: 
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m1ResidPred.png')
+```
+This suggests both linearity and homogeneity of variance assumptions are met. 
+
+As this is a simple linear model (only a single predictor), there is no risk of multicollinearity. 
+
+
+<span style = "font-weight: bold; font-size: 14pt"> **Model 1 Assumptions: `Attention` ~ `Screen` + `Sleep` ** </span>
+
+Navigate to  *Analyze > Regression > Linear*. Replace `Sleep` with `Att` in the 'Dependent' box and add `Sleep` instead to the 'Independent(s)' box (along with `Screen`). All other settings can be left as is.
+
+Both the histogram and P-P plot indicate that residuals are normally distributed:
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2Hist.png')
+```
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2PP.png')
+```
+
+As before, the residuals by predicted values plot shows no issues with nonlinearity or heterogeneity:
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2ResidPred.png')
+```
+
+A check of the VIF values to assess multicollinearity indicates that the predictors are not problematically correlated:
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2VIF.png')
+```
+
+</details>
+</div>
+</br>
+
+
+## Primary Analysis
+
+You will be testing whether sleep significantly mediates the relationship between screen time and attention span in children. To do this, you'll be using the PROCESS macro to test a mediation model. 
+
+
+### Your Tasks
+
++ [ ] $\ $ Run mediation to test your hypotheses and interpret the overall model results with $\alpha$ = .05.
+
++ [ ] $\ $ Interpret all relevant effects
+
++ [ ] $\ $ Check and interpret the confidence interval associated with the indirect effect
+
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_processMod.png')
+```
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m1Output.png')
+```
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2Output.png')
+```
+
+```{r, echo = F, fig.align= 'center', out.width = '50%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_medEffs.png')
+```
