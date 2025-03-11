@@ -243,7 +243,7 @@ $\beta_3:$ the slope associated with the interaction
 
 + Consider the following equation:
 
-$$y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \beta_4a_i + \beta_5c_i + \beta_6xz_i + \epsilon_i$$
+$$y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \beta_3a_i + \beta_4c_i + \beta_5xz_i + \epsilon_i$$
 > **Test Your Understanding:**
 
 > + Which $\beta$ values reflect a **main effect**?
