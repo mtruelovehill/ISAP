@@ -269,18 +269,102 @@ You will be testing whether sleep significantly mediates the relationship betwee
 + [ ] $\ $ Check and interpret the confidence interval associated with the indirect effect
 
 
-```{r, echo = F, fig.align= 'center', out.width = '50%'}
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+To perform a simple mediation model, navigate to *Analyze > Regression > PROCESS v4.2 by Andrew F. Hayes*. You'll need to select model number 4.
+
+</details>
+</div>
+</br>
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+Navigate to *Analyze > Regression > PROCESS v4.2 by Andrew F. Hayes*. In the dialogue box, select model number 4 to indicate that you are performing simple mediation. Add the output variable, `Att` to the 'Y variable' box, the predictor, `Screen`, to the 'X variable box', and the mediator, `Sleep`, to the 'Mediator(s) M' box:
+
+```{r, echo = F, fig.align= 'center', out.width = '75%'}
 knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_processMod.png')
 ```
 
-```{r, echo = F, fig.align= 'center', out.width = '50%'}
+Click Options and select 'Show total effect model'. All other options can be left at default. Click 'Continue'.
+
+Click 'OK'. Because bootstrapping can be computationally intense, it may be a moment before the results appear in the output. 
+
+The first portion of the output shows the variables used in the model. You can use this to confirm you entered everything appropriately. The next portion shows the results from the model that predicted sleep from screen time:
+
+```{r, echo = F, fig.align= 'center', out.width = '75%'}
 knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m1Output.png')
 ```
 
-```{r, echo = F, fig.align= 'center', out.width = '50%'}
+This output indicates that hours of screen time per week significantly predicted sleep, explaining 21% of the variance in hours of sleep per week. As screen is the only predictor in this model, it is not surprising that both the overall model and screen as an individual predictor are both significant.
+
+
+The third portion of the output shows the results from the regression model predicting attention from both sleep and screen time. Once again, the overall model is significant, and both screen time and sleep are significant predictors:
+
+```{r, echo = F, fig.align= 'center', out.width = '75%'}
 knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2Output.png')
 ```
 
-```{r, echo = F, fig.align= 'center', out.width = '50%'}
+The final portion of the output is the key result from the mediation analysis:
+
+```{r, echo = F, fig.align= 'center', out.width = '75%'}
 knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_medEffs.png')
 ```
+
+This portion includes the indirect effect of screen time on attention. If sleep did not mediate this effect, the true estimate would be equal to 0. However, the bootstrapped confidence interval does not contain 0, suggesting sleep does play a mediating role in the relationship between screen time and attention. 
+
+
+</details>
+</div>
+</br>
+
+## Interpret & Report 
+
+Now that you've completed the analyses, write a mini results section describing your findings. In this section, please:
+
++ Give a brief description of your sample as you would in a methods section. 
+
++ Report your results and a provide an interpretation in APA style. 
+
++ Produce a diagram that shows your results
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+There are many ways you could write this up, but you should at least include the following information:
+
++ alpha level
++ number of participants ( $n$)
++ participant demographics (mean age, age $SD$, and age range of sample; gender distribution of sample)
++ descriptive data for each variable ($M$ & $SD$)
++ the type of test used, including number of bootstrapped samples used
++ coefficient results from key models ($\beta$, $SE$, and $p$)
++ Overall model results from the full model ($F$, $df$, $p$, $R^2$)
++ Indirect effect results ($\beta$, $SD$, 95% CI)
++ Comparison between indirect results and total model (partial vs full mediation)
+
+</details>
+</div>
+</br>
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+Sample data, descriptive data, and assumptions checks can be reported as in previous weeks. Here is an example of how mediation may be reported:
+
+Mediation analysis with PROCESS macro Version 4.2 (Hayes, 2017) was used to investigate the hypothesis that sleep mediates the effect of screen time on attention span in children. Results showed that screen time was a significant predictor of sleep, $\beta$ = -0.52, $SE$ = 0.09, $p$ < .001. Both screen time, $\beta$ = -0.52, $SE$ = 0.09, $p$ < .001, and sleep, $\beta$ = -0.52, $SE$ = 0.09, $p$ < .001, significantly predicted attention span, explaining 25% of its variance, $F$(2, 119) = 20.10, $p$ < .001.
+
+The indirect effect was tested using a percentile bootstrap estimation approach with 5000 samples. These results indicated the indirect coefficient was significant, $\beta$ = -0.16, $SE$ = 0.05, 95% CI[-0.26,-0.07]. However, screen time remained a significant predictor of attention even after controlling for sleep, $\beta$ = -0.16, $SE$ = 0.08, $p$ = .04, indicating partial mediation. See Figure 1 for a summary of key results.
+
+
+```{r, echo = F, fig.align= 'center', out.width = '75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week9_medFig.png')
+```
+
+
+</details>
+</div>
+</br>
