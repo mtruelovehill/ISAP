@@ -122,7 +122,6 @@ understanding.</p>
 <h3>Learning Objectives</h3>
 <p>At the end of this lab, you will be able to:</p>
 <ol style="list-style-type: decimal">
-<li>POWER ANALYSIS? (no, see paper instead)</li>
 <li>Use PROCESS macro in SPSS to run mediation analysis</li>
 <li>Properly interpret and report results from a mediation analysis</li>
 <li>Produce a visualisation of the mediation model results</li>
@@ -145,7 +144,8 @@ clicking here</a>.</p>
 experiment.</label></li>
 <li><label><input type="checkbox" /><span class="math inline">\(\
 \)</span> Create a diagram of the mediation model you will be testing.
-DO THIS BY HAND??</label></li>
+You can use whatever software you choose, or simply make a quick drawing
+by hand.</label></li>
 <li><label><input type="checkbox" /><span class="math inline">\(\
 \)</span> State your hypotheses for this experiment.</label></li>
 </ul>
@@ -210,7 +210,10 @@ Scores on an attention span measure; values may range between 50-80
 <span style="font-weight: bold; font-size: 16pt"> Click here for a hint
 </span>
 </summary>
-<p>HINT HERE</p>
+<p>With mediation, the primary objective is to test the indirect effect
+of your predictor upon the outcome (i.e., the effect of the predictor
+that comes through the mediator), so the statistical hypotheses should
+be framed in that way.</p>
 </details>
 </div>
 <p></br></p>
@@ -220,7 +223,16 @@ Scores on an attention span measure; values may range between 50-80
 <span style="font-weight: bold; font-size: 16pt"> Click here for the
 solution </span>
 </summary>
-<p>SOLUTION HERE</p>
+<p>A possible research question for this study would be:</p>
+<p><i> Does sleep mediate the relationship between screen time and
+attention span in children? </i></p>
+<p>This diagram reflects the model to be tested:</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week9_mediationMod.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>A basic hypothesis would be:</p>
+<p>Sleep mediates the relationship between screen time and attention
+span in children.</p>
+<p>The statistical hypothesis would be:</p>
+<p><span class="math inline">\(\beta_{indirect} \neq 0\)</span></p>
 </details>
 </div>
 <p></br></p>
@@ -390,7 +402,7 @@ would expect the data to fall if they were perfectly normal. Based on
 these two plots, we can assume the data are normal.</p>
 <p>Inspection of the residuals by predicted values plot shows a cloud of
 points, with no unusual patterns:
-<img src="https://mtruelovehill.github.io/ISAP/Labs/images/week9_m1ResidPred.png" width="50%" style="display: block; margin: auto;" />
+<img src="https://mtruelovehill.github.io/ISAP/Labs/images/week9_m1ResidPred.png" width="75%" style="display: block; margin: auto;" />
 This suggests both linearity and homogeneity of variance assumptions are
 met.</p>
 <p>As this is a simple linear model (only a single predictor), there is
@@ -408,10 +420,10 @@ distributed:</p>
 <p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2PP.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>As before, the residuals by predicted values plot shows no issues
 with nonlinearity or heterogeneity:
-<img src="https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2ResidPred.png" width="50%" style="display: block; margin: auto;" /></p>
+<img src="https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2ResidPred.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>A check of the VIF values to assess multicollinearity indicates that
 the predictors are not problematically correlated:
-<img src="https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2VIF.png" width="50%" style="display: block; margin: auto;" /></p>
+<img src="https://mtruelovehill.github.io/ISAP/Labs/images/week9_m2VIF.png" width="75%" style="display: block; margin: auto;" /></p>
 </details>
 </div>
 <p></br></p>
@@ -521,7 +533,8 @@ distribution of sample)</li>
 <li>descriptive data for each variable (<span
 class="math inline">\(M\)</span> &amp; <span
 class="math inline">\(SD\)</span>)</li>
-<li>the type of test used</li>
+<li>the type of test used, including number of bootstrapped samples
+used</li>
 <li>coefficient results from key models (<span
 class="math inline">\(\beta\)</span>, <span
 class="math inline">\(SE\)</span>, and <span
@@ -572,8 +585,9 @@ class="math inline">\(SE\)</span> = 0.05, 95% CI[-0.26,-0.07]. However,
 screen time remained a significant predictor of attention even after
 controlling for sleep, <span class="math inline">\(\beta\)</span> =
 -0.16, <span class="math inline">\(SE\)</span> = 0.08, <span
-class="math inline">\(p\)</span> = .04, indicating partial
-mediation.</p>
+class="math inline">\(p\)</span> = .04, indicating partial mediation.
+See Figure 1 for a summary of key results.</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week9_medFig.png" width="75%" style="display: block; margin: auto;" /></p>
 </details>
 </div>
 <p></br> 
