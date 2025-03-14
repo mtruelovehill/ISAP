@@ -11,7 +11,7 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE}
 library(learnr)
 
-pacman::p_load('tidyverse', 'kableExtra', 'plotly', 'shiny')
+pacman::p_load('tidyverse', 'kableExtra', 'shiny')
 
 
 baseColor <- '#F28157'

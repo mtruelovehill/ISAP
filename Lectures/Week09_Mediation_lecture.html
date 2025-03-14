@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> Mediation </title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Monica Truelove-Hill" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# <b> Mediation </b>
+]
+.subtitle[
+## Inferential Statistics in Applied Psychology <br><br>
+]
+.author[
+### Monica Truelove-Hill
+]
+.institute[
+### Department of Clinical Psychology<br>The University of Edinburgh
+]
+
+---
+
+
+
+
+
+
+
+
+### This Week's Key Topics
+
++ Moderation vs mediation
+
++ Direct, indirect, and total effects
+
++ Steps of mediation
+
++ Interpreting and reporting the results of a mediation analysis
+
+
+---
+### Review of Previous Models
+
+.pull-left[
+Model with a single IV:
+
+&lt;img src="images/simpleEffect.png" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.pull-right[
+Model with multiple IVs:
+&lt;img src="images/multipleEffect.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+### Review of Previous Models
+
+.pull-left[
+Moderation/Interaction between 2 predictors/IVs:
+&lt;img src="images/modDiagram.png" style="display: block; margin: auto;" /&gt;
+
+&lt;b&gt;Total effect&lt;/b&gt; = Effect of Predictor A + Effect of Predictor B + Interaction between A &amp; B
+]
+
+--
+
+.pull-right[
+When an interaction occurs:
+
++ The effect of &lt;span style = "color:#30726E"&gt;&lt;b&gt;Predictor A&lt;/b&gt;&lt;/span&gt; on the &lt;span style = "color:#F28157"&gt;&lt;b&gt;outcome&lt;/b&gt;&lt;/span&gt; &lt;i&gt; changes&lt;/i&gt; based on the value of &lt;span style = "color:#F2B66D"&gt;&lt;b&gt;Predictor B&lt;/b&gt;&lt;/span&gt;.
+
++ &lt;span style = "color:#30726E"&gt;&lt;b&gt;Predictor A&lt;/b&gt;&lt;/span&gt; has a direct association with the &lt;span style = "color:#F28157"&gt;&lt;b&gt;outcome&lt;/b&gt;&lt;/span&gt;, but the strength and direction of this association varies depending on &lt;span style = "color:#F2B66D"&gt;&lt;b&gt;Predictor B&lt;/b&gt;&lt;/span&gt;.
+
+]
+
+---
+### Introduction to Mediation
+
+.pull-left[
+&lt;img src="images/fullMed.png" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.pull-right[
+When mediation occurs:
+
++ The effect of the &lt;span style = "color:#30726E"&gt;&lt;b&gt;predictor&lt;/b&gt;&lt;/span&gt; on the &lt;span style = "color:#F28157"&gt;&lt;b&gt;outcome&lt;/b&gt;&lt;/span&gt; is (at least partially) &lt;i&gt; through &lt;/i&gt; the &lt;span style = "color:#F2B66D"&gt;&lt;b&gt;mediator&lt;/b&gt;&lt;/span&gt;.
+
++ The &lt;span style = "color:#30726E"&gt;&lt;b&gt;predictor&lt;/b&gt;&lt;/span&gt; may have some direct association with the &lt;span style = "color:#F28157"&gt;&lt;b&gt;outcome&lt;/b&gt;&lt;/span&gt;, but it also may not; the relationship may be entirely explained by the &lt;span style = "color:#F2B66D"&gt;&lt;b&gt;mediator&lt;/b&gt;&lt;/span&gt;.
+
+]
+
+---
+### Introduction to Mediation
+
+.pull-left[
+&lt;img src="images/fullMed.png" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+When mediation occurs:
+
++ The effect of the &lt;span style = "color:#30726E"&gt;&lt;b&gt;predictor&lt;/b&gt;&lt;/span&gt; on the &lt;span style = "color:#F28157"&gt;&lt;b&gt;outcome&lt;/b&gt;&lt;/span&gt; is (at least partially) &lt;i&gt; through &lt;/i&gt; the &lt;span style = "color:#F2B66D"&gt;&lt;b&gt;mediator&lt;/b&gt;&lt;/span&gt;.
+
++ The &lt;span style = "color:#30726E"&gt;&lt;b&gt;predictor&lt;/b&gt;&lt;/span&gt; may have some direct association with the &lt;span style = "color:#F28157"&gt;&lt;b&gt;outcome&lt;/b&gt;&lt;/span&gt;, but it also may not; the relationship may be entirely explained by the &lt;span style = "color:#F2B66D"&gt;&lt;b&gt;mediator&lt;/b&gt;&lt;/span&gt;.
+
+`$$Proportion\ Mediated = \frac{effect\ via\ mediator}{total\ effect\ on\ outcome}$$`
++ Larger mediating effects suggest that a greater proportion of the relationship between the predictor on the outcome is explained by the mediator (rather than the predictor itself)
+
+]
+
+---
+### Key Mediation Effects
+
+.pull-left[
+
+&lt;img src="images/indirectEffect.png" style="display: block; margin: auto;" /&gt;
+
+.center[
+**Total Effect = Indirect Effect + Direct Effect**
+]]
+
+.pull-right[
+
++ **Total:** The full effect of the predictor on the outcome 
+`$$a*b + c'$$`
+]
+---
+### Key Mediation Effects
+
+.pull-left[
+
+&lt;img src="images/indirectEffect.png" style="display: block; margin: auto;" /&gt;
+
+.center[
+**Total Effect = Indirect Effect + Direct Effect**
+]]
+
+.pull-right[
+
++ **Total:** The full effect of the predictor on the outcome 
+`$$a*b + c'$$`
+
+&gt; **Test Your Understanding:** Have a look at the diagram, and compare it to the equation above. Which part of the above equation reflects the direct effect? Which part reflects the indirect effect?
+
+]
+
+---
+### Key Mediation Effects
+
+.pull-left[
+
+&lt;img src="images/indirectEffect.png" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
++ Total: The full effect of the predictor on the outcome
+`$$a*b + c'$$`
+
++ **Indirect:** The effect of the predictor on the outcome that is due to the mediator
+`$$a*b$$`
+
+]
+
+---
+### Key Mediation Effects
+
+.pull-left[
+
+&lt;img src="images/indirectEffect.png" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
++ Total: The full effect of the predictor on the outcome 
+`$$a*b + c'$$`
+
++ Indirect: The effect of the predictor on the outcome that is due to the mediator 
+`$$a*b$$`
+
++ **Direct:** The effect of the predictor that's left after the effect of the mediator is accounted for 
+`$$c'$$`
+
+]
+
+
+---
+class: center, inverse, middle
+
+## Questions?
+
+---
+### The Logic Behind Mediation Analysis
+
++ If mediation is present:
+
+  + There should be a relationship between the predictor and the outcome
+  + There should be a relationship between the predictor and the mediator
+  + The presence of the mediator should weaken the association between the predictor and the outcome.
+  
++ These ideas can be tested using regression models
+  
+--
+
++ A mediation analysis is a combination of regressions:
+
+`$$Mediator\sim \beta_0 + \beta_1Predictor$$`
+`$$Outcome\sim \beta_0 + \beta_1Predictor + \beta_2Mediator$$`
+
+---
+### Mediation Analysis: Under the Hood
+
+.pull-left[
++ Recall that the direct effect is the effect of the predictor that's left after the effect of the mediator is accounted for ( `\(c'\)`)
+
++ `\(c'\)` is reflected by `\(\beta_1\)` from the following model:
+
+`$$Outcome \sim \beta_0 + \color{#30726E}{\beta_1}Predictor + \beta_2Mediator$$`
+
+]
+
+.pull-right[
+&lt;img src="images/directEffect.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+### Mediation Analysis: Under the Hood
+
+.pull-left[
++ The indirect effect is the effect of the predictor that occurs via the mediator ( `\(a*b\)`)
+
++ `\(a\)` is reflected by `\(\beta_1\)` from this model:
+
+`$$Mediator \sim \beta_0 + \color{#30726E}{\beta_1}Predictor$$`
++ `\(b\)` is reflected by `\(\beta_2\)` from this model:
+`$$Outcome \sim \beta_0 + \beta_1Predictor + \color{#30726E}{\beta_2}Mediator$$`
+
+]
+
+.pull-right[
+&lt;img src="images/indirectEffect.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+### In-Class Example
+
+.pull-left[
++ `Conflict`: Conflict in the household; higher numbers = more conflict
+
++ `MalCope`: Maladaptiveness of child's coping mechanisms; higher numbers = more maladaptive
+
++ `Anx`: Child's anxiety levels; higher numbers = higher anxiety
+]
+
+.pull-right[
+
+&lt;img src="images/mediationExample.png" style="display: block; margin: auto;" /&gt;
+
+]
+---
+### SOME FAKE REGRESSION RESULTS TO ILLUSTRATE
+
+---
+### What's happening with a mediation analysis?
+
++ BOOTSTRAPPING
+
+---
+### Interpreting mediation results
+
+MONICA - direct interpretations
+
+---
+### Full versus Partial Mediation
+
+## DIAGRAMS FOR EACH
+
+---
+### Making model modifications
+
++ THIS IS WORD-FOR-WORD FROM DAPR SO IT SHOULD BE EDITED/PARAPHRASED BETTER 
+
+    You may want to make some modifications to your initially hypothesized model
+        non-significant paths that you want to trim
+        include some additional paths not initially included
+
+    As soon as we make a modification, we are no longer testing a model in a confirmatory way.
+        Our analysis switches to being led by the data, not the theory.
+        This is why it is generally not preferred.
+
+    If we do:
+        Model modifications should be substantively as well as statistically justifiable
+        You must be aware of the possibility that you are capitalizing on chance
+        You should aim to replicate the modifications in independent data
+
+---
+### Cautions regarding path mediation
+
++ THIS IS WORD-FOR-WORD FROM DAPR SO IT SHOULD BE EDITED/PARAPHRASED BETTER 
+
+    We are going to talk about path mediation models, but these should only really be used with longitudinal data.
+
+    Consider our example:
+        Conscientiousness (X) affects health (Y) via health behaviors (M)
+
+    This only really makes sense if we say:
+        We believe people have varying levels of Conscientiousness
+        This will lead them to behave in specific health related ways
+            And these behaviors will subsequently have a health impact
+
+    This happens over time. So to test it, we need longitudinal data.
+        X time 1
+        M time 2
+        Y time 3
+
+---
+### Cautions: Indistinguishable models
+
++ THIS IS WORD-FOR-WORD FROM DAPR SO IT SHOULD BE EDITED/PARAPHRASED BETTER 
+
+    Of course it is possible to do on cross-sectional data, but there is a big conceptual problem.
+        We are modelling correlations.
+        When we only have cross-sectional data, we have multiple indistinguishable models
+        So there is nothing to demonstrate one model is better than another.
+
+
+---
+## INCLASS EXAMPLE
+
+---
+### Power Analysis
+
++ Beyond the scope of the course (requires data simulation and bootstrapping...provide a resource if they want to self-study)
++ Refer to ARTICLE HERE FOR THRESHOLDS
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
