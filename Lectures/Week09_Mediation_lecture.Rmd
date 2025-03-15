@@ -292,6 +292,9 @@ knitr::include_graphics('images/indirectEffect.png')
 ### In-Class Example
 
 .pull-left[
+
+You can download the data for today's example [here](https://mtruelovehill.github.io/ISAP/Data/parentalConflict.sav).
+
 + `Conflict`: Conflict in the household; higher numbers = more conflict
 
 + `MalCope`: Maladaptiveness of child's coping mechanisms; higher numbers = more maladaptive
@@ -307,78 +310,370 @@ knitr::include_graphics('images/mediationExample.png')
 
 ]
 ---
-### SOME FAKE REGRESSION RESULTS TO ILLUSTRATE
+### Path C'
+
+.pull-left[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/pathC.png')
+```
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/pathCEffect.png')
+```
+
+]
 
 ---
-### What's happening with a mediation analysis?
+### Path A
 
-+ BOOTSTRAPPING
+.pull-left[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/pathA.png')
+```
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/pathAEffect.png')
+```
+
+]
+
+---
+### Path B
+
+.pull-left[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/pathB.png')
+```
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/pathBEffect.png')
+```
+
+]
+
+---
+### Direct Effect - c'
+
+.pull-left[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/pathC.png')
+```
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/directHighlight.png')
+```
+
+]
+---
+### Indirect Effect - $a\times b$
+
+.pull-left[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/pathA.png')
+```
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/pathB.png')
+```
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/indirectHighlight.png')
+```
+
+$.6297 \times .2136 = .1345$
+
+]
+
+---
+### Total Effect - $a \times b + c'$
+
+
+$$.1345 + .1987 = .3332$$
+
+```{r, echo = F, fig.align= 'center', out.width='65%'}
+knitr::include_graphics('images/totalHighlight.png')
+```
 
 ---
 ### Interpreting mediation results
 
-MONICA - direct interpretations
++ The **direct** effect: the increase in the outcome that occurs with a one-unit increase in the predictor *over and above* the increase that occurs via the mediator
+
++ The **indirect** effect: the increase in the outcome that occurs via the mediator when the predictor increases by one unit. 
+
++ The **total** effect: the increase in the outcome expected to occur when the predictor increases by one unit. 
 
 ---
-### Full versus Partial Mediation
+class: middle, center, inverse
 
-## DIAGRAMS FOR EACH
-
----
-### Making model modifications
-
-+ THIS IS WORD-FOR-WORD FROM DAPR SO IT SHOULD BE EDITED/PARAPHRASED BETTER 
-
-    You may want to make some modifications to your initially hypothesized model
-        non-significant paths that you want to trim
-        include some additional paths not initially included
-
-    As soon as we make a modification, we are no longer testing a model in a confirmatory way.
-        Our analysis switches to being led by the data, not the theory.
-        This is why it is generally not preferred.
-
-    If we do:
-        Model modifications should be substantively as well as statistically justifiable
-        You must be aware of the possibility that you are capitalizing on chance
-        You should aim to replicate the modifications in independent data
+## Questions?
 
 ---
-### Cautions regarding path mediation
+### Interpreting the Indirect Effect
 
-+ THIS IS WORD-FOR-WORD FROM DAPR SO IT SHOULD BE EDITED/PARAPHRASED BETTER 
+.pull-left[
 
-    We are going to talk about path mediation models, but these should only really be used with longitudinal data.
++ The indirect effect of the mediation analysis is evaluated using bootstrapped confidence intervals rather than a $p$-value 
 
-    Consider our example:
-        Conscientiousness (X) affects health (Y) via health behaviors (M)
++ **Bootstrapping:** A statistical technique through which a parameter is estimated through the use of random resampling from a sample
 
-    This only really makes sense if we say:
-        We believe people have varying levels of Conscientiousness
-        This will lead them to behave in specific health related ways
-            And these behaviors will subsequently have a health impact
+]
 
-    This happens over time. So to test it, we need longitudinal data.
-        X time 1
-        M time 2
-        Y time 3
+
+.pull-right[
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/indirectHighlight.png')
+```
+]
 
 ---
-### Cautions: Indistinguishable models
+### A Quick Run-Through of Bootstrapping
 
-+ THIS IS WORD-FOR-WORD FROM DAPR SO IT SHOULD BE EDITED/PARAPHRASED BETTER 
++ Bootstrapping treats the sample as a population, and takes multiple samples from it
 
-    Of course it is possible to do on cross-sectional data, but there is a big conceptual problem.
-        We are modelling correlations.
-        When we only have cross-sectional data, we have multiple indistinguishable models
-        So there is nothing to demonstrate one model is better than another.
++ From these samples, a confidence interval for the desired parameter can be computed
+
+--
+
+.pull-left[
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/population.png')
+```
+Imagine you have this sample.
+
+]
+
+---
+### A Quick Run-Through of Bootstrapping
+
++ Bootstrapping treats the sample as a population, and takes multiple samples from it
+
++ From these samples, a confidence interval for the desired parameter can be computed
+
+.pull-left[
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/samp1.png')
+```
+To bootstrap, you take a new sample with the same $n$, using **resampling**
+]
+
+
+.pull-right[
+
+```{r, echo = F, fig.align= 'center', warning = F, message = F, fig.height=4}
+bootDat <- data.frame(betaVals = c(.22))
+
+ggplot(bootDat, aes(betaVals)) + geom_histogram(fill = accent3, color = accent2) + 
+  scale_x_continuous(limits = c(.15, .45), breaks = seq(.15, .45, by = .05)) +
+  scale_y_continuous(limits = c(0, 30), breaks = seq(0, 30, by = 5)) +
+  xlab('beta')
+```
+...and compute the parameter of interest using the new sample. 
+
+]
+
+---
+### A Quick Run-Through of Bootstrapping
+
++ Bootstrapping resamples treats the sample as a population, and takes multiple samples from it
+
++ From these samples, a confidence interval for the desired parameter can be computed
+
+.pull-left[
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/samp2.png')
+```
+You do this over and over...
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align= 'center', warning = F, message = F, fig.height=4}
+bootDat <- data.frame(betaVals = c(.22, .32))
+
+ggplot(bootDat, aes(betaVals)) + geom_histogram(fill = accent3, color = accent2) + 
+  scale_x_continuous(limits = c(.15, .45), breaks = seq(.15, .45, by = .05)) +
+  scale_y_continuous(limits = c(0, 30), breaks = seq(0, 30, by = 5)) +
+  xlab('beta')
+```
+...and compute the parameter of interest each time.
+
+]
+
+---
+### A Quick Run-Through of Bootstrapping
+
++ Bootstrapping resamples treats the sample as a population, and takes multiple samples from it
+
++ From these samples, a confidence interval for the desired parameter can be computed
+
+.pull-left[
+
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/samp3.png')
+```
+You do this over and over...
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align= 'center', warning = F, message = F, fig.height=4}
+bootDat <- data.frame(betaVals = c(.22, .32, .28))
+#.30
+
+ggplot(bootDat, aes(betaVals)) + geom_histogram(fill = accent3, color = accent2) + 
+  scale_x_continuous(limits = c(.15, .45), breaks = seq(.15, .45, by = .05)) +
+  scale_y_continuous(limits = c(0, 30), breaks = seq(0, 30, by = 5)) +
+  xlab('beta')
+```
+...and compute the parameter of interest each time.
+
+]
+
+---
+### A Quick Run-Through of Bootstrapping
+
++ Bootstrapping resamples treats the sample as a population, and takes multiple samples from it
+
++ From these samples, a confidence interval for the desired parameter can be computed
+
+.pull-left[
+```{r, echo = F, fig.align= 'center'}
+knitr::include_graphics('images/samp4.png')
+```
+You do this over and over...
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align= 'center', warning = F, message = F, fig.height=4}
+bootDat <- data.frame(betaVals = c(.22, .32, .28, .30))
+
+ggplot(bootDat, aes(betaVals)) + geom_histogram(fill = accent3, color = accent2) + 
+  scale_x_continuous(limits = c(.15, .45), breaks = seq(.15, .45, by = .05)) +
+  scale_y_continuous(limits = c(0, 30), breaks = seq(0, 30, by = 5)) +
+  xlab('beta')
+```
+...and compute the parameter of interest each time.
+
+]
+
+---
+### A Quick Run-Through of Bootstrapping
+
+
+```{r, echo = F, fig.align= 'center', message = F, warning = F, fig.height=4}
+set.seed(405)
+bootDat <- data.frame(betaVals = rnorm(500, mean = .3, sd = .1))
+
+(bootDist <- ggplot(bootDat, aes(betaVals)) + geom_histogram(fill = accent3, color = accent2) + 
+  labs(x = 'beta', y = 'Count') +
+  scale_x_continuous(limits = c(0, .6), breaks = seq(0, .6, by = .05)) + 
+  scale_y_continuous(limits = c(0, 50), breaks = seq(0, 50, by = 10)))
+```
+
++ This process is repeated over and over until there is a distribution of your parameter of interest:
 
 
 ---
-## INCLASS EXAMPLE
+### A Quick Run-Through of Bootstrapping
 
+
+```{r, echo = F, fig.align= 'center', message = F, warning = F, fig.height=4}
+qts <- round(quantile(bootDat$betaVals, probs = c(0.05, .95)),2)
+
+bootDist +
+  geom_vline(xintercept = qts[1], color = accent1, linewidth = 1, lty = 2) +
+  geom_vline(xintercept = qts[2], color = accent1, linewidth = 1, lty = 2) +
+  annotate(geom = 'text', label = paste0('95% CI = [', qts[1], ', ', qts[2], ']'), x = 0.3, y = 50)
+
+```
+
++ This process is repeated over and over until there is a distribution of your parameter of interest:
+
++ From this distribution, the confidence interval can be computed.
+
+---
+class: inverse, middle, center
+
+## Questions?
+
+---
+### Conducting a Mediation Analysis
+
+1. State your hypothesis
+
+2. Power analysis
+  
+3. Check your data
+
+4. Check assumptions
+  
+5. Run the test
+
+6. Interpret results
+
+7. Report
+
+---
+### State your hypothesis
+
++ As before, the hypothesis should name all relevant variables:
+
++ E.g. 'The effect of X (predictor) on Y (outcome) is mediated by M (mediator).'
+
+--
+
++ Statistically, you are still investigating $\beta$ values.
+
++ With mediation, the key result of interest is the indirect effect:
+
+$$\beta_{indirect} \neq 0$$
 ---
 ### Power Analysis
 
-+ Beyond the scope of the course (requires data simulation and bootstrapping...provide a resource if they want to self-study)
-+ Refer to ARTICLE HERE FOR THRESHOLDS
++ Often done through data simulation & bootstrapping
+
+  + Beyond the scope of this course, but click [here](https://nickch-k.github.io/EconometricsSlides/Week_08/Power_Simulations.html) if you'd like an overview.
+
++ Have a look at [Fritz & MacKinnon (2007)](https://pmc.ncbi.nlm.nih.gov/articles/PMC2843527/) for guidance around target sample sizes for different effect size thresholds.
+
+---
+### Check Assumptions
+
++ Basic mediation models have the same assumptions as linear regression
+
++ These assumptions can be checked on the individual regression models that comprise the mediation analysis
+
++ We can continue in SPSS using [these data](https://mtruelovehill.github.io/ISAP/Data/parentalConflict.sav)
+
+---
+class: middle, inverse, center
+
+## Questions?
 
