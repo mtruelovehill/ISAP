@@ -42,20 +42,15 @@ The research questions you are testing are:
 
 2. Does passenger type affect the safety ratings of teenage drivers? Specifically, are safety ratings different when a teenager is driving by themselves, a parent or a friend?
 
-### Your Tasks
-+ [ ] $\ $ State your hypotheses for this experiment.
-
 The dataset contains the following variables:
 
 ```{r, echo = F}
 dat <- read.csv('https://mtruelovehill.github.io/ISAP/Labs/Week10LabData.csv')
 
 datInfo <- data.frame(VariableName = colnames(dat),
-                      Description=c('Age in years',
-                                    'Levels: F = Female; M = Male',
-                                    'Amount of screen time per week in hours',
-                                    'Amount of sleep per week in hours',
-                                    'Scores on an attention span measure; values may range between 50-80'))
+                      Description=c('reflects whose vehicle the teenager primarily uses; 0 = parent; 1 = own',
+                                    '0 = self; 1 = parent; 2 = friend',
+                                    'Scores on a safety rating measure; values may range between 0-100'))
 
 datInfo %>%
   kbl(col.names=c('Variable Name', 'Description')) %>%
@@ -64,8 +59,179 @@ datInfo %>%
   column_spec(1, bold = T, width = '4.5cm')
 ```
 
+### Your Task
 
-## Comparing Between Two Groups
+<div class="nobullet">
++ [ ] $\ $ State your general hypotheses for this experiment.
+</div>
+
+
+```{r selectingTest, echo = F}
+quiz(caption = 'Check Your Understanding',
+     question('Which test should be used to investigate research question 1?',
+              answer('independent-samples t-test'),
+              answer('Mann-Whitney U test', correct = T),
+              answer('Wilcoxon Signed-Rank test'),
+              answer('One-Way Between-Subjects ANOVA'),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Kruskal-Wallis Test'),
+              answer("Friedman's ANOVA"),
+              message = "The outcome is continuous. The independent variable is a binary categorical variable (own vehicle or parent's vehicle). Normally, an independent-samples t-test would be used to compare the means of two independent groups, but since the data violate assumptions, a Mann-Whitney U test would be more appropriate."),
+     question('Which test should be used to investigate research question 2?',
+              answer('independent-samples t-test'),
+              answer('Mann-Whitney U test'),
+              answer('Wilcoxon Signed-Rank test'),
+              answer('One-Way Between-Subjects ANOVA'),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Kruskal-Wallis Test', correct = T),
+              answer("Friedman's ANOVA"),
+              message = "The outcome is continuous. The independent variable is a categorical variable with three levels. Normally, a One-Way Between-Subjects ANOVA would be used to compare the mean of three independent groups, but since the data violate assumptions, a Kruskal-Wallis test would be more appropriate."),
+     question('At what level of measurement does the dependent variable need to be for a Mann-Whitney U test? Please select any that apply.',
+              answer('Continuous', correct = T),
+              answer('Binary Categorical'),
+              answer('Ordinal', correct = T),
+              message = 'A Mann-Whitney U test requires the dependent variable to be either ordinal or continuous.',
+              random_answer_order = T),
+     question('Researchers conduct a study into the effect of sleep deprivation on speed of processing in a driving simulator. They ask participants to complete a 15 minute driving simulation task. At the end of the task, they ask the participants a series of questions about the events in the simulation. Participants are given a continuous score that reflects the number of questions they answer correctly. The participants then spend the night in a room controlled by the research team where they are limited to three hours sleep. The next day, they complete the same task and get a second score. The team want to consider the difference in these scores. However, when they check the data, they see that there is a ceiling effect in the first test, leading to a normality violation. Which test is most appropriate?',
+              answer('independent-samples t-test'),
+              answer('Mann-Whitney U test'),
+              answer('Wilcoxon Signed-Rank test', correct = T),
+              answer('One-Way Between-Subjects ANOVA'),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Kruskal-Wallis Test'),
+              answer("Friedman's ANOVA"),
+              message = 'Here, you have a continuous dependent variable (score). As the same sample provides responses at both timepoints, this is a repeated-measures design with two groups (pre and post sleep-deprivation). However, the data violate assumptions, so a nonparametric test should be used. A Wilcoxon Signed-Rank test would be appropriate here.'),
+     question("A researcher is testing an intervention with three groups of children - those with ADHD, those with conduct disorder, and those with oppositional defiance disorder. Her outcome variable is a 5-level Likert style measure. Which of the following statistical tests should she use to analyse her results?",
+              answer('independent-samples t-test'),
+              answer('Mann-Whitney U test'),
+              answer('Wilcoxon Signed-Rank test'),
+              answer('One-Way Between-Subjects ANOVA'),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Kruskal-Wallis Test', correct = T),
+              answer("Friedman's ANOVA"),
+              message = "As the outcome variable is measured on an ordinal scale, a parametric test is not appropriate. The researcher is comparing 3 independent groups, so a Kruskal-Wallis test should be used."))
+```
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+Although you will be using nonparametric measures, your general hypotheses will be consistent with those of the corresponding parametric test.
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+1. Teenagers will drive more safely when they are driving a parent's car compared to when they are driving their own car.
+
+2. Passenger type will affect teenage drivers' safety ratings. Specifically, teenagers will drive more safely when they are driving with their parent as compared to when they are driving by themselves or with a friend.
+
+</details>
+</div>
+</br>
+
+
+## Check Assumptions
+
+Although this lab is specifically covering nonparametric analyses (so you already know assumptions will be violated), in a typical setting, you would do this step first, then use the results of these assumptions checks to make a decision about which test to use.
+
+Recall that the assumptions of a both an independent-samples $t$-test and a One-Way ANOVA are:
+
+(1) **Normality:** Values are normally distributed *within levels or groups*
+
+(2) **Independence of Observations:** Individual observations should not be dependent upon any others
+
+(3) **Homogeneity of Variance:** Variances within each level or group should be generally similar
+
 
 ### Your Tasks
-+ [ ] $\ $ Perform a 
+
+For each research question:
+
+<div class="nobullet">
++ [ ] $\ $ Decide whether the data meet the assumption of normality
++ [ ] $\ $ Decide whether the data meet the assumption of independence
++ [ ] $\ $ Decide whether the data meet the assumption of homogeneity
+</div>
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+HINT
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+SOLUTION
+
+</details>
+</div>
+</br>
+
+## RQ1 Primary Analysis
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+HINT
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+SOLUTION
+
+</details>
+</div>
+</br>
+
+## RQ2 Primary Analysis
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+HINT
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+SOLUTION
+
+</details>
+</div>
+</br>
+
+## Interpret & Report
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+HINT
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+SOLUTION
+
+</details>
+</div>
+</br>
+
