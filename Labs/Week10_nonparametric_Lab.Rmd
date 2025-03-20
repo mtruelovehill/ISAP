@@ -1,0 +1,71 @@
+---
+title: "Week 10: Nonparametric Tests"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    css: 'https://mtruelovehill.github.io/ISAP/Labs/css/style.css'
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+
+pacman::p_load('tidyverse', 'kableExtra', 'shiny')
+
+
+baseColor <- '#F28157'
+accent1 <- '#F2B66D'
+accent3 <- '#30726E'
+accent4 <- '#008290'
+```
+
+
+## Intro to Today's Lab
+
+During today's lab, you'll apply the concepts discussed during this week's lecture. Each lab consists of a range of tasks, with corresponding questions you can answer. Please note that the questions are not required and not marked, although they do provide a helpful source of formative feedback that will help you gauge your understanding. 
+
+### Learning Objectives
+At the end of this lab, you will be able to:
+
+1. Objective 1
+2. Objective 2
+3. Objective 3
+
+## Experiment Overview
+
+This week, you will be analysing simulated data around teenage driving. Teenage drivers' safety ratings were investigated in the context of car ownership and passenger type. However, the data did not meet certain assumptions, so you'll need to use appropriate nonparametric methods to analyse it.
+
+The research questions you are testing are:
+
+1. Does car ownership affect the safety ratings of teenage drivers?
+
+2. Does passenger type affect the safety ratings of teenage drivers? Specifically, are safety ratings different when a teenager is driving by themselves, a parent or a friend?
+
+### Your Tasks
++ [ ] $\ $ State your hypotheses for this experiment.
+
+The dataset contains the following variables:
+
+```{r, echo = F}
+dat <- read.csv('https://mtruelovehill.github.io/ISAP/Labs/Week10LabData.csv')
+
+datInfo <- data.frame(VariableName = colnames(dat),
+                      Description=c('Age in years',
+                                    'Levels: F = Female; M = Male',
+                                    'Amount of screen time per week in hours',
+                                    'Amount of sleep per week in hours',
+                                    'Scores on an attention span measure; values may range between 50-80'))
+
+datInfo %>%
+  kbl(col.names=c('Variable Name', 'Description')) %>%
+  kable_styling(full_width = F) %>%
+  row_spec(0, bold = T, color=baseColor, font_size = 18, align='l') %>%
+  column_spec(1, bold = T, width = '4.5cm')
+```
+
+
+## Comparing Between Two Groups
+
+### Your Tasks
++ [ ] $\ $ Perform a 

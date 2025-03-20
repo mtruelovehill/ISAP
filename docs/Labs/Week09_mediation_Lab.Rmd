@@ -4,7 +4,7 @@ output:
   learnr::tutorial:
     progressive: true
     allow_skip: true
-    css: 'css/style.css'
+    css: 'https://mtruelovehill.github.io/ISAP/Labs/css/style.css'
 runtime: shiny_prerendered
 ---
 
@@ -370,9 +370,9 @@ There are many ways you could write this up, but you should at least include the
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
 Sample data, descriptive data, and assumptions checks can be reported as in previous weeks. Here is an example of how mediation may be reported:
 
-Mediation analysis with PROCESS macro Version 4.2 (Hayes, 2017) was used to investigate the hypothesis that sleep mediates the effect of screen time on attention span in children. Results showed that screen time was a significant predictor of sleep, $\beta$ = -0.52, $SE$ = 0.09, $p$ < .001. Both screen time, $\beta$ = -0.52, $SE$ = 0.09, $p$ < .001, and sleep, $\beta$ = -0.52, $SE$ = 0.09, $p$ < .001, significantly predicted attention span, explaining 25% of its variance, $F$(2, 119) = 20.10, $p$ < .001.
+Mediation analysis with PROCESS macro Version 4.2 (Hayes, 2017) was used to investigate the hypothesis that sleep mediates the effect of screen time on attention span in children. Results showed that screen time was a significant predictor of sleep, $\beta$ = -0.52, $SE$ = 0.09, $p$ < .001. Both screen time, $\beta$ = -0.16, $SE$ = 0.08, $p$ = .04, and sleep, $\beta$ = 0.30, $SE$ = 0.07, $p$ < .001, significantly predicted attention span, explaining 25% of its variance, $F$(2, 119) = 20.10, $p$ < .001.
 
-The indirect effect was tested using a percentile bootstrap estimation approach with 5000 samples. These results indicated the indirect coefficient was significant, $\beta$ = -0.16, $SE$ = 0.05, 95% CI[-0.26,-0.07]. However, screen time remained a significant predictor of attention even after controlling for sleep, $\beta$ = -0.16, $SE$ = 0.08, $p$ = .04, indicating partial mediation. See Figure 1 for a summary of key results.
+The indirect effect was tested using a percentile bootstrap estimation approach with 5000 samples. These results indicated the indirect coefficient was significant, $\beta$ = -0.16, $SE$ = 0.05, 95% CI[-0.26,-0.07], suggesting that the relationship between screen time and attention span is at least partially explained by sleep. However, screen time remained a significant predictor of attention even after controlling for sleep ($p$ = .04), indicating partial, rather than full, mediation. See Figure 1 for a summary of key results.
 
 
 ```{r, echo = F, fig.align= 'center', out.width = '75%'}
