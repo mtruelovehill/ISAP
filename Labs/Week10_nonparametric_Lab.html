@@ -122,9 +122,10 @@ understanding.</p>
 <h3>Learning Objectives</h3>
 <p>At the end of this lab, you will be able to:</p>
 <ol style="list-style-type: decimal">
-<li>Objective 1</li>
-<li>Objective 2</li>
-<li>Objective 3</li>
+<li>Select appropriate statistical tests when assumptions are violated
+in analyses with a single independent variable</li>
+<li>Conduct and interpret the results from a Mann-Whitney U test</li>
+<li>Conduct and interpret the results from a Kruskal-Wallis test</li>
 </ol>
 </div>
 </div>
@@ -169,7 +170,7 @@ reflects whose vehicle the teenager primarily uses; 0 = parent; 1 = own
 Passenger
 </td>
 <td style="text-align:left;">
-0 = self; 1 = parent; 2 = friend
+0 = self; 1 = friend; 2 = parent
 </td>
 </tr>
 <tr>
@@ -263,6 +264,73 @@ with a friend.</p></li>
 <p></br></p>
 </div>
 </div>
+<div id="section-descriptive-data" class="section level2">
+<h2>Descriptive Data</h2>
+<p>When working with data that violate assumptions, the mean may not be
+the best estimate of central tendancy, and the standard deviation may
+not be the best measure of variance. Depending on the severity of the
+assumption violation, the median and interquartile range (IQR) may be
+more representative measures of central tendency and variance.</p>
+<div id="section-your-tasks" class="section level3">
+<h3>Your Tasks</h3>
+<div class="nobullet">
+<ul class="task-list">
+<li><label><input type="checkbox" /><span class="math inline">\(\
+\)</span> Add values to the <code>OwnCar</code> and
+<code>Passenger</code> variables so that results are labelled
+properly</label></li>
+<li><label><input type="checkbox" /><span class="math inline">\(\
+\)</span> Compute the median <code>SafetyRating</code> for each
+<code>OwnCar</code> group</label></li>
+<li><label><input type="checkbox" /><span class="math inline">\(\
+\)</span> Compute the <code>SafetyRating</code> IQR for each
+<code>OwnCar</code> group</label></li>
+<li><label><input type="checkbox" /><span class="math inline">\(\
+\)</span> Compute the median <code>SafetyRating</code> for each
+<code>Passenger</code> group</label></li>
+<li><label><input type="checkbox" /><span class="math inline">\(\
+\)</span> Compute the <code>SafetyRating</code> IQR for each
+<code>Passenger</code> group</label></li>
+</ul>
+</div>
+<div class="container">
+<details>
+<summary>
+<span style="font-weight: bold; font-size: 16pt"> Click here for a hint
+</span>
+</summary>
+<p>You can add text labels to the variables under the Variable View
+tab.</p>
+<p>To get the median and IQR separately for each <code>OwnCar</code> and
+<code>Passenger</code> group, navigate to <em>Analyze&gt;Descriptive
+Statistics&gt;Explore</em>.</p>
+</details>
+</div>
+<p></br></p>
+<div class="container">
+<details>
+<summary>
+<span style="font-weight: bold; font-size: 16pt"> Click here for the
+solution </span>
+</summary>
+<p>To add values to <code>OwnCar</code> and <code>Passenger</code>, use
+the Value column under the Variable View tab. Check the Data Dictionary
+under the <a href="#section-experiment-overview">Experiment Overview</a>
+tab to find the variable key.</p>
+<p>For the descriptive statistics, navigate to
+<em>Analyze&gt;Descriptive Statistics&gt;Explore</em>. Add
+<code>SafetyRating</code> to the ‘Dependent List’ box and both
+<code>OwnCar</code> and <code>Passenger</code> to the ‘Factor List’ box.
+Click the ‘Statistics’ box and make sure ‘Descriptives’ is checked.</p>
+<p>You can find the median and IQR for <code>OwnCar</code> here:</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_ownCarDesc.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Check the next box for the values for the <code>Passenger</code>
+variable.</p>
+</details>
+</div>
+<p></br></p>
+</div>
+</div>
 <div id="section-check-assumptions" class="section level2">
 <h2>Check Assumptions</h2>
 <p>Although this lab is specifically covering nonparametric analyses (so
@@ -279,7 +347,7 @@ observations should not be dependent upon any others</p></li>
 <li><p><strong>Homogeneity of Variance:</strong> Variances within each
 level or group should be generally similar</p></li>
 </ol>
-<div id="section-your-tasks" class="section level3">
+<div id="section-your-tasks-1" class="section level3">
 <h3>Your Tasks</h3>
 <p>For each research question:</p>
 <div class="nobullet">
@@ -301,7 +369,13 @@ homogeneity</label></li>
 <span style="font-weight: bold; font-size: 16pt"> Click here for a hint
 </span>
 </summary>
-<p>HINT</p>
+<p>To check normality, you can use histograms and Q-Q plots. You’ll need
+to do this for each level of the independent variables separately.
+Navigate to <em>Analyze&gt;DescriptiveStatistics&gt;Explore</em> to do
+this.</p>
+<p>Independence is accounted for during study design. To check
+homogeneity of variance, you can view boxplots and verify using results
+from Levene’s test.</p>
 </details>
 </div>
 <p></br></p>
@@ -311,7 +385,68 @@ homogeneity</label></li>
 <span style="font-weight: bold; font-size: 16pt"> Click here for the
 solution </span>
 </summary>
-<p>SOLUTION</p>
+<p><span style="font-weight: bold; font-size: 14pt"> RQ 1 </span></p>
+<p>To check the histograms and Q-Q plots of the dependent variable
+separated by Group, click <em>Analyze &gt; Descriptive Statistics &gt;
+Explore</em> and add the dependent variable, <code>SafetyRating</code>,
+to the ‘Dependent List’ box and the independent variable,
+<code>OwnCar</code>, to the Factor List box. At the bottom, change the
+‘Display’ setting from ‘Both’ to ‘Plots’. Click ‘Plots’, deselect
+‘Stem-and-Leaf’ and select ‘Histograms’ instead. Tick the box that says
+‘Normality Plots with Tests’. Then click the <em>Untransformed</em>
+option under ‘Spread vs Level with Levene Test’. Click ‘Continue’, then
+‘OK’.</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_parentCarHist.png" width="75%" style="display: block; margin: auto;" /><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_ownCarHist.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Here, <code>SafetyRating</code> is definitely negatively skewed,
+particularly in the group that drives their own car. This is evidence of
+a significant normality violation.</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_parentCarQQ.png" width="75%" style="display: block; margin: auto;" /><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_ownCarQQ.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Inspecting the Q-Q plots, note that the points curve around the line
+across the entire range of data. This further confirms that normality
+has been violated, particularly in the group that drives their own
+car.</p>
+<p>As independence should be accounted for through study design (and
+cannot be adjusted statistically after data collection), we’ll consider
+it met in this example.</p>
+<p>Have a look at the boxplot to evaluate homogeneity of variance. If
+the boxes in the boxplot are approximately the same size, it would give
+confidence that this assumption has been met.</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_ownershipBoxplot.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>In this case, there is more variance in <code>SafetyRating</code> in
+the group that drives their own car compared to the group that drives
+their parent’s.</p>
+<p>Next, check the results from Levene’s test to confirm. Check the line
+that says ‘Based on Mean’ and evaluate the ‘Sig.’ column. With <span
+class="math inline">\(\alpha\)</span> = .05, <code>SafetyRating</code>
+violates the assumption of equal variances, as <span
+class="math inline">\(p\)</span> = .006, which is lower than the <span
+class="math inline">\(\alpha\)</span> threshold.</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_ttestLevene.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><br></p>
+<p><span style="font-weight: bold; font-size: 14pt"> RQ 2 </span></p>
+<p>To check assumptions for RQ2, navigate to <em>Analyze &gt;
+Descriptive Statistics &gt; Explore</em>. Keep
+<code>SafetyRating</code>, in the ‘Dependent List’ box and swap the
+independent/grouping variable to <code>Passenger</code>, in the ‘Factor
+List’ box. All other options should stay the same.</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_selfHist.png" width="75%" style="display: block; margin: auto;" /><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_parentHist.png" width="75%" style="display: block; margin: auto;" /><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_friendHist.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>As before, <code>SafetyRating</code> within each group does not
+appear to follow a normal distribution. The Q-Q plots support this:</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_selfQQ.png" width="75%" style="display: block; margin: auto;" /><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_parentQQ.png" width="75%" style="display: block; margin: auto;" /><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_friendQQ.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Here, <code>SafetyRating</code> is definitely negatively skewed,
+particularly in the group that drives their own car. This is evidence of
+a significant normality violation.</p>
+<p>As before, we’ll assume independence is met in this example.</p>
+<p>Check the boxplot to evaluate homogeneity of variance.</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_passengerBoxplot.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>In this case, there is less variance in <code>SafetyRating</code> in
+the group that drives with their friends compared to the group that
+drives with their parents.</p>
+<p>The results from Levene’s test further confirm this. With <span
+class="math inline">\(\alpha\)</span> = .05, <code>SafetyRating</code>
+violates the assumption of equal variances, as <span
+class="math inline">\(p\)</span> = .011.</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_ANOVAlevene.png" width="75%" style="display: block; margin: auto;" /></p>
 </details>
 </div>
 <p></br></p>
@@ -319,13 +454,37 @@ solution </span>
 </div>
 <div id="section-rq1-primary-analysis" class="section level2">
 <h2>RQ1 Primary Analysis</h2>
+<p>The first research question is:</p>
+<p><em>Does car ownership affect the safety ratings of teenage
+drivers?</em></p>
+<div class="panel-heading tutorial-quiz-title"></div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="RQ1test-1" class="tutorial-question panel-body">
+<div id="RQ1test-1-answer_container" class="shiny-html-output"></div>
+<div id="RQ1test-1-message_container" class="shiny-html-output"></div>
+<div id="RQ1test-1-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<p>In this case, the data violated assumptions, and so a nonparametric
+test should be used.</p>
+<div id="section-your-task-1" class="section level3">
+<h3>Your Task</h3>
+<div class="nobullet">
+<ul class="task-list">
+<li><label><input type="checkbox" /><span class="math inline">\(\
+\)</span> Run a Mann-Whitney U test and interpret the results with <span
+class="math inline">\(\alpha\)</span> = .05.</label></li>
+</ul>
+</div>
 <div class="container">
 <details>
 <summary>
 <span style="font-weight: bold; font-size: 16pt"> Click here for a hint
 </span>
 </summary>
-<p>HINT</p>
+<p>To perform a nonparametric test, navigate to
+<em>Analyze&gt;Nonparametric Tests&gt;Legacy Dialogues</em></p>
 </details>
 </div>
 <p></br></p>
@@ -335,20 +494,61 @@ solution </span>
 <span style="font-weight: bold; font-size: 16pt"> Click here for the
 solution </span>
 </summary>
-<p>SOLUTION</p>
+<p>Navigate to <em>Analyze&gt;Nonparametric Tests&gt;Independent
+Samples…</em>. Click the ‘Fields’ tab at the top of the box that
+appears. Add <code>SafetyRating</code> to the ‘Test Fields’ box and
+<code>OwnCar</code> to the ‘Groups’ box. Then click ‘Run’ at the bottom.
+This option automatically detects the levels in your variable and
+chooses the corresponding test (in this case, the Mann-Whitney U
+test)</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_mwTest.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>The output of a Mann-Whitney U test is not based on a comparison of
+the mean values of each group, but the mean rank of the values in the
+group. The group with the highest <code>SafetyRating</code> values
+overall will also have the highest mean rank. In this case, the safety
+ratings of teenagers driving their parent’s car were ranked higher than
+the safety ratings than those driving their own car. The associated
+<span class="math inline">\(p\)</span>-value is .022, which is lower
+than the <span class="math inline">\(\alpha\)</span> threshold of .05,
+so this difference is considered significant.</p>
 </details>
 </div>
 <p></br></p>
+</div>
 </div>
 <div id="section-rq2-primary-analysis" class="section level2">
 <h2>RQ2 Primary Analysis</h2>
+<p>The second research question is:</p>
+<p><em>Does passenger type affect the safety ratings of teenage
+drivers?</em></p>
+<div class="panel-heading tutorial-quiz-title"></div>
+<div class="panel panel-default tutorial-question-container">
+<div data-label="RQ2test-1" class="tutorial-question panel-body">
+<div id="RQ2test-1-answer_container" class="shiny-html-output"></div>
+<div id="RQ2test-1-message_container" class="shiny-html-output"></div>
+<div id="RQ2test-1-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+<p>In this case, the data violated assumptions, so a nonparametric test
+should be used.</p>
+<div id="section-your-task-2" class="section level3">
+<h3>Your Task</h3>
+<div class="nobullet">
+<ul class="task-list">
+<li><label><input type="checkbox" /><span class="math inline">\(\
+\)</span> Run a Kruskal-Wallis test and interpret the results with <span
+class="math inline">\(\alpha\)</span> = .05.</label></li>
+</ul>
+</div>
 <div class="container">
 <details>
 <summary>
 <span style="font-weight: bold; font-size: 16pt"> Click here for a hint
 </span>
 </summary>
-<p>HINT</p>
+<p>As in the previous analysis, navigate to <em>Analyze&gt;Nonparametric
+Tests&gt;Legacy Dialogues</em></p>
 </details>
 </div>
 <p></br></p>
@@ -358,30 +558,89 @@ solution </span>
 <span style="font-weight: bold; font-size: 16pt"> Click here for the
 solution </span>
 </summary>
-<p>SOLUTION</p>
+<p>As before, navigate to <em>Analyze&gt;Nonparametric
+Tests&gt;Independent Samples…</em>. Click the ‘Fields’ tab at the top of
+the box that appears. Swap <code>OwnCar</code> with
+<code>Passenger</code> in the ‘Groups’ box, then click ‘Run’.</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_kwTest.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Like the Mann-Whitney U test, the Kruskal-Wallis test is not based on
+a comparison of the mean values of each group, but the mean rank of the
+values in the group. Here, there was a significant difference in ranking
+distributions between the three passenger groups, indicated by the <span
+class="math inline">\(p\)</span>-value of .026.</p>
+<p>A posthoc Dunn’s test is also run automatically, allowing you to
+probe this effect further:</p>
+<p><img src="https://mtruelovehill.github.io/ISAP/Labs/images/week10_pwc.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Note that the <span class="math inline">\(p\)</span>-values have been
+adjusted for multiple corrections here. The posthoc test shows that
+there’s a significant difference in <code>SafetyRatings</code> when
+teenagers drive with a friend vs a parent, but no significant
+differences in the other comparisons.</p>
 </details>
 </div>
 <p></br></p>
+</div>
 </div>
 <div id="section-interpret-report" class="section level2">
 <h2>Interpret &amp; Report</h2>
-<div class="container">
-<details>
-<summary>
-<span style="font-weight: bold; font-size: 16pt"> Click here for a hint
-</span>
-</summary>
-<p>HINT</p>
-</details>
-</div>
-<p></br></p>
+<p>There are many ways you could write this up, but you’ll need to at
+least include the following information:</p>
+<ul>
+<li>alpha level</li>
+<li>number of participants (n)</li>
+<li>participant demographics (mean age, age sd, and age range of sample;
+gender distribution of sample)</li>
+<li>results from assumptions checks</li>
+<li>descriptive data for each IV group (M and SD)</li>
+<li>the type of test used</li>
+<li>variables involved in the tests</li>
+<li>test statistic (U or H)</li>
+<li>degrees of freedom (kruskal-wallis only)</li>
+<li>p-values</li>
+</ul>
+<p>Note that when reporting statistics that include brackets (e.g.,
+those that reference degrees of freedom), separate them from the text
+using a comma. When reporting statistics that do not include brackets,
+separate them from text using brackets.</p>
 <div class="container">
 <details>
 <summary>
 <span style="font-weight: bold; font-size: 16pt"> Click here for the
 solution </span>
 </summary>
-<p>SOLUTION</p>
+<p><em>Note that this report is not entirely complete; there is no
+description of the sample. You can find examples of this in previous
+labs</em></p>
+<p>In this analysis, we tested how driver safety ratings were affected
+when teenagers were driving their own car, as compared to driving their
+parents. Additionally, we investigated whether the identity of the
+passenger affected how safely a teenager drove.Visual assessment of
+histograms and Q-Q plots indicated that the safety ratings were not
+normally distributed. Additionally, homogeneity of variance (as assessed
+through visual assessment of the boxplot and confirmed via Levene’s
+test) was violated. Due to these violations, we used nonparametric
+assessments to test our hypotheses. Tests were evaluated at an <span
+class="math inline">\(\alpha\)</span> threshold of .05.</p>
+<p>A Mann-Whitney U test indicated that teenagers who drove their own
+cars had significantly lower safety ratings (median = 71.31, IQR =
+21.28) than those who drove their parents (<span
+class="math inline">\(U\)</span> = 295.50, <span
+class="math inline">\(p\)</span> = .022; median = 77.49, IQR =
+13.00).</p>
+<p>A Kruskal-Wallis test showed that passenger type significantly
+affected safety ratings, <span class="math inline">\(H\)</span>(2) =
+7.31, <span class="math inline">\(p\)</span> = .026. Posthoc effects
+were evaluated using Dunn’s test; Bonferroni corrections were applied to
+adjust for multiple comparisons. These indicated that teenagers drove
+significantly more safely when they were driving with their parents
+(median = 78.04, IQR = 12.96) than with their friends (<span
+class="math inline">\(p_{adjusted}\)</span> = .022, median = 70.36, IQR
+= 23.17). There was no significant difference in their safety when they
+were driving with their parents or by themselves (<span
+class="math inline">\(p_{adjusted}\)</span> = .285, median = 73.95, IQR
+= 16.44). There was also no significant difference in their driving
+safety when they were by themselves or with their friends (<span
+class="math inline">\(p\)</span> = .945).</p>
 </details>
 </div>
 <p></br></p>
@@ -421,31 +680,31 @@ session$onSessionEnded(function() {
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "selectingTest-1", 
     question = structure("Which test should be used to investigate research question 1?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_cf3498d", 
+    "character")), answers = list(structure(list(id = "lnr_ans_a378cd1", 
         option = "independent-samples t-test", value = "independent-samples t-test", 
         label = structure("independent-samples t-test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4379b2b", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8d04842", 
         option = "Mann-Whitney U test", value = "Mann-Whitney U test", 
         label = structure("Mann-Whitney U test", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2a3f967", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d35e464", 
         option = "Wilcoxon Signed-Rank test", value = "Wilcoxon Signed-Rank test", 
         label = structure("Wilcoxon Signed-Rank test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1721b7", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_99abc30", 
         option = "One-Way Between-Subjects ANOVA", value = "One-Way Between-Subjects ANOVA", 
         label = structure("One-Way Between-Subjects ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c3aa1cd", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ed3ac3d", 
         option = "One-Way Repeated-Measures ANOVA", value = "One-Way Repeated-Measures ANOVA", 
         label = structure("One-Way Repeated-Measures ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e48310f", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9e3c5ae", 
         option = "Kruskal-Wallis Test", value = "Kruskal-Wallis Test", 
         label = structure("Kruskal-Wallis Test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5c2a641", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b879843", 
         option = "Friedman's ANOVA", value = "Friedman's ANOVA", 
         label = structure("Friedman’s ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -457,7 +716,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = structure("The outcome is continuous. The independent variable is a binary categorical variable (own vehicle or parent’s vehicle). Normally, an independent-samples t-test would be used to compare the means of two independent groups, but since the data violate assumptions, a Mann-Whitney U test would be more appropriate.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "selectingTest-1-answer", 
         question = "selectingTest-1"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1476105226.81263, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1924817783.10369, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 
@@ -465,31 +724,31 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "selectingTest-2", 
     question = structure("Which test should be used to investigate research question 2?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_82c8ec6", 
+    "character")), answers = list(structure(list(id = "lnr_ans_b393311", 
         option = "independent-samples t-test", value = "independent-samples t-test", 
         label = structure("independent-samples t-test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_bfd7a40", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c7190a8", 
         option = "Mann-Whitney U test", value = "Mann-Whitney U test", 
         label = structure("Mann-Whitney U test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_7172102", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e78492b", 
         option = "Wilcoxon Signed-Rank test", value = "Wilcoxon Signed-Rank test", 
         label = structure("Wilcoxon Signed-Rank test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f9c8612", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_47a26e5", 
         option = "One-Way Between-Subjects ANOVA", value = "One-Way Between-Subjects ANOVA", 
         label = structure("One-Way Between-Subjects ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1f6fd42", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d13da78", 
         option = "One-Way Repeated-Measures ANOVA", value = "One-Way Repeated-Measures ANOVA", 
         label = structure("One-Way Repeated-Measures ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d3f37d7", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e1389bc", 
         option = "Kruskal-Wallis Test", value = "Kruskal-Wallis Test", 
         label = structure("Kruskal-Wallis Test", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2605907", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_38aa34b", 
         option = "Friedman's ANOVA", value = "Friedman's ANOVA", 
         label = structure("Friedman’s ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -501,21 +760,21 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = structure("The outcome is continuous. The independent variable is a categorical variable with three levels. Normally, a One-Way Between-Subjects ANOVA would be used to compare the mean of three independent groups, but since the data violate assumptions, a Kruskal-Wallis test would be more appropriate.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "selectingTest-2-answer", 
         question = "selectingTest-2"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1885300488.12209, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1509476450.2971, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "selectingTest-3", 
     question = structure("At what level of measurement does the dependent variable need to be for a Mann-Whitney U test? Please select any that apply.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_a970bf1", 
+    "character")), answers = list(structure(list(id = "lnr_ans_fb07bbb", 
         option = "Continuous", value = "Continuous", label = structure("Continuous", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_44886dc", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_73264a0", 
         option = "Binary Categorical", value = "Binary Categorical", 
         label = structure("Binary Categorical", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ccbea55", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_7abbca5", 
         option = "Ordinal", value = "Ordinal", label = structure("Ordinal", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -526,7 +785,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
     "character")), message = structure("A Mann-Whitney U test requires the dependent variable to be either ordinal or continuous.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "selectingTest-3-answer", 
         question = "selectingTest-3"), loading = NULL, random_answer_order = TRUE, 
-    allow_retry = FALSE, seed = 1342749890.87473, options = list()), class = c("learnr_checkbox", 
+    allow_retry = FALSE, seed = 1514607883.29471, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")), session = session)
 </script>
 
@@ -534,31 +793,31 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "selectingTest-4", 
     question = structure("Researchers conduct a study into the effect of sleep deprivation on speed of processing in a driving simulator. They ask participants to complete a 15 minute driving simulation task. At the end of the task, they ask the participants a series of questions about the events in the simulation. Participants are given a continuous score that reflects the number of questions they answer correctly. The participants then spend the night in a room controlled by the research team where they are limited to three hours sleep. The next day, they complete the same task and get a second score. The team want to consider the difference in these scores. However, when they check the data, they see that there is a ceiling effect in the first test, leading to a normality violation. Which test is most appropriate?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_bfdae8f", 
+    "character")), answers = list(structure(list(id = "lnr_ans_ffeafb7", 
         option = "independent-samples t-test", value = "independent-samples t-test", 
         label = structure("independent-samples t-test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_cb58939", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_766484c", 
         option = "Mann-Whitney U test", value = "Mann-Whitney U test", 
         label = structure("Mann-Whitney U test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e86476b", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_845c987", 
         option = "Wilcoxon Signed-Rank test", value = "Wilcoxon Signed-Rank test", 
         label = structure("Wilcoxon Signed-Rank test", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e57fa64", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f2d387c", 
         option = "One-Way Between-Subjects ANOVA", value = "One-Way Between-Subjects ANOVA", 
         label = structure("One-Way Between-Subjects ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_df43aed", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_fe44809", 
         option = "One-Way Repeated-Measures ANOVA", value = "One-Way Repeated-Measures ANOVA", 
         label = structure("One-Way Repeated-Measures ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3776fa1", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1d4a031", 
         option = "Kruskal-Wallis Test", value = "Kruskal-Wallis Test", 
         label = structure("Kruskal-Wallis Test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2ba0422", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a6fdc81", 
         option = "Friedman's ANOVA", value = "Friedman's ANOVA", 
         label = structure("Friedman’s ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -570,38 +829,38 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = structure("Here, you have a continuous dependent variable (score). As the same sample provides responses at both timepoints, this is a repeated-measures design with two groups (pre and post sleep-deprivation). However, the data violate assumptions, so a nonparametric test should be used. A Wilcoxon Signed-Rank test would be appropriate here.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "selectingTest-4-answer", 
         question = "selectingTest-4"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1525650344.78956, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 1853237429.63702, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "selectingTest-5", 
     question = structure("A researcher is testing an intervention with three groups of children - those with ADHD, those with conduct disorder, and those with oppositional defiance disorder. Her outcome variable is a 5-level Likert style measure. Which of the following statistical tests should she use to analyse her results?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_a9356b4", 
+    "character")), answers = list(structure(list(id = "lnr_ans_8514f33", 
         option = "independent-samples t-test", value = "independent-samples t-test", 
         label = structure("independent-samples t-test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a45e805", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3786fe0", 
         option = "Mann-Whitney U test", value = "Mann-Whitney U test", 
         label = structure("Mann-Whitney U test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_360c0de", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_395697d", 
         option = "Wilcoxon Signed-Rank test", value = "Wilcoxon Signed-Rank test", 
         label = structure("Wilcoxon Signed-Rank test", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8584434", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4f5baa9", 
         option = "One-Way Between-Subjects ANOVA", value = "One-Way Between-Subjects ANOVA", 
         label = structure("One-Way Between-Subjects ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6fd92c9", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f8aa9f6", 
         option = "One-Way Repeated-Measures ANOVA", value = "One-Way Repeated-Measures ANOVA", 
         label = structure("One-Way Repeated-Measures ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_752f553", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_920afe8", 
         option = "Kruskal-Wallis Test", value = "Kruskal-Wallis Test", 
         label = structure("Kruskal-Wallis Test", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_58f2da6", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_97ff9e9", 
         option = "Friedman's ANOVA", value = "Friedman's ANOVA", 
         label = structure("Friedman’s ANOVA", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -613,7 +872,80 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character")), message = structure("As the outcome variable is measured on an ordinal scale, a parametric test is not appropriate. The researcher is comparing 3 independent groups, so a Kruskal-Wallis test should be used.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "selectingTest-5-answer", 
         question = "selectingTest-5"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = FALSE, seed = 1090362073.49226, options = list()), class = c("learnr_radio", 
+    allow_retry = FALSE, seed = 670619574.187718, options = list()), class = c("learnr_radio", 
+"tutorial_question")), session = session)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "RQ1test-1", question = structure("If assumptions had been, which test would be used to measure RQ1?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_c9a4209", 
+    option = "Independent-samples t-test", value = "Independent-samples t-test", 
+    label = structure("Independent-samples t-test", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a889240", 
+    option = "Paired-samples t-test", value = "Paired-samples t-test", 
+    label = structure("Paired-samples t-test", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ff9ce7b", 
+    option = "One-Way Between-Subjects ANOVA", value = "One-Way Between-Subjects ANOVA", 
+    label = structure("One-Way Between-Subjects ANOVA", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1763fc3", 
+    option = "One-Way Repeated-Measures ANOVA", value = "One-Way Repeated-Measures ANOVA", 
+    label = structure("One-Way Repeated-Measures ANOVA", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_52d2895", 
+    option = "Factorial ANOVA", value = "Factorial ANOVA", label = structure("Factorial ANOVA", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6a286c9", 
+    option = "Correlation", value = "Correlation", label = structure("Correlation", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = structure("The outcome is continuous. The independent variable is a binary categorical variable (own vehicle or parent’s vehicle). Had assumptions been met, an independent-samples t-test would be used.", html = TRUE, class = c("html", 
+"character")), post_message = NULL), ids = list(answer = "RQ1test-1-answer", 
+    question = "RQ1test-1"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1794962123.16416, options = list()), class = c("learnr_radio", 
+"tutorial_question")), session = session)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "RQ2test-1", question = structure("If assumptions had been, which test would be used to measure RQ2?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_a7a818f", 
+    option = "Independent-samples t-test", value = "Independent-samples t-test", 
+    label = structure("Independent-samples t-test", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e36b087", 
+    option = "Paired-samples t-test", value = "Paired-samples t-test", 
+    label = structure("Paired-samples t-test", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_42cc9a9", 
+    option = "One-Way Between-Subjects ANOVA", value = "One-Way Between-Subjects ANOVA", 
+    label = structure("One-Way Between-Subjects ANOVA", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_89f3b", 
+    option = "One-Way Repeated-Measures ANOVA", value = "One-Way Repeated-Measures ANOVA", 
+    label = structure("One-Way Repeated-Measures ANOVA", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_947c251", 
+    option = "Factorial ANOVA", value = "Factorial ANOVA", label = structure("Factorial ANOVA", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_70b8cc1", 
+    option = "Correlation", value = "Correlation", label = structure("Correlation", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
+"character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = structure("The outcome is continuous. There is one categorical independent variable with 3 levels (self, friend, or parent) and between-subjects (each participant was only part of a single group. Had assumptions been met, one-way between-subjects ANOVA would be used.", html = TRUE, class = c("html", 
+"character")), post_message = NULL), ids = list(answer = "RQ2test-1-answer", 
+    question = "RQ2test-1"), loading = NULL, random_answer_order = FALSE, 
+    allow_retry = FALSE, seed = 1119051312.9789, options = list()), class = c("learnr_radio", 
 "tutorial_question")), session = session)
 </script>
 </p>
