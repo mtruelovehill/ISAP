@@ -1,0 +1,807 @@
+---
+title: "<b> Introduction to Null-Hypothesis <br> Statistical Testing </b>"
+subtitle: "Inferential Statistics in Applied Psychology<br> "
+author: "Monica Truelove-Hill"
+institute: "Department of Clinical Psychology<br>The University of Edinburgh"
+date: ""
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#F28157",
+  header_color = "#000000",
+  header_font_google = google_font("Jost"),
+  header_font_weight = 500,
+  text_font_google = google_font("Jost", "300", "300i", "500", "500i"),
+  code_font_google = google_font("Source Code Pro"),
+  text_bold_color = '#F28157',
+  text_slide_number_color = '#F2B66D',
+  text_font_size = '16pt'
+)
+```
+
+```{r, echo = F, message = F, warning = F}
+library(tidyverse)
+library(rstatix)
+
+knitr::opts_chunk$set(dev = 'svg')
+
+baseColor <- '#F28157'
+accent1 <- '#F2B66D'
+accent2 <- '#30726E'
+accent3 <- '#008290'
+```
+
+## This Week's Key Topics
+
++ Making Hypotheses
+
++ The Null Distribution
+
++ $p$-Values
+
+---
+
+## Why????
+
++ Psychology is a science....
+
+--
+
+  + with a lot of uncertainty
+
+--
+
++ To answer our research questions, we rely on empirical evidence 
+
++ We take measurements that allow us to make systematic observations of our construct of interest, then use these observations to draw conclusions
+
++ In other words, we gather data and look for consistent patterns within the data that support (or refute) our ideas
+
++ But how do we decide what is *consistent enough*?
+
+---
+## Making Hypotheses
+
++ **Null Hypothesis ( $H_0$ ):** There is no difference or effect, and any experimentally observed difference is due to chance
+
++ **Alternative Hypothesis ( $H_1$ ):** There is a relationship or association between variables
+
++ What does this have to do with statistics?
+
+--
+
++ The burden of proof is on $H_1$
+
+  + Assume $H_0$ is accurate until there is sufficient evidence that it is not
+  
+  + Statistical tests of significance assess strength of the evidence against $H_0$
+
+---
+## Assessing Evidence
+
++ Statistical tests assess evidence against $H_0$ through **probability**
+
+  + How likely is it that the null hypothesis is true, given the observed data?
+  
+--
+
++ In psychology, we design a study, take measurements from a sample, and use these measurements to calculate a value that carries some meaning.
+
++ We calculate the likelihood of this value occurring under the constraints of $H_0$
+
++ We then make a decision of whether to reject $H_0$ based around this likelihood.
+  
+  + If the observed value is unlikely to occur under $H_0$, we consider this sufficient evidence to reject $H_0$
+  
+  + If the observed value is highly likely to occur under $H_0$, we do not reject it, because we haven't gathered sufficient evidence against it.
+
+---
+class: center, inverse, middle
+
+## Questions?
+
+---
+## Probability Distributions
+
++ Allow you to visualise the probability of specific observations
+
+.pull-left[
+
+```{r, echo=F, fig.width=5, fig.height=3, warning = F}
+set.seed(208)
+dat <- data.frame(x=sample(c('Heads', 'Tails'), size = 40, replace = T, prob = c(.5, .5)), y = rnorm(n = 40))
+pDat <- data.frame(Outcome = unique(dat$x), Probability = as.numeric(table(dat$x)/nrow(dat)))
+
+ggplot(pDat, aes(x=Outcome, y=Probability)) + 
+  geom_bar(stat='identity', color = accent2, fill=accent3) +
+  scale_y_continuous(breaks=seq(0, .7, .1)) +
+  theme(axis.text=element_text(size = 14),
+        axis.title.y=element_text(size = 16, face = 'bold'),
+        axis.title.x = element_blank())
+```
+.center[**Categorical Distribution**]
+Shows the probability of randomly selecting a specific observation from a sample
+]
+
+.pull-right[
+
+```{r, echo=F, fig.width=5, fig.height=3, warning = F}
+ggplot(dat, aes(x=y)) +
+  stat_function(fun = dnorm, geom = 'line', args = c(mean=mean(dat$y), sd = sd(dat$y)), linewidth = 1.5, color = accent3) +
+  scale_x_continuous(limits = c(-3, 3)) +
+  scale_y_continuous(breaks=seq(0, .5, by = .1)) +
+  theme(axis.text.x = element_text(size=14),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title = element_blank())
+```
+.center[**Continuous Distribution**]
+Shows the probability of randomly selecting a range of values from a sample
+]
+
+---
+## Continuous Probability Distributions
+
+> Why a range? Why can't we compute the probability of a single score?
+
+
+.center[
+
+```{r, echo = F, fig.height=4.5, fig.width=8}
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
+  stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = 'bold'),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank()) +
+  geom_hline(yintercept = 0, linewidth = 1.5)
+
+```
+]
+
+
+
+---
+## Continuous Probability Distributions
+
+> Why a range? Why can't we compute the probability of a single score?
+
+.center[
+```{r, echo = F, fig.height = 4.5, fig.width = 8}
+
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = 'bold'),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank()) +
+  geom_hline(yintercept = 0, linewidth = 1.5) +
+  geom_vline(xintercept = 2.4822, color = baseColor, linewidth = 1.5)
+
+```
+]
+
+---
+## Continuous Probability Distributions
+
+> Why a range? Why can't we compute the probability of a single score?
+
+.center[
+```{r, echo = F, fig.height = 4.5, fig.width = 8}
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = 'bold'),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank()) +
+  geom_hline(yintercept = 0, linewidth = 1.5) +
+  geom_vline(xintercept = 2.4822, color = baseColor, linewidth = 1.5) + coord_cartesian(xlim=c(2, 3))
+```
+]
+
+---
+## Continuous Probability Distributions
+
+> Why a range? Why can't we compute the probability of a single score?
+
+.center[
+```{r, echo = F, fig.height = 4.5, fig.width = 8}
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = 'bold'),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank()) +
+  geom_hline(yintercept = 0, linewidth = 1.5) +
+  geom_vline(xintercept = 2.4822, color = baseColor, linewidth = 1.5) + coord_cartesian(xlim=c(2.45, 2.52))
+```
+]
+
+---
+## Continuous Probability Distributions
+
+> Why a range? Why can't we compute the probability of a single score?
+
+.center[
+```{r, echo = F, fig.height = 4.5, fig.width = 8}
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = 'bold'),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank()) +
+  geom_hline(yintercept = 0, linewidth = 1.5) +
+  geom_vline(xintercept = 2.4822, color = baseColor, linewidth = 1.5) + coord_cartesian(xlim=c(2.475, 2.488))
+```
+]
+
+---
+
+## Continuous Probability Distributions
+
+> Why a range? Why can't we compute the probability of a single score?
+
+> Because technically, continuous values go on infinitely, so the probability of any single value is approximately 0
+
+.center[
+```{r, echo = F, fig.height = 4.5, fig.width = 8}
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = 'bold'),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank()) +
+  geom_hline(yintercept = 0, linewidth = 1.5) +
+  geom_vline(xintercept = 2.4822, color = baseColor, linewidth = 1.5) + coord_cartesian(xlim=c(2.475, 2.488))
+```
+]
+
+---
+
+## Continuous Probability Distributions
+
+.pull-left[
++ We can instead calculate the probability of a range by computing the **area under the curve (AUC)** within that range.
+
++ Imagine we have a range of observations whose values fall between 8 and 32 that are distributed as pictured.
+
+
+]
+
+.pull-right[
+```{r, echo = F, fig.height=4}
+testDat <- ggplot(data.frame(x = c(8, 32)), aes(x = x)) +
+  stat_function(fun=dnorm, args= list(20, 3), geom = "line", linewidth = 1.5, color = accent3) +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = 'bold'),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank()) +
+  geom_hline(yintercept = 0, linewidth = 1.5)
+
+testDat
+```
+]
+
+---
+## Continuous Probability Distributions
+
+.pull-left[
+
++ We can instead calculate the probability of a range by computing the **area under the curve (AUC)** within that range.
+
++ Imagine we have a range of observations whose values fall between 8 and 32 that are distributed as pictured.
+
++ If we randomly select an observation from our data, what is the likelihood it will be at least 25?
+
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.height=4}
+testDat +
+    geom_vline(xintercept = 25, color = baseColor, linewidth = 1.5)
+```
+
+]
+
+
+---
+
+## Continuous Probability Distributions
+
+.pull-left[
++ We can instead calculate the probability of a range by computing the **area under the curve (AUC)** within that range.
+
++ Imagine we have a range of observations whose values fall between 8 and 32 that are distributed as pictured.
+
++ If we randomly select an observation from our data, what is the likelihood it will be at least 25?
+
++ ~95% of our observations are less than 25. This means we only have about a 5% chance of randomly selecting an observation of at least 25. 
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.height=4}
+testDat +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent3, xlim=c(8, 25), alpha = .8) +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent1, xlim=c(25, 30), alpha = .8) +
+  annotate('text', label = '95%', x = 20, y = .05, color = 'white', size = 7) +
+  annotate('text', label = '5%', x = 26, y = .01, color = 'white', size = 7) +
+  geom_vline(xintercept = 25, color = baseColor, linewidth = 1.5)
+```
+]
+
+---
+## Continuous Probability Distributions
+
+.pull-left[
+
+```{r, echo = F, fig.height=5}
+testDat + geom_vline(xintercept = 24, color = baseColor, linewidth = 1.5)
+```
+
+]
+
+.pull-right[
+```{r, echo = F, fig.height=5}
+testDat + geom_vline(xintercept = 18, color = baseColor, linewidth = 1.5)
+```
+
+]
+
+> **Test Your Understanding:** Is it more unusual to have a score of 24 or more or a score of 18 or less?
+
+---
+
+## Continuous Probability Distributions
+
+.pull-left[
+```{r, echo = F, fig.height=5}
+testDat +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent3, xlim=c(8, 24), alpha = .8) +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent1, xlim=c(24, 30), alpha = .8) +
+  annotate('text', label = '91%', x = 18, y = .02, color = 'white', size = 7) +
+  annotate('text', label = '9%', x = 25, y = .02, color = 'white', size = 7)+
+  geom_vline(xintercept = 24, color = baseColor, linewidth = 1.5)
+```
+]
+
+.pull-right[
+```{r, echo = F, fig.height=5}
+testDat +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent1, xlim=c(8, 18), alpha = .8) +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent3, xlim=c(18, 30), alpha = .8) +
+  annotate('text', label = '25%', x = 16, y = .02, color = 'white', size = 7) +
+  annotate('text', label = '75%', x = 22, y = .02, color = 'white', size = 7) +
+  geom_vline(xintercept = 18, color = baseColor, linewidth = 1.5)
+```
+]
+
+> **Test Your Understanding:** Is it more unusual to have a score of 24 or more or a score of 18 or less?
+
+---
+## Continuous Probability Distributions
+
++ Why does this matter?
+
+--
+
++ Remember, the statistical tests we will learn about work by testing the probability of our results given the null hypothesis
+
+  + In other words, if the null hypothesis is true, how likely is it that we would get results at least as unusual as ours?
+
++ If our results are unusual enough, we reject the null hypothesis.
+
+---
+class: center, inverse, middle
+
+## Questions?
+
+---
+## Testing Against the Null Hypothesis
+
++ In order to make a decision whether our data/values are unusual, we need to have an understanding of what values we might expect to see if the null hypothesis were true.
+
+--
+
+> **Test Your Understanding:** Given the following distributions, do you think a value of 20 would be unusual?
+
+
+--
+.pull-left[
+```{r, echo = F, fig.height=4}
+set.seed(211)
+ggplot(data.frame(x=rnorm(100, mean = 18, sd = 3)), aes(x)) +
+  geom_histogram(binwidth = .75, fill = accent3, color = accent2) +
+  geom_vline(xintercept = 20, color = baseColor, linewidth = 1) +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16, face = 'bold'))
+```
+]
+
+--
+
+.pull-right[
+```{r, echo = F, fig.height=4}
+set.seed(311)
+ggplot(data.frame(x=rnorm(100, mean = 13, sd = 3)), aes(x)) +
+  geom_histogram(binwidth = .75, fill = accent3, color = accent2) +
+  geom_vline(xintercept = 20, color = baseColor, linewidth = 1) +
+  theme(axis.text = element_text(size = 14),
+        axis.title = element_text(size = 16, face = 'bold'))
+```
+]
+
+
+
+???
+
++ A value of 20 tells us nothing without context
+
+
+---
+## Null Distributions
+
++ Most of the tests we cover in this course evaluate significance by evaluating results against a predefined probability distribution known as the **null distribution**
+
++ The null distribution is the probability distribution of a statistic **given that the null hypothesis is true**. 
+
++ Each statistical test is associated with a separate null distribution
+
+---
+
+## Null Distributions
+
+.pull-left[
+```{r, echo = F, fig.height=2.5, fig.width=4.5}
+ggplot(data.frame(x=c(0, 10)), aes(x=x)) +
+  stat_function(fun=dchisq, geom='line', args=c(df = 2), color = accent2, linewidth=1.5) +
+  scale_y_continuous(limits=c(0, .52), breaks = seq(0, .5, .1)) +
+  labs(x = expression(chi^2)) +
+  theme(axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.x = element_text(size = 16, face = 'bold'),
+        axis.text.x = element_text(size = 14))
+
+```
+]
+
+
+.pull-right[
+```{r, echo = F, fig.height=2.5, fig.width=4.5}
+ggplot(data.frame(x=c(-6, 6)), aes(x=x)) +
+  stat_function(fun=dt, geom='line', args=c(df = 10), color = accent1, linewidth=1.5) +
+  labs(x = 't-statistic') +
+  theme(axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.x = element_text(size = 16, face = 'bold'),
+        axis.text.x = element_text(size = 14))
+
+```
+]
+
+.center[
+```{r, echo = F, fig.height=2.5, fig.width=4.5}
+ggplot(data.frame(x=c(0, 5)), aes(x=x)) +
+  stat_function(fun=df, geom='line', args=c(df1 = 5, df2=10), color = baseColor, linewidth=1.5) +
+  labs(x = 'F-statistic') +
+  theme(axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.x = element_text(size = 16, face = 'bold'),
+        axis.text.x = element_text(size = 14))
+
+```
+]
+
+---
+## Comparing Results to Null Distribution
+
++ When you run a statistical test, you:
+
+  1. Compute a test statistic based on your data
+  
+  2. Use the null distribution to calculate the probability of obtaining this statistic if the null were true
+  
+  3. Use this probability to make a decision whether to reject the null hypothesis.
+  
+---
+## Comparing Results to Null Distribution
+
+.pull-left[.center[
+```{r, echo = F, fig.height=4, fig.width=5}
+baset <- ggplot(data.frame(x=c(-6, 6)), aes(x=x)) +
+  stat_function(fun=dt, geom='line', args=c(df = 50), linewidth=1.5, color = accent3) +
+  labs(x = 't-statistic') +
+  theme(axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.x = element_text(size = 12, face = 'bold'),
+        axis.text.x = element_text(size = 10)) +
+  geom_hline(yintercept = 0, linewidth = 1.5)
+
+baset + geom_vline(xintercept = .75, linewidth = 1.5, color = baseColor) +
+  annotate('text', label = 't = 0.75', x = 2.25, y = .3, size = 5)
+```
+]]
+
+
+---
+## Comparing Results to Null Distribution
+
+.pull-left[.center[
+```{r, echo = F, fig.height=4, fig.width=5}
+(ns <- baset +
+  annotate('text', label = 't = 0.75', x = 2.25, y = .3, size = 5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(-6, .75), fill = accent3, alpha = .8) +
+  annotate('text', label = '~77%', x = -.4, y = .05, color = 'white', size = 5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(.75, 6), fill = accent1, alpha = .8) +
+  annotate('text', label = '~23%', x = 1.4, y = .05, color = 'white', size = 5) +
+  geom_vline(xintercept = .75, linewidth = 1.5, color = baseColor))
+```
+]]
+
+---
+
+## Comparing Results to Null Distribution
+
+.pull-left[.center[
+```{r, echo = F, fig.height=4, fig.width=5}
+ns
+```
+<B>Not so unusual.</B>
+]]
+
+--
+
+.pull-right[.center[
+```{r, echo = F, fig.height=4, fig.width=5}
+(sigPlot <- baset +
+  geom_vline(xintercept = 3.05, linewidth = 1.5) +
+  annotate('text', label = 't = 3.05', x = 4.5, y = .3, size = 5))
+```
+]]
+
+---
+
+## Comparing Results to Null Distribution
+
+.pull-left[.center[
+```{r, echo = F, fig.height=4, fig.width=5}
+ns
+```
+<B> Not so unusual. </B>
+]]
+
+.pull-right[.center[
+```{r, echo = F, fig.height=4, fig.width=5}
+baset +
+  geom_vline(xintercept = 3.05, linewidth = 1.5) +
+  annotate('text', label = 't = 3.05', x = 4.5, y = .3, size = 5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(-6, 3.05), fill = accent3, alpha = .8) +
+  annotate('text', label = '~99.8%', x = 0, y = .05, color = 'white', size = 5)
+
+# sigPlot +
+#   geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(-6, 3.05), fill = accent3, alpha = .8) +
+#   annotate('text', label = '~99.8%', x = 0, y = .05, color = 'white', size = 5)
+```
+<B> Quite unusual! </B>
+]]
+
+---
+
+class: center, inverse, middle
+
+## Questions?
+
+---
+## $p$ - values
+
+.pull-left[
++ The $p$-value is the **probability** of obtaining data at least as extreme as ours, given that the null hypothesis is true.
+
++ It is not:
+  + The likelihood that the null hypothesis is true.
+  + The likelihood that our hypothesis is false
+]
+
+---
+
+## $p$ - values
+
+.pull-left[
++ The $p$-value is the **probability** of obtaining data at least as extreme as ours, given that the null hypothesis is true.
+
++ It is not:
+  + The likelihood that the null hypothesis is true.
+  + The likelihood that our hypothesis is false
+
++ It provides insight into the strength of our evidence against the null hypothesis. 
+
++ If we get a $p$-value past a certain threshold, we consider our results to be **significant**, and we reject $H_0$
+
+]
+
+--
+
+.pull-right[
+```{r, echo=F, fig.height=3.5, fig.width=5}
+ns + annotate('text', label = 'p = .230', x = 4.5, y = .05, size = 6, color = accent3) +
+  annotate('segment', x = 2.25, xend = 3.2, y = .045, yend = .045, color = accent3,
+           arrow = arrow(type = "closed", length = unit(0.02, "npc"), ends = 'first'))
+```
+]
+
+---
+## $\alpha$
+
++ The 'threshold' for significance is known as $\alpha$
+
++ If the $p$-value is less than the designated $\alpha$ threshold, we reject $H_0$
+
++ But what, exactly, does the $\alpha$ value reflect?
+
+---
+## Errors
+
++ Whether your decision is either to reject or not reject the null hypothesis, you may be making an error.
+
+--
+
++ Two types of errors:
+
+  + **Type I Error:** You reject a true null hypothesis (i.e., you believe a result is significant when it is not)
+  
+  + **Type II Error:** You don't reject a false null hypothesis (i.e., you don't think a result is significant when it is)
+
+
+--
+
+.center[
+```{r, echo = F, out.width='75%'}
+knitr::include_graphics('images/ErrorTable.png')
+```
+]
+
+---
+
+## $\alpha$
+
++ $\alpha$ reflects the probability of making a Type I error
+
+  + The likelihood of rejecting the null when it is actually true 
+
+--
+  
++ Typical $\alpha$ value is .05, but may sometimes be set at .01 or .001.
+
++ If $\alpha$ is .05, it means that we are willing to take a 5% risk of rejecting $H_0$ when we shouldn't
+
+
+---
+## One-Tailed vs Two-Tailed Tests
+
+.pull-left[
+
++ When evaluating evidence against $H_0$, our threshold for what values are considered to be *extreme* depends on whether we're running a one-tailed or two-tailed test.
+
+]
+
+---
+## One-Tailed vs Two-Tailed Tests
+
+.pull-left[
+
++ When evaluating evidence against $H_0$, our threshold for what values are considered to be *extreme* depends on whether we're running a one-tailed or two-tailed test.
+
++ With a **one-tailed test**, we're only interested in values in a single tail of a distribution
+
+  + If $\alpha$ is set at .05, we check that our observation is in the highest 5% of values *or* the lowest 5% of values
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.height=2.5}
+ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
+  stat_function(fun=dt, geom='line', args=c(df = 29), color = accent3, linewidth=1.5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent3,
+            xlim=c(qt(.05, df = 29, lower.tail = F), 5), alpha = .8) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.line.y = element_blank(),
+        axis.ticks = element_blank()) +
+  annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = accent2) +
+  geom_hline(yintercept = 0, linewidth = 1.5)
+```
+
+.center[
+<b>OR</b>
+]
+
+```{r, echo = F, fig.height=2.5}
+ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
+  stat_function(fun=dt, geom='line', args=c(df = 29), color = accent3, linewidth=1.5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent3,
+            xlim=c(-5, qt(.05, df = 29)), alpha = .8) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.line.y = element_blank(),
+        axis.ticks = element_blank()) +
+  annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = accent2) +
+  geom_hline(yintercept = 0, linewidth = 1.5)
+```
+]
+
+---
+## One-Tailed vs Two-Tailed Tests
+
+.pull-left[
+
++ When evaluating evidence against $H_0$, our threshold for what values are considered to be *extreme* depends on whether we're running a one-tailed or two-tailed test.
+
++ With a **two-tailed test**, we're interested in values in both tails of a distribution
+
+  + If $\alpha$ is set at .05, we check that our observation is in the *most extreme* 5% of values, whether they are higher or lower
+  
+  + 5% is split equally between the two tails
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.height=4}
+ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
+  stat_function(fun=dt, geom='line', args=c(df = 29), color = accent3, linewidth=1.5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent3,
+            xlim=c(qt(.025, df = 29, lower.tail = F), 5), alpha = .8) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent3,
+            xlim=c(-5, qt(.025, df = 29)), alpha = .8) +
+  theme(axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.line.y = element_blank(),
+        axis.ticks = element_blank()) +
+  annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = accent2) +
+  annotate('text', x = 3.25, y = .05, parse = T, label = paste('alpha/2 == .025'), size = 6, color = accent2) +
+  annotate('text', x = -3.25, y = .05, parse = T, label = paste('alpha/2 == .025'), size = 6, color = accent2) +
+  annotate('segment', x= -2.25, xend = 3, y = .06, yend = .28, color = accent2, linewidth = 1, linetype = 'dashed') +
+  annotate('segment', x= 2.4, xend = 3, y = .06, yend = .28, color = accent2, linewidth = 1, linetype = 'dashed') +
+  geom_hline(yintercept = 0, linewidth = 1.5)
+```
+
+]
+
+---
+## Putting it Together
+
++ When we run a statistical test, we compare our results against the null distribution, which is the probability of the results, given the null hypothesis is true.
+
++ If the probability of our outcome (the $p$-value) is less than the $\alpha$ threshold, it means the outcome falls into the range that we've designated as extreme.
+
++ Because it's really unlikely that these results would occur if the null hypothesis were true, we consider this to be sufficient evidence against the null hypothesis, and we reject it.
+
+---
+class: center, inverse, middle
+
+## Questions?

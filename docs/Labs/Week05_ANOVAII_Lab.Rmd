@@ -472,13 +472,13 @@ To check the homogeneity assumption, plot the corresponding residual and predict
 In order for homogeneity to be assumed, the points should be distributed generally consistently above and below the residual value of 0. One line of points shouldn't be substantially longer or shorter than the others. The distribution of points on this plot looks generally homogeneous:
 
 ```{r, echo = F, fig.align= 'center', out.width='50%'}
-knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week5_resVpred1.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/anovaII_resVpred1.png')
 ```
 
 Repeat the process with `ZRE_2` and `PRE_2`:
 
 ```{r, echo = F, fig.align= 'center', out.width='50%'}
-knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week5_resVpred2.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/anovaII_resVpred2.png')
 ```
 
 Again, the points look generally homogeneous between levels, so the assumption of homogeneity of variance can be considered to be met.

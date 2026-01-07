@@ -46,18 +46,18 @@
   --text-color: #272822;
   --header-color: #000000;
   --background-color: #FFFFFF;
-  --link-color: #F28157;
-  --text-bold-color: #F28157;
+  --link-color: #4C5376;
+  --text-bold-color: #4C5376;
   --code-highlight-color: rgba(255,255,0,0.5);
   --inverse-text-color: #FFFFFF;
-  --inverse-background-color: #F28157;
+  --inverse-background-color: #4C5376;
   --inverse-header-color: #FFFFFF;
-  --inverse-link-color: #F28157;
-  --title-slide-background-color: #F28157;
+  --inverse-link-color: #4C5376;
+  --title-slide-background-color: #4C5376;
   --title-slide-text-color: #FFFFFF;
   --header-background-color: #000000;
   --header-background-text-color: #FFFFFF;
-  --base: #F28157;
+  --base: #4C5376;
   --white: #FFFFFF;
   --black: #272822;
 }
@@ -100,10 +100,10 @@ h1, h2, h3 {
 }
 .remark-inline-code {
   font-size: var(--code-inline-font-size);
-  color: #F28157;
+  color: #4C5376;
 }
 .remark-slide-number {
-  color: #F2B66D;
+  color: #fdc527;
   opacity: 1;
   font-size: 0.9rem;
 }
@@ -154,7 +154,7 @@ a, a > code {
   color: #F2815799;
 }
 .left-column h2:last-of-type, .left-column h3:last-child {
-  color: #F28157;
+  color: #fdc527;
 }
 .right-column {
   width: 75%;

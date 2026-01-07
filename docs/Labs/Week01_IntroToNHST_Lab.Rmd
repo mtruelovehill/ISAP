@@ -18,7 +18,7 @@ accent1 <- '#F2B66D'
 accent3 <- '#30726E'
 accent4 <- '#008290'
 
-dat <- read.csv('https://mtruelovehill.github.io/PRM/Labs/Week1LabData.csv')
+dat <- read.csv('https://mtruelovehill.github.io/PRM/Data/studentData.csv')
 studentDat <- dat[dat$Role=='Student',]
 studentDat$Cperc <- (studentDat$C/50)*100
 Cdens <- data.frame(cPerc=density(studentDat$Cperc, from = 0, to = 100)$x, dens=density(studentDat$Cperc, from = 0, to = 100)$y)

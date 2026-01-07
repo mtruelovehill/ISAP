@@ -13,10 +13,10 @@ library(learnr)
 
 pacman::p_load('tidyverse', 'rstatix', 'shiny')
 
-baseColor <- '#F28157'
-accent1 <- '#F2B66D'
-accent2 <- '#30726E'
-accent3 <- '#008290'
+baseColor <- '#354093'
+accent1 <- '#F9AF3C'
+accent2 <- '#A6D9E2'
+accent3 <- '#E9EBF7'
 ```
 
 ```{r, context = 'server'}
