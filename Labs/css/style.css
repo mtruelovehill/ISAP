@@ -1,16 +1,16 @@
 a:link {
-  color:  #008290
+  color:  #BB5A73
 }
 
 .btn {
-  background-color: #F2B66D;
+  background-color: #DFAA73;
   color: white;
   border-radius: 8px;
   font-weight: bold;
 }
 
 .btn:hover {
-  background-color: #F28157;
+  background-color: #CD826E;
   color: white;
 }
 
@@ -23,13 +23,13 @@ p {
 
 
 .topicsList .topic.current {
-  background-color: #F2B66D;
+  background-color: #DFAA73;
   border-radius: 8px;
   font-weight: bold;
 }
 
 .topicsList .topic {
-  background-color: #F28157;
+  background-color: #CD826E;
   border-radius: 8px;
   font-weight: bold;
 }
@@ -50,13 +50,13 @@ p {
 
 
 .btn-primary, .btn-success, .btn-info {
-  background-color: #F28157;
+  background-color: #CD826E;
   background-image: none;
   border: none; }
   .btn-primary:hover, .btn-primary:focus,  .btn-primary:active,.btn-primary:focus:active, .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success:focus:active, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info:focus:active {
-    background-color: #F2B66D; }
+    background-color: #DFAA73; }
   .btn-primary:focus:hover, .btn-primary:active:hover, .btn-primary:focus:active:hover, .btn-success:focus:hover, .btn-success:active:hover, .btn-success:focus:active:hover, .btn-info:focus:hover, .btn-info:active:hover, .btn-info:focus:active:hover {
-    background-color: #F28157; }
+    background-color: #CD826E; }
   .btn-primary.disabled, .btn-primary:disabled, .btn-primary.disabled:hover, .btn-primary:disabled:hover, .btn-success.disabled, .btn-success:disabled, .btn-success.disabled:hover, .btn-success:disabled:hover, .btn-info.disabled, .btn-info:disabled, .btn-info.disabled:hover, .btn-info:disabled:hover {
     background-color: #C4C6C7; }
 
@@ -65,7 +65,7 @@ p {
   border-radius: 10px;
   color:white;
   width: 740px;
-  background-color: #008290;
+  background-color: #DFAA73;
   padding: 10px;
   margin: 10px;
 }

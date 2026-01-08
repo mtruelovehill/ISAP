@@ -22,14 +22,14 @@ options(htmltools.dir.version = FALSE)
 ```{r xaringan-themer, include = FALSE}
 library(xaringanthemer)
 style_mono_accent(
-  base_color = "#4C5376",
+  base_color = "#CD826E",
   header_color = "#000000",
   header_font_google = google_font("Jost"),
   header_font_weight = 500,
   text_font_google = google_font("Jost", "300", "300i", "500", "500i"),
   code_font_google = google_font("Source Code Pro"),
-  text_bold_color = '#4C5376',
-  text_slide_number_color = '#db5c68',
+  text_bold_color = '#CD826E',
+  text_slide_number_color = '#DFAA73',
   text_font_size = '16pt'
 )
 ```
@@ -39,13 +39,20 @@ library(tidyverse)
 library(rstatix)
 
 knitr::opts_chunk$set(dev = 'svg')
+# baseColor <- '#96BCD7'
+# accent3 <- '#808CC5'
+# accent2 <- '#55447F'
+# accent1 <- '#BE80B6'
+baseColor <- '#CD826E'
+accent1 <- '#BB5A73'
+accent2 <- '#DFAA73'
+accent3 <- '#F0D264'
 
-
-baseColor <- '#db5c68'
-accent1 <- '#e66c5c'
-#accent2 <- '#3B3D7E'
-accent2 <- '#4C5376'
-accent3 <- '#fdc527'
+# baseColor <- '#db5c68'
+# accent1 <- '#e66c5c'
+# #accent2 <- '#3B3D7E'
+# accent2 <- '#4C5376'
+# accent3 <- '#fdc527'
 
 ```
 
@@ -154,7 +161,7 @@ $\epsilon$: random error
 ```{r, echo = F, fig.height=4, fig.width = 6}
 set.seed(4)
 x <- data.frame(x = rnorm(30, mean = 9, sd = 2))
-ggplot(dat = x, aes(x)) + geom_histogram(bins = 10, color = accent1 , fill = baseColor) +
+ggplot(dat = x, aes(x)) + geom_histogram(bins = 10, color = baseColor, fill = accent1) +
   labs(x = 'Time to School (minutes)', y = 'Frequency') + 
   scale_x_continuous(breaks=seq(0, 16, by=2)) + 
   coord_cartesian(xlim = c(0, 16)) +
@@ -255,7 +262,7 @@ ggplot(pDat, aes(x=Outcome, y=Probability)) +
 
 ```{r, echo=F, fig.width=6.5, fig.height=4, warning = F}
 ggplot(dat, aes(x=y)) +
-  stat_function(fun = dnorm, geom = 'line', args = c(mean=mean(dat$y), sd = sd(dat$y)), linewidth = 1.5, color = accent3) +
+  stat_function(fun = dnorm, geom = 'line', args = c(mean=mean(dat$y), sd = sd(dat$y)), linewidth = 1.5, color = accent2) +
   scale_x_continuous(limits = c(-3, 3)) +
   scale_y_continuous(breaks=seq(0, .5, by = .1)) +
   theme(axis.text.x = element_text(size=14),
@@ -274,7 +281,7 @@ ggplot(dat, aes(x=y)) +
 
 ```{r, echo = F, fig.height=4.5, fig.width=8}
 ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
-  stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+  stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent2) +
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = 'bold'),
         axis.text.y = element_blank(),
@@ -293,7 +300,7 @@ ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
 .center[
 ```{r, echo = F, fig.height = 4.5, fig.width = 8}
 
-ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent2) +
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = 'bold'),
         axis.text.y = element_blank(),
@@ -312,7 +319,7 @@ ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "
 
 .center[
 ```{r, echo = F, fig.height = 4.5, fig.width = 8}
-ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent2) +
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = 'bold'),
         axis.text.y = element_blank(),
@@ -330,7 +337,7 @@ ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "
 
 .center[
 ```{r, echo = F, fig.height = 4.5, fig.width = 8}
-ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent2) +
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = 'bold'),
         axis.text.y = element_blank(),
@@ -348,7 +355,7 @@ ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "
 
 .center[
 ```{r, echo = F, fig.height = 4.5, fig.width = 8}
-ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent2) +
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = 'bold'),
         axis.text.y = element_blank(),
@@ -367,7 +374,7 @@ ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "
 
 .center[
 ```{r, echo = F, fig.height = 4.5, fig.width = 8}
-ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent3) +
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "line", linewidth = 1.5, color = accent2) +
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = 'bold'),
         axis.text.y = element_blank(),
@@ -398,7 +405,7 @@ ggplot(data.frame(x = c(-4, 4)), aes(x = x)) + stat_function(fun=dnorm, geom = "
 .pull-right[
 ```{r, echo = F, fig.height=4}
 testDat <- ggplot(data.frame(x = c(8, 32)), aes(x = x)) +
-  stat_function(fun=dnorm, args= list(20, 3), geom = "line", linewidth = 1.5, color = accent3) +
+  stat_function(fun=dnorm, args= list(20, 3), geom = "line", linewidth = 1.5, color = accent2) +
   theme(axis.text = element_text(size = 12),
         axis.title = element_text(size = 14, face = 'bold'),
         axis.text.y = element_blank(),
@@ -432,7 +439,7 @@ testDat
 
 ```{r, echo = F, fig.height=4}
 testDat +
-    geom_vline(xintercept = 25, color = accent2, linewidth = 1.5)
+    geom_vline(xintercept = 25, color = baseColor, linewidth = 1.5)
 ```
 
 ]
@@ -460,11 +467,11 @@ testDat +
 
 ```{r, echo = F, fig.height=4}
 testDat +
-  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent3, xlim=c(8, 25), alpha = .8) +
-  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent1, xlim=c(25, 30), alpha = .8) +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent1, xlim=c(8, 25), alpha = .8) +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent3, xlim=c(25, 30), alpha = .8) +
   annotate('text', label = '95%', x = 20, y = .05, color = 'white', size = 7) +
   annotate('text', label = '5%', x = 26, y = .01, color = 'white', size = 7) +
-  geom_vline(xintercept = 25, color = accent2, linewidth = 1.5)
+  geom_vline(xintercept = 25, color = baseColor, linewidth = 1.5)
 ```
 ]
 
@@ -474,14 +481,14 @@ testDat +
 .pull-left[
 
 ```{r, echo = F, fig.height=5}
-testDat + geom_vline(xintercept = 24, color = accent2, linewidth = 1.5)
+testDat + geom_vline(xintercept = 24, color = baseColor, linewidth = 1.5)
 ```
 
 ]
 
 .pull-right[
 ```{r, echo = F, fig.height=5}
-testDat + geom_vline(xintercept = 18, color = accent2, linewidth = 1.5)
+testDat + geom_vline(xintercept = 18, color = baseColor, linewidth = 1.5)
 ```
 
 ]
@@ -495,11 +502,11 @@ testDat + geom_vline(xintercept = 18, color = accent2, linewidth = 1.5)
 .pull-left[
 ```{r, echo = F, fig.height=5}
 testDat +
-  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent3, xlim=c(8, 24), alpha = .8) +
-  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent1, xlim=c(24, 30), alpha = .8) +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent1, xlim=c(8, 24), alpha = .8) +
+  geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent3, xlim=c(24, 30), alpha = .8) +
   annotate('text', label = '91%', x = 18, y = .02, color = 'white', size = 7) +
   annotate('text', label = '9%', x = 25, y = .02, color = 'white', size = 7)+
-  geom_vline(xintercept = 24, color = accent2, linewidth = 1.5)
+  geom_vline(xintercept = 24, color = baseColor, linewidth = 1.5)
 ```
 ]
 
@@ -510,7 +517,7 @@ testDat +
   geom_area(stat = 'function', fun = dnorm, args= list(20, 3), fill = accent3, xlim=c(18, 30), alpha = .8) +
   annotate('text', label = '25%', x = 16, y = .02, color = 'white', size = 7) +
   annotate('text', label = '75%', x = 22, y = .02, color = 'white', size = 7) +
-  geom_vline(xintercept = 18, color = accent2, linewidth = 1.5)
+  geom_vline(xintercept = 18, color = baseColor, linewidth = 1.5)
 ```
 ]
 
@@ -550,9 +557,9 @@ class: center, inverse, middle
 ```{r, echo = F, fig.height=4}
 set.seed(211)
 ggplot(data.frame(x=rnorm(100, mean = 18, sd = 3)), aes(x)) +
-  geom_histogram(aes(y = after_stat(density)), binwidth = .75, fill = accent3, color = accent2) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = .75, fill = accent1, color = baseColor) +
   geom_density(color = accent2, linewidth = 1) + 
-  geom_vline(xintercept = 20, color = baseColor, linewidth = 1) +
+  geom_vline(xintercept = 20, color = accent2, linewidth = 1) +
   theme(axis.text = element_text(size = 14),
         axis.title = element_text(size = 16, face = 'bold'),
         axis.text.y = element_blank(),
@@ -566,9 +573,9 @@ ggplot(data.frame(x=rnorm(100, mean = 18, sd = 3)), aes(x)) +
 ```{r, echo = F, fig.height=4}
 set.seed(311)
 ggplot(data.frame(x=rnorm(100, mean = 13, sd = 3)), aes(x)) +
-  geom_histogram(aes(y = after_stat(density)), binwidth = .75, fill = accent3, color = accent2) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = .75, fill = accent1, color = baseColor) +
   geom_density(color = accent2, linewidth = 1) + 
-  geom_vline(xintercept = 20, color = baseColor, linewidth = 1) +
+  geom_vline(xintercept = 20, color = accent2, linewidth = 1) +
   theme(axis.text = element_text(size = 14),
         axis.title = element_text(size = 16, face = 'bold'),
         axis.text.y = element_blank(),
@@ -615,7 +622,7 @@ ggplot(data.frame(x=c(0, 10)), aes(x=x)) +
 .pull-right.center[
 ```{r, echo = F, fig.height=3, fig.width=5}
 ggplot(data.frame(x=c(-6, 6)), aes(x=x)) +
-  stat_function(fun=dt, geom='line', args=c(df = 10), color = accent3, linewidth=1.5) +
+  stat_function(fun=dt, geom='line', args=c(df = 10), color = accent1, linewidth=1.5) +
   labs(x = 't-statistic') +
   theme(axis.text.y = element_blank(),
         axis.title.y = element_blank(),
@@ -657,7 +664,7 @@ When you run a statistical test, you:
 .pull-left[.center[
 ```{r, echo = F, fig.height=4, fig.width=6}
 baset <- ggplot(data.frame(x=c(-6, 6)), aes(x=x)) +
-  stat_function(fun=dt, geom='line', args=c(df = 50), linewidth=1.5, color = accent3) +
+  stat_function(fun=dt, geom='line', args=c(df = 50), linewidth=1.5, color = accent2) +
   labs(x = 'statistic') +
   theme(axis.text.y = element_blank(),
         axis.title.y = element_blank(),
@@ -667,7 +674,7 @@ baset <- ggplot(data.frame(x=c(-6, 6)), aes(x=x)) +
   geom_hline(yintercept = 0, linewidth = 1.5)
 
 baset + geom_vline(xintercept = .75, linewidth = 1.5, color = baseColor) +
-  annotate('text', label = 'statistic = 0.75', x = 2.25, y = .3, size = 5)
+  annotate('text', label = 'statistic = 0.75', x = 2.35, y = .3, size = 5)
 ```
 ]]
 
@@ -678,10 +685,10 @@ baset + geom_vline(xintercept = .75, linewidth = 1.5, color = baseColor) +
 .pull-left[.center[
 ```{r, echo = F, fig.height=4, fig.width=6}
 (ns <- baset +
-  annotate('text', label = 'statistic = 0.75', x = 2.25, y = .3, size = 5) +
-  geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(-6, .75), fill = accent3, alpha = .8) +
+  annotate('text', label = 'statistic = 0.75', x = 2.35, y = .3, size = 5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(-6, .75), fill = accent1, alpha = .8) +
   annotate('text', label = '~77%', x = -.4, y = .05, color = 'white', size = 5) +
-  geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(.75, 6), fill = accent1, alpha = .8) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(.75, 6), fill = accent3, alpha = .8) +
   annotate('text', label = '~23%', x = 1.4, y = .05, color = 'white', size = 5) +
   geom_vline(xintercept = .75, linewidth = 1.5, color = baseColor))
 ```
@@ -703,8 +710,8 @@ ns
 .pull-right[.center[
 ```{r, echo = F, fig.height=4, fig.width=6}
 (sigPlot <- baset +
-  geom_vline(xintercept = 3.05, linewidth = 1.5) +
-  annotate('text', label = 't = 3.05', x = 4.5, y = .3, size = 5))
+  geom_vline(xintercept = 3.05, linewidth = 1.5, color = baseColor) +
+  annotate('text', label = 'statistic = 3.05', x = 4.6, y = .3, size = 5))
 ```
 ]]
 
@@ -722,9 +729,9 @@ ns
 .pull-right[.center[
 ```{r, echo = F, fig.height=4, fig.width=6}
 baset +
-  geom_vline(xintercept = 3.05, linewidth = 1.5, color = accent2) +
-  annotate('text', label = 'statistic = 3.05', x = 4.5, y = .3, size = 5) +
-  geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(-6, 3.05), fill = accent3, alpha = .8) +
+  geom_vline(xintercept = 3.05, linewidth = 1.5, color = baseColor) +
+  annotate('text', label = 'statistic = 3.05', x = 4.6, y = .3, size = 5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 50), xlim=c(-6, 3.05), fill = accent1, alpha = .8) +
   annotate('text', label = '~99.8%', x = 0, y = .05, color = 'white', size = 5)
 
 # sigPlot +
@@ -772,7 +779,7 @@ class: center, inverse, middle
 
 .pull-right[
 ```{r, echo=F, fig.height=4, fig.width=6}
-ns + annotate('text', label = 'p = .230', x = 4.5, y = .05, size = 6, color = accent2) +
+ns + annotate('text', label = 'p = .230', x = 4.5, y = .05, size = 6, color = baseColor) +
   annotate('segment', x = 2.25, xend = 3.2, y = .045, yend = .045, color = accent2,
            arrow = arrow(type = "closed", length = unit(0.02, "npc"), ends = 'first'))
 ```
@@ -849,14 +856,14 @@ class: center, middle, inverse
 
 ```{r, echo = F, fig.height=2.5}
 ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
-  stat_function(fun=dt, geom='line', args=c(df = 29), color = accent3, linewidth=1.5) +
-  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent3,
+  stat_function(fun=dt, geom='line', args=c(df = 29), color = accent2, linewidth=1.5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent1,
             xlim=c(qt(.05, df = 29, lower.tail = F), 5), alpha = .8) +
   theme(axis.text = element_blank(),
         axis.title = element_blank(),
         axis.line.y = element_blank(),
         axis.ticks = element_blank()) +
-  annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = accent2) +
+  annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = baseColor) +
   geom_hline(yintercept = 0, linewidth = 1.5)
 ```
 
@@ -866,14 +873,14 @@ ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
 
 ```{r, echo = F, fig.height=2.5}
 ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
-  stat_function(fun=dt, geom='line', args=c(df = 29), color = accent3, linewidth=1.5) +
-  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent3,
+  stat_function(fun=dt, geom='line', args=c(df = 29), color = accent2, linewidth=1.5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent1,
             xlim=c(-5, qt(.05, df = 29)), alpha = .8) +
   theme(axis.text = element_blank(),
         axis.title = element_blank(),
         axis.line.y = element_blank(),
         axis.ticks = element_blank()) +
-  annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = accent2) +
+  annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = baseColor) +
   geom_hline(yintercept = 0, linewidth = 1.5)
 ```
 ]
@@ -897,20 +904,20 @@ ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
 
 ```{r, echo = F, fig.height=4}
 ggplot(data = data.frame(t = c(-5, 5)), aes(x=t)) +
-  stat_function(fun=dt, geom='line', args=c(df = 29), color = accent3, linewidth=1.5) +
-  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent3,
+  stat_function(fun=dt, geom='line', args=c(df = 29), color = accent2, linewidth=1.5) +
+  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent1,
             xlim=c(qt(.025, df = 29, lower.tail = F), 5), alpha = .8) +
-  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent3,
+  geom_area(stat = 'function', fun = dt, args= list(df = 29), fill = accent1,
             xlim=c(-5, qt(.025, df = 29)), alpha = .8) +
   theme(axis.text = element_blank(),
         axis.title = element_blank(),
         axis.line.y = element_blank(),
         axis.ticks = element_blank()) +
-  annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = accent2) +
-  annotate('text', x = 3.25, y = .05, parse = T, label = paste('alpha/2 == .025'), size = 6, color = accent2) +
-  annotate('text', x = -3.25, y = .05, parse = T, label = paste('alpha/2 == .025'), size = 6, color = accent2) +
-  annotate('segment', x= -2.25, xend = 3, y = .06, yend = .28, color = accent2, linewidth = 1, linetype = 'dashed') +
-  annotate('segment', x= 2.4, xend = 3, y = .06, yend = .28, color = accent2, linewidth = 1, linetype = 'dashed') +
+  annotate('text', x = 3, y = .3, parse = T, label = paste('alpha == .05'), size = 8, color = baseColor) +
+  annotate('text', x = 3.25, y = .05, parse = T, label = paste('alpha/2 == .025'), size = 6, color = baseColor) +
+  annotate('text', x = -3.25, y = .05, parse = T, label = paste('alpha/2 == .025'), size = 6, color = baseColor) +
+  annotate('segment', x= -2.25, xend = 3, y = .06, yend = .28, color = baseColor, linewidth = 1, linetype = 'dashed') +
+  annotate('segment', x= 2.4, xend = 3, y = .06, yend = .28, color = baseColor, linewidth = 1, linetype = 'dashed') +
   geom_hline(yintercept = 0, linewidth = 1.5)
 ```
 
