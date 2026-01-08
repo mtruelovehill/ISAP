@@ -11,7 +11,7 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE}
 library(learnr)
 
-pacman::p_load('tidyverse', 'rstatix', 'shiny')
+pacman::p_load('tidyverse', 'rstatix', 'shiny', 'kableExtra')
 
 baseColor <- '#CD826E'
 accent1 <- '#BB5A73'
@@ -353,7 +353,7 @@ datInfo <- data.frame(VariableName=colnames(dat),
 datInfo %>%
   kbl(col.names=c('Variable Name', 'Description')) %>%
   kable_styling(full_width = F) %>%
-  row_spec(0, bold = T, color=baseColor, font_size = 18, align='l') %>%
+  row_spec(0, bold = T, color=accent2, font_size = 18, align='l') %>%
   column_spec(1, bold = T, width = '4.5cm')
 ```
 
@@ -361,9 +361,9 @@ datInfo %>%
 
 <div class='nobullet'>
 
-+ [ ]  Download this week's lab data, 'Week2LabData.sav'
-+ [ ]  Move it to your course folder and open it with SPSS.
-+ [ ]  Check each variable's measurement type and correct if necessary
++ [ ] $\ $ Download this week's lab data, 'Week2LabData.sav'
++ [ ] $\ $ Move it to your course folder and open it with SPSS.
++ [ ] $\ $ Check each variable's measurement type and correct if necessary
 
 </div>
 
@@ -373,9 +373,7 @@ quiz(caption = 'Check Your Understanding',
               answer('Nominal', correct = T),
               answer('Ordinal', correct = T),
               answer('Scale'),
-              message = 'Scale can be used for both types of continuous data (ratio and interval scales of measurement), but categorical
-              variables are split into nominal and ordinal measures. Remember that nominal data reflect purely independent categories,
-              but ordinal data have some sort of implied order (e.g. Likert Scale data, level of education).'))
+              message = 'Scale can be used for both types of continuous data (ratio and interval scales of measurement), but categorical variables are split into nominal and ordinal measures. Remember that nominal data reflect purely independent categories, but ordinal data have some sort of implied order (e.g. Likert Scale data, level of education).'))
 ```
 
 <div class="container">
@@ -424,7 +422,12 @@ To adjust the measure type, select the Measure box for a single variable and cli
 Often, categorical data may be represented as a number. In today's example, the gender variable consists of 4 values which represent the different groups that participated in the study. Instead of recording gender as a character label, participants were given a number to reflect their gender group. However, it is important to always include a coding key, so that anyone who works with the data will know how to interpret the numeric labels used and can make appropriate interpretations. SPSS also uses the provided labels in its output, so it can be very helpful when interpreting the results.
 
 ### Your Task 
-+ Add a label to the Gender variable so that 1 = 'Female', 2 = 'Male', 3 = 'Nonbinary', and 4 = 'Prefer not to say'. 
+<div class='nobullet'>
+
++ [ ] $\ $ Add a label to the Gender variable so that 1 = 'Female', 2 = 'Male', 3 = 'Nonbinary', and 4 = 'Prefer not to say'. 
+
+</div>
+
 
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt">Click here for a hint </span></summary>
@@ -465,8 +468,13 @@ Before doing any sort of analysis, it's important to first check the data to mak
 
 
 ### Your Tasks
-+ Check the distribution of your categorical variables using a frequency table and/or a figure
-+ Check the distribution of your continuous variables using figures
+
+<div class='nobullet'>
+
++ [ ] $\ $ Check the distribution of your categorical variables using a frequency table and/or a figure
++ [ ] $\ $ Check the distribution of your continuous variables using figures
+
+</div>
 
 You may use either bar charts or histograms to visualise frequency distributions, depending on the type of data that you have: 
 
@@ -474,14 +482,14 @@ You may use either bar charts or histograms to visualise frequency distributions
 freqDat <- data.frame(Bar=sample(c('Yes', 'No', 'Maybe'), size = 30, replace = T, prob = c(.25, .25, .5)), 
                       Histogram=rnorm(30, mean = 10, sd = 4))
 
-ggplot(freqDat, aes(Bar)) + geom_bar(fill = accent3, color=accent2) +
+ggplot(freqDat, aes(Bar)) + geom_bar(fill = accent1, color=baseColor) +
   labs(x ='Bar Chart') +
   theme(axis.text = element_blank(),
         axis.ticks = element_blank(),
         axis.title.y = element_blank(),
         axis.title.x = element_text(size = 14, face = 'bold'))
 
-ggplot(freqDat, aes(Histogram)) + geom_histogram(fill = accent3, color=accent2) +
+ggplot(freqDat, aes(Histogram)) + geom_histogram(fill = accent1, color=baseColor) +
   theme(axis.text = element_blank(),
         axis.ticks = element_blank(),
         axis.title.y = element_blank(),
@@ -493,21 +501,21 @@ ggplot(freqDat, aes(Histogram)) + geom_histogram(fill = accent3, color=accent2) 
 
 ```{r freq, echo = FALSE}
 quiz(caption = 'Check Your Results',
-     question_numeric("How many total datapoints do you have for the gender variable?",
-              answer(250, correct=T),
-              message = 'There are 250 total participants with gender data.'),
-     question_numeric("How many female participants are in the sample?",
-              answer(118, correct=T),
-              message = 'There are 118 females in this sample.'),
+     question_numeric("How many datapoints do you have for the gender variable?",
+              answer(251, correct=T),
+              message = 'There are 251 participants with gender data. Although there are 373 participants total, 122 of them are missing gender data'),
+     question_numeric("How many participants in the sample have a PhD or other professional qualification?",
+              answer(6, correct=T),
+              message = 'There are 6 participants with a PhD or other professional degree in this sample.'),
      question('Which of the following is appropriate for visualising the frequency distribution of continuous variables?',
               answer('Bar Chart'),
               answer('Histogram', correct = T),
               answer('Both bar charts & histograms can be used for this.'),
               message = 'Histograms should be used to visualise the frequency distribution of a continuous variable. Bar charts should be used to visualise the frequency distribution of a categorical variable.'),
-     question('True or False: No participants scored above 70 on the social perception scale.',
+     question('True or False: No participants scored above 175 on the self-construal scale.',
               answer('True'),
               answer('False', correct = T),
-              message = 'The histogram indicates that one participant achieved a score higher than 70.')
+              message = 'The histogram and maximum value indicates that at least one participant achieved a score higher than 175')
      )
 ```
 
@@ -552,7 +560,6 @@ knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/spss_hi
 Note that you can also produce all plots using the *Graphs* button in the toolbar. 
 
 
-
 </details>
 </div>
 </br>
@@ -562,9 +569,13 @@ Note that you can also produce all plots using the *Graphs* button in the toolba
 When preparing to perform analysis, one of the most important steps is to check the descriptive statistics of your variables. These values are useful summary metrics and may provide insight into patterns in your data.
 
 ### Your Tasks
-+ Check the appropriate measure of central tendency for `Age`, `Gender`, and `SPscore`
-+ Check the standard deviation of `Age` and `SPscore`
-+ Check the minimum and maximum values of `Age` and `SPscore`
+
+<div class='nobullet'>
++ [ ] $\ $ Check the appropriate measure of central tendency for ordinal and continuous
++ [ ] $\ $ Check the standard deviation of continuous variables
++ [ ] $\ $ Check the minimum and maximum values of continuous variables
+
+</div>
 
 ```{r desc1, echo = FALSE}
 quiz(caption = 'Check Your Results',
@@ -580,22 +591,22 @@ quiz(caption = 'Check Your Results',
               answer('Mode', correct = T),
               message = 'As a categorical variable, there is no numeric relationship between values in the gender variable. Therefore, 
               the mode is the only measure of central tendency that is appropriate to describe this variable'),
-     question_numeric("What is the average score on the Social Perception Scale? Please round your answer to two decimal places.",
-              answer(54.21, correct=T),
-              message = 'The average social perception scale score is 54.21.'),
-     question_numeric("How old are the oldest participants in this sample?",
-              answer(17, correct=T),
-              message = 'The maximum age of the sample is 17.'),
-     question_numeric("What is the standard deviation of age? Please round your answer to two decimal places.",
-              answer(2.70, correct=T),
-              message = 'The standard deviation of the age variable is 2.70.')
+     question_numeric("What is the average score on the Aggression Questionnaire? Please round your answer to two decimal places.",
+              answer(87.90, correct=T),
+              message = 'The average social perception scale score is 87.90.'),
+     question_numeric("What is the lowest perfectionism score in this sample?",
+              answer(16, correct=T),
+              message = 'The lowest perfectionism score in this sample is 16.'),
+     question_numeric("What is the standard deviation of the self-construal variable? Please round your answer to two decimal places.",
+              answer(12.79, correct=T),
+              message = 'The standard deviation of the age variable is 12.79.')
 )
 ```
 
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt">Click here for a hint </span></summary>
 
-Use *Analyze>Descriptive Statistics>Frequencies* to check your descriptives. If you need a refresh on measures of central tendency and standard deviation, see [these slides](https://mtruelovehill.github.io/PRM/Lectures/Week01_ExploringData_Lecture.html#9).
+Use *Analyze>Descriptive Statistics>Frequencies* to check your descriptives. If you need a refresh on measures of central tendency and standard deviation, see [these slides](https://mtruelovehill.github.io/PRM/Lectures/Week01_ExploringData_Lecture.html).
 
 </details>
 </div>
@@ -603,13 +614,19 @@ Use *Analyze>Descriptive Statistics>Frequencies* to check your descriptives. If 
 
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
-Select *Analyze>Descriptive Statistics>Frequencies*, then add the variables of interest into the 'Variable(s)' box. Click 'Statistics' and select the options that you need:
+Select *Analyze>Descriptive Statistics>Frequencies*, then add the variables of interest into the 'Variable(s)' box. Click 'Statistics' and select the options that you need.
+
+Note that ordinal variables should only be described using either mode or median. In the case of `AgeBracket`, mode is most appropriate. However, ordinal likert-scale variable can be described using their median. 
 
 ```{r, echo = F, out.width='75%', fig.align='center'}
-knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week1_descriptives.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/spss_catDesc.png')
 ```
 
-Note that `Gender`, as a categorical variable, should only be described using Mode. The other variables can be described using all 3 measures.
+The continuous variables can be described using all 3 measures of central tendency, but as long as they are normally distributed, mean is almost always the most appropriate and useful. SD, minimum, and maximum can also be checked here.
+
+```{r, echo = F, out.width='75%', fig.align='center'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/spss_contDesc.png')
+```
 
 </details>
 
@@ -619,15 +636,29 @@ Note that `Gender`, as a categorical variable, should only be described using Mo
 
 ## Interpret and Report
 
-Now that you've reviewed your data, write a one or two APA-style sentences describing your sample that you could incorporate into a methods section. When describing your sample, you should **at least** include the following: 
+Now that you've reviewed your data: 
+
+<div class='nobullet'>
+
++ [ ] $\ $ Write a one or two APA-style sentences describing your sample that you could incorporate into a methods section. 
++ [ ] $\ $ Create an APA-style table to present the descriptive statistics of the other variables in the dataset. 
+
+</div>
+
+When describing your sample, you should **at least** include the following: 
 
 + $n$ of study
-+ Age (minimum, maximum, mean, standard deviation)
++ Age (minimum, maximum, mean, standard deviation; if age was measured categorically, $n$ in each category)
 + Gender ($n$ in each category)
 
-If you are working with data that includes other demographic variables such as race or education, these should be appropriately described as well. You would also include any exclusion/inclusion criteria.
+If you are working with data that includes other demographic variables such as race or education, these should be appropriately described as well. You would also include any exclusion/inclusion criteria (although you don't need to do that in this case, as you don't know anything about the study!).
 
-Make sure to use APA style. Once you're finished, compare your paragraph to the solution paragraph. Is there anything you included that is not in the solution? Is there anything you left out? 
+Descriptive statistics of the other variables should also be reported in the results section.
+
++ $n$ in each level of a categorical variable 
++ Mean and SD for continuous variables
+
+If there are several variables, this is usually presented in table format, alongside the relevant statistical analysis values. However, they may also be added directly into the text if there are only a few variables.
 
 </br>
 
@@ -636,15 +667,9 @@ Make sure to use APA style. Once you're finished, compare your paragraph to the 
 
 <span style = "color:white">You might find the [Purdue Owl website](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/general_format.html) helpful for APA formatting. See the participants/sample section in [this paper](https://journals.sagepub.com/doi/full/10.1177/0956797620939054) for a real-world example of how a sample might be described. You can see other examples [here](https://journals.sagepub.com/doi/full/10.1177/09567976241231572) and [here](https://www.sciencedirect.com/science/article/pii/S0022103123001439).
 
+You can find an example of APA-style tables with descriptive statistics included [here](https://apastyle.apa.org/style-grammar-guidelines/tables-figures/sample-tables#demographic).
+
 </details>
 </div>
 </br>
-
-<div class="container">
-<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
-
-In this study, we collected Social Perception Scale scores from 250 children (127 male, 118 female, and 5 nonbinary participants). Participants ranged in age from 8-17 ($M$ = 12.69, $SD$ = 2.70). 
-
-</details>
-</div>
 
