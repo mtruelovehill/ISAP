@@ -334,10 +334,38 @@ By checking the line associated with a weak effect size, we can see that 50 part
 
 In this course, you'll be using SPSS to perform the majority of your tasks. You can download today's data onto your device by <B>[clicking here](https://mtruelovehill.github.io/ISAP/Labs/Week2LabData.sav)</B> or checking this week's folder on [Learn](https://www.learn.ed.ac.uk/ultra/) (requires university login). 
 
+This week, you'll be working with data collected from RMAP students from previous years. You'll use these data to generate descriptive statistics and visualisations. Specifically, this dataset contains the following variables:
+
+
+
+```{r, echo = F}
+dat <- read.csv('https://mtruelovehill.github.io/ISAP/Labs/Week2LabData.csv')
+datInfo <- data.frame(VariableName=colnames(dat), 
+                      Description=c('Participant ID', 'Levels: 18-33; 34-48; 49-64', 
+                                    'Sex assigned at birth; Levels: Female; Male',
+                                    'Current gender; Levels: Male; Female; Non-binary/Third Gender; Prefer not to say', 
+                                    'Participant ethnicity', 
+                                    'Highest level of education completed',
+                                    'Total Perfectionism score',
+                                    'Total Self-Construal well-being score',
+                                    'Total Aggression Questionnaire score'))
+
+datInfo %>%
+  kbl(col.names=c('Variable Name', 'Description')) %>%
+  kable_styling(full_width = F) %>%
+  row_spec(0, bold = T, color=baseColor, font_size = 18, align='l') %>%
+  column_spec(1, bold = T, width = '4.5cm')
+```
+
 ### Your Tasks
-+ Download this week's lab data, 'Week2LabData.sav'
-+ Move it to your course folder and open it with SPSS.
-+ Check each variable's measurement type and correct if necessary
+
+<div class='nobullet'>
+
++ [ ]  Download this week's lab data, 'Week2LabData.sav'
++ [ ]  Move it to your course folder and open it with SPSS.
++ [ ]  Check each variable's measurement type and correct if necessary
+
+</div>
 
 ```{r accessData, echo = FALSE}
 quiz(caption = 'Check Your Understanding',
@@ -353,7 +381,7 @@ quiz(caption = 'Check Your Understanding',
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
 
-Check under the **File** tab in SPSS to open the data. Use the *Variable View* in the main data window to adjust each variable's measurement type. Do the labels used by SPSS match the scales of measurement expected (i.e. nominal, ordinal, ratio, interval?) Note that *Scale* is SPSS's label for both ratio and interval data.
+Check under the *File* tab in SPSS to open the data. Use the *Variable View* in the main data window to adjust each variable's measurement type. Do the labels used by SPSS match the scales of measurement expected (i.e. nominal, ordinal, ratio, interval?) Note that *Scale* is SPSS's label for both ratio and interval data.
 
 </details>
 </div>
@@ -365,25 +393,25 @@ Check under the **File** tab in SPSS to open the data. Use the *Variable View* i
 Click *Open* under the **File** tab.  Navigate to the folder where you've stored  'Week2LabData.sav' and select the file. Once data have been imported, check the measure type in the *Variable View* tab:
 
 ```{r, echo = F, out.width='75%', fig.align='center'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/spss_varView.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/spss_varView.png')
 ```
 
 SPSS labels the data as:
 
-* _Nominal:_ data that fall into discrete categories that have no information regarding order (e.g., eye colour)
-* _Ordinal:_ data that fall into discrete categories that have some kind of meaningful ordering information (e.g. Likert Scale responses)
-* _Scale:_ continuous/numerical data; data have some kind of numeric relationship and could technically be measured to infinite decimal places, if the measurement was actually capable of doing so.
+**Nominal:** data that fall into discrete categories that have no information regarding order (e.g., eye colour)
+**Ordinal:** data that fall into discrete categories that have some kind of meaningful ordering information (e.g. Likert Scale responses)
+**Scale:** continuous/numerical data; data have some kind of numeric relationship and could technically be measured to infinite decimal places, if the measurement was capable of doing so.
 
 
 To adjust the measure type, select the Measure box for a single variable and click the arrow that appears.
 
-* `ID` is represented as a number, but there really is no numeric relationship between the numbers (e.g. someone with an ID = 40 didn't complete the study in twice the time of someone with an ID = 20). Technically, the IDs are ordered based on when they completed the study, but because this information isn't meaningful in the context of our analysis, we can consider this a 'Nominal' variable.
+* `ID` is represented as a number, but there really is no numeric relationship between the numbers (e.g. someone with an ID = 40 didn't complete the study in twice the time of someone with an ID = 20). Technically, the IDs are ordered based on when they completed the study, but because this information isn't meaningful in the context of our analysis, this is considered a 'Nominal' variable.
 
-* `Age` is continuous. Someone who is 12 is twice as old as someone who is 6, and you could measure age up to infinite decimal places if you had a perfectly precise measurement. This can be considered a 'Scale' variable.
+* `AgeBracket` is ordinal. Because age was measured as brackets rather than raw numbers, it cannot be considered continuous. However, the brackets do give us a sense of the order; someone in the first age bracket is younger than those in the second and third brackets. 
 
-* `Gender` is nominal. It can be captured in discrete categories and there is no inherent order.
+* `SAB`, `Gender`, `Ethnicity`, and `Education` are all nominal. They can be captured in discrete categories and there is no inherent order.
 
-* `SPscore` is a 'Scale' variable. There is a meaningful numeric relationship between the values. 
+* `Perfectionism`, `SelfConstrual` and `ACG` are all 'Scale' variables. There is a meaningful numeric relationship between the values. 
 
 </details>
 
@@ -393,15 +421,15 @@ To adjust the measure type, select the Measure box for a single variable and cli
 
 ## Using SPSS - Adding Labels
 
-Often, categorical data may be represented as a number. In today's example, the gender variable consists of 3 values which represent the different gender groups that participated in the study. Instead of recording gender as a character label, participants were given a number to reflect their gender group. However, it is important to always include a coding key, so that anyone who works with the data will know how to interpret the numeric labels used and can make appropriate interpretations. SPSS also uses the provided labels in its output, so it can be very helpful when interpreting the results.
+Often, categorical data may be represented as a number. In today's example, the gender variable consists of 4 values which represent the different groups that participated in the study. Instead of recording gender as a character label, participants were given a number to reflect their gender group. However, it is important to always include a coding key, so that anyone who works with the data will know how to interpret the numeric labels used and can make appropriate interpretations. SPSS also uses the provided labels in its output, so it can be very helpful when interpreting the results.
 
 ### Your Task 
-+ Add a label to the Gender variable so that 1 = 'Male', 2 = 'Female', and 3 = 'Nonbinary'. 
++ Add a label to the Gender variable so that 1 = 'Female', 2 = 'Male', 3 = 'Nonbinary', and 4 = 'Prefer not to say'. 
 
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt">Click here for a hint </span></summary>
 
-This should also be done in *Variable View*. The column names may seem a bit misleading; you won’t use the ‘Label’ column for this task.
+This should also be done in *Variable View*. The column names may seem a bit misleading; you won’t use the ‘Label’ column for this task, but the 'Values' column.
 
 </details>
 </div>
@@ -411,22 +439,15 @@ This should also be done in *Variable View*. The column names may seem a bit mis
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt">Click here for the solution </span></summary>
 
-To associate a label with each value of a variable, you'll use the **Values** column under the **Variable View** tab.
-
-Select the Gender x Values cell and click the dots to bring up the _Value Labels_ box. 
-
-```{r, echo = F, out.width='75%', fig.align='center'}
-knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week1_values.png')
-```
+To associate a label with each value of a variable, you'll use the **Values** column under the *Variable View* tab. Select the Gender x Values cell and click the dots to bring up the *Value Labels* box. 
 
 Use the $+$ to add a new label. In the Value column, type the value **exactly as it is recorded in your data.** In the Label column, add the label you would like to associate with that specific value. Continue adding labels using  $+$ until you've labeled all values in the Gender column.
 
 ```{r, echo = F, out.width='75%', fig.align='center'}
-knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week1_valueLabs.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/spss_valueLabs.png')
 ```
 
 Click 'OK'. If you've done this properly, you'll see that each numeric value is now associated with a character label.
-
 
 </details>
 </div>
@@ -444,7 +465,7 @@ Before doing any sort of analysis, it's important to first check the data to mak
 
 
 ### Your Tasks
-+ Check the distribution of the `Gender` variable using a frequency table and/or a figure
++ Check the distribution of your categorical variables using a frequency table and/or a figure
 + Check the distribution of your continuous variables using figures
 
 You may use either bar charts or histograms to visualise frequency distributions, depending on the type of data that you have: 
@@ -504,27 +525,33 @@ You'll find what you need under the *Analyze* tab. You can use Bar Charts to vis
 
 <span style = "font-weight: bold; font-size: 14pt">Categorical Variables </span>
 
-Select *Analyze>Descriptives>Frequencies*. Select `Gender` and use the arrow to move it into the Variable box. Make sure 'Display frequency tables' is checked. To also produce a bar chart, select 'Charts...' and choose 'Bar charts.'
+Select *Analyze>Descriptives>Frequencies*. Select `AgeBracket`,`SAB`, `Gender`, `Ethnicity`, and `Education` and use the arrow to move them into the Variable box. Make sure 'Display frequency tables' is checked. To also produce a bar chart, select 'Charts...' and choose 'Bar charts.'
 
 </br>
 
 ```{r, echo = F, out.width='75%', fig.align= 'center'}
-knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/week1_freqTable.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/spss_freqTable.png')
 ```
 
-
-The output shows the number of participants in each category, as well as the proportions and total values overall. If you added the labels properly, the table will use them rather than the original numbered data, allowing for ease of interpretation.
+The output shows the number of participants in each category, as well as the proportions and total values overall. If you added the labels for `Gender` properly, the table will use them rather than the original numbered data, allowing for ease of interpretation.
 
 ```{r, echo = F, out.width='75%', fig.align= 'center'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/week1_freqOutput.png')
+knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/spss_freqOutput.png')
 ```
+
 
 </br>
 <span style = "font-weight: bold; font-size: 14pt">Continuous Variables </span>
 
-Select *Analyze>Descriptives>Frequencies*. Select `Age` and `SPscore` and move them into the 'Variable' box. Uncheck 'Display frequency tables' unless you want to produce massive, unnecessary tables. To produce histograms, select 'Charts...' and choose 'Histograms'. 
+Select *Analyze>Descriptives>Frequencies*. Select `Perfectionism`, `SelfConstrual`, and `AGQ` and move them into the 'Variable' box. Uncheck 'Display frequency tables' unless you want to produce massive, unnecessary tables. To produce histograms, select 'Charts...' and choose 'Histograms'. You'll get a histogram for each variable:
+
+```{r, echo = F, out.width='75%', fig.align= 'center'}
+knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/spss_histogram.png')
+```
 
 Note that you can also produce all plots using the *Graphs* button in the toolbar. 
+
+
 
 </details>
 </div>
