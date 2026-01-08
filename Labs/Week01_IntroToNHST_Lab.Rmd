@@ -17,7 +17,6 @@ baseColor <- '#CD826E'
 accent1 <- '#BB5A73'
 accent2 <- '#DFAA73'
 accent3 <- '#F0D264'
-accent4 <- '#AA3778'
 
 ```
 
