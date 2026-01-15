@@ -631,20 +631,20 @@ class: middle, inverse, center
 **Step 1: State Your Hypotheses**
 
 .pull-left[.center[<span style = "color: #BB5A73"> Null Hypothesis </span>]
-$$H_0:  \bar{x_1} = \bar{x_2}$$
+$$H_0:  \mu_1 = \mu_2$$
 ]
 
 .pull-right[.center[<span style = "color: #BB5A73"> Alternative Hypothesis </span>]
 <b> Nondirectional </b>
 
-$$H_1: \bar{x_1} \neq \bar{x_2}$$
+$$H_1: \mu_1 \neq \mu_2$$
 
 
 <b> Directional </b>
 
 
-$$H_1: \bar{x_1} > \bar{x_2}$$
-$$H_1: \bar{x_1} < \bar{x_2}$$
+$$H_1: \mu_1 > \mu_2$$
+$$H_1: \mu_1 < \mu_2$$
 ]
 
 --
@@ -806,7 +806,7 @@ knitr::include_graphics('images/BPeffect.png')
 
 **Step 8: Report**
 
-We conducted a **two-tailed independent-samples $t$-test** to determine the effect of <span style = "color:#DFAA73"> <b> treatment </span></b> on <span style = "color:#DFAA73"> <b>systolic blood pressure (SBP) </span></b>. There was a significant effect of treatment, <span style = "color:#BB5A73"><b> $t$(128) = -3.16, $p$ = .002, 95% CI = [-4.68, -1.08], $d$ = -.55 </span></b>. Specifically, SBP in the treatment group was lower <span style = "color:#F0D264"><b> ( $M$ = 136.97, $SD$ = 4.86)</span></b> than SBP in the placebo group <span style = "color:#F0D264"><b>( $M$ = 139.85, $SD$ = 5.50)</span></b>.
+We conducted a **two-tailed independent-samples $t$-test** to determine the effect of <span style = "color:#DFAA73"> <b> treatment </span></b> on <span style = "color:#DFAA73"> <b>systolic blood pressure (SBP) </span></b>. There was a significant effect of treatment, <span style = "color:#BB5A73"><b> $t$(128) = -3.16, $p$ = .002, 95% CI = [-4.68, -1.08], $d$ = -.55 </span></b>. Specifically, SBP in the treatment group was lower <span style = "color:#F0D264"><b> ( $n$ = 65, $M$ = 136.97, $SD$ = 4.86)</span></b> than SBP in the placebo group <span style = "color:#F0D264"><b>( $n$ = 65, $M$ = 139.85, $SD$ = 5.50)</span></b>.
 
 --
 
@@ -854,27 +854,24 @@ class: center, inverse, middle
 
 **Step 1: State Your Hypotheses**
 
++ Research Question: Does Medication X affect blood pressure in participants over time?
+
 .pull-left[.center[<span style = "color: #BB5A73"> Null Hypothesis </span>]
-$$H_0:  \bar{d} = \mu_d$$
+$$H_0:  \mu_{diff} = 0$$
 ]
 
 .pull-right[.center[<span style = "color: #BB5A73"> Alternative Hypothesis </span>]
 <b> Nondirectional </b>
 
-$$H_1: \bar{d} \neq \mu_d$$
+$$H_1: \mu_{diff} \neq 0$$
 
 
 <b> Directional </b>
 
 
-$$H_1: \bar{d} > \mu_d$$
-$$H_1: \bar{d} < \mu_d$$
+$$H_1: \mu_{diff} > 0$$
+$$H_1: \mu_{diff} < 0$$
 ]
-
---
-
-> **Test Your Understanding:** If your research question is 'Does Medication X change blood pressure in participants over time?', is this a directional or nondirectional hypothesis? Do we need a one-tailed or two-tailed test?
-
 
 
 ---
@@ -882,7 +879,7 @@ $$H_1: \bar{d} < \mu_d$$
 
 **Step 2: Conduct a Power Analysis**
 
-+ Research Question: Does Medication X decrease blood pressure in participants over time?
++ Research Question: Does Medication X affect blood pressure in participants over time?
 
 + [WebPower](https://webpower.psychstat.org/wiki/models/index)
 
