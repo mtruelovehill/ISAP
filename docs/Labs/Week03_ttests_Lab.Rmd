@@ -1,5 +1,5 @@
 ---
-title: "Week 4 Lab: t-tests"
+title: "Week 3 Lab: t-tests"
 output:
   learnr::tutorial:
     progressive: true
@@ -401,6 +401,10 @@ This indicates there is a strong effect of transport modality on infant vocalisa
 
 ## Paired-Samples $t$-test
 Imagine that instead of using a between-subjects design, the researchers instead used a within-subjects design. They sent their participants out on 2 separate walks over the course of two weeks, once using a backpack and once a buggy. In this experiment, they recorded the time infants spent vocalising from the same participants across each condition. These data are captured in the variables `RM_backpack` and `RM_buggy`. 
+
+
+<b> Note that there are multiple tasks within this tab. You need to hit 'Continue' at the bottom of the screen to see the next task. </b>
+
 
 ### Task 1
 <div class="nobullet">
