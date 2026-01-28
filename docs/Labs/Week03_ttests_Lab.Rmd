@@ -365,7 +365,7 @@ The second bit of output provides the results of the $t$-test. The first portion
 
 
 ```{r, echo = F, fig.align= 'center', out.width='75%'}
-knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/ttests_results.png')
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/ttests_results.png')
 ```
 
 

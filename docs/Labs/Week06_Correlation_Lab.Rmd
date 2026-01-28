@@ -88,7 +88,7 @@ quiz(caption = '',
               answer('Is there an association between season (Spring, Summer, Autumn, Winter) and the number of cyclists on the path through the Meadows?', correct = T),
               answer('Are scores on the Beck Depression Inventory associated with weekly physical activity (in hours)?', correct = T),
               random_answer_order = T,
-              message = "Spearman's correlation can be used to test for an association between two variables that are either continous or ordinal. It doesn't test for group differences."))
+              message = "Spearman's correlation can be used to test for an association between two variables that are either continuous or ordinal. It doesn't test for group differences."))
 ```
 
 ### Your Tasks
