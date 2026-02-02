@@ -364,7 +364,7 @@ quiz(caption = 'Check Your Results',
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
 
-To run a One-Way ANOVA, you should navigate to *Analyze>Compare Means & Proportions>One-Way ANOVA*
+To run a One-Way ANOVA, you should navigate to *Analyze>General Linear Model>Univariate*
 
 </details>
 </div>
@@ -374,7 +374,8 @@ To run a One-Way ANOVA, you should navigate to *Analyze>Compare Means & Proporti
 <div class="container">
 <details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
 
-Navigate to *Analyze>Compare Means & Proportions>One-Way ANOVA*. Add the independent variable column, `Group`, to the 'Factor' box, and add `Correct` to the 'Dependent List'. Make sure 'Estimate effect size for overall tests' is ticked. To get the post-hoc comparisons, click 'Post-Hoc', then 'Tukey'. Under 'Options', click 'Descriptive'. You can also tick 'Means plot' to generate a boxplot of the means of each group. Click 'Continue' and then 'Ok'. 
+Navigate to *Analyze>General Linear Model>Univariate*. Add the independent variable column, `Group`, to the 'Fixed Factor(s)' box, and add `Correct` to the 'Dependent Variable' box. To perform post-hoc tests, click 'Post-Hoc', and move `Group` to the 'Post Hoc Tests for:' box. Select 'Tukey', then click 'Continue.' If you'd like to produce a plot showing the differences between each level, you can also tick 'Plots', then put `Group` into the 'Horizontal Axis' box, then click 'Add'. Select 'Bar Chart' and tick 'Include Error Bars', then click 'Continue'. Finally, click 'Options', and select 'Descriptive Statistics', and 'Estimates of Effect Size', then click 'Continue', then 'OK'. 
+
 
 You'll see the following output for your One-Way ANOVA:
 
@@ -382,9 +383,9 @@ You'll see the following output for your One-Way ANOVA:
 knitr::include_graphics('https://mtruelovehill.github.io/PRM/Labs/images/anovaI_results.png')
 ```
 
-If you look at the .sig column, you can see that the $p$-value is less than .001, which is smaller than our $\alpha$ threshold of .05. This means that our results are significantly. Specifically, there is a less than 0.1% chance that we would have differences this large in recognition between facial obstruction groups if the null hypothesis were true. This tells us that there is a significant difference in the case of least one of our pairings. To get a sense of how meaningful this difference is, we check the effect size.
+The overall model results are shown in the first row ('Corrected Model'). If you look at the .sig column, you can see that the $p$-value is less than .001, which is smaller than our $\alpha$ threshold of .05. This means that our results are significant. Specifically, there is a less than 0.1% chance that we would have differences this large in recognition between facial obstruction groups if the null hypothesis were true. This tells us that there is a significant difference in the case of least one of our pairings. 
 
-Although there are several effects reported, you can use the effect size $\eta^2$. 
+To get a sense of how meaningful this difference is, we check the effect size. Although there are several effects reported, you can use the effect size $\eta^2$. 
 
 ```{r, echo = F, fig.align= 'center', out.width = '75%'}
 knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/anovaI_effectSize.png')
@@ -739,7 +740,7 @@ quiz(caption = '',
               answer('Binary Categorical'),
               answer('Categorical with 3 or more levels', correct = T),
               message = 'A One-Way ANOVA requires categorical independent variables.'),
-     question('You are testing the association between hospital size and stress in nurses. You compare nurse stress from nurses across 3 different hospital sizes (small, medium, and large). Assume that stress is a continuous variable. Which of the following analyses could be used to to test this association?',
+     question('You are testing the association between hospital size and stress in nurses. You compare nurse stress from nurses across 3 different hospital sizes (small, medium, and large). Assume that stress is a continuous variable. Which of the following analyses could be used to test this association?',
               answer('One-Sample t-test'),
               answer('independent-samples t-test'),
               answer('paired-samples t-test'),
