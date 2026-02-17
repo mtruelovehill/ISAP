@@ -245,7 +245,7 @@ $$s^2_x = \frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1} = \frac{\sum_{i=1}^{n}{(x_
 
 **Covariance**
 
-$$Cov_{xy} = \frac{\sum_{i=1}^{n}{\color{#4CA384}{(x_i-\bar{x})}\color{#18778C}{(y_i-\bar{y})}}}{n-1}$$
+$$Cov_{xy} = \frac{\sum_{i=1}^{n}{\color{#4CA384}{(x_i-\bar{x})}\color{#BB5A73}{(y_i-\bar{y})}}}{n-1}$$
 ]
 
 .pull-right[
@@ -298,7 +298,7 @@ p2
 
 .pull-left[
 
-$$Cov_{xy}=\frac{\sum_{i=1}^n\color{#18778C}{(x_i-\bar{x})}(y_i-\bar{y})}{n-1}$$
+$$Cov_{xy}=\frac{\sum_{i=1}^n\color{#BB5A73}{(x_i-\bar{x})}(y_i-\bar{y})}{n-1}$$
 
 
 ```{r, echo = F}
@@ -340,7 +340,7 @@ count: false
 
 .pull-left[
 
-$$Cov_{xy}=\frac{\sum_{i=1}^n(x_i-\bar{x})\color{#18778C}{(y_i-\bar{y})}}{n-1}$$
+$$Cov_{xy}=\frac{\sum_{i=1}^n(x_i-\bar{x})\color{#BB5A73}{(y_i-\bar{y})}}{n-1}$$
 
 | Participant           |  $x_i - \bar{x}$      |    $y_i - \bar{y}$    |
 |:----------------------|:---------------------:|:---------------------:|
@@ -374,7 +374,7 @@ count: false
 
 .pull-left[
 
-$$Cov_{xy}=\frac{\sum_{i=1}^n\color{#18778C}{(x_i-\bar{x})(y_i-\bar{y})}}{n-1}$$
+$$Cov_{xy}=\frac{\sum_{i=1}^n\color{#BB5A73}{(x_i-\bar{x})(y_i-\bar{y})}}{n-1}$$
 
 | Participant           |  $x_i - \bar{x}$      |    $y_i - \bar{y}$    | $(x_i - \bar{x})(y_i - \bar{y})$   |
 |:----------------------|:---------------------:|:---------------------:|:------------------------:|
@@ -409,7 +409,7 @@ count: false
 
 .pull-left[
 
-$$Cov_{xy}=\frac{\color{#18778C}{\sum_{i=1}^n}(x_i-\bar{x})(y_i-\bar{y})}{n-1}$$
+$$Cov_{xy}=\frac{\color{#BB5A73}{\sum_{i=1}^n}(x_i-\bar{x})(y_i-\bar{y})}{n-1}$$
 
 
 | Participant           |  $x_i - \bar{x}$      |    $y_i - \bar{y}$    | $(x_i - \bar{x})(y_i - \bar{y})$   |
@@ -821,7 +821,7 @@ Research Question: Is there an association between days in a fitness program and
 
 **Step 3: Check your data**
 
-+ Using [this simulated dataset](https://mtruelovehill.github.io/PRM/Data/distDat.csv), let's compute descriptive statistics and visualise our data in SPSS
++ Using [this simulated dataset](https://mtruelovehill.github.io/PRM/Data/distDat.sav), let's compute descriptive statistics and visualise our data in SPSS
 
 ---
 ## Conducting a Hypothesis Test using $r$
