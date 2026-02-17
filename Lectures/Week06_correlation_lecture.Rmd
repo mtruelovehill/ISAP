@@ -949,12 +949,12 @@ ggplot(nonLinDat, aes(anxiety, performance)) + geom_point() + geom_smooth(se=F, 
 
 .pull-right[
 .center[**Looks ok**]
-```{r, echo = F, fig.height = 1.75, fig.width = 5, message=F}
+```{r, echo = F, fig.height = 2.25, fig.width = 7, message=F}
 datPlot
 ```
 
 .center[**Investigate further**]
-```{r, echo = F, fig.height = 1.75, fig.width = 5, message = F}
+```{r, echo = F, fig.height = 2.25, fig.width = 7, message = F}
 set.seed(113)
 dat2 <- rbind(dat, rnorm_multi(n=150, mu=c(130, 18), sd = c(15, 20), varnames = c('daysInProgram', 'maxDistance')))
 
