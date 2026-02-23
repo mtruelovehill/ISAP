@@ -1027,7 +1027,7 @@ $$R^2 = \frac{f^2}{1+f^2}$$
   
 --
 
-+ Open [these data](https://mtruelovehill.github.io/PRM/Data/courseDat.sav) in SPSS.
++ Open [these data](https://mtruelovehill.github.io/ISAP/Data/courseDat.sav) in SPSS.
 
 ---
 ## Running a Linear Regression
