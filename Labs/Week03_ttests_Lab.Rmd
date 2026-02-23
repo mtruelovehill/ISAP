@@ -1,5 +1,5 @@
 ---
-title: "Week 4 Lab: t-tests"
+title: "Week 3 Lab: t-tests"
 output:
   learnr::tutorial:
     progressive: true
