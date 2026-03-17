@@ -1,0 +1,433 @@
+---
+title: "Week 10: Nonparametric Tests"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    css: 'https://mtruelovehill.github.io/ISAP/Labs/css/style.css'
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+
+pacman::p_load('tidyverse', 'kableExtra', 'shiny')
+
+
+baseColor <- '#CD826E'
+accent1 <- '#BB5A73'
+accent2 <- '#DFAA73'
+accent3 <- '#F0D264'
+```
+
+
+## Intro to Today's Lab
+
+During today's lab, you'll apply the concepts discussed during this week's lecture. Each lab consists of a range of tasks, with corresponding questions you can answer. Please note that the questions are not required and not marked, although they do provide a helpful source of formative feedback that will help you gauge your understanding. 
+
+### Learning Objectives
+At the end of this lab, you will be able to:
+
+1. Select appropriate statistical tests when assumptions are violated in analyses with a single independent variable
+2. Conduct and interpret the results from a Mann-Whitney U test
+3. Conduct and interpret the results from a Kruskal-Wallis test
+
+## Experiment Overview
+
+This week, you will be analysing simulated data around teenage driving. Teenage drivers' safety ratings were investigated in the context of car ownership and passenger type. However, the data did not meet certain assumptions, so you'll need to use appropriate nonparametric methods to analyse it.
+
+The research questions you are testing are:
+
+1. Does car ownership affect the safety ratings of teenage drivers?
+
+2. Does passenger type affect the safety ratings of teenage drivers? Specifically, are safety ratings different when a teenager is driving by themselves, a parent or a friend?
+
+The dataset contains the following variables:
+
+```{r, echo = F}
+dat <- read.csv('https://mtruelovehill.github.io/ISAP/Labs/Week10LabData.csv')
+
+datInfo <- data.frame(VariableName = colnames(dat),
+                      Description=c('reflects whose vehicle the teenager primarily uses; 0 = parent; 1 = own',
+                                    '0 = self; 1 = friend; 2 = parent',
+                                    'Scores on a safety rating measure; values may range between 0-100'))
+
+datInfo %>%
+  kbl(col.names=c('Variable Name', 'Description')) %>%
+  kable_styling(full_width = F) %>%
+  row_spec(0, bold = T, color=baseColor, font_size = 18, align='l') %>%
+  column_spec(1, bold = T, width = '4.5cm')
+```
+
+### Your Task
+
+<div class="nobullet">
++ [ ] $\ $ State your general hypotheses for this experiment.
+</div>
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+Although you will be using nonparametric measures, your general hypotheses will be consistent with those of the corresponding parametric test.
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+1. Teenagers will drive more safely when they are driving a parent's car compared to when they are driving their own car.
+
+2. Passenger type will affect teenage drivers' safety ratings. Specifically, teenagers will drive more safely when they are driving with their parent as compared to when they are driving by themselves or with a friend.
+
+</details>
+</div>
+</br>
+
+```{r selectingTest, echo = F}
+quiz(caption = 'Check Your Understanding',
+     question('Which test should be used to investigate research question 1?',
+              answer('independent-samples t-test'),
+              answer('Mann-Whitney U test', correct = T),
+              answer('Wilcoxon Signed-Rank test'),
+              answer('One-Way Between-Subjects ANOVA'),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Kruskal-Wallis Test'),
+              answer("Friedman's ANOVA"),
+              message = "The outcome is continuous. The independent variable is a binary categorical variable (own vehicle or parent's vehicle). Normally, an independent-samples t-test would be used to compare the means of two independent groups, but since the data violate assumptions, a Mann-Whitney U test would be more appropriate."),
+     question('Which test should be used to investigate research question 2?',
+              answer('independent-samples t-test'),
+              answer('Mann-Whitney U test'),
+              answer('Wilcoxon Signed-Rank test'),
+              answer('One-Way Between-Subjects ANOVA'),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Kruskal-Wallis Test', correct = T),
+              answer("Friedman's ANOVA"),
+              message = "The outcome is continuous. The independent variable is a categorical variable with three levels. Normally, a One-Way Between-Subjects ANOVA would be used to compare the mean of three independent groups, but since the data violate assumptions, a Kruskal-Wallis test would be more appropriate."),
+     question('At what level of measurement does the dependent variable need to be for a Mann-Whitney U test? Please select any that apply.',
+              answer('Continuous', correct = T),
+              answer('Binary Categorical'),
+              answer('Ordinal', correct = T),
+              message = 'A Mann-Whitney U test requires the dependent variable to be either ordinal or continuous.',
+              random_answer_order = T),
+     question('Researchers conduct a study into the effect of sleep deprivation on speed of processing in a driving simulator. They ask participants to complete a 15 minute driving simulation task. At the end of the task, they ask the participants a series of questions about the events in the simulation. Participants are given a continuous score that reflects the number of questions they answer correctly. The participants then spend the night in a room controlled by the research team where they are limited to three hours sleep. The next day, they complete the same task and get a second score. The team want to consider the difference in these scores. However, when they check the data, they see that there is a ceiling effect in the first test, leading to a normality violation. Which test is most appropriate?',
+              answer('independent-samples t-test'),
+              answer('Mann-Whitney U test'),
+              answer('Wilcoxon Signed-Rank test', correct = T),
+              answer('One-Way Between-Subjects ANOVA'),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Kruskal-Wallis Test'),
+              answer("Friedman's ANOVA"),
+              message = 'Here, you have a continuous dependent variable (score). As the same sample provides responses at both timepoints, this is a repeated-measures design with two groups (pre and post sleep-deprivation). However, the data violate assumptions, so a nonparametric test should be used. A Wilcoxon Signed-Rank test would be appropriate here.'),
+     question("A researcher is testing an intervention with three groups of children - those with ADHD, those with conduct disorder, and those with oppositional defiance disorder. Her outcome variable is a 5-level Likert style measure. Which of the following statistical tests should she use to analyse her results?",
+              answer('independent-samples t-test'),
+              answer('Mann-Whitney U test'),
+              answer('Wilcoxon Signed-Rank test'),
+              answer('One-Way Between-Subjects ANOVA'),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Kruskal-Wallis Test', correct = T),
+              answer("Friedman's ANOVA"),
+              message = "As the outcome variable is measured on an ordinal scale, a parametric test is not appropriate. The researcher is comparing 3 independent groups, so a Kruskal-Wallis test should be used."))
+```
+
+
+## Descriptive Data
+
+When working with data that violate assumptions, the mean may not be the best estimate of central tendancy, and the standard deviation may not be the best measure of variance. Depending on the severity of the assumption violation, the median and interquartile range (IQR) may be more representative measures of central tendency and variance.
+
+### Your Tasks
+
+<div class="nobullet">
++ [ ] $\ $ Add values to the `OwnCar` and `Passenger` variables so that results are labelled properly
++ [ ] $\ $ Compute the median `SafetyRating` for each `OwnCar` group
++ [ ] $\ $ Compute the `SafetyRating` IQR for each `OwnCar` group
++ [ ] $\ $ Compute the median `SafetyRating` for each `Passenger` group
++ [ ] $\ $ Compute the `SafetyRating` IQR for each `Passenger` group
+
+</div>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+You can add text labels to the variables under the Variable View tab.
+
+To get the median and IQR separately for each `OwnCar` and `Passenger` group, navigate to *Analyze>Descriptive Statistics>Explore*.
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+To add values to  `OwnCar` and `Passenger`, use the Value column under the Variable View tab. Check the Data Dictionary under the [Experiment Overview] tab to find the variable key.
+
+
+For the descriptive statistics, navigate to *Analyze>Descriptive Statistics>Explore*. Add `SafetyRating` to the 'Dependent List' box and both `OwnCar` and `Passenger` to the 'Factor List' box. Click the 'Statistics' box and make sure 'Descriptives' is checked. 
+
+You can find the median and IQR for `OwnCar` here:
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_ownCarDesc.png')
+```
+
+Check the next box for the values for the `Passenger` variable.
+
+</details>
+</div>
+</br>
+
+
+## Check Assumptions
+
+Although this lab is specifically covering nonparametric analyses (so you already know assumptions will be violated), in a typical setting, you would do this step first, then use the results of these assumptions checks to make a decision about which test to use.
+
+Recall that the assumptions of a both an independent-samples $t$-test and a One-Way ANOVA are:
+
+(1) **Normality:** Values are normally distributed *within levels or groups*
+
+(2) **Independence of Observations:** Individual observations should not be dependent upon any others
+
+(3) **Homogeneity of Variance:** Variances within each level or group should be generally similar
+
+
+### Your Tasks
+
+For each research question:
+
+<div class="nobullet">
++ [ ] $\ $ Decide whether the data meet the assumption of normality
++ [ ] $\ $ Decide whether the data meet the assumption of independence
++ [ ] $\ $ Decide whether the data meet the assumption of homogeneity
+</div>
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+To check normality, you can use histograms and Q-Q plots. You'll need to do this for each level of the independent variables separately. Navigate to *Analyze>DescriptiveStatistics>Explore* to do this. 
+
+Independence is accounted for during study design. To check homogeneity of variance, you can view boxplots and verify using results from Levene's test.
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+
+<span style = "font-weight: bold; font-size: 14pt"> RQ 1 </span>
+
+To check the histograms and Q-Q plots of the dependent variable separated by Group, click *Analyze > Descriptive Statistics > Explore* and add the dependent variable, `SafetyRating`,  to the 'Dependent List' box and the independent variable, `OwnCar`, to the Factor List box. At the bottom, change the 'Display' setting from 'Both' to 'Plots'. Click 'Plots', deselect 'Stem-and-Leaf' and select 'Histograms' instead. Tick the box that says 'Normality Plots with Tests'. Then click the *Untransformed* option under 'Spread vs Level with Levene Test'. Click 'Continue', then 'OK'.
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_parentCarHist.png')
+
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_ownCarHist.png')
+```
+
+Here, `SafetyRating` is definitely negatively skewed, particularly in the group that drives their own car. This is evidence of a significant normality violation.
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_parentCarQQ.png')
+
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_ownCarQQ.png')
+```
+
+Inspecting the Q-Q plots, note that the points curve around the line across the entire range of data. This further confirms that normality has been violated, particularly in the group that drives their own car. 
+
+As independence should be accounted for through study design (and cannot be adjusted statistically after data collection), we'll consider it met in this example.
+
+Have a look at the boxplot to evaluate homogeneity of variance. If the boxes in the boxplot are approximately the same size, it would give confidence that this assumption has been met.
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_ownershipBoxplot.png')
+```
+
+In this case, there is more variance in `SafetyRating` in the group that drives their own car compared to the group that drives their parent's. 
+
+Next, check the results from Levene's test to confirm. Check the line that says 'Based on Mean' and evaluate the 'Sig.' column. With $\alpha$ = .05, `SafetyRating` violates the assumption of equal variances, as $p$ = .006, which is lower than the $\alpha$ threshold. 
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_ttestLevene.png')
+```
+
+<br>
+
+<span style = "font-weight: bold; font-size: 14pt"> RQ 2 </span>
+
+To check assumptions for RQ2, navigate to *Analyze > Descriptive Statistics > Explore*. Keep `SafetyRating`, in the 'Dependent List' box and swap the independent/grouping variable to `Passenger`, in the 'Factor List' box. All other options should stay the same.
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_selfHist.png')
+
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_parentHist.png')
+
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_friendHist.png')
+```
+
+As before, `SafetyRating` within each group does not appear to follow a normal distribution. The Q-Q plots support this:
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_selfQQ.png')
+
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_parentQQ.png')
+
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_friendQQ.png')
+```
+
+Here, `SafetyRating` is definitely negatively skewed, particularly in the group that drives their own car. This is evidence of a significant normality violation.
+
+As before, we'll assume independence is met in this example.
+
+Check the boxplot to evaluate homogeneity of variance.
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_passengerBoxplot.png')
+```
+
+In this case, there is less variance in `SafetyRating` in the group that drives with their friends compared to the group that drives with their parents. 
+
+The results from Levene's test further confirm this. With $\alpha$ = .05, `SafetyRating` violates the assumption of equal variances, as $p$ = .011. 
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_ANOVAlevene.png')
+```
+
+</details>
+</div>
+</br>
+
+## RQ1 Primary Analysis
+
+The first research question is:
+
+*Does car ownership affect the safety ratings of teenage drivers?*
+
+
+```{r RQ1test, echo = F}
+quiz(caption = '',
+     question('If assumptions had been, which test would be used to measure RQ1?',
+              answer('Independent-samples t-test', correct = T),
+              answer('Paired-samples t-test'),
+              answer('One-Way Between-Subjects ANOVA'),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Factorial ANOVA'),
+              answer('Correlation'),
+              message = "The outcome is continuous. The independent variable is a binary categorical variable (own vehicle or parent's vehicle). Had assumptions been met, an independent-samples t-test would be used."))
+```
+
+In this case, the data violated assumptions, and so a nonparametric test should be used.
+
+### Your Task
+
+<div class="nobullet">
++ [ ] $\ $ Run a Mann-Whitney U test and interpret the results with $\alpha$ = .05.
+
+</div>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+To perform a nonparametric test, navigate to *Analyze>Nonparametric Tests>Independent Samples...*.
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+Navigate to *Analyze>Nonparametric Tests>Independent Samples...*. Click the 'Fields' tab at the top of the box that appears. Add `SafetyRating` to the 'Test Fields' box and `OwnCar` to the 'Groups' box. Then click 'Run' at the bottom. This option automatically detects the levels in your variable and chooses the corresponding test (in this case, the Mann-Whitney U test)
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_mwTest.png')
+```
+
+The output of a Mann-Whitney U test is not based on a comparison of the mean values of each group, but the mean rank of the values in the group. The group with the highest `SafetyRating` values overall will also have the highest mean rank. In this case, the safety ratings of teenagers driving their parent's car were ranked higher than the safety ratings than those driving their own car. The associated $p$-value is .022, which is lower than the $\alpha$ threshold of .05, so this difference is considered significant. 
+
+</details>
+</div>
+</br>
+
+## RQ2 Primary Analysis
+
+The second research question is:
+
+*Does passenger type affect the safety ratings of teenage drivers?*
+
+
+```{r RQ2test, echo = F}
+quiz(caption = '',
+     question('If assumptions had been, which test would be used to measure RQ2?',
+              answer('Independent-samples t-test'),
+              answer('Paired-samples t-test'),
+              answer('One-Way Between-Subjects ANOVA', correct = T),
+              answer('One-Way Repeated-Measures ANOVA'),
+              answer('Factorial ANOVA'),
+              answer('Correlation'),
+              message = "The outcome is continuous. There is one categorical independent variable with 3 levels (self, friend, or parent) and between-subjects (each participant was only part of a single group. Had assumptions been met, one-way between-subjects ANOVA would be used."))
+```
+
+In this case, the data violated assumptions, so a nonparametric test should be used.
+
+### Your Task
+
+<div class="nobullet">
++ [ ] $\ $ Run a Kruskal-Wallis test and interpret the results with $\alpha$ = .05.
+
+</div>
+
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for a hint </span></summary>
+
+As in the previous analysis, navigate to *Analyze>Nonparametric Tests>Independent Samples...*.
+
+
+</details>
+</div>
+</br>
+
+<div class="container">
+<details><summary><span style = "font-weight: bold; font-size: 16pt"> Click here for the solution </span></summary>
+
+As before, navigate to *Analyze>Nonparametric Tests>Independent Samples...*. Click the 'Fields' tab at the top of the box that appears. Swap `OwnCar` with `Passenger` in the 'Groups' box, then click 'Run'.
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_kwTest.png')
+```
+
+Like the Mann-Whitney U test, the Kruskal-Wallis test is not based on a comparison of the mean values of each group, but the mean rank of the values in the group. Here, there was a significant difference in ranking distributions between the three passenger groups, indicated by the $p$-value of .026.
+
+A posthoc Dunn's test is also run automatically, allowing you to probe this effect further:
+
+```{r, echo = F, fig.align= 'center', out.width='75%'}
+knitr::include_graphics('https://mtruelovehill.github.io/ISAP/Labs/images/nonparametric_pwc.png')
+```
+
+Note that the $p$-values have been adjusted for multiple corrections here. The posthoc test shows that there's a significant difference in `SafetyRatings` when teenagers drive with a friend vs a parent, but no significant differences in the other comparisons.
+
+
+</details>
+</div>
+</br>
+
+## Interpret & Report
+
+There are many ways you could write this up, but you'll need to at least include the following information:
+
++ alpha level
++ number of participants (n)
++ participant demographics (mean age, age sd, and age range of sample; gender distribution of sample)
++ results from assumptions checks
++ descriptive data for each IV group (M and SD)
++ the type of test used
++ variables involved in the tests
++ test statistic (U or H)
++ degrees of freedom (kruskal-wallis only)
++ p-values
+
+Note that when reporting statistics that include brackets (e.g., those that reference degrees of freedom), separate them from the text using a comma. When reporting statistics that do not include brackets, separate them from text using brackets.
+
